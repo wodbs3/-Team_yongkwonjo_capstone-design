@@ -1,9 +1,5 @@
-<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,37 +15,38 @@
     <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
 	<link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/css/settings.css">
-    
+
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
-<%@ include file="../common/footer.jsp" %>
-<div>
+
+<div class="col-md-offset-3 col-md-6" style="margin-top: 10%;">
     <form id="writeForm" name="writeForm" method="post">
         <div>
             <h2>글쓰기</h2>
-            <div>
-                <table>
+            <div style=" width : 100%;">
+                <table style = " width : 100%;">
                     <tr>
-                        <th>제목</th>
-                        <td><input style="width: 500px" type="text" id="title" name="title" /></td>
+                        <th style = "width : 10%; font-size: 20px;"> 제목</th>
+                        <td><input style="width: 100%" type="text" id="title" name="title" /></td>
                     </tr>
                     <tr>
-                        <th>내용</th>
-                        <td><textarea style="width: 500px" rows="10" cols="10" id="content" name="content"></textarea></td>
+                        <th style = "width : 10%; font-size: 20px;">내용</th>
+                        <td><textarea style="width: 100%" rows="10" cols="10" id="content" name="content"></textarea></td>
                     </tr>
                     <tr>
-                        <th>작성자</th>
-                        <td><input style="width: 500px" type="text" id="writer" name="writer" /></td>
+                        <th style = "width : 10%; font-size: 20px;">작성자</th>
+                        <td><input style="width: 100%" type="text" id="writer" name="writer" /></td>
                     </tr>
                 </table>
-                <div>
-                    <a href='#' onClick='fn_addtoBoard()'>글 등록</a>
-                    <a href='#' onClick='fn_cancel()'>목록</a>
+                <div style = "text-align: right;">
+                	<a href='#' onClick='fn_addtoBoard()' class="btn btn-success">글 등록</a>
+                    <a href='#' onClick='fn_cancel()' class="btn btn-success">목록</a>
                 </div>
             </div>
         </div>
     </form>
+    </div>
 <%@ include file="../common/footer.jsp" %>
 
 
@@ -72,7 +69,7 @@
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 <script>
-//글쓰기
+//글등록
 function fn_addtoBoard(){
     
     var form = document.getElementById("write");
@@ -92,6 +89,6 @@ function fn_cancel(){
     
 }
 </script>
-</div>
+
 </body>
 </html>

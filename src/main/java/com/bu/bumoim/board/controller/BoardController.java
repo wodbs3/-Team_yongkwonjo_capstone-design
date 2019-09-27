@@ -1,4 +1,4 @@
-package com.bu.bumoim.Controller;
+package com.bu.bumoim.board.controller;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Controller
 public class BoardController {
 	
-	/**¸®½ºÆ® Æû*/
+	/**ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½*/
 	@RequestMapping(value="/board/boardList.do")
 	public String board_boardlist() {
 
@@ -25,14 +25,14 @@ public class BoardController {
 	}
 	
 
-	/**±Û¾²±â Æû*/
+	/**ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½*/
 	@RequestMapping(value="/board/boardWrite.do")
-    public String board_boarwrite() throws Exception{
+    public String board_boardwrite() throws Exception{
         
         return "board/Write";
     }
     
-//	/**°Ô½Ã±Û µî·Ï Æû*/
+//	/**ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½*/
 //    @RequestMapping(value="/board/write.do")
 //    
 //        
@@ -40,17 +40,18 @@ public class BoardController {
 //    }
 //    
 //
-//	/**µðÅ×ÀÏ Æû*/
-//    @RequestMapping(value="/board/boarddetail.do")
-//    public String board_boarddetail(@ModelAttribute("boardVO") BoardVO boardVO, Model model, HttpServletRequest request) throws Exception{
-//        
+/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½*/
+    @RequestMapping(value="/board/boardDetail.do")
+    public String board_boarddetail() throws Exception{
+        
 //        int code = Integer.parseInt(request.getParameter("code"));
 //        boardVO.setCode(code);
 //        
 //        BoardVO resultVO = boardServiceImpl.selectBoardByCode(boardVO);
 //        
 //        model.addAttribute("result", resultVO);
-//        
-//        return "board/Detail";
-//    }
+//    	(@ModelAttribute("boardVO") BoardVO boardVO, Model model, HttpServletRequest request)
+        
+        return "board/Detail";
+    }
 }
