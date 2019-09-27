@@ -95,11 +95,12 @@
 				<div class="col-md-3 col-sm-3">
 					<div class="img_wrapper_gallery">
 						<div class="img_container_gallery">
-					<!--  	   <c:forEach items="${}" var="photo">-->
+					<!--  	   <c:forEach items="${}" var="photo">
 							<a href="${pageContext.request.contextPath }/galleryDetail?photoId" title="Photo title"><img src="resources/img/notredame.jpg" alt="Image" class="img-responsive">
 								<i class="icon-resize-full-2"></i>
 							</a>
-					<!-- 	</c:forEach>   -->
+					</c:forEach>   -->
+					<a href="${pageContext.request.contextPath }" title="Photo title"><img src="resources/img/notredame.jpg" alt="Image" class="img-responsive">
 						</div>
 					</div>
 				</div>
