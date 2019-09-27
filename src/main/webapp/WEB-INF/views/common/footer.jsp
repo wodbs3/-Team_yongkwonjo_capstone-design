@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 					
     
-        <footer class="revealed">
+        <footer style ="width: 100%;z-index: 0;position: fixed;bottom: 0px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-sm-3">
@@ -68,3 +68,4 @@
             </div><!-- End row -->
         </div><!-- End container -->
     </footer><!-- End footer -->
+        
