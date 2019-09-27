@@ -12,52 +12,56 @@
 	
 	    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Lato:300,400|Montserrat:400,400i,700,700i" rel="stylesheet">
 
-    <!-- BASE CSS -->
+<!--     BASE CSS -->
     <link href="/resources/css/base.css" rel="stylesheet">
 
-    <!-- REVOLUTION SLIDER CSS -->
+<!--     REVOLUTION SLIDER CSS -->
     <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
 	<link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/css/settings.css">
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
-<div>
-    <form id="writeForm" name="writeForm" method="post">
+
+<div class="col-md-offset-3 col-md-6" style="margin-top: 10%;">
+    <form id="viewForm" name="viewForm" method="post">
         <div>
             <h2>글쓰기</h2>
             <div>
                 <table>
                     <tr>
                         <th>제목</th>
-                        <td><input style="width: 500px" type="text" id="title" name="title" /></td>
+                        <td><input style="width: 500px" type="text" id="title" name="title" value="${result.title }"/></td>
                     </tr>
                     <tr>
                         <th>내용</th>
-                        <td><textarea style="width: 500px" rows="10" cols="10" id="content" name="content"></textarea></td>
+                        <td><textarea style="width: 500px" rows="10" cols="10" id="content" name="content"><c:out value="${result.content }"/></textarea></td>
                     </tr>
                     <tr>
                         <th>작성자</th>
-                        <td><input style="width: 500px" type="text" id="writer" name="writer" /></td>
+                        <td><input style="width: 500px" type="text" id="writer" name="writer" value="${result.writer }"/></td>
                     </tr>
                 </table>
                 <div>
-                    <a href='#' onClick='fn_addtoBoard()'>글 등록</a>
+                    <a href='#' onClick='fn_update()'>수정</a>
                     <a href='#' onClick='fn_cancel()'>목록</a>
+                    <a href='#' onClick='fn_relay()'>답변</a>                    
                 </div>
             </div>
         </div>
+        <input type='hidden' id='code' name='code' value='${result.code }' />
     </form>
+<script>
     
 <%@ include file="../common/footer.jsp" %>
 
 
-    <!-- Common scripts -->
+     Common scripts
     <script src="/resources/js/jquery-2.2.4.min.js"></script>
     <script src="/resources/js/common_scripts_min.js"></script>
     <script src="/resources/js/functions.js"></script>
 
-    <!-- SLIDER REVOLUTION SCRIPTS  -->
+    SLIDER REVOLUTION SCRIPTS 
     <script type="text/javascript" src="/resources/rev-slider-files/js/jquery.themepunch.tools.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/jquery.themepunch.revolution.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.actions.min.js"></script>
@@ -72,23 +76,32 @@
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>    
 	
 <script>
-//글쓰기
-function fn_addtoBoard(){
+ //목록
+	 function fn_cancel(){
     
-    var form = document.getElementById("write");
+     var form = document.getElementById("detail");
     
-    form.action = "<c:url value='/board/write.do'/>";
-    form.submit();
+     form.action = "<c:url value='/board/boardList.do'/>";
+     form.submit();
     
-}
+ }
  
-//목록
-function fn_cancel(){
+ //수정
+ function fn_update(){
     
-    var form = document.getElementById("write");
+     var form = document.getElementById("detail");
     
-    form.action = "<c:url value='/board/boardList.do'/>";
-    form.submit();
+     form.action = "<c:url value='/board/updateboard.do'/>";
+     form.submit();
+ }
+ 
+//답변
+ function fn_relay(){
+    
+     var form = document.getElementById("detail");
+    
+     form.action = "<c:url value='/board/relayForm.do'/>";
+     form.submit();
     
 }
 </script>

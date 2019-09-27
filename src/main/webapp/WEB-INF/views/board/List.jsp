@@ -48,7 +48,7 @@
             </tbody>
         </table>
         
-        <div>            
+        <div style = "text-align: right;">           
             <a href='#' onClick='fn_write()' class="btn btn-success">글쓰기</a>            
         </div>
     </form>
@@ -84,7 +84,7 @@ function fn_write(){
     
 	var form = document.getElementById("board");
     
-	form.action = "<c:url value='/board/boardwrite.do'/>";
+	form.action = "<c:url value='/board/boardWrite.do'/>";
 	form.submit();
     
 }
