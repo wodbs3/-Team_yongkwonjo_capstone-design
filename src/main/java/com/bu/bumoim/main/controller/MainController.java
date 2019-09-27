@@ -1,4 +1,4 @@
-package com.bu.bumoim.Controller;
+package com.bu.bumoim.main.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
