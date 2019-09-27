@@ -14,6 +14,7 @@
     <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="/resources/img/apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="/resources/img/apple-touch-icon-114x114-precomposed.png">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="/resources/img/apple-touch-icon-144x144-precomposed.png">
+
 	
 	<!-- Google web fonts -->
     <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Lato:300,400|Montserrat:400,400i,700,700i" rel="stylesheet">
@@ -25,6 +26,8 @@
     <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
 	<link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/css/settings.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     
     <!-- REVOLUTION LAYERS STYLES -->
 	<style>
@@ -208,7 +211,7 @@
 					<!-- SLIDE  -->
 					<li data-index="rs-142" data-transition="zoomin" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000" data-thumb="/resources/rev-slider-files/assets/100x50_notgeneric_bg2.jpg" data-rotate="0" data-saveperformance="off" data-title="Enjoy Nature" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 						<!-- MAIN IMAGE -->
-						<img src="rev-slider-files/assets/notgeneric_bg2.jpg" alt="" data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-blurstart="0" data-blurend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+						<img src="/resources/img/slides/slide2.JPG" alt="" data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-blurstart="0" data-blurend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
 						<!-- LAYERS -->
 
 						<!-- LAYER NR. 15 -->
@@ -231,7 +234,7 @@
 					<!-- SLIDE  -->
 					<li data-index="rs-143" data-transition="zoomout" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000" data-thumb="/resources/rev-slider-files/assets/100x50_iceberg.jpg" data-rotate="0" data-saveperformance="off" data-title="Iceberg" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 						<!-- MAIN IMAGE -->
-						<img src="/resources/rev-slider-files/assets/slide3.JPG" alt="" data-bgposition="center center" data-bgfit="cover" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+						<img src="/resources/img/slides/slide3.JPG" alt="" data-bgposition="center center" data-bgfit="cover" data-bgparallax="10" class="rev-slidebg" data-no-retina>
 						<!-- LAYERS -->
 
 						<!-- BACKGROUND VIDEO LAYER -->
@@ -259,7 +262,7 @@
 					<!-- SLIDE  -->
 					<li data-index="rs-144" data-transition="zoomin" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000" data-thumb="/resources/rev-slider-files/assets/100x50_notgeneric_bg3.jpg" data-rotate="0" data-saveperformance="off" data-title="Hiking" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 						<!-- MAIN IMAGE -->
-						<img src="/resources/rev-slider-files/assets/slide4.JPG" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+						<img src="/resources/img/slides/slide4.JPG" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
 						<!-- LAYERS -->
 
 						<!-- LAYER NR. 26 -->
@@ -284,13 +287,57 @@
 			</div>
 		</div>
 		<!-- END REVOLUTION SLIDER -->
-	<div>
-	<textarea id="chatLog" class="chat_log" readonly>
+	<div class="row">
+		<div class="col-md-12 col-sm-12">
+			<textarea id="chatLog" class="chat_log" readonly>
 	</textarea>
-		<img src="" id="img"/>
-	</div>
+			<img src="" id="img" />
 
-		<div class="container margin_60">
+		</div>
+	</div>
+	
+				<div class="row row--fluid-xs flex flex-equal flex-wrap">
+				<div class="col-md-4 col-sm-4 col-xs-12 marg-b-15 leftbox" >
+					<div class="boxed bg-color--white h-2">
+						<div class="title">
+							<p class="marg-b-15">
+								<span class="text-left" onclick="location.href='/community/news'" style="cursor: pointer; font-size: 18px">협회소식</span> 
+								<span class="right" onclick="location.href='/community/news'" style="cursor: pointer;">+</span>
+							</p>
+						</div>
+						<div class="content_list">
+<%-- 							<c:forEach items="${resultList}" var="result" varStatus="status" end="6"> --%>
+<!-- 								내용 -->
+<%-- 								<form id="detailfrm_${result.IDX}" action="/board/detail" method="get"> --%>
+<%-- 									<p onclick="javascript:goDetail(${result.IDX});" class="list" style="margin-bottom: 9px !important;"> --%>
+
+<%-- 										<c:choose> --%>
+<%-- 											<c:when test="${fn:length(result.TITLE) > 25}"> --%>
+<%-- 												<c:out value="${fn:substring(result.TITLE,0,24)}" />.... --%>
+<%--                                             </c:when> --%>
+<%-- 											<c:otherwise> --%>
+<%-- 												<c:out value="${result.TITLE}" /> --%>
+<%-- 											</c:otherwise> --%>
+<%-- 										</c:choose> --%>
+
+
+
+
+<%-- 										<span class="notice_subject">-${result.TITLE}</span> --%> 
+<!-- 									</p> -->
+<%-- 									<input type="hidden" name="board_code" value="${result.BOARD_CODE}" /> --%>
+<%-- 									<input type="hidden" name="idx" value="${result.IDX}" /> --%>
+<%-- 									<input type="hidden" name="hp_code"	value="${result.HP_CODE}" /> --%>
+<!-- 								</form> -->
+<%-- 							</c:forEach> --%>
+						</div>
+					
+					</div>
+				</div>
+				</div>
+	
+
+	<div class="container margin_60">
 
 			<div class="main_title">
 				<h2>Paris <span>Top</span> Tours</h2>
@@ -654,199 +701,199 @@
 		</div>
 		<!-- End container -->
 
-		<div class="white_bg">
-			<div class="container margin_60">
-				<div class="main_title">
-					<h2>Other <span>Popular</span> tours</h2>
-					<p>
-						Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.
-					</p>
-				</div>
-				<div class="row add_bottom_45">
-					<div class="col-md-4 other_tours">
-						<ul>
-							<li><a href="#"><i class="icon_set_1_icon-3"></i>Tour Eiffel<span class="other_tours_price">$42</span></a>
-							</li>
-							<li><a href="#"><i class="icon_set_1_icon-30"></i>Shopping tour<span class="other_tours_price">$35</span></a>
-							</li>
-							<li><a href="#"><i class="icon_set_1_icon-44"></i>Versailles tour<span class="other_tours_price">$20</span></a>
-							</li>
-							<li><a href="#"><i class="icon_set_1_icon-3"></i>Montparnasse skyline<span class="other_tours_price">$26</span></a>
-							</li>
-							<li><a href="#"><i class="icon_set_1_icon-44"></i>Pompidue<span class="other_tours_price">$26</span></a>
-							</li>
-							<li><a href="#"><i class="icon_set_1_icon-3"></i>Senna River tour<span class="other_tours_price">$32</span></a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-4 other_tours">
-						<ul>
-							<li><a href="#"><i class="icon_set_1_icon-1"></i>Notredame<span class="other_tours_price">$48</span></a>
-							</li>
-							<li><a href="#"><i class="icon_set_1_icon-4"></i>Lafaiette<span class="other_tours_price">$55</span></a>
-							</li>
-							<li><a href="#"><i class="icon_set_1_icon-30"></i>Trocadero<span class="other_tours_price">$76</span></a>
-							</li>
-							<li><a href="#"><i class="icon_set_1_icon-3"></i>Open Bus tour<span class="other_tours_price">$55</span></a>
-							</li>
-							<li><a href="#"><i class="icon_set_1_icon-30"></i>Louvre museum<span class="other_tours_price">$24</span></a>
-							</li>
-							<li><a href="#"><i class="icon_set_1_icon-3"></i>Madlene Cathedral<span class="other_tours_price">$24</span></a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-4 other_tours">
-						<ul>
-							<li><a href="#"><i class="icon_set_1_icon-37"></i>Montparnasse<span class="other_tours_price">$36</span></a>
-							</li>
-							<li><a href="#"><i class="icon_set_1_icon-1"></i>D'Orsey museum<span class="other_tours_price">$28</span></a>
-							</li>
-							<li><a href="#"><i class="icon_set_1_icon-50"></i>Gioconda Louvre musuem<span class="other_tours_price">$44</span></a>
-							</li>
-							<li><a href="#"><i class="icon_set_1_icon-44"></i>Tour Eiffel<span class="other_tours_price">$56</span></a>
-							</li>
-							<li><a href="#"><i class="icon_set_1_icon-50"></i>Ladefanse<span class="other_tours_price">$16</span></a>
-							</li>
-							<li><a href="#"><i class="icon_set_1_icon-44"></i>Notredame<span class="other_tours_price">$26</span></a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<!-- End row -->
+<!-- 		<div class="white_bg"> -->
+<!-- 			<div class="container margin_60"> -->
+<!-- 				<div class="main_title"> -->
+<!-- 					<h2>Other <span>Popular</span> tours</h2> -->
+<!-- 					<p> -->
+<!-- 						Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat. -->
+<!-- 					</p> -->
+<!-- 				</div> -->
+<!-- 				<div class="row add_bottom_45"> -->
+<!-- 					<div class="col-md-4 other_tours"> -->
+<!-- 						<ul> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-3"></i>Tour Eiffel<span class="other_tours_price">$42</span></a> -->
+<!-- 							</li> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-30"></i>Shopping tour<span class="other_tours_price">$35</span></a> -->
+<!-- 							</li> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-44"></i>Versailles tour<span class="other_tours_price">$20</span></a> -->
+<!-- 							</li> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-3"></i>Montparnasse skyline<span class="other_tours_price">$26</span></a> -->
+<!-- 							</li> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-44"></i>Pompidue<span class="other_tours_price">$26</span></a> -->
+<!-- 							</li> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-3"></i>Senna River tour<span class="other_tours_price">$32</span></a> -->
+<!-- 							</li> -->
+<!-- 						</ul> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-md-4 other_tours"> -->
+<!-- 						<ul> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-1"></i>Notredame<span class="other_tours_price">$48</span></a> -->
+<!-- 							</li> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-4"></i>Lafaiette<span class="other_tours_price">$55</span></a> -->
+<!-- 							</li> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-30"></i>Trocadero<span class="other_tours_price">$76</span></a> -->
+<!-- 							</li> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-3"></i>Open Bus tour<span class="other_tours_price">$55</span></a> -->
+<!-- 							</li> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-30"></i>Louvre museum<span class="other_tours_price">$24</span></a> -->
+<!-- 							</li> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-3"></i>Madlene Cathedral<span class="other_tours_price">$24</span></a> -->
+<!-- 							</li> -->
+<!-- 						</ul> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-md-4 other_tours"> -->
+<!-- 						<ul> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-37"></i>Montparnasse<span class="other_tours_price">$36</span></a> -->
+<!-- 							</li> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-1"></i>D'Orsey museum<span class="other_tours_price">$28</span></a> -->
+<!-- 							</li> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-50"></i>Gioconda Louvre musuem<span class="other_tours_price">$44</span></a> -->
+<!-- 							</li> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-44"></i>Tour Eiffel<span class="other_tours_price">$56</span></a> -->
+<!-- 							</li> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-50"></i>Ladefanse<span class="other_tours_price">$16</span></a> -->
+<!-- 							</li> -->
+<!-- 							<li><a href="#"><i class="icon_set_1_icon-44"></i>Notredame<span class="other_tours_price">$26</span></a> -->
+<!-- 							</li> -->
+<!-- 						</ul> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				End row -->
 
-				<div class="banner colored">
-					<h4>Discover our Top tours <span>from $34</span></h4>
-					<p>
-						Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in.
-					</p>
-					<a href="single_tour.html" class="btn_1 white">Read more</a>
-				</div>
-				<div class="row">
-					<div class="col-md-3 col-sm-6 text-center">
-						<p>
-							<a href="#"><img src="/resources/img/bus.jpg" alt="Pic" class="img-responsive"></a>
-						</p>
-						<h4><span>Sightseen tour</span> booking</h4>
-						<p>
-							Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset, doctus volumus explicari qui ex.
-						</p>
-					</div>
-					<div class="col-md-3 col-sm-6 text-center">
-						<p>
-							<a href="#"><img src="/resources/img/transfer.jpg" alt="Pic" class="img-responsive"></a>
-						</p>
-						<h4><span>Transfer</span> booking</h4>
-						<p>
-							Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset, doctus volumus explicari qui ex.
-						</p>
-					</div>
-					<div class="col-md-3 col-sm-6 text-center">
-						<p>
-							<a href="#"><img src="/resources/img/guide.jpg" alt="Pic" class="img-responsive"></a>
-						</p>
-						<h4><span>Tour guide</span> booking</h4>
-						<p>
-							Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset, doctus volumus explicari qui ex.
-						</p>
-					</div>
-					<div class="col-md-3 col-sm-6 text-center">
-						<p>
-							<a href="#"><img src="/resources/img/hotel.jpg" alt="Pic" class="img-responsive"></a>
-						</p>
-						<h4><span>Hotel</span> booking</h4>
-						<p>
-							Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset, doctus volumus explicari qui ex.
-						</p>
-					</div>
-				</div>
-				<!-- End row -->
-			</div>
-			<!-- End container -->
-		</div>
-		<!-- End white_bg -->
+<!-- <!-- 				<div class="banner colored"> --> -->
+<!-- 					<h4>Discover our Top tours <span>from $34</span></h4> -->
+<!-- 					<p> -->
+<!-- 						Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. -->
+<!-- 					</p> -->
+<!-- 					<a href="single_tour.html" class="btn_1 white">Read more</a> -->
+<!-- 				</div> -->
+<!-- 				<div class="row"> -->
+<!-- 					<div class="col-md-3 col-sm-6 text-center"> -->
+<!-- 						<p> -->
+<!-- 							<a href="#"><img src="/resources/img/bus.jpg" alt="Pic" class="img-responsive"></a> -->
+<!-- 						</p> -->
+<!-- 						<h4><span>Sightseen tour</span> booking</h4> -->
+<!-- 						<p> -->
+<!-- 							Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset, doctus volumus explicari qui ex. -->
+<!-- 						</p> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-md-3 col-sm-6 text-center"> -->
+<!-- 						<p> -->
+<!-- 							<a href="#"><img src="/resources/img/transfer.jpg" alt="Pic" class="img-responsive"></a> -->
+<!-- 						</p> -->
+<!-- 						<h4><span>Transfer</span> booking</h4> -->
+<!-- 						<p> -->
+<!-- 							Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset, doctus volumus explicari qui ex. -->
+<!-- 						</p> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-md-3 col-sm-6 text-center"> -->
+<!-- 						<p> -->
+<!-- 							<a href="#"><img src="/resources/img/guide.jpg" alt="Pic" class="img-responsive"></a> -->
+<!-- 						</p> -->
+<!-- 						<h4><span>Tour guide</span> booking</h4> -->
+<!-- 						<p> -->
+<!-- 							Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset, doctus volumus explicari qui ex. -->
+<!-- 						</p> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-md-3 col-sm-6 text-center"> -->
+<!-- 						<p> -->
+<!-- 							<a href="#"><img src="/resources/img/hotel.jpg" alt="Pic" class="img-responsive"></a> -->
+<!-- 						</p> -->
+<!-- 						<h4><span>Hotel</span> booking</h4> -->
+<!-- 						<p> -->
+<!-- 							Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset, doctus volumus explicari qui ex. -->
+<!-- 						</p> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				End row -->
+<!-- 			</div> -->
+<!-- 			<!-- End container --> -->
+<!-- 		</div> -->
+<!-- 		<!-- End white_bg --> -->
 
-		<section class="promo_full">
-			<div class="promo_full_wp magnific">
-				<div>
-					<h3>BELONG ANYWHERE</h3>
-					<p>
-						Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset, doctus volumus explicari qui ex.
-					</p>
-					<a href="https://www.youtube.com/watch?v=Zz5cu72Gv5Y" class="video"><i class="icon-play-circled2-1"></i></a>
-				</div>
-			</div>
-		</section>
+<!-- 		<section class="promo_full"> -->
+<!-- 			<div class="promo_full_wp magnific"> -->
+<!-- 				<div> -->
+<!-- 					<h3>BELONG ANYWHERE</h3> -->
+<!-- 					<p> -->
+<!-- 						Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset, doctus volumus explicari qui ex. -->
+<!-- 					</p> -->
+<!-- 					<a href="https://www.youtube.com/watch?v=Zz5cu72Gv5Y" class="video"><i class="icon-play-circled2-1"></i></a> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</section> -->
 		<!-- End section -->
 
-		<div class="container margin_60">
+<!-- 		<div class="container margin_60"> -->
 
-			<div class="main_title">
-				<h2>Some <span>good</span> reasons</h2>
-				<p>
-					Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.
-				</p>
-			</div>
+<!-- 			<div class="main_title"> -->
+<!-- 				<h2>Some <span>good</span> reasons</h2> -->
+<!-- 				<p> -->
+<!-- 					Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat. -->
+<!-- 				</p> -->
+<!-- 			</div> -->
 
-			<div class="row">
+<!-- 			<div class="row"> -->
 
-				<div class="col-md-4 wow zoomIn" data-wow-delay="0.2s">
-					<div class="feature_home">
-						<i class="icon_set_1_icon-41"></i>
-						<h3><span>+120</span> Premium tours</h3>
-						<p>
-							Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset.
-						</p>
-						<a href="about.html" class="btn_1 outline">Read more</a>
-					</div>
-				</div>
+<!-- 				<div class="col-md-4 wow zoomIn" data-wow-delay="0.2s"> -->
+<!-- 					<div class="feature_home"> -->
+<!-- 						<i class="icon_set_1_icon-41"></i> -->
+<!-- 						<h3><span>+120</span> Premium tours</h3> -->
+<!-- 						<p> -->
+<!-- 							Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset. -->
+<!-- 						</p> -->
+<!-- 						<a href="about.html" class="btn_1 outline">Read more</a> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 
-				<div class="col-md-4 wow zoomIn" data-wow-delay="0.4s">
-					<div class="feature_home">
-						<i class="icon_set_1_icon-30"></i>
-						<h3><span>+1000</span> Customers</h3>
-						<p>
-							Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset.
-						</p>
-						<a href="about.html" class="btn_1 outline">Read more</a>
-					</div>
-				</div>
+<!-- 				<div class="col-md-4 wow zoomIn" data-wow-delay="0.4s"> -->
+<!-- 					<div class="feature_home"> -->
+<!-- 						<i class="icon_set_1_icon-30"></i> -->
+<!-- 						<h3><span>+1000</span> Customers</h3> -->
+<!-- 						<p> -->
+<!-- 							Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset. -->
+<!-- 						</p> -->
+<!-- 						<a href="about.html" class="btn_1 outline">Read more</a> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 
-				<div class="col-md-4 wow zoomIn" data-wow-delay="0.6s">
-					<div class="feature_home">
-						<i class="icon_set_1_icon-57"></i>
-						<h3><span>H24 </span> Support</h3>
-						<p>
-							Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset.
-						</p>
-						<a href="about.html" class="btn_1 outline">Read more</a>
-					</div>
-				</div>
+<!-- 				<div class="col-md-4 wow zoomIn" data-wow-delay="0.6s"> -->
+<!-- 					<div class="feature_home"> -->
+<!-- 						<i class="icon_set_1_icon-57"></i> -->
+<!-- 						<h3><span>H24 </span> Support</h3> -->
+<!-- 						<p> -->
+<!-- 							Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset. -->
+<!-- 						</p> -->
+<!-- 						<a href="about.html" class="btn_1 outline">Read more</a> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 
-			</div>
+<!-- 			</div> -->
 			<!--End row -->
 
-			<hr>
+<!-- 			<hr> -->
 
-			<div class="row">
-				<div class="col-md-8 col-sm-6 hidden-xs">
-					<img src="/resources/img/laptop.png" alt="Laptop" class="img-responsive laptop">
-				</div>
-				<div class="col-md-4 col-sm-6">
-					<h3><span>Get started</span> with CityTours</h3>
-					<p>
-						Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset.
-					</p>
-					<ul class="list_order">
-						<li><span>1</span>Select your preferred tours</li>
-						<li><span>2</span>Purchase tickets and options</li>
-						<li><span>3</span>Pick them directly from your office</li>
-					</ul>
-					<a href="all_tour_list.html" class="btn_1">Start now</a>
-				</div>
-			</div>
+<!-- 			<div class="row"> -->
+<!-- 				<div class="col-md-8 col-sm-6 hidden-xs"> -->
+<!-- 					<img src="/resources/img/laptop.png" alt="Laptop" class="img-responsive laptop"> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-md-4 col-sm-6"> -->
+<!-- 					<h3><span>Get started</span> with CityTours</h3> -->
+<!-- 					<p> -->
+<!-- 						Lorem ipsum dolor sit amet, vix erat audiam ei. Cum doctus civibus efficiantur in. Nec id tempor imperdiet deterruisset. -->
+<!-- 					</p> -->
+<!-- 					<ul class="list_order"> -->
+<!-- 						<li><span>1</span>Select your preferred tours</li> -->
+<!-- 						<li><span>2</span>Purchase tickets and options</li> -->
+<!-- 						<li><span>3</span>Pick them directly from your office</li> -->
+<!-- 					</ul> -->
+<!-- 					<a href="all_tour_list.html" class="btn_1">Start now</a> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 			<!-- End row -->
 
-		</div>
+<!-- 		</div> -->
 		<!-- End container -->
 
 	</main>
@@ -887,6 +934,7 @@
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.slideanims.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <!-- 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> -->
 	<script type="text/javascript">
 		var tpj = jQuery;

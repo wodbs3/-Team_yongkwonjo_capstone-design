@@ -361,6 +361,7 @@ header{
 	top:0;
 	z-index:99999;
 	padding:10px 0;
+	background: black;
 }
 header#plain{background-color:#fff;}
 

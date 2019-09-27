@@ -13,7 +13,7 @@
                         <ul id="top_links">
                             <li>
                                 <div class="dropdown dropdown-access">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="access_link">Sign in</a>
+                                    <a href="/login" class="dropdown-toggle" data-toggle="dropdown" id="access_link">Login</a>
                                     <div class="dropdown-menu">
                                         <div class="row">
                                             <div class="col-md-6 col-sm-6 col-xs-6">

@@ -14,9 +14,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class MainController {
 	
 
+	//메인
 	@RequestMapping(value="/index")
 	public String main() {
 
 		return "main/main";
+	}
+	
+	@RequestMapping(value="/login")
+	public String login() {
+		
+		return "main/login";
 	}
 }
