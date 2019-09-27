@@ -25,6 +25,7 @@ public class BoardController {
 	}
 	
 
+	
 	/**±Û¾²±â Æû*/
 	@RequestMapping(value="/board/boardWrite.do")
     public String board_boarwrite() throws Exception{
