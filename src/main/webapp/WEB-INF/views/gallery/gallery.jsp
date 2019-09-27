@@ -89,7 +89,7 @@
 				</p>
 			</div>
 			
-			<a href="" class="btn_1">사진 업로드</a>
+			<a href="upload" class="btn_1">사진 업로드</a>
 			<hr>
 			<div class="row magnific-gallery add_bottom_60 ">
 				<div class="col-md-3 col-sm-3">
@@ -129,5 +129,6 @@
 	<script src="resources/js/functions.js"></script>
 
 </body>
+
 
 </html>
