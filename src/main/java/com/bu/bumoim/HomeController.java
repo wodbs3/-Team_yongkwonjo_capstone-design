@@ -35,5 +35,13 @@ public class HomeController {
 		
 		return "home";
 	}
+	@RequestMapping(value = "/gallery")
+	public String gallery() {
+		return "gallery";
+	}
 	
+	@RequestMapping(value = "/galleryDetail")
+	public String galleryDetail() {
+		return "galleryDetail";
+	}
 }
