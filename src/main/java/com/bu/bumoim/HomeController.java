@@ -37,11 +37,11 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/gallery")
 	public String gallery() {
-		return "gallery";
+		return "gallery/gallery";
 	}
 	
 	@RequestMapping(value = "/galleryDetail")
 	public String galleryDetail() {
-		return "galleryDetail";
+		return "gallery/galleryDetail";
 	}
 }
