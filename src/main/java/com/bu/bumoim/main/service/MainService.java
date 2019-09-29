@@ -1,4 +1,4 @@
-package com.bu.bumoim.Service;
+package com.bu.bumoim.main.service;
 
 import java.util.Map;
 

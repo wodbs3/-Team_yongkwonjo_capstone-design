@@ -70,9 +70,7 @@
                                     <li><a href="javascript:void(0);">Revolution slider</a>
                                         <ul>
                                             <li><a href="index.html">Default slider</a></li>
-                                            <li><a href="index_20.html">Advanced slider</a></li><%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-               
+                                            <li><a href="index_20.html">Advanced slider</a></li>
 
  <!-- Header================================================== -->
     <header>

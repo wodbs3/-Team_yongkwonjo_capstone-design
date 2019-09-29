@@ -8,7 +8,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.bu.bumoim.main.domain.Board;
+import com.bu.bumoim.domain.Board;
 
 @Service
 public interface BoardService {
