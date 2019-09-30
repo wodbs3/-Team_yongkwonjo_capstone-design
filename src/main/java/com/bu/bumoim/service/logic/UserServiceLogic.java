@@ -3,12 +3,12 @@ package com.bu.bumoim.service.logic;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.bu.bumoim.dao.UserDao;
 import com.bu.bumoim.service.UserService;
 
-@Repository
+@Service
 public class UserServiceLogic implements UserService{
 	//
 	@Autowired

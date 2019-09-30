@@ -1,15 +1,14 @@
 package com.bu.bumoim.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class GalleryController {
-
-	private static final Logger logger = LoggerFactory.getLogger(GalleryController.class);
+	//
+	private Logger logger = Logger.getLogger(getClass());
+	
 //	@Autowired
 	//private BoardService boardService; 
 	
@@ -28,6 +27,7 @@ public class GalleryController {
 		return "gallery/result";
 	}
 	*/
+	
 	@RequestMapping(value = "/gallery.do")
 	public String gallery() {
 		return "gallery/gallery";
@@ -37,12 +37,10 @@ public class GalleryController {
 	public String galleryDetail() {
 		return "gallery/galleryDetail";
 	}
+	
 	@RequestMapping(value="/upload.do")
 	public String upload() {
 		return "gallery/upload";
 	}
-	
-	
-
 }
 

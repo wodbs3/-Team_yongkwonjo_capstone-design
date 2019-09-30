@@ -6,8 +6,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.bu.bumoim.dao.UserDao;
+
 @Repository
-public class UserDaoLogic {
+public class UserDaoLogic implements UserDao {
 	//
 	@Autowired
 	private SqlSession sqlSession;

@@ -10,13 +10,13 @@ public class UserController {
 	private Logger logger = Logger.getLogger(getClass());
 	
 	//
-	@RequestMapping(value="/login")
+	@RequestMapping(value="/login.do")
 	public String login() {
 		//
 		return "user/login";
 	}
 	
-	@RequestMapping(value="/join")
+	@RequestMapping(value="/join.do")
 	public String join() {
 		//
 		return "user/join";

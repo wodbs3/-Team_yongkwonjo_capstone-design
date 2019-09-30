@@ -1,10 +1,10 @@
 package com.bu.bumoim.service.logic;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.bu.bumoim.service.MainService;
 
-@Repository
+@Service
 public class MainServiceLogic implements MainService {
 	//
 }
