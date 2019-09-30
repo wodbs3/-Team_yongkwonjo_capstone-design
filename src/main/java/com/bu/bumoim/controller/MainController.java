@@ -1,22 +1,22 @@
 package com.bu.bumoim.controller;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {
 	//
-	private Logger logger = Logger.getLogger(getClass());
+	//private Logger logger = Logger.getLogger(getClass());
 	
-	// ¸ÞÀÎ
+	// ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value="/index")
 	public String main() {
 		//
 		return "main/main";
 	}
 	
-	// ·Î±×ÀÎ
+	// ï¿½Î±ï¿½ï¿½ï¿½
 	@RequestMapping(value="/login")
 	public String login() {
 		//

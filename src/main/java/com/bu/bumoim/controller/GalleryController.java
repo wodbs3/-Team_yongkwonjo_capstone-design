@@ -29,19 +29,21 @@ public class GalleryController {
 		return "gallery/result";
 	}
 	*/
-	@RequestMapping(value = "/gallery")
+	@RequestMapping(value = "/gallery.do")
 	public String gallery() {
 		return "gallery/gallery";
 	}
 	
-	@RequestMapping(value = "/galleryDetail")
+	@RequestMapping(value = "/galleryDetail.do")
 	public String galleryDetail() {
 		return "gallery/galleryDetail";
 	}
-	@RequestMapping(value="/upload")
+	@RequestMapping(value="/upload.do")
 	public String upload() {
 		return "gallery/upload";
 	}
+	
+	
 
 }
 
