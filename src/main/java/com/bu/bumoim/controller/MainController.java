@@ -8,18 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 	//
 //	private Logger logger = Logger.getLogger(getClass());
-	
+
 	// ����
 	@RequestMapping(value="/index")
 	public String main() {
 		//
 		return "main/main";
-	}
-	
-	// �α���
-	@RequestMapping(value="/login")
-	public String login() {
-		//
-		return "main/login";
 	}
 }
