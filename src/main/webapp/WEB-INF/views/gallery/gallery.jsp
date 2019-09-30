@@ -89,7 +89,7 @@
 				</p>
 			</div>
 			
-			<a href="upload" class="btn_1">사진 업로드</a>
+			<a href="upload.do" class="btn_1">사진 업로드</a>
 			<hr>
 			<div class="row magnific-gallery add_bottom_60 ">
 				<div class="col-md-3 col-sm-3">
@@ -104,7 +104,15 @@
 						</div>
 					</div>
 				</div>
-			
+			<div class="col-md-3 col-sm-3">
+					<div class="img_wrapper_gallery">
+						<div class="img_container_gallery">
+							<a href="resources/img/notredame.jpg" title="Photo title"><img src="resources/img/notredame.jpg" alt="Image" class="img-responsive">
+								<i class="icon-resize-full-2"></i>
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 			<!-- End row -->
 			
