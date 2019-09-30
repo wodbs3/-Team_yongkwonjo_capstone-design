@@ -5,4 +5,4 @@
  * @author USER
  *
  */
-package com.bu.bumoim.main.store;
+package com.bu.bumoim.util;

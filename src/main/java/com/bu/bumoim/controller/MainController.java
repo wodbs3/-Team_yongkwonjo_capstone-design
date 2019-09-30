@@ -1,29 +1,25 @@
-package com.bu.bumoim.main.controller;
+package com.bu.bumoim.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
 
 @Controller
 public class MainController {
+	//
+	private Logger logger = Logger.getLogger(getClass());
 	
-
-	//硫붿씤
+	// 메인
 	@RequestMapping(value="/index")
 	public String main() {
-
+		//
 		return "main/main";
 	}
 	
+	// 로그인
 	@RequestMapping(value="/login")
 	public String login() {
-		
+		//
 		return "main/login";
 	}
 }

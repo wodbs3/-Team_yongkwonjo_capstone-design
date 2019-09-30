@@ -1,4 +1,4 @@
-package com.bu.bumoim.main.service;
+package com.bu.bumoim.service;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -23,4 +23,4 @@ public interface BoardService {
 	
 	List<Board> getBoardList(Board vo);
 	
-	}
+}

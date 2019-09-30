@@ -1,3 +1,4 @@
+package com.bu.bumoim.dao;
 //package com.bu.bumoim.board.dao;
 //
 //import java.util.List;

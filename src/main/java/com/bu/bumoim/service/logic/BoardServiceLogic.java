@@ -1,3 +1,4 @@
+package com.bu.bumoim.service.logic;
 /*
 package com.bu.bumoim.main.serviceLogic;
 
