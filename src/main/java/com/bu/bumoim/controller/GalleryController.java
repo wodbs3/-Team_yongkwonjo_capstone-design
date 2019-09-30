@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class GalleryController {
 
-	
 	private static final Logger logger = LoggerFactory.getLogger(GalleryController.class);
 //	@Autowired
 	//private BoardService boardService; 

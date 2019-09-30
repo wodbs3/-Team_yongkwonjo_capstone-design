@@ -2,9 +2,9 @@ package com.bu.bumoim.dao.logic;
 
 import org.springframework.stereotype.Repository;
 
-import com.bu.bumoim.dao.MainDao;
+import com.bu.bumoim.dao.BoardDAO;
 
 @Repository
-public class MainDaoLogic implements MainDao {
+public class BoardDaoLogic implements BoardDAO{
 
 }

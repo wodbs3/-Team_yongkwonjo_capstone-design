@@ -1,16 +1,7 @@
 package com.bu.bumoim.controller;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
- 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.beans.factory.annotation.Autowired;
-
 
 @Controller
 public class BoardController {
@@ -31,7 +22,7 @@ public class BoardController {
         return "board/Write";
     }
     
-//	/**�Խñ� ���? ��*/
+//	/**�Խñ� ���? ��*/
 //    @RequestMapping(value="/board/write.do")
 //    
 //        

@@ -1,13 +1,12 @@
 package com.bu.bumoim.dao;
-//package com.bu.bumoim.board.dao;
 //
 //import java.util.List;
 //
 // 
-//public interface BoardDAO {
+public interface BoardDAO {
 // 
 //    /**
-//     * °Ô½Ã¹° ¸®½ºÆ® Á¶È¸
+//     * ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¸
 //     * @param boardVO
 //     * @return
 //     * @throws Exception
@@ -15,32 +14,32 @@ package com.bu.bumoim.dao;
 //    List<BoardVO> selectBoardList(BoardVO boardVO) throws Exception;
 // 
 //    /**
-//     * °Ô½Ã¹° µî·Ï
+//     * ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½
 //     * @param boardVO
 //     * @throws Exception
 //     */
 //    void insertBoard(BoardVO boardVO) throws Exception;
 // 
 //    /**
-//     * °Ô½Ã¹° ¼öÁ¤
+//     * ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 //     * @param boardVO
 //     * @throws Exception
 //     */
 //    void updateBoard(BoardVO boardVO) throws Exception;
 // 
 //    /**
-//     * °Ô½Ã¹° »èÁ¦
+//     * ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½ï¿½ï¿½
 //     * @param boardVO
 //     * @throws Exception
 //     */
 //    void deleteBoard(BoardVO boardVO) throws Exception;
 // 
 //    /**
-//     * °Ô½Ã¹° Á¶È¸
+//     * ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½È¸
 //     * @param boardVO
 //     * @return
 //     * @throws Exception
 //     */
 //    BoardVO selectBoardByCode(BoardVO boardVO) throws Exception;
 // 
-//}
+}
