@@ -31,7 +31,7 @@ public class BoardController {
         return "board/Write";
     }
     
-//	/**�Խñ� ���? ��*/
+//	/**�Խñ� ���? ��*/
 //    @RequestMapping(value="/board/write.do")
 //    
 //        
@@ -39,6 +39,13 @@ public class BoardController {
 //    }
 //    
 //
+	@RequestMapping(value="/board/comment.do")
+	public String board_comment() {
+
+		
+		return "board/Comment";
+	}
+	
 /**������ ��*/
     @RequestMapping(value="/board/boardDetail.do")
     public String board_boarddetail() throws Exception{
