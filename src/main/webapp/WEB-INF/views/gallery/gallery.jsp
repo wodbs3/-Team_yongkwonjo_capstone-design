@@ -100,7 +100,7 @@
 								<i class="icon-resize-full-2"></i>
 							</a>
 					</c:forEach>   -->
-					<a href="${pageContext.request.contextPath }" title="Photo title"><img src="resources/img/notredame.jpg" alt="Image" class="img-responsive">
+					<a href="galleryDetail.do"  title="Photo title"><img src="resources/img/notredame.jpg" alt="Image" class="img-responsive"></a>
 						</div>
 					</div>
 				</div>

@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class BoardController {
-	//
 	private Logger logger = Logger.getLogger(getClass());
+	
 	
 	@RequestMapping(value="/board/boardList.do")
 	public String board_boardlist() {
@@ -23,7 +23,7 @@ public class BoardController {
         return "board/Write";
     }
     
-//	/**�Խñ� ���? ��*/
+//	/**占쌉시깍옙 占쏙옙占�? 占쏙옙*/
 //    @RequestMapping(value="/board/write.do")
 //    
 //        
