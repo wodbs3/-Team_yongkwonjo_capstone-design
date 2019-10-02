@@ -23,24 +23,33 @@
 
 
 	<form id="loginFrm" method="post" class="form-horizontal" style="margin-top:10%">
+		<!-- Input Id -->
 		<div class="form-group">
-		<label for="id" class="col-sm-2 control-label">Id</label>
-         <div class="col-md-6 col-sm-10">
-            <input type="text" class="form-control" id="member_id" placeholder="id">
-         </div>
-      </div>
-      <div class="form-group">
-         <label for="ipw" class="col-sm-2 control-label">Password</label>
-         <div class="col-md-6 col-sm-10">
-            <input type="password" class="form-control" id="member_pw" placeholder="pw">
-         </div>
-      </div>
-      <div class="form-group">
-         <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Login</button>
-         </div>
-      </div>
-   </form>
+			<label for="id" class="col-sm-2 control-label">ID</label>
+			<div class="col-md-6 col-sm-10">
+				<input type="text" class="form-control" id="member_id" placeholder="아이디 입력">
+			</div>
+		</div>
+      	
+      	<!-- Input Password -->
+		<div class="form-group">
+			<label for="ipw" class="col-sm-2 control-label">Password</label>
+			<div class="col-md-6 col-sm-10">
+				<input type="password" class="form-control" id="member_pw" placeholder="비밀번호 입력">
+			</div>
+			<div class="col-md-6 col-sm-10">
+				<input type="password" class="form-control" id="member_pw_confirm" placeholder="비밀번호 재입력">
+			</div>
+		</div>
+		
+		
+		<!-- Join Button -->
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-default">Join</button>
+		</div>
+		</div>
+	</form>
 
    <%@ include file="../common/footer.jsp" %>
    
