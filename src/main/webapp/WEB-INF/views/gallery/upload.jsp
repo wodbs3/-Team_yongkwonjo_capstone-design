@@ -21,7 +21,7 @@
 <%@ include file="../common/header.jsp" %>
 
 <div class="col-md-offset-3 col-md-6" style="margin-top: 10%;">
-    <form id="writeForm" name="writeForm" method="post">
+    <form action="fileUpload" id="fileupload" name="fileupload" method="post" enctype="multipart/form-data">
     	
         <div>
         	<div class="row">
