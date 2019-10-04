@@ -1,7 +1,5 @@
-package com.bu.bumoim.service.logic;
 /*
-package com.bu.bumoim.main.serviceLogic;
-
+package com.bu.bumoim.service.logic;
 import java.util.List;
 
 import com.bu.bumoim.main.domain.Board;

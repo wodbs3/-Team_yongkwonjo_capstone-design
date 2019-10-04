@@ -50,7 +50,7 @@
         </table>
         
         <div style = "text-align: right;">           
-            <a href='#' onClick='fn_write()' class="btn btn-success">글쓰기</a>            
+            <a href="boardWrite.do" class="btn btn-success">글쓰기</a>
         </div>
     </form>
 </div>

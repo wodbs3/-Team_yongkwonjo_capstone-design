@@ -4,7 +4,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,57 +12,84 @@
 	
 	    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Lato:300,400|Montserrat:400,400i,700,700i" rel="stylesheet">
 
-<!--     BASE CSS -->
+    <!-- BASE CSS -->
     <link href="/resources/css/base.css" rel="stylesheet">
 
-<!--     REVOLUTION SLIDER CSS -->
+    <!-- REVOLUTION SLIDER CSS -->
     <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
 	<link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/css/settings.css">
+
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
 
-
 <div class="col-md-offset-3 col-md-6" style="margin-top: 10%;">
-    <form id="viewForm" name="viewForm" method="post">
+    <form id="writeForm" name="writeForm" method="post">
         <div>
-            <h2>게시판 상세보기</h2>
+            <h2>상세보기</h2>
             <div style=" width : 100%;">
-                <table style = " width : 100%;">
+                <table class = "table table-boardered" style = " width : 100%;">
+                <tbody>
                     <tr>
-                        <th style = "width : 10%; font-size: 20px;"> 제목</th>
-                        <td><input style="width: 100%" type="text" id="title" name="title" value="${result.title }"/></td>
+                    	<th style = "width : 10%; font-size: 18px;" scope="row">글 번호</th> 
+                    	<td>${map.TITLE }</td> 
+                    	<th style = "width : 10%; font-size: 18px;" scope="row">조회수</th> 
+                    	<td>${map.HIT_CNT }</td>
                     </tr>
                     <tr>
-                        <th style = "width : 10%; font-size: 20px;">내용</th>
-                        <td><textarea style="width: 100%" rows="10" cols="10" id="content" name="content"><c:out value="${result.content }"/></textarea></td>
+                    	<th style = "width : 10%; font-size: 18px;" scope="row">작성자</th> 
+                    	<td>${map.CREA_ID }</td> 
+                    	<th style = "width : 10%; font-size: 18px;" scope="row">작성시간</th> 
+                    	<td>${map.CREA_DTM }</td>
                     </tr>
                     <tr>
-                        <th style = "width : 10%; font-size: 20px;">작성자</th>
-                        <td><input style="width: 100%" type="text" id="writer" name="writer" value="${result.writer }"/></td>
+                    	<th style = "width : 10%; font-size: 18px;" scope="row">제목</th> 
+                    	<td>${map.TITLE }</td>
+                    	<th style = "width : 10%; font-size: 18px;" scope="row">파일</th> 
+                    	<td>${map.CREA_DTM }</td>
                     </tr>
+                    <tr>
+                    	<td colspan="4">${map.CONTENTS }</td>
+                    </tr>
+                    </tbody>
+                    
                 </table>
                 <div style = "text-align: right;">
-                    <a href='#' onClick='fn_update()' class="btn btn-success">수정</a>
-                    <a href='#' onClick='fn_cancel()' class="btn btn-success">목록</a>
+                	    <a href='#' onClick='fn_update()' class="btn btn-success">수정</a>
+                    	<a href='boardList.do' onClick='fn_cancel()' class="btn btn-success">목록</a>
+                    	<a href='#' onClick ='' class = "btn btn-danger">삭제</a>
                 </div>
             </div>
         </div>
-        <input type='hidden' id='code' name='code' value='${result.code }' />
     </form>
+    </div>
+    <div class="col-md-offset-3 col-md-6" style="margin-top: 0%;">
+        <label for="content">comment</label>
+        <form name="commentInsertForm">
+            <div class="input-group">
+               <input type="hidden" name="bno" value="${detail.bno}"/>
+               <input type="text" class="form-control" id="content" name="content" placeholder="내용을 입력하세요.">
+               <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" name="commentInsertBtn">등록</button>
+               </span>
+              </div>
+        </form>
+    </div>
     
-<%@ include file="../common/Comment.jsp" %>
+    <div class="container">
+        <div class="commentList"></div>
+    </div>
 
-<%@ include file="../common/footer.jsp" %>
+    <%@ include file="../common/Comment.jsp" %>
 
 
-<!--       Common scripts -->
+    <!-- Common scripts -->
     <script src="/resources/js/jquery-2.2.4.min.js"></script>
     <script src="/resources/js/common_scripts_min.js"></script>
     <script src="/resources/js/functions.js"></script>
 
-<!--     SLIDER REVOLUTION SCRIPTS  -->
+    <!-- SLIDER REVOLUTION SCRIPTS  -->
     <script type="text/javascript" src="/resources/rev-slider-files/js/jquery.themepunch.tools.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/jquery.themepunch.revolution.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.actions.min.js"></script>
@@ -75,38 +101,29 @@
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.parallax.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.slideanims.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>    
-	
-<script>
- //목록
-	 function fn_cancel(){
-    
-     var form = document.getElementById("detail");
-    
-     form.action = "<c:url value='/board/boardList.do'/>";
-     form.submit();
-    
- }
- 
- //수정
- function fn_update(){
-    
-     var form = document.getElementById("detail");
-    
-     form.action = "<c:url value='/board/updateboard.do'/>";
-     form.submit();
- }
- 
-//답변
- function fn_relay(){
-    
-     var form = document.getElementById("detail");
-    
-     form.action = "<c:url value='/board/relayForm.do'/>";
-     form.submit();
-    
-}
+	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
+<script> 
+		$(document).ready(function(){ 
+			$("#list").on("click", function(e)
+					{ //목록
+				e.preventDefault(); fn_boardList(); }); 
+			
+			$("#update").on("click", function(e){ 
+				e.preventDefault(); fn_boardUpdate(); }); 
+		}); 
+		
+		function fn_openBoardList(){ 
+			var comSubmit = new ComSubmit(); 
+			comSubmit.setUrl("<c:url value='/board/boardList.do' />"); 
+			comSubmit.submit(); 
+		} 
+		
+		function fn_openBoardUpdate(){ 
+			var idx = "${map.IDX}"; var comSubmit = new ComSubmit(); 
+			comSubmit.setUrl("<c:url value='/board/boardUpdate' />"); 
+			comSubmit.addParam("IDX", idx); 
+			comSubmit.submit(); }
 </script>
-</div>
 </body>
 </html>
+<%@ include file="../common/footer.jsp" %>
