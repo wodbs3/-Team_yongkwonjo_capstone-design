@@ -11,6 +11,7 @@ public class Gallery {
 	private String writer;
 	private String fileName;
 	private Date regDate;
+	private MultipartFile uploadFile;		
 	
 	public int getNum() {
 		return num;
@@ -20,6 +21,14 @@ public class Gallery {
 		this.num = num;
 	}
 	
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
+
 	public String getContent() {
 		return content;
 	}

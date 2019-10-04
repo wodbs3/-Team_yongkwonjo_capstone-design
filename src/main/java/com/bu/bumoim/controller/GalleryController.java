@@ -11,21 +11,29 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.bu.bumoim.domain.Gallery;
+
 @Controller
 public class GalleryController {
 
+	
 	private Logger logger = Logger.getLogger(getClass());
 
+	@Resource(name = "uploadPath") // bean의 id가 uploadPath인 태그를 참조
+	String uploadPath;
+	
 	@RequestMapping(value = "/gallery.do")
 	public String gallery() {
 		return "gallery/gallery";
@@ -42,31 +50,25 @@ public class GalleryController {
 	}
 
 
-	@RequestMapping(value = "/fileUpload" ,method=RequestMethod.POST) 
-	 public Map fileUpload(HttpServletRequest req, HttpServletResponse rep) { 
-		//파일이 저장될 path 설정
-		String path = "C:/Users/USER/Desktop/cap/bumoim/src/main/webapp/resources/upload"; 
-		Map returnObject = new HashMap();
+	@RequestMapping(value="/fileUpload", method = RequestMethod.POST)
+	public String fileUpload(HttpServletRequest req, Model model) {
 		try { 
-			// MultipartHttpServletRequest 생성 
 			MultipartHttpServletRequest mhsr = (MultipartHttpServletRequest) req; 
 			Iterator iter = mhsr.getFileNames();
-			
-			MultipartFile mfile = null; 
-			String fieldName = ""; 
+			MultipartFile uploadFile = null;
 			List resultList = new ArrayList(); 
+			Map returnObject = new HashMap();
 			
-			// 디레토리가 없다면 생성 
-			File dir = new File(path); 
+			// create directory
+			File dir = new File(uploadPath); 
 			if (!dir.isDirectory()) {
 				dir.mkdirs(); 
 			} 
-			// 값이 나올때까지 
 			while (iter.hasNext()) { 
-				fieldName = (String) iter.next(); // 내용을 가져와서 
-				mfile = mhsr.getFile(fieldName); 
+				String fieldName = (String) iter.next(); // 내용을 가져와서 
+				uploadFile = mhsr.getFile(fieldName); 
 				String origName; 
-				origName = new String(mfile.getOriginalFilename().getBytes("8859_1"), "UTF-8"); //한글꺠짐 방지 
+				origName = new String(uploadFile.getOriginalFilename().getBytes("8859_1"), "UTF-8"); //한글꺠짐 방지 
 				
 				// 파일명이 없다면 
 				if ("".equals(origName)) { continue; } 
@@ -76,17 +78,12 @@ public class GalleryController {
 				String saveFileName = getUuid() + ext; 
 				
 				// 설정한 path에 파일저장 
-				File serverFile = new File(path + File.separator + saveFileName); 
-				mfile.transferTo(serverFile); 
-				logger.info("path: " + path);
+				File serverFile = new File(uploadPath + File.separator + saveFileName); 
+				uploadFile.transferTo(serverFile); 
+				logger.info("path: " + uploadFile);
+				logger.info("fileName: " + uploadFile.getOriginalFilename());
 				
-				Map file = new HashMap(); 
-				file.put("origName", origName);
-				file.put("sfile", serverFile); 
-				resultList.add(file); 
-			}
-			returnObject.put("files", resultList); 
-			returnObject.put("params", mhsr.getParameterMap()); 
+				}
 			} catch (UnsupportedEncodingException e ) { 
 				// TODO Auto-generated catch block 
 				e.printStackTrace(); 
@@ -95,15 +92,15 @@ public class GalleryController {
 					e.printStackTrace(); 
 					} catch (IOException e) { // TODO Auto-generated catch block
 						e.printStackTrace(); 
-						} 
-		return null; 
-					
+						}
+			
+		return "gallery/gallery";
 	}
+	
 	// uuid생성
-	public static String getUuid() {
-		return UUID.randomUUID().toString().replaceAll("-", "");
-	}
-
+		public static String getUuid() {
+			return UUID.randomUUID().toString().replaceAll("-", "");
+		}
 }
 
 
