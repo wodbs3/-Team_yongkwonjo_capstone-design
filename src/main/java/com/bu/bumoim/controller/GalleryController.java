@@ -3,6 +3,7 @@ package com.bu.bumoim.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -40,10 +41,11 @@ public class GalleryController {
 		return "gallery/upload";
 	}
 
-	@RequestMapping(value = "/fileUpload") 
+
+	@RequestMapping(value = "/fileUpload" ,method=RequestMethod.POST) 
 	 public Map fileUpload(HttpServletRequest req, HttpServletResponse rep) { 
 		//파일이 저장될 path 설정
-		String path = "C:\\Users\\USER\\Desktop\\cap\\bumoim\\src\\main\\webapp\\resources\\upload"; 
+		String path = "C:/Users/USER/Desktop/cap/bumoim/src/main/webapp/resources/upload"; 
 		Map returnObject = new HashMap();
 		try { 
 			// MultipartHttpServletRequest 생성 
@@ -80,7 +82,7 @@ public class GalleryController {
 				
 				Map file = new HashMap(); 
 				file.put("origName", origName);
-				file.put("sfile", serverFile);
+				file.put("sfile", serverFile); 
 				resultList.add(file); 
 			}
 			returnObject.put("files", resultList); 
@@ -93,9 +95,10 @@ public class GalleryController {
 					e.printStackTrace(); 
 					} catch (IOException e) { // TODO Auto-generated catch block
 						e.printStackTrace(); 
-						} return null; 
-			}
-
+						} 
+		return null; 
+					
+	}
 	// uuid생성
 	public static String getUuid() {
 		return UUID.randomUUID().toString().replaceAll("-", "");
