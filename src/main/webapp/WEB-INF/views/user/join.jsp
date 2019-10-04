@@ -21,37 +21,125 @@
 	<body>
 	<%@ include file="../common/header.jsp" %>
 
+<!-- Join Form -->
+	<form id="joinFrm" method="post" class="form-horizontal" style="margin-top:10%">
 
-	<form id="loginFrm" method="post" class="form-horizontal" style="margin-top:10%">
-		<!-- Input Id -->
-		<div class="form-group">
-			<label for="id" class="col-sm-2 control-label">ID</label>
-			<div class="col-md-6 col-sm-10">
+	
+<!-- Input Id -->
+		<div>
+			<div class="col-md-offset-5 form-inline">
+				<label for="member_id" class="control-label">아이디</label>
+				<br>
 				<input type="text" class="form-control" id="member_id" placeholder="아이디 입력">
 			</div>
 		</div>
       	
-      	<!-- Input Password -->
-		<div class="form-group">
-			<label for="ipw" class="col-sm-2 control-label">Password</label>
-			<div class="col-md-6 col-sm-10">
-				<input type="password" class="form-control" id="member_pw" placeholder="비밀번호 입력">
-			</div>
-			<div class="col-md-6 col-sm-10">
+<!-- Input Password -->
+		<div>
+			<div class="col-md-offset-5 form-inline">
+				<label for="member_pw" class="control-label">비밀번호</label>
+				<br>
+				<input type="password" class="form-control" id="member_pw" placeholder="비밀번호 입력">	
+				<br>			
 				<input type="password" class="form-control" id="member_pw_confirm" placeholder="비밀번호 재입력">
 			</div>
 		</div>
 		
+<!-- Input StudentId -->
+		<div>
+			<div class="col-md-offset-5 form-inline">
+				<label for="member_studentId" class="control-label">학번</label>
+				<br>
+				<input type="text" class="form-control" id="member_studentId" placeholder="학번">
+			</div>
+		</div>
 		
-		<!-- Join Button -->
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-			<button type="submit" class="btn btn-default">Join</button>
+<!-- Input Department -->
+		<div>
+			<div class="col-md-offset-5 form-inline">
+				<label for="member_department" class="control-label">학부</label>
+				<br>
+				
+					<select class="form-control" id="member_department">
+						<option value=" selected">학부</option>
+						<option>소프트웨어학</option>
+						<option>정보보호학</option>
+						<option>멀티미디어학</option>
+						<option>전자제어학</option>
+					</select>
+     
+			</div>
 		</div>
+		
+<!-- Input Name-->
+		<div>
+			<div class="col-md-offset-5 form-inline">
+				<label for="member_name" class="control-label">이름</label>
+				<br>
+				<input type="text" class="form-control" id="member_name" placeholder="이름">
+			</div>
 		</div>
+		
+<!-- Input Interest -->
+		<div>
+			<div class="col-md-offset-5 form-inline">
+				<label for="member_interest" class="control-label">관심사</label>
+				<br>
+				
+					<select class="form-control" id="member_interest">
+						<option value=" selected">관심사</option>
+						<option>소프트웨어학</option>
+						<option>정보보호학</option>
+						<option>멀티미디어학</option>
+						<option>전자제어학</option>
+					</select>
+					
+			</div>
+		</div>
+		
+<!-- Input Gender -->
+		<div>
+			<div class="col-md-offset-5 form-inline">
+				<label for="member_gender" class="control-label">성별</label>
+				<br>
+				<div class="form-inline">
+					<input type="radio" name="gender" value="male" checked>남<br>
+					<input type="radio" name="gender" value="female">여<br>
+				</div>
+			</div>
+		</div>
+		
+<!-- Input Birth -->
+		<div>
+			<div class="col-md-offset-5 form-inline">
+				<label for="member_birth" class="control-label">생년월일</label>
+				<br>
+				<input type="date" class="form-control" id="member_birth" placeholder="생년월일" min="1900-12-31" max="2025-12-31">
+			</div>
+		</div>
+		
+<!-- Input Email -->
+		<div>
+			<div class="col-md-offset-5 form-inline">
+				<label for="member_email" class="control-label">이메일</label>
+				<br>
+				<input type="email" class="form-control" id="member_email" placeholder="이메일">
+			</div>
+		</div>
+		
+<!-- Join Button -->
+
+		<div>
+			<div class="col-md-offset-5 form-inline">
+			<button type="submit" class="btn btn-default">가입하기</button>
+			</div>
+		</div>
+		
 	</form>
 
-   <%@ include file="../common/footer.jsp" %>
+<!-- End Join Form -->
+
+	<%@ include file="../common/footer.jsp" %>
    
 	<!-- Common scripts -->
 	<script src="/resources/js/jquery-2.2.4.min.js"></script>

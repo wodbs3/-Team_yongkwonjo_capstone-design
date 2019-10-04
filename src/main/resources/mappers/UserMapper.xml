@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="login">
+      <select id="loginAction" resultType="hashmap" parameterType="hashmap">
+	      SELECT
+			    MEMBER_ID,
+			    MEMBER_NUMBER,
+			    MEMBER_NAME,
+			    MEMBER_MAJOR,
+			    MEMBER_INTEREST,
+			    MEMBER_GENDER,
+			    MEMBER_BIRTH,
+			    MEMBER_MAIL,
+			    MEMBER_GROUP1,
+			    MEMBER_GROUP2,
+			    MEMBER_GROUP3,
+			FROM
+			    MEMBER
+			 WHERE  MEMBER_ID = #{MEMBER_ID}
+			 AND MEMBER_PW=#{MEMBER_PW}
+   </select>
+
+	<select id="loginActionCount" resultType="int" parameterType="hashmap">
+	      SELECT
+			    COUNT(*)
+			FROM
+			    MEMBER
+			 WHERE  MEMBER_ID = #{MEMBER_ID}
+			 AND MEMBER_PW=#{MEMBER_PW}
+   </select>
+
+
+   
+</mapper>

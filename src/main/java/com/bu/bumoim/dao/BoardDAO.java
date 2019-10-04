@@ -1,9 +1,9 @@
-package com.bu.bumoim.dao;
+//package com.bu.bumoim.dao;
 //
 //import java.util.List;
 //
 // 
-public interface BoardDAO {
+//public interface BoardDao {
 // 
 //    /**
 //     * �Խù� ����Ʈ ��ȸ
@@ -42,4 +42,4 @@ public interface BoardDAO {
 //     */
 //    BoardVO selectBoardByCode(BoardVO boardVO) throws Exception;
 // 
-}
+//}

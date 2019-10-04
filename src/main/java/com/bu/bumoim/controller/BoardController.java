@@ -1,14 +1,12 @@
 package com.bu.bumoim.controller;
 
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class BoardController {
-	//
-	private Logger logger = Logger.getLogger(getClass());
-	
+
+	/**List*/
 	@RequestMapping(value="/board/boardList.do")
 	public String board_boardlist() {
 
@@ -17,6 +15,7 @@ public class BoardController {
 	}
 	
 
+	/**Write*/
 	@RequestMapping(value="/board/boardWrite.do")
     public String board_boardwrite() throws Exception{
         
@@ -31,13 +30,27 @@ public class BoardController {
 //    }
 //    
 //
-	@RequestMapping(value="/board/comment.do")
+	@RequestMapping(value="/board/Comment.do")
 	public String board_comment() {
 
 		
 		return "board/Comment";
 	}
 	
+//	@RequestMapping(value="/board/boardUpdate.do") 
+//	public ModelAndView openBoardUpdate(CommandMap commandMap) throws Exception{ 
+//		ModelAndView mv = new ModelAndView("/sample/boardUpdate"); 
+//		
+//		Map<String,Object> map = sampleService.selectBoardDetail(commandMap.getMap()); 
+//		mv.addObject("map", map); 
+//		
+//		return "board"; 
+//		
+//	}
+
+
+	
+	/**Detail*/
     @RequestMapping(value="/board/boardDetail.do")
     public String board_boarddetail() throws Exception{
         

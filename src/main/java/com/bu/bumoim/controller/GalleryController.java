@@ -28,7 +28,6 @@ import com.bu.bumoim.domain.Gallery;
 @Controller
 public class GalleryController {
 
-	
 	private Logger logger = Logger.getLogger(getClass());
 
 	@Resource(name = "uploadPath") // bean의 id가 uploadPath인 태그를 참조
@@ -75,15 +74,13 @@ public class GalleryController {
 				
 				// 파일 명 변경(uuid로 암호화) 
 				String ext = origName.substring(origName.lastIndexOf('.')); // 확장자 
-				String saveFileName = getUuid() + ext; 
-				
-				// 설정한 path에 파일저장 
+				                                String ext = origName.substring(origName.lastIndexOf('.')); // 확장자
+// 설정한 path에 파일저장 
 				File serverFile = new File(uploadPath + File.separator + saveFileName); 
 				uploadFile.transferTo(serverFile); 
 				logger.info("path: " + uploadFile);
 				logger.info("fileName: " + uploadFile.getOriginalFilename());
-				
-				}
+/usr/bin/bash: q: command not found
 			} catch (UnsupportedEncodingException e ) { 
 				// TODO Auto-generated catch block 
 				e.printStackTrace(); 
