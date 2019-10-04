@@ -24,8 +24,6 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 @Controller
 public class GalleryController {
 
-	private Logger logger = Logger.getLogger(getClass());
-
 	@RequestMapping(value = "/gallery.do")
 	public String gallery() {
 		return "gallery/gallery";

@@ -6,14 +6,18 @@ import com.bu.bumoim.domain.Board;
 
 public interface BoardService {
 
-//	void insertBoard(Board vo);
-//	
-//	void updateBorad(Board vo);
-//	
-//	void deleteBoard(Board vo);
-//	
-//	Board getBoard(Board vo);
-//	
-//	List<Board> getBoardList(Board vo);
+	/**boardinsert*/
+	void insertBoard(Board vo);
 	
+	/**boardupdate*/
+	void updateBorad(Board vo);
+	
+	/**boardelete*/
+	void deleteBoard(Board vo);
+	
+	/***/
+	Board getBoard(Board vo);
+	
+	/**boardlist*/
+	List<Board> getBoardList(Board vo);
 }

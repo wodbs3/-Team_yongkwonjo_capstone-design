@@ -18,7 +18,7 @@ import com.bu.bumoim.service.UserService;
 @Controller
 public class UserController {
 	//
-	private Logger logger = Logger.getLogger(getClass());
+//	private Logger logger = Logger.getLogger(getClass());
 	
 	@Autowired
 	private UserService userService;

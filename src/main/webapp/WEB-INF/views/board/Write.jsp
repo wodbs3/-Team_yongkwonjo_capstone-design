@@ -42,10 +42,14 @@
                         <th style = "width : 10%; font-size: 20px;">작성자</th>
                         <td><input style="width: 100%" type="text" id="writer" name="writer" /></td>
                     </tr>
+                    <tr>
+                        <th style = "width : 10%; font-size: 20px;">업로드</th>
+                        <td><input style="width: 100%" type="file" id="upload" name="upload" /></td>
+                    </tr>
                 </table>
                 <div style = "text-align: right;">
                 	<a href='#' onClick='fn_addtoBoard()' class="btn btn-success">글 등록</a>
-                    <a href='#' onClick='fn_cancel()' class="btn btn-success">목록</a>
+                    <a href="boardList.do" class="btn btn-success">목록</a>
                 </div>
             </div>
         </div>
