@@ -20,5 +20,4 @@ public interface BoardService {
 	
 	/**boardlist*/
 	List<Board> getBoardList(Board vo);
-	
 }
