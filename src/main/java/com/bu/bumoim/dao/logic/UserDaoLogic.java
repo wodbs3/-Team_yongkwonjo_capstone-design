@@ -24,3 +24,4 @@ public class UserDaoLogic implements UserDao {
 		return sqlSession.selectOne("login.loginActionCount", requestMap);
 	}
 }
+
