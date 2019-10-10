@@ -1,34 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="login">
-      <select id="loginAction" resultType="hashmap" parameterType="hashmap">
-	      SELECT
-			    MEMBER_ID,
-			    MEMBER_NUMBER,
-			    MEMBER_NAME,
-			    MEMBER_MAJOR,
-			    MEMBER_INTEREST,
-			    MEMBER_GENDER,
-			    MEMBER_BIRTH,
-			    MEMBER_MAIL,
-			    MEMBER_GROUP1,
-			    MEMBER_GROUP2,
-			    MEMBER_GROUP3,
-			FROM
-			    MEMBER
-			 WHERE  MEMBER_ID = #{MEMBER_ID}
-			 AND MEMBER_PW=#{MEMBER_PW}
+  
+     <select id="loginAction" resultType="hashmap" parameterType="hashmap">
+         SELECT
+             'member_id',
+             'member_pw',
+             'member_number',
+             'member_name',
+             'member_major',
+             'member_interest',
+             'member_gender',
+             'member_birth',
+             'member_mail',
+             'member_group1',
+             'member_group2',
+             'member_group3',
+         FROM
+             member
+          WHERE  'member_id' = #{member_id}
+          AND 'member_pw' = #{member_pw}
    </select>
 
-	<select id="loginActionCount" resultType="int" parameterType="hashmap">
-	      SELECT
-			    COUNT(*)
-			FROM
-			    MEMBER
-			 WHERE  MEMBER_ID = #{MEMBER_ID}
-			 AND MEMBER_PW=#{MEMBER_PW}
+   <select id="loginActionCount" resultType="int" parameterType="hashmap">
+         SELECT
+             COUNT(*)
+         FROM
+             member
+          WHERE  'member_id' = #{member_id}
+          AND 'member_pw' = #{member_pw}
    </select>
 
+	<insert id="insertMember" >
+		INSERT INTO member (
+			member_id,
+			member_pw,
+			member_number,
+			member_name,
+			member_major,
+			member_interest,
+			member_gender,
+			member_birth,
+			member_mail,
+			member_group1,
+			member_group2,
+			member_group3
+			)
+		VALUES (
+			#{member_id},
+			#{member_pw},
+			#{member_studentId},
+			#{member_name},
+			#{member_department},
+			#{member_interest},
+			#{member_gender},
+			#{member_birth},
+			#{member_email},
+			null,
+			null,
+			null
+		)
 
-   
+	</insert>
+	
 </mapper>

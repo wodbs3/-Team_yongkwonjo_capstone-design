@@ -13,21 +13,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bu.bumoim.domain.Member;
 import com.bu.bumoim.service.UserService;
 
 @Controller
 public class UserController {
 	//
-//	private Logger logger = Logger.getLogger(getClass());
+	private Logger logger = Logger.getLogger(getClass());
 	
 	@Autowired
 	private UserService userService;
 	//
 	
-	@RequestMapping(value="/join.do")
-	public String join() {
+	@RequestMapping(value="/joinView.do", method=RequestMethod.GET)
+	public String joinView(Model model) {
 		//
 		return "user/join";
+	}
+	
+	@RequestMapping(value="/join.do", method=RequestMethod.POST)
+	public String join(Member member, Model model) {
+		//
+		logger.info(member.toString());
+		
+		int joinResult = userService.join(member);
+		if (joinResult == 1) {
+			logger.info("Join Success !!!");
+		} else {
+			logger.info("Join Fail !!!");
+		}
+		
+		return "user/joinSuccess";
 	}
 	
 	@RequestMapping(value = "/login" , method = RequestMethod.POST)

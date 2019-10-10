@@ -22,7 +22,7 @@
 	<%@ include file="../common/header.jsp" %>
 
 <!-- Join Form -->
-	<form id="joinFrm" method="post" class="form-horizontal" style="margin-top:10%">
+	<form action="join.do" method="POST" class="form-horizontal" style="margin-top:10%">
 
 	
 <!-- Input Id -->
@@ -30,7 +30,7 @@
 			<div class="col-md-offset-5 form-inline">
 				<label for="member_id" class="control-label">아이디</label>
 				<br>
-				<input type="text" class="form-control" id="member_id" placeholder="아이디 입력">
+				<input type="text" class="form-control" id="member_id" name="member_id" placeholder="아이디 입력">
 			</div>
 		</div>
       	
@@ -39,9 +39,9 @@
 			<div class="col-md-offset-5 form-inline">
 				<label for="member_pw" class="control-label">비밀번호</label>
 				<br>
-				<input type="password" class="form-control" id="member_pw" placeholder="비밀번호 입력">	
+				<input type="password" class="form-control" id="member_pw" name="member_pw" placeholder="비밀번호 입력">	
 				<br>			
-				<input type="password" class="form-control" id="member_pw_confirm" placeholder="비밀번호 재입력">
+				<input type="password" class="form-control" id="member_pw_confirm" name="member_pw_confirm" placeholder="비밀번호 재입력">
 			</div>
 		</div>
 		
@@ -50,7 +50,16 @@
 			<div class="col-md-offset-5 form-inline">
 				<label for="member_studentId" class="control-label">학번</label>
 				<br>
-				<input type="text" class="form-control" id="member_studentId" placeholder="학번">
+				<input type="text" class="form-control" id="member_studentId" name="member_studentId" placeholder="학번">
+			</div>
+		</div>
+		
+<!-- Input Name-->
+		<div>
+			<div class="col-md-offset-5 form-inline">
+				<label for="member_name" class="control-label">이름</label>
+				<br>
+				<input type="text" class="form-control" id="member_name" name="member_name" placeholder="이름">
 			</div>
 		</div>
 		
@@ -60,7 +69,7 @@
 				<label for="member_department" class="control-label">학부</label>
 				<br>
 				
-					<select class="form-control" id="member_department">
+					<select class="form-control" id="member_department" name="member_department">
 						<option value=" selected">학부</option>
 						<option>소프트웨어학</option>
 						<option>정보보호학</option>
@@ -71,22 +80,13 @@
 			</div>
 		</div>
 		
-<!-- Input Name-->
-		<div>
-			<div class="col-md-offset-5 form-inline">
-				<label for="member_name" class="control-label">이름</label>
-				<br>
-				<input type="text" class="form-control" id="member_name" placeholder="이름">
-			</div>
-		</div>
-		
 <!-- Input Interest -->
 		<div>
 			<div class="col-md-offset-5 form-inline">
 				<label for="member_interest" class="control-label">관심사</label>
 				<br>
 				
-					<select class="form-control" id="member_interest">
+					<select class="form-control" id="member_interest" name="member_interest">
 						<option value=" selected">관심사</option>
 						<option>소프트웨어학</option>
 						<option>정보보호학</option>
@@ -103,8 +103,8 @@
 				<label for="member_gender" class="control-label">성별</label>
 				<br>
 				<div class="form-inline">
-					<input type="radio" name="gender" value="male" checked>남<br>
-					<input type="radio" name="gender" value="female">여<br>
+					<input type="radio" id="member_gender" name="member_gender" value="male" checked>남<br>
+					<input type="radio" id="member_gender" name="member_gender" value="female">여<br>
 				</div>
 			</div>
 		</div>
@@ -114,7 +114,7 @@
 			<div class="col-md-offset-5 form-inline">
 				<label for="member_birth" class="control-label">생년월일</label>
 				<br>
-				<input type="date" class="form-control" id="member_birth" placeholder="생년월일" min="1900-12-31" max="2025-12-31">
+				<input type="date" class="form-control" id="member_birth" name="member_birth" placeholder="생년월일" min="1900-12-31" max="2025-12-31">
 			</div>
 		</div>
 		
@@ -123,7 +123,7 @@
 			<div class="col-md-offset-5 form-inline">
 				<label for="member_email" class="control-label">이메일</label>
 				<br>
-				<input type="email" class="form-control" id="member_email" placeholder="이메일">
+				<input type="email" class="form-control" id="member_email" name="member_email" placeholder="이메일">
 			</div>
 		</div>
 		
@@ -138,6 +138,8 @@
 	</form>
 
 <!-- End Join Form -->
+
+
 
 	<%@ include file="../common/footer.jsp" %>
    
@@ -161,50 +163,55 @@
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	
+	<style type="text/css">
+		div #emailOk {
+			margin-bottom: 15px;
+		}
+		
+		/* 아이디 / 비밀번호 입력 메세지 출력 */
+		#idOk, #pwdFalse, #birthOk, #emailOk, #nameOk, #telOk, #imgOk {
+			font-size: 12px;
+			color: red;
+		}
+		#pwdOk {
+			font-size: 12px;
+		}
+		
+	</style>
 	
 	<script type="text/javascript">
 	
-	
-	$("button[type=submit]").on("click", function(){
-	      $.ajax({
-	         type:'post',
-	         url:'/login',
-	         data:$("#loginFrm").serialize(),
-	         async:false,
-	         success:function(data){
-	            if(data.result == 'success'){
-	               $("#loginFrm").html("<p class='text-center'>"+data.MEMBER_NAME+"님 환영합니다.</p>");
-	               $(".logout").html("<h6 class='text-center' onclick='javascript:logout();'>•로그아웃하기</h6>")
-	            }else{
-	               alert("잘못된 아이디이거나 비밀번호 입니다.");
-	               return false;
-	               
-	            }
-	         }
-	      })
-	   })
-	$(document).ready(function(){
-	   var ID = '${loginMap.MEMBER_ID}';
-	   if(ID != null && ID != ''){
-	      $("#loginFrm").html("<p class='text-center'>${loginMap.MEM_NAME}님 환영합니다.</p>");
-	      $(".logout").html("<h6 class='text-center' onclick='javascript:logout();'>•로그아웃하기</h6>");
-	   }
-	   
-	});
-	
-	function logout(){
-	   var confirm = window.confirm("로그아웃 하시겠습니까?");
-	   if(confirm == true){
-	      window.location.href="/logout";
-	   }else{
-	      return false;
-	   }
-	   
+	/* 아이디 중복 체크 */
+	function chk() {
+		if(!form.id.value) {
+			$("#idOk")
+		}
 	}
-	   
+	
+	
+	
+/* 	// 모든 공백 체크 정규식
+	var empJ = /\s/g;
+	// 아이디 정규식
+	var idJ = /^[a-z0-9][a-z0-9_\-]{4,19}$/;
+	// 비밀번호 정규식
+	var pwJ = /^[A-Za-z0-9]{4,12}$/;
+	// 이름 정규식
+	var nameJ = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-A]{2,10}%/;
+	// 이메일 검사 정규식
+	var mailJ = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+	// 휴대폰 번호 정규식
+	var phoneJ = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})%/;
+	
+	var birthJ = false;
+	
+	var address = $(mem_detail) */
+	
 	
 	</script>
-	
+
+
+
 	</body>
 	
 </html>
