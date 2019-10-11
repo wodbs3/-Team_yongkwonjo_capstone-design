@@ -24,12 +24,28 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
-	//
 	
 	@RequestMapping(value="/joinView.do", method=RequestMethod.GET)
 	public String joinView(Model model) {
 		//
 		return "user/join";
+	}
+	
+	// ID중복체크
+	@ResponseBody
+	@RequestMapping(value="/idDuplicationCheck.do", method=RequestMethod.POST)
+	public int idDuplicationCheck(HttpServletRequest request, Model model) {
+		//
+		String member_id = request.getParameter("member_id");
+		Member member = userService.idDuplicationCheck(member_id);
+		
+		if(member != null) {
+			logger.info("아이디 중복 사용불가");
+			return 0;
+		} else {
+			logger.info("아이디 사용가능");
+			return 1;
+		}
 	}
 	
 	@RequestMapping(value="/join.do", method=RequestMethod.POST)
@@ -46,22 +62,6 @@ public class UserController {
 		
 		return "user/joinSuccess";
 	}
-//	@RequestMapping(value="/login.do", method=RequestMethod.GET)	
-//	public String loginview(Model model) {
-//		return "user/login";
-//	}
-//	@RequestMapping(value="/login.do", method=RequestMethod.POST)	
-//	public String login(Member member, Model model) {
-//		logger.info(member.toString());
-//		
-//		int loginResult = userService.login(member);
-//		if (loginResult == 1) {
-//			logger.info("Login Success");
-//		} else { 
-//			logger.info("Fail!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-//		}
-//		return "\"redirect:/index.do";
-//	}
 	@RequestMapping(value="/login.do")
 	public String login() {
 		
@@ -87,7 +87,6 @@ public class UserController {
 		}
 		
 		return resultMap;
-		
 	}
 	@RequestMapping(value = "logout.do", method= {RequestMethod.POST,RequestMethod.GET})
 	   public String logout(HttpSession session, Member member) {

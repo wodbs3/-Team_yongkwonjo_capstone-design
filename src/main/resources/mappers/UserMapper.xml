@@ -64,4 +64,10 @@
 
 	</insert>
 	
+	<select id="idDuplicationCheck" resultType="com.bu.bumoim.domain.Member" >
+		select member_id 
+		from member
+		where member_id = #{member_id}
+	</select>
+	
 </mapper>
