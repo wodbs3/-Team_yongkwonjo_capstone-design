@@ -91,28 +91,20 @@
 			
 			<a href="upload.do" class="btn_1">사진 업로드</a>
 			<hr>
-			<div class="row magnific-gallery add_bottom_60 ">
+			
 				<div class="col-md-3 col-sm-3">
-					<div class="img_wrapper_gallery">
-						<div class="img_container_gallery">
-					<!--  	   <c:forEach items="${}" var="photo">
-							<a href="${pageContext.request.contextPath }/galleryDetail?photoId" title="Photo title"><img src="resources/img/notredame.jpg" alt="Image" class="img-responsive">
-								<i class="icon-resize-full-2"></i>
+				
+						<div class="img_container">
+					 	   <c:forEach items="${galleryList}" var="galleryList">
+					 	   <a href="${pageContext.request.contextPath }/galleryDetail.do?num=${galleryList.num}">
+							<img src="${pageContext.request.contextPath }/resources/upload/${galleryList.fileName}" alt="Image">
+								
 							</a>
-					</c:forEach>   -->
-					<a href="${pageContext.request.contextPath }" title="Photo title"><img src="resources/img/notredame.jpg" alt="Image" class="img-responsive">
+					</c:forEach>  
+<%-- 					<a href="${pageContext.request.contextPath }" title="Photo title"><img src="resources/img/notredame.jpg" alt="Image" class="img-responsive"> --%>
 						</div>
 					</div>
-				</div>
-			<div class="col-md-3 col-sm-3">
-					<div class="img_wrapper_gallery">
-						<div class="img_container_gallery">
-							<a href="resources/img/notredame.jpg" title="Photo title"><img src="resources/img/notredame.jpg" alt="Image" class="img-responsive">
-								<i class="icon-resize-full-2"></i>
-							</a>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 			<!-- End row -->
 			

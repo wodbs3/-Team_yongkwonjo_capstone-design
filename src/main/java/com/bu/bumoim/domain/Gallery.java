@@ -1,6 +1,7 @@
 package com.bu.bumoim.domain;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -9,10 +10,32 @@ public class Gallery {
 	private int num;
 	private String content;
 	private String writer;
-	private String fileName;
 	private Date regDate;
-	private MultipartFile uploadFile;		
+	private String fileName;
 	
+	private MultipartFile[] files;
+	
+	
+
+	public Gallery() {
+		
+	}
+
+		
+	
+	public Gallery(String fileName, String content, Date regDate) {
+		this.fileName = fileName;
+		this.content = content;
+		this.regDate = regDate;
+	}
+	public MultipartFile[] getFiles() {
+		return files;
+	}
+
+	public void setFiles(MultipartFile[] files) {
+		this.files = files;
+	}
+
 	public int getNum() {
 		return num;
 	}
@@ -21,12 +44,12 @@ public class Gallery {
 		this.num = num;
 	}
 	
-	public MultipartFile getUploadFile() {
-		return uploadFile;
+	public String getFileName() {
+		return fileName;
 	}
 
-	public void setUploadFile(MultipartFile uploadFile) {
-		this.uploadFile = uploadFile;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 
 	public String getContent() {
@@ -45,13 +68,6 @@ public class Gallery {
 		this.writer = writer;
 	}
 	
-	public String getFileName() {
-		return fileName;
-	}
-	
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
 	
 	public Date getRegDate() {
 		return regDate;
@@ -60,4 +76,13 @@ public class Gallery {
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
+//	public String getTitle() {
+//		return title;
+//	}
+//
+//	public void setTitle(String title) {
+//		this.title = title;
+//	}
+
+
 }

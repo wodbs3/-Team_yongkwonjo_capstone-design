@@ -21,9 +21,9 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://52.79.75.71:3306/bumoim" />
-		<property name="username" value="root" />
-		<property name="password" value="1234" />
+		<property name="url" value="jdbc:mysql://database-1.csu1yuqbzcre.ap-northeast-2.rds.amazonaws.com:3306/bumoim" />
+      <property name="username" value="root" />
+      <property name="password" value="dpfflxm003" />
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 해당 Project에서의 Mapper Package를 value로 적어줘야 합니다. ex) com.example.start.Mapper 
