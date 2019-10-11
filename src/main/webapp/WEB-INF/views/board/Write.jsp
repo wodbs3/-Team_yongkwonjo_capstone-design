@@ -25,31 +25,33 @@
 <%@ include file="../common/header.jsp" %>
 
 <div class="col-md-offset-3 col-md-6" style="margin-top: 10%;">
-    <form id="writeForm" name="writeForm" method="post">
+    <form action="/boardWrite.do" name="writeForm" method="POST">
         <div>
             <h2>글쓰기</h2>
             <div style=" width : 100%;">
                 <table style = " width : 100%;">
                     <tr>
                         <th style = "width : 10%; font-size: 20px;"> 제목</th>
-                        <td><input style="width: 100%" type="text" id="title" name="title" /></td>
+                        <td><input style="width: 100%" type="text" id="board_title" name="board_title" /></td>
                     </tr>
                     <tr>
                         <th style = "width : 10%; font-size: 20px;">내용</th>
-                        <td><textarea style="width: 100%" rows="10" cols="10" id="content" name="content"></textarea></td>
+                        <td><textarea style="width: 100%" rows="10" cols="10" id="board_content" name="board_content"></textarea></td>
                     </tr>
                     <tr>
                         <th style = "width : 10%; font-size: 20px;">작성자</th>
-                        <td><input style="width: 100%" type="text" id="writer" name="writer" /></td>
+                        <td><input style="width: 100%" type="text" id="board_writer" name="board_writer" /></td>
                     </tr>
                     <tr>
                         <th style = "width : 10%; font-size: 20px;">업로드</th>
-                        <td><input style="width: 100%" type="file" id="upload" name="upload" /></td>
+                        <td><input style="width: 100%" type="file" id="board_photo" name="board_photo" /></td>
                     </tr>
                 </table>
                 <div style = "text-align: right;">
-                	<a href='#' onClick='fn_addtoBoard()' class="btn btn-success">글 등록</a>
-                    <a href="boardList.do" class="btn btn-success">목록</a>
+                	<Button type="submit" class="btn btn-success">글 등록</Button>
+<!--                 	<a href='#' onClick='fn_addtoBoard()' class="btn btn-success">글 등록</a> -->
+                    <a href='#' onClick='fn_cancel()' class="btn btn-success">목록</a>
+<!--                    <a href='boardList.do' onClick='fn_cancel()' class="btn btn-success">목록</a> -->
                 </div>
             </div>
         </div>
@@ -77,22 +79,14 @@
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 <script>
-//글등록
-function fn_addtoBoard(){
-    
-    var form = document.getElementById("write");
-    
-    form.action = "<c:url value='/board/write.do'/>";
-    form.submit();
-    
-}
+
  
 //목록
 function fn_cancel(){
     
-    var form = document.getElementById("write");
+    var form = document.getElementById("Write");
     
-    form.action = "<c:url value='/board/boardList.do'/>";
+    form.action = "<c:url value='/boardList.do'/>";
     form.submit();
     
 }

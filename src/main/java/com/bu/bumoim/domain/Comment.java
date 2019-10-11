@@ -4,58 +4,49 @@ import java.util.Date;
 
 public class Comment {
 	//
-	private int commentNumber;
-	private int boardNumber;
-	private int photoNumber;
-	private String id;
-	private String content;
-	private Date date;
+	private int comment_number;
+	private int board_number;
+	private String comment_id;
+	private String comment_content;
+	private Date comment_date;
 	
-	public int getCommentNumber() {
-		return commentNumber;
+	public int getcomment_number() {
+		return comment_number;
 	}
 	
-	public void setCommentNumber(int commentNumber) {
-		this.commentNumber = commentNumber;
+	public void setcomment_number(int comment_number) {
+		this.comment_number = comment_number;
+	}
+
+	public int getboard_number() {
+		return board_number;
 	}
 	
-	public int getBoardNumber() {
-		return boardNumber;
+	public void setboard_number(int board_number) {
+		this.board_number = board_number;
+	}
+
+	public String getcomment_id() {
+		return comment_id;
 	}
 	
-	public void setBoardNumber(int boardNumber) {
-		this.boardNumber = boardNumber;
+	public void setcomment_id(String comment_id) {
+		this.comment_id = comment_id;
 	}
 	
-	public int getPhotoNumber() {
-		return photoNumber;
+	public String getcomment_content() {
+		return comment_content;
 	}
 	
-	public void setPhotoNumber(int photoNumber) {
-		this.photoNumber = photoNumber;
+	public void setcomment_content(String comment_content) {
+		this.comment_content = comment_content;
 	}
 	
-	public String getId() {
-		return id;
+	public Date getcomment_date() {
+		return comment_date;
 	}
 	
-	public void setId(String id) {
-		this.id = id;
-	}
-	
-	public String getContent() {
-		return content;
-	}
-	
-	public void setContent(String content) {
-		this.content = content;
-	}
-	
-	public Date getDate() {
-		return date;
-	}
-	
-	public void setDate(Date date) {
-		this.date = date;
+	public void setcomment_date(Date comment_date) {
+		this.comment_date = comment_date;
 	}
 }

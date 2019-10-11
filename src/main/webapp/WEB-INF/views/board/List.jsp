@@ -31,18 +31,21 @@
                 <tr>
                     <th>번호</th>
                     <th>제목</th>
+                    <th>내용 미리보기</th>
                     <th>작성자</th>
                     <th>날짜</th>
-                    <th>조회수</th>
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="result" items="${list }" varStatus="status">
+                <c:forEach var="Board" items="${Board}" varStatus="status">
                     <tr>
-                        <td><c:out value="${result.code }"/></td>
-                        <td><a href='#' onClick='fn_view(${result.code})'><c:out value="${result.title }"/></a></td>
-                        <td><c:out value="${result.writer }"/></td>
-                        <td><c:out value="${result.reg_datetime }"/></td>
+                        <td><c:out value="${Board.board_number }"/></td>
+                        <input type="hidden" name="board_num" value="${Board.board_number}">
+                        <td><a href="boardDetail.do?board_num=${Board.board_number}">
+                        <c:out value="${Board.board_title }"/></a></td>
+                        <td><c:out value="${Board.board_content }"/></td>
+                        <td><c:out value="${Board.board_writer }"/></td>
+                        <td><c:out value="${Board.board_date }"/></td>
                         <td></td>
                     </tr>
                 </c:forEach>
@@ -50,101 +53,13 @@
         </table>
         
         <div style = "text-align: right;">           
-            <a href="boardWrite.do" class="btn btn-success">글쓰기</a>
+            <a href='#' onclick="javascript:goCreate();" class="btn btn-success">글쓰기</a>
         </div>
     </form>
 </div>
 
 
 
-    <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
-OAOAOA
-	<link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/font-awesome/css/font-awesome.css">
-OAOAOA    <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/css/settings.css">
-</head>
-OAOAOA<body>
-<%@ include file="../common/header.jsp" %>
-OAOAOA
-<div class="container" style="margin-bottom: 333px;width: 60%; margin-left:20%; margin-top: 10%;">
-    <form id="boardForm" name="boardForm" method="post">
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>번호</th>
-                    <th>제목</th>
-                    <th>작성자</th>
-                    <th>날짜</th>
-                    <th>조회수</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="result" items="${list }" varStatus="status">
-                    <tr>
-                        <td><c:out value="${result.code }"/></td>
-                        <td><a href='#' onClick='fn_view(${result.code})'><c:out value="${result.title }"/></a></td>
-                        <td><c:out value="${result.writer }"/></td>
-                        <td><c:out value="${result.reg_datetime }"/></td>
-                        <td></td>
-                    </tr>
-OAOAOA                </c:forEach>
-OAOAOA            </tbody>
-        </table>
-OAOAOAOAOAOAOAOAOAOAOAOA        
-        <div style = "text-align: right;">           
-            <a href='#' onClick='fn_write()' class="btn btn-success">글쓰기</a>            
-        </div>
-OAOAOA    </form>
-</div>
-
-
-
-<%@ include file="../common/footer.jsp" %>
-
-
-	
-    <!-- Common scripts -->
-    <script src="/resources/js/jquery-2.2.4.min.js"></script>
-    <script src="/resources/js/common_scripts_min.js"></script>
-    <script src="/resources/js/functions.js"></script>
-
-    <!-- SLIDER REVOLUTION SCRIPTS  -->
-    <script type="text/javascript" src="/resources/rev-slider-files/js/jquery.themepunch.tools.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/jquery.themepunch.revolution.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.actions.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.carousel.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.kenburn.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.layeranimation.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.migration.min.js"></script>
-OAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOA	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.navigation.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.parallax.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.slideanims.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
-<script>
-//글쓰기
-function fn_write(){
-    
-	var form = document.getElementById("board");
-    
-	form.action = "<c:url value='/board/boardWrite.do'/>";
-	form.submit();
-    
-OAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOAOA}
- 
-//글조회
-function fn_view(code){
-    
-	var form = document.getElementById("board");
-	var url = "<c:url value='/board/boarddetail.do'/>";
-	url = url + "?code=" + code;
-    
-	form.action = url;    
-	form.submit(); 
-}
-</script>
-</body>
->>>>>>> dc14bcf699ea575c2fe8cd23c6fce339a97a3e9c
-</html>
 <%@ include file="../common/footer.jsp" %>
 
 
@@ -169,25 +84,19 @@ function fn_view(code){
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 <script>
 //글쓰기
-function fn_write(){
-    
-	var form = document.getElementById("board");
-    
-	form.action = "<c:url value='/board/boardWrite.do'/>";
-	form.submit();
-    
+function goCreate() {
+   location.href="/boardWrite.do";
 }
+
+$(document).on('click', '#btnSearch', function(e){
+   e.preventDefault();
+   var url = "${requestScope['javax.servlet.forward.servlet_path']}";
+   url = url + "?searchType=" + $('#searchType').val();
+   url = url + "&keyword=" + $('#keyword').val();
+   location.href = url;
+   console.log(url);
+});
  
-//글조회
-function fn_view(code){
-    
-	var form = document.getElementById("board");
-	var url = "<c:url value='/board/boarddetail.do'/>";
-	url = url + "?code=" + code;
-    
-	form.action = url;    
-	form.submit(); 
-}
 </script>
 </body>
 </html>

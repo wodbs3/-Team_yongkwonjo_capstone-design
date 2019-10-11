@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.bu.bumoim.dao.UserDao;
 
+
 @Repository
 public class UserDaoLogic implements UserDao {
 	//

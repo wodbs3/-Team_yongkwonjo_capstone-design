@@ -26,39 +26,41 @@
 <%@ include file="../common/header.jsp" %>
 
 <div class="col-md-offset-3 col-md-6" style="margin-top: 10%;">
-    <form id="writeForm" name="writeForm" method="post">
+    <form id="Detail" name="Detail" method="post">
         <div>
             <h2>상세보기</h2>
             <div style=" width : 100%;">
+             <input type="hidden" name="board_number"/>
                 <table class = "table table-boardered" style = " width : 100%;">
                 <tbody>
                     <tr>
                     	<th style = "width : 10%; font-size: 18px;" scope="row">글 번호</th> 
-                    	<td>${map.TITLE }</td> 
+                    	<td>${Board.board_number }</td> 
                     	<th style = "width : 10%; font-size: 18px;" scope="row">조회수</th> 
-                    	<td>${map.HIT_CNT }</td>
+                    	<td>${detail.HIT_CNT }</td>
                     </tr>
                     <tr>
                     	<th style = "width : 10%; font-size: 18px;" scope="row">작성자</th> 
-                    	<td>${map.CREA_ID }</td> 
+                    	<td>${Board.board_writer }</td> 
                     	<th style = "width : 10%; font-size: 18px;" scope="row">작성시간</th> 
-                    	<td>${map.CREA_DTM }</td>
+                    	<td>${Board.board_date }</td>
                     </tr>
                     <tr>
                     	<th style = "width : 10%; font-size: 18px;" scope="row">제목</th> 
-                    	<td>${map.TITLE }</td>
+                    	<td>${Board.board_title }</td>
                     	<th style = "width : 10%; font-size: 18px;" scope="row">파일</th> 
-                    	<td>${map.CREA_DTM }</td>
+                    	<td>${Board.board_photo }</td>
                     </tr>
                     <tr>
-                    	<td colspan="4">${map.CONTENTS }</td>
+                    	<td colspan="4">${Board.board_content }</td>
                     </tr>
                     </tbody>
                     
                 </table>
                 <div style = "text-align: right;">
                 	    <a href='#' onClick='fn_update()' class="btn btn-success">수정</a>
-                    	<a href='boardList.do' onClick='fn_cancel()' class="btn btn-success">목록</a>
+                	    <a href='#' onClick='fn_cancel()' class="btn btn-success">목록</a>
+<!--                     	<a href='boardList.do' onClick='fn_cancel()' class="btn btn-success">목록</a> -->
                     	<a href='#' onClick ='' class = "btn btn-danger">삭제</a>
                 </div>
             </div>
@@ -69,7 +71,7 @@
         <label for="content">comment</label>
         <form name="commentInsertForm">
             <div class="input-group">
-               <input type="hidden" name="bno" value="${detail.bno}"/>
+               <input type="hidden" name="board_number" value="${detail.board_number}"/>
                <input type="text" class="form-control" id="content" name="content" placeholder="내용을 입력하세요.">
                <span class="input-group-btn">
                     <button class="btn btn-default" type="button" name="commentInsertBtn">등록</button>
@@ -115,15 +117,31 @@
 		
 		function fn_openBoardList(){ 
 			var comSubmit = new ComSubmit(); 
-			comSubmit.setUrl("<c:url value='/board/boardList.do' />"); 
+			comSubmit.setUrl("<c:url value='/boardList.do' />"); 
 			comSubmit.submit(); 
 		} 
 		
 		function fn_openBoardUpdate(){ 
 			var idx = "${map.IDX}"; var comSubmit = new ComSubmit(); 
-			comSubmit.setUrl("<c:url value='/board/boardUpdate' />"); 
+			comSubmit.setUrl("<c:url value='/boardUpdate' />"); 
 			comSubmit.addParam("IDX", idx); 
 			comSubmit.submit(); }
+		
+		function fn_cancel(){
+		    
+		    var form = document.getElementById("Detail");
+		    
+		    form.action = "<c:url value='/boardList.do'/>";
+		    form.submit();
+		    
+		}
+		
+		function fn_update() {
+			var form = document.getElementById("Detail");
+			
+			form.action = "<c:url value='/boardUpdate.do'/>";
+			form.submit();
+		}
 </script>
 </body>
 </html>

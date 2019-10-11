@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.bu.bumoim.CommentMapper">
+    <select id="commentCount" resultType="int">
+        SELECT
+            COUNT(*)
+        FROM COMMENT
+    </select>
+    
+    <select id="commentList" resultType="com.bu.bumoim.domain.Comment">
+        SELECT
+            *
+        FROM COMMENT
+    </select>
+    
+    
+    <insert id="commentInsert" parameterType="com.bu.bumoim.domain.Comment">
+        INSERT INTO
+        COMMENT (COMMENT_NUMBER, BOARD_NUMBER ,COMMENT_ID , COMMENT_CONTENT, COMMENT_DATE)
+        VALUES(#{comment_number},#{board_number},#{comment_id},#{comment_content},now()) 
+    </insert>
+    
+    <update id="commentUpdate" parameterType="com.bu.bumoim.domain.Comment">
+        UPDATE COMMENT
+            SET
+            CONTENT = #{content}
+        WHERE COMMENT_NUMBER = #{comment_number}
+    </update>
+    
+    <delete id="commentDelete" parameterType="int">
+        DELETE FROM COMMENT WHERE COMMENT_NUMBER = #{comment_number}
+    </delete>
+
+</mapper>
