@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.bu.bumoim.dao.UserDao;
+import com.bu.bumoim.domain.Member;
 
 @Repository
 public class UserDaoLogic implements UserDao {
@@ -14,14 +15,25 @@ public class UserDaoLogic implements UserDao {
 	@Autowired
 	private SqlSession sqlSession;
 
-	public Map<String, Object> login(Map<String, Object> requestMap){
-		//
-		return sqlSession.selectOne("login.loginAction", requestMap);
-	}
-
+	@Override
 	public int login_action(Map<String, Object> requestMap) {
 		//
 		return sqlSession.selectOne("login.loginActionCount", requestMap);
 	}
-}
 
+	@Override
+	public int join(Member member) {
+		//		
+		return sqlSession.insert("login.insertMember", member);
+	}
+	
+	public Map<String, Object> login(Map<String, Object> requestMap) {
+		return sqlSession.selectOne("login.loginAction", requestMap);
+	}
+
+	@Override
+	public Member idDuplicationCheck(String member_id) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("idDuplicationCheck", member_id);
+	}
+}

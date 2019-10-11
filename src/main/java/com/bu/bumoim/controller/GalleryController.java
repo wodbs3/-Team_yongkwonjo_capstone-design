@@ -30,6 +30,8 @@ import com.bu.bumoim.service.GalleryService;
 
 @Controller
 public class GalleryController {
+	
+	private Logger logger = Logger.getLogger(getClass());
 
 	@Autowired
 	private GalleryService service;

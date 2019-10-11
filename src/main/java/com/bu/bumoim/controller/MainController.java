@@ -21,16 +21,5 @@ public class MainController {
 		//
 		return "main/main";
 	}
-	
-	@RequestMapping(value="/login")
-	public String login(HttpServletRequest request, Model model) {
-	      HttpSession session = request.getSession();
-	        Map<String, Object> loginMap = (Map<String, Object>) session.getAttribute("loginMap"); 
-	        if(loginMap != null) {
-	           model.addAttribute("loginMap", loginMap);
-	        }
-	        
-	      return "user/login";
-		
-	}
+
 }

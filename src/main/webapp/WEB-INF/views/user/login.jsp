@@ -19,18 +19,18 @@
 <%@ include file="../common/header.jsp" %>
 
 
-   <form id="loginFrm" method="post" class="form-horizontal" style="margin-top:10%">
+   <form action="login.do" id="loginFrm" method="POST" class="form-horizontal" style="margin-top:10%">
       <div class="form-group">
          <label for="id" class="col-sm-2 control-label">Id</label>
          <div class="col-md-6 col-sm-10">
-            <input type="text" class="form-control" id="member_id"
+            <input type="text" class="form-control" id="member_id" name="member_id"
                placeholder="id">
          </div>
       </div>
       <div class="form-group">
          <label for="ipw" class="col-sm-2 control-label">Password</label>
          <div class="col-md-6 col-sm-10">
-            <input type="password" class="form-control" id="member_pw"
+            <input type="password" class="form-control" id="member_pw" name="member_pw"
                placeholder="pw">
          </div>
       </div>
@@ -67,14 +67,20 @@
 <script type="text/javascript">
    
 $("button[type=submit]").on("click", function(){
+	var member_id = $("#member_id").val();
+	var member_pw = $("#member_pw").val();
       $.ajax({
          type:'post',
          url:'/login',
-         data:$("#loginFrm").serialize(),
+         data:{
+        	 member_id:member_id,
+        	 member_pw:member_pw
+         },
          async:false,
          success:function(data){
             if(data.result == 'success'){
-               $("#loginFrm").html("<p class='text-center'>"+data.MEMBER_NAME+"님 환영합니다.</p>");
+               alter(data.member_name+"님 환영합니다");
+               
                $(".logout").html("<h6 class='text-center' onclick='javascript:logout();'>•로그아웃하기</h6>")
             }else{
                alert("잘못된 아이디이거나 비밀번호 입니다.");
@@ -85,9 +91,9 @@ $("button[type=submit]").on("click", function(){
       })
    })
 $(document).ready(function(){
-   var ID = '${loginMap.MEMBER_ID}';
+   var ID = '${loginMap.member_id}';
    if(ID != null && ID != ''){
-      $("#loginFrm").html("<p class='text-center'>${loginMap.MEM_NAME}님 환영합니다.</p>");
+      $("#loginFrm").html("<p class='text-center'>${loginMap.member_name}님 환영합니다.</p>");
       $(".logout").html("<h6 class='text-center' onclick='javascript:logout();'>•로그아웃하기</h6>");
    }
    
@@ -104,5 +110,6 @@ function logout(){
 }
    
 </script>
+
 </body>
 </html>
