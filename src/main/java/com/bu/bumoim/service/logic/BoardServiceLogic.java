@@ -56,5 +56,4 @@ public class BoardServiceLogic implements BoardService {
 		
 		return result;
 	}
-
 }

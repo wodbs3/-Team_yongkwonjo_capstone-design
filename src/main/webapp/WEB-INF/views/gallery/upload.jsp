@@ -21,7 +21,7 @@
 <%@ include file="../common/header.jsp" %>
 
 <div class="col-md-offset-3 col-md-6" style="margin-top: 10%;">
-    <form action="fileUpload" id="fileupload" name="fileupload" method="post" enctype="multipart/form-data">
+    <form action="fileUpload.do" id="fileUpload" name="fileUpload" method="post" enctype="multipart/form-data">
     	
         <div>
         	<div class="row">
@@ -34,10 +34,10 @@
             <hr>
             <div style=" width : 100%;">
                 <table style = " width : 100%;">
-                    <tr>
-                        <th style = "width : 10%; font-size: 20px;"> 제목</th>
-                        <td><input style="width: 100%" type="text" id="title" name="title" /></td>
-                    </tr>
+<!--                     <tr> -->
+<!--                         <th style = "width : 10%; font-size: 20px;"> 제목</th> -->
+<!--                         <td><input style="width: 100%" type="text" id="title" name="title" /></td> -->
+<!--                     </tr> -->
                     <tr>
                         <th style = "width : 10%; font-size: 20px;">내용</th>
                         <td><textarea style="width: 100%" rows="10" cols="10" id="content" name="content"></textarea></td>

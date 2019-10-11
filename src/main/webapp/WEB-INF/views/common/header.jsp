@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 					
 
  <!-- Header================================================== -->
@@ -12,37 +13,20 @@
                     <div class="col-md-6 col-sm-6 col-xs-6">
                         <ul id="top_links">
                             <li>
-                                <div class="dropdown dropdown-access">
-                                    <a href="/login" class="dropdown-toggle" data-toggle="dropdown" id="access_link">Login</a>
-                                    <div class="dropdown-menu">
-                                        <div class="row">
-                                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <a href="#" class="bt_facebook">
-                                                    <i class="icon-facebook"></i>Facebook </a>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <a href="#" class="bt_paypal">
-                                                    <i class="icon-paypal"></i>Paypal </a>
-                                            </div>
-                                        </div>
-                                        <div class="login-or">
-                                            <hr class="hr-or">
-                                            <span class="span-or">or</span>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="inputUsernameEmail" placeholder="Email">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                                        </div>
-                                        <a id="forgot_pw" href="#">Forgot password?</a>
-                                        <input type="submit" name="Sign_in" value="Sign in" id="Sign_in" class="button_drop">
-                                        <input type="submit" name="Sign_up" value="Sign up" id="Sign_up" class="button_drop outline">
-                                    </div>
-                                </div><!-- End Dropdown access -->
+                            <c:choose>
+                            	<c:when test="${loginMap.member_id eq null }">
+                                <div class="row">
+                                    <a href="/login.do" id="access_link">Login</a> <a> | </a>
+                                </div>
+                                </c:when>
+                                <c:otherwise>
+                                <div>
+                                <b>${loginMap.member_id }</b>님 환영합니다. | <a href="/logout.do">로그아웃</a>
+                                </div>
+                                </c:otherwise>
+                                </c:choose>
                             </li>
-                            <li><a href="wishlist.html" id="wishlist_link">Wishlist</a></li>
-                            <li><a href="http://themeforest.net/item/citytours-city-tours-tour-tickets-and-guides/10715647?ref=ansonika">Purchase this template</a></li>
+                            <li><a href="/logout.do" id="wishlist_link">Logout</a></li>
                         </ul>
                     </div>
                 </div><!-- End row -->
@@ -53,7 +37,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-3 col-xs-3">
                     <div id="logo_home">
-                    	<h1><a href="index" title="City tours travel template">City Tours travel template</a></h1>
+                    	<h1><a href="index.do" title="City tours travel template">City Tours travel template</a></h1>
                     </div>
                 </div>
                 <nav class="col-md-9 col-sm-9 col-xs-9">
@@ -82,37 +66,36 @@
                     <div class="col-md-6 col-sm-6 col-xs-6">
                         <ul id="top_links">
                             <li>
-                                <div class="dropdown dropdown-access">
-                                    <a href="/login.do" class="dropdown-toggle" data-toggle="dropdown" id="access_link">Login</a>
-                                    <div class="dropdown-menu">
-                                        <div class="row">
-                                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <a href="#" class="bt_facebook">
-                                                    <i class="icon-facebook"></i>Facebook </a>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                                <a href="#" class="bt_paypal">
-                                                    <i class="icon-paypal"></i>Paypal </a>
-                                            </div>
-                                        </div>
-                                        <div class="login-or">
-                                            <hr class="hr-or">
-                                            <span class="span-or">or</span>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="inputUsernameEmail" placeholder="Email">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                                        </div>
-                                        <a id="forgot_pw" href="#">Forgot password?</a>
-                                        <input type="submit" name="Sign_in" value="Sign in" id="Sign_in" class="button_drop">
-                                        <input type="submit" name="Sign_up" value="Sign up" id="Sign_up" class="button_drop outline">
-                                    </div>
+                                <div class="row">
+                                    <a href="login.do">로그인</a>
+<!--                                     <div class="dropdown-menu"> -->
+<!--                                         <div class="row"> -->
+<!--                                             <div class="col-md-6 col-sm-6 col-xs-6"> -->
+<!--                                                 <a href="#" class="bt_facebook"> -->
+<!--                                                     <i class="icon-facebook"></i>Facebook </a> -->
+<!--                                             </div> -->
+<!--                                             <div class="col-md-6 col-sm-6 col-xs-6"> -->
+<!--                                                 <a href="#" class="bt_paypal"> -->
+<!--                                                     <i class="icon-paypal"></i>Paypal </a> -->
+<!--                                             </div> -->
+<!--                                         </div> -->
+<!--                                         <div class="login-or"> -->
+<!--                                             <hr class="hr-or"> -->
+<!--                                             <span class="span-or">or</span> -->
+<!--                                         </div> -->
+<!--                                         <div class="form-group"> -->
+<!--                                             <input type="text" class="form-control" id="inputUsernameEmail" placeholder="Email"> -->
+<!--                                         </div> -->
+<!--                                         <div class="form-group"> -->
+<!--                                             <input type="password" class="form-control" id="inputPassword" placeholder="Password"> -->
+<!--                                         </div> -->
+<!--                                         <a id="forgot_pw" href="#">Forgot password?</a> -->
+<!--                                         <input type="submit" name="Sign_in" value="Sign in" id="Sign_in" class="button_drop"> -->
+<!--                                         <input type="submit" name="Sign_up" value="Sign up" id="Sign_up" class="button_drop outline"> -->
+<!--                                     </div> -->
                                 </div><!-- End Dropdown access -->
                             </li>
                             <li><a href="wishlist.html" id="wishlist_link">Wishlist</a></li>
-                            <li><a href="http://themeforest.net/item/citytours-city-tours-tour-tickets-and-guides/10715647?ref=ansonika">Purchase this template</a></li>
                         </ul>
                     </div>
                 </div><!-- End row -->
