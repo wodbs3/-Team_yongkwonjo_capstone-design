@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,13 +46,35 @@ public class UserController {
 		
 		return "user/joinSuccess";
 	}
+//	@RequestMapping(value="/login.do", method=RequestMethod.GET)	
+//	public String loginview(Model model) {
+//		return "user/login";
+//	}
+//	@RequestMapping(value="/login.do", method=RequestMethod.POST)	
+//	public String login(Member member, Model model) {
+//		logger.info(member.toString());
+//		
+//		int loginResult = userService.login(member);
+//		if (loginResult == 1) {
+//			logger.info("Login Success");
+//		} else { 
+//			logger.info("Fail!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//		}
+//		return "\"redirect:/index.do";
+//	}
+	@RequestMapping(value="/login.do")
+	public String login() {
+		
+		return "/user/login";
+	}
 	
-	@RequestMapping(value = "/login" , method = RequestMethod.POST)
+	
+	@RequestMapping(value = "/login.do" , method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> login(HttpServletRequest request, Model model) {
 		Map<String, Object> requestMap = new HashMap<String, Object>();
-		requestMap.put("MEMBER_ID", request.getParameter("member_id"));
-		requestMap.put("MEMBER_PW", request.getParameter("member_pw"));
+		requestMap.put("member_id", request.getParameter("member_id"));
+		requestMap.put("member_pw", request.getParameter("member_pw"));
 		int result = userService.login_action(requestMap);
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		if(result == 1) {
@@ -66,4 +89,12 @@ public class UserController {
 		return resultMap;
 		
 	}
+	@RequestMapping(value = "logout.do", method= {RequestMethod.POST,RequestMethod.GET})
+	   public String logout(HttpSession session, Member member) {
+	      
+		   session.invalidate();
+		 
+	      return "redirect:/index.do";
+	   }
+	
 }

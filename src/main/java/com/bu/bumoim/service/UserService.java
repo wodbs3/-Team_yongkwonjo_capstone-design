@@ -10,4 +10,5 @@ public interface UserService {
 	public int login_action(Map<String, Object> requestMap);
 
 	public int join(Member member);
+//	public int login(Member member);
 }

@@ -15,12 +15,12 @@ public class UserDaoLogic implements UserDao {
 	@Autowired
 	private SqlSession sqlSession;
 
-	@Override
-	public Map<String, Object> login(Map<String, Object> requestMap){
-		//
-		return sqlSession.selectOne("login.loginAction", requestMap);
-	}
-
+//	@Override
+//	public Map<String, Object> login(Map<String, Object> requestMap){
+//		//
+//		return sqlSession.selectOne("login.loginAction", requestMap);
+//	}
+//
 	@Override
 	public int login_action(Map<String, Object> requestMap) {
 		//
@@ -32,4 +32,13 @@ public class UserDaoLogic implements UserDao {
 		//		
 		return sqlSession.insert("login.insertMember", member);
 	}
+	
+	public Map<String, Object> login(Map<String, Object> requestMap) {
+		return sqlSession.selectOne("login.loginAction", requestMap);
+	}
+//	@Override
+//	public int login(Member member) {
+//		
+//		return sqlSession.selectOne("login.loginAction", requestMap);
+//	}
 }

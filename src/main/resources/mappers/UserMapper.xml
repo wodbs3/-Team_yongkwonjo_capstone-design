@@ -5,31 +5,31 @@
   
      <select id="loginAction" resultType="hashmap" parameterType="hashmap">
          SELECT
-             'member_id',
-             'member_pw',
-             'member_number',
-             'member_name',
-             'member_major',
-             'member_interest',
-             'member_gender',
-             'member_birth',
-             'member_mail',
-             'member_group1',
-             'member_group2',
-             'member_group3',
-         FROM
-             member
-          WHERE  'member_id' = #{member_id}
-          AND 'member_pw' = #{member_pw}
+         	member_id,
+            member_pw,
+            member_number,
+            member_name,
+            member_major,
+            member_interest,
+            member_gender,
+            member_birth,
+            member_mail,
+            member_group1,
+            member_group2,
+            member_group3
+           FROM
+           	member
+          WHERE member_id = #{member_id}
+          	AND member_pw = #{member_pw}
    </select>
-
-   <select id="loginActionCount" resultType="int" parameterType="hashmap">
-         SELECT
-             COUNT(*)
-         FROM
-             member
-          WHERE  'member_id' = #{member_id}
-          AND 'member_pw' = #{member_pw}
+   
+   	<select id="loginActionCount" resultType="int" parameterType="hashmap">
+	      SELECT
+			    COUNT(*)
+			FROM
+			    member
+			 WHERE  member_id = #{member_id}
+			 AND member_pw=#{member_pw}
    </select>
 
 	<insert id="insertMember" >

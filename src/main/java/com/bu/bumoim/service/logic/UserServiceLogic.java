@@ -15,12 +15,12 @@ public class UserServiceLogic implements UserService{
 	@Autowired
 	private UserDao userDao;
 	
-	@Override
-	public Map<String, Object> login(Map<String,Object> requestMap) {
-		//
-		return userDao.login(requestMap);
-	}
-	
+//	@Override
+//	public Map<String, Object> login(Map<String,Object> requestMap) {
+//		//
+//		return userDao.login(requestMap);
+//	}
+//	
 	@Override
 	public int login_action(Map<String, Object> requestMap) {
 		//
@@ -31,5 +31,13 @@ public class UserServiceLogic implements UserService{
 	public int join(Member member) {
 		//
 		return userDao.join(member);
+	}
+	
+//	@Override
+//	public int login(Member member) {
+//		return userDao.login(member);
+//	}
+	public Map<String, Object> login(Map<String, Object> requestMap) {
+		return userDao.login(requestMap);
 	}
 }
