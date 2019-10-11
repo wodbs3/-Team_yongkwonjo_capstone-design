@@ -32,4 +32,10 @@ public class UserDaoLogic implements UserDao {
 		//		
 		return sqlSession.insert("login.insertMember", member);
 	}
+
+	@Override
+	public Member idDuplicationCheck(String member_id) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("idDuplicationCheck", member_id);
+	}
 }

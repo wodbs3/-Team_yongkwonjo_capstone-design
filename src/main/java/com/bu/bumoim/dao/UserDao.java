@@ -10,4 +10,6 @@ public interface UserDao {
 	public int login_action(Map<String, Object> requestMap);
 	
 	public int join(Member member);
+	
+	public Member idDuplicationCheck(String member_id);
 }

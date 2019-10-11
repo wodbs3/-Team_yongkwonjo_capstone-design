@@ -9,7 +9,7 @@
 <body>
 	<script type="text/javascript">
 		alert("회원가입 되었습니다. 로그인을 해주세요.");
-		location.href="main.do";
+		location.href="login.do";
 	</script>
 	
 </body>

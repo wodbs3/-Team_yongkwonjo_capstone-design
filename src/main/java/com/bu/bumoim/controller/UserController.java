@@ -23,12 +23,28 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
-	//
 	
 	@RequestMapping(value="/joinView.do", method=RequestMethod.GET)
 	public String joinView(Model model) {
 		//
 		return "user/join";
+	}
+	
+	// ID중복체크
+	@ResponseBody
+	@RequestMapping(value="/idDuplicationCheck.do", method=RequestMethod.POST)
+	public int idDuplicationCheck(HttpServletRequest request, Model model) {
+		//
+		String member_id = request.getParameter("member_id");
+		Member member = userService.idDuplicationCheck(member_id);
+		
+		if(member != null) {
+			logger.info("아이디 중복 사용불가");
+			return 0;
+		} else {
+			logger.info("아이디 사용가능");
+			return 1;
+		}
 	}
 	
 	@RequestMapping(value="/join.do", method=RequestMethod.POST)
@@ -64,6 +80,5 @@ public class UserController {
 		}
 		
 		return resultMap;
-		
 	}
 }
