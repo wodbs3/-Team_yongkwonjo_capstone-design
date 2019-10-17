@@ -25,8 +25,8 @@
 <body>
 <%@ include file="../common/header.jsp" %>
 
-<div class="col-md-offset-3 col-md-6" style="margin-top: 10%;">
-    <form id="Detail" name="Detail" method="post">
+<div class="container" style="margin-bottom: 200px;width: 60%; margin-left:20%; margin-top: 10%;">
+    <form id="detail" name="detail" method="POST">
         <div>
             <h2>상세보기</h2>
             <div style=" width : 100%;">
@@ -36,8 +36,6 @@
                     <tr>
                     	<th style = "width : 10%; font-size: 18px;" scope="row">글 번호</th> 
                     	<td>${Board.board_number }</td> 
-                    	<th style = "width : 10%; font-size: 18px;" scope="row">조회수</th> 
-                    	<td>${detail.HIT_CNT }</td>
                     </tr>
                     <tr>
                     	<th style = "width : 10%; font-size: 18px;" scope="row">작성자</th> 
@@ -58,20 +56,21 @@
                     
                 </table>
                 <div style = "text-align: right;">
-                	    <a href='#' onClick='fn_update()' class="btn btn-success">수정</a>
-                	    <a href='#' onClick='fn_cancel()' class="btn btn-success">목록</a>
-<!--                     	<a href='boardList.do' onClick='fn_cancel()' class="btn btn-success">목록</a> -->
-                    	<a href='#' onClick ='' class = "btn btn-danger">삭제</a>
+                		<a href="${pageContext.request.contextPath}/boardUpdate.do?board_number=${Board.board_number}" class="btn btn-success" style="padding:10px">수정</a>
+                        <a href="${pageContext.request.contextPath}/boardDelete.do?board_number=${Board.board_number}" class="btn btn-danger" style="padding:10px">삭제</a>
+                	    <a href="/boardList.do" onClick='fn_cancel()' class="btn btn-success" style="padding:10px">목록</a>
                 </div>
             </div>
         </div>
     </form>
     </div>
-    <div class="col-md-offset-3 col-md-6" style="margin-top: 0%;">
+	
+	
+    <div class="container" style="margin-bottom: 200px;width: 60%; margin-left:20%; margin-top: 10%;">
         <label for="content">comment</label>
         <form name="commentInsertForm">
             <div class="input-group">
-               <input type="hidden" name="board_number" value="${detail.board_number}"/>
+               <input type="hidden" name="board_number" value="${Board.board_number}"/>
                <input type="text" class="form-control" id="content" name="content" placeholder="내용을 입력하세요.">
                <span class="input-group-btn">
                     <button class="btn btn-default" type="button" name="commentInsertBtn">등록</button>
@@ -83,8 +82,6 @@
     <div class="container">
         <div class="commentList"></div>
     </div>
-
-    <%@ include file="../common/Comment.jsp" %>
 
 
     <!-- Common scripts -->
@@ -106,42 +103,128 @@
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 <script> 
-		$(document).ready(function(){ 
-			$("#list").on("click", function(e)
-					{ //목록
-				e.preventDefault(); fn_boardList(); }); 
-			
-			$("#update").on("click", function(e){ 
-				e.preventDefault(); fn_boardUpdate(); }); 
-		}); 
-		
-		function fn_openBoardList(){ 
-			var comSubmit = new ComSubmit(); 
-			comSubmit.setUrl("<c:url value='/boardList.do' />"); 
-			comSubmit.submit(); 
-		} 
-		
-		function fn_openBoardUpdate(){ 
-			var idx = "${map.IDX}"; var comSubmit = new ComSubmit(); 
-			comSubmit.setUrl("<c:url value='/boardUpdate' />"); 
-			comSubmit.addParam("IDX", idx); 
-			comSubmit.submit(); }
-		
-		function fn_cancel(){
+// 		var board_number = '${Board.board_number}';
+
+// 		$('[name=commentInsertBtn]').click(function(){ //댓글 등록 버튼 클릭시 
+// 		    var insertData = $('[name=commentInsertForm]').serialize(); //commentInsertForm의 내용을 가져옴
+// 		    commentInsert(insertData); //Insert 함수호출(아래)
+// 		});
+		 
+		 
+		 
+// 		//댓글 목록 
+// 		function commentList(){
+// 		    $.ajax({
+// 		        url : '/comment/list',
+// 		        type : 'get',
+// 		        data : {'board_number':board_number},
+// 		        success : function(data){
+// 		            var a =''; 
+// 		            $.each(data, function(key, value){ 
+// 		                a += '<div class="commentArea" style="border-bottom:1px solid darkgray; margin-bottom: 15px;">';
+// 		                a += '<div class="commentInfo'+value.comment_number+'">'+'댓글번호 : '+value.comment_number+'; / 작성자 : '+value.comment_writer;
+// 		                a += '<a onclick="commentUpdate('+value.comment_number+',\''+value.comment_content+'\');"> 수정 </a>';
+// 		                a += '<a onclick="commentDelete('+value.comment_number+');"> 삭제 </a> </div>';
+// 		                a += '<div class="commentContent'+value.comment_number+'"> <p> 내용 : '+value.comment_content +'</p>';
+// 		                a += '</div></div>';
+// 		            });
+		            
+// 		            $(".commentList").html(a);
+// 		        }
+// 		    });
+// 		}
+		 
+// 		//댓글 등록
+// 		function commentInsert(insertData){
+// 		    $.ajax({
+// 		        url : '/comment/insert',
+// 		        type : 'post',
+// 		        data : insertData,
+// 		        success : function(data){
+// 		            if(data == 1) {
+// 		                commentList(); //댓글 작성 후 댓글 목록 reload
+// 		                $('[name=content]').val('');
+// 		            }
+// 		        }
+// 		    });
+// 		}
+		 
+// 		//댓글 수정 - 댓글 내용 출력을 input 폼으로 변경 
+// 		function commentUpdate(comment_number, comment_content){
+// 		    var a ='';
 		    
-		    var form = document.getElementById("Detail");
+// 		    a += '<div class="input-group">';
+// 		    a += '<input type="text" class="form-control" name="content_'+comment_number+'" value="'+comment_content+'"/>';
+// 		    a += '<span class="input-group-btn"><button class="btn btn-default" type="button" onclick="commentUpdateProc('+comment_number+');">수정</button> </span>';
+// 		    a += '</div>';
 		    
-		    form.action = "<c:url value='/boardList.do'/>";
-		    form.submit();
+// 		    $('.commentContent'+comment_number).html(a);
 		    
+// 		}
+		 
+// 		//댓글 수정
+// 		function commentUpdateProc(comment_number){
+// 		    var updateContent = $('[name=comment_content_'+comment_number+']').val();
+		    
+// 		    $.ajax({
+// 		        url : '/comment/update',
+// 		        type : 'post',
+// 		        data : {'comment_content' : updateContent, 'comment_number' : comment_number},
+// 		        success : function(data){
+// 		            if(data == 1) commentList(board_number); //댓글 수정후 목록 출력 
+// 		        }
+// 		    });
+// 		}
+		 
+// 		//댓글 삭제 
+// 		function commentDelete(comment_number){
+// 		    $.ajax({
+// 		        url : '/comment/delete/'+comment_number,
+// 		        type : 'post',
+// 		        success : function(data){
+// 		            if(data == 1) commentList(board_number); //댓글 삭제후 목록 출력 
+// 		        }
+// 		    });
+// 		}
+		 
+		 
+		 
+		 
+// 		$(document).ready(function(){
+// 		    commentList(); //페이지 로딩시 댓글 목록 출력 
+// 		});		
+	$(document).ready(function(){
+		$("#btnDelete").click(function(){
+			if(confirm("삭제하시겠습니까?")) {
+				document.form1.action = "${path}/boardDelete.do";
+				document.form1.submit();
+			}
+		});
+		
+		$("#btnUpdate").click(function() {
+			var title = $("#title").val();
+			var content = $("#content")val();
+			var writer = $("#writer").val();
+			if(title == ""){
+				alert("제목을 입력하세요");
+				document.form1.title.focus();
+				return;
 		}
-		
-		function fn_update() {
-			var form = document.getElementById("Detail");
-			
-			form.action = "<c:url value='/boardUpdate.do'/>";
-			form.submit();
+		if(content == ""){
+			alert("내용을 입력하세요");
+			document.form1.content.focus();
+			return;
 		}
+		if(writer == ""){
+			alert("이름을 입력하세요");
+			document.form1.content.focus();
+			return;
+		}
+		document.form1.action="${path}/boardUpdate.do"
+		document.form1.submit();
+		
+		});
+	});	
 </script>
 </body>
 </html>

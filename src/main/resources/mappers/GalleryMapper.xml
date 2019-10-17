@@ -28,7 +28,7 @@
 	
 	</insert>
 	
-	<select id="getGalleryList" resultMap="GalleryList">
+	<select id="getGalleryList" >
 		SELECT 
 			photo_number as num,
 			photo_content as content, 
@@ -40,7 +40,7 @@
 		
 	</select>
 	
-	<select id="findGallery"  parameterType="int" resultMap="GalleryList">
+	<select id="findGallery"  parameterType="int" >
 		SELECT
 			photo_number,
 			photo_content, 

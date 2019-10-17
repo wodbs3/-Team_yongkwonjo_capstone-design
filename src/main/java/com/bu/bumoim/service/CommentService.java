@@ -15,10 +15,11 @@ public class CommentService {
 //    @Resource(name="com.bu.bumoim.mapper.CommentMapper")
     CommentMapper mCommentMapper;
     
-    public List<Comment> commentListService() throws Exception{
+    public List<Comment> commentListService(int board_number) throws Exception{
         
         return mCommentMapper.commentList();
     }
+    
     
     public int commentInsertService(Comment comment) throws Exception{
         
