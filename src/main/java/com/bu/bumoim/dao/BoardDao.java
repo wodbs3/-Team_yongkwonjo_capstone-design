@@ -5,7 +5,7 @@ import java.util.List;
 import com.bu.bumoim.domain.Board;
 
  
-public interface BoardDao {
+public interface BoardDAO {
  
     /**
      * 게시물 리스트 조회

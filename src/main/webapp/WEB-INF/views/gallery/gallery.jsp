@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
 <!DOCTYPE html>
-<html lang="utf-8">
-
+<html lang="UTF-8">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,32 +15,51 @@
 	<title>CITY TOURS - City tours and travel site template by Ansonika</title>
 
 	<!-- Favicons-->
-	<link rel="shortcut icon" href="img/favicon.ico" type="resources/image/x-icon">
-	<link rel="apple-touch-icon" type="image/x-icon" href="resources/img/apple-touch-icon-57x57-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="resources/img/apple-touch-icon-72x72-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="resources/img/apple-touch-icon-114x114-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="resources/img/apple-touch-icon-144x144-precomposed.png">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
 	
 	<!-- Google web fonts -->
     <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Lato:300,400|Montserrat:400,400i,700,700i" rel="stylesheet">
 
 	<!-- CSS -->
-	<link href="resources/css/base.css" rel="stylesheet">
+	<link href="css/base.css" rel="stylesheet">
+
+	<!-- Radio and check inputs -->
+	<link href="css/skins/square/grey.css" rel="stylesheet">
+
+	<!-- Range slider -->
+	<link href="css/ion.rangeSlider.css" rel="stylesheet">
+	<link href="css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
 
 	<!--[if lt IE 9]>
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
 
-</head>
+<script type="text/javascript" charset="UTF-8" src="http://maps.googleapis.com/maps-api-v3/api/js/38/7/intl/ko_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="http://maps.googleapis.com/maps-api-v3/api/js/38/7/intl/ko_ALL/util.js"></script>
 
-<body>
+<style type="text/css">
+	img {
+		  display: block;
+		  max-width:400px;
+		  max-height:400px;
+		  width: auto;
+		  height: auto;
+		}
+	
+</style>
+</head>
+  
+<body class="" style="overflow: visible;"><div class="parallax-mirror" style="visibility: visible; z-index: 1; position: fixed; top: 0px; left: 0px; overflow: hidden; transform: translate3d(0px, 0px, 0px); height: 470px; width: 1519px;"><img class="parallax-slider" src="img/header_bg.jpg" style="transform: translate3d(0px, 0px, 0px); position: absolute; top: -19px; left: 0px; height: 509px; width: 1519px; max-width: none;"></div>
 
 	<!--[if lte IE 8]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
 <![endif]-->
 
-	<div id="preloader">
+	<div id="preloader" style="display: none;">
 		<div class="sk-spinner sk-spinner-wave">
 			<div class="sk-rect1"></div>
 			<div class="sk-rect2"></div>
@@ -53,11 +73,9 @@
 	<div class="layer"></div>
 	<!-- Mobile menu overlay mask -->
 
-	<!-- Header================================================== -->
 <%@ include file="../common/header.jsp" %>
-
-
-	<section class="parallax-window" data-parallax="scroll" data-image-src="resources/img/header_bg.jpg" data-natural-width="1400" data-natural-height="470">
+	
+	<section class="parallax-window" data-parallax="scroll" data-image-src="img/header_bg.jpg" data-natural-width="1400" data-natural-height="470">
 		<div class="parallax-content-1">
 			<div class="animated fadeInDown">
 				<h1>Gallery page</h1>
@@ -67,15 +85,15 @@
 	</section>
 	<!-- End Section -->
 
-	<main>
+	<main style="margin-bottom: 354px;">
 		<div id="position">
 			<div class="container">
 				<ul>
-					<li><a href="#">Home</a>
+					<li><a href="index">Home</a>
 					</li>
-					<li><a href="#">Category</a>
-					</li>
-					<li>Page active</li>
+					
+					
+					<li><a href="gallery.do">사진첩</a></li>
 				</ul>
 			</div>
 		</div>
@@ -83,53 +101,75 @@
 
 		<div class="container margin_60">
 			<div class="main_title">
-				<h2>Some <span>images</span> from travellers</h2>
-				<p>
-					Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.
-				</p>
+<%-- 				<h2><span>${smallgroup.name}</span></h2> --%>
+					<h2><span>용권조 갤러리</span></h2>
 			</div>
-			
-			<a href="upload.do" class="btn_1">사진 업로드</a>
 			<hr>
-			
-				<div class="col-md-3 col-sm-3">
-				
+			<div class="text-right">
+			<a href="upload.do" class="btn_1">사진 업로드</a>
+			</div>
+			<div class="hotel_container">
+			<c:forEach items="${galleryList}" var="galleryList">
+				<div class="col-md-4 col-sm-4">
 						<div class="img_container">
-					 	   <c:forEach items="${galleryList}" var="galleryList">
-					 	   <a href="${pageContext.request.contextPath }/galleryDetail.do?num=${galleryList.num}">
-							<img src="${pageContext.request.contextPath }/resources/upload/${galleryList.fileName}" alt="Image">
+							 <a href="${pageContext.request.contextPath }/galleryDetail.do?num=${galleryList.num}">
+							 <img width="auto" height="auto" src="${pageContext.request.contextPath }/resources/upload/${galleryList.fileName}" alt="Image">
 								
 							</a>
-					</c:forEach>  
-<%-- 					<a href="${pageContext.request.contextPath }" title="Photo title"><img src="resources/img/notredame.jpg" alt="Image" class="img-responsive"> --%>
+							
 						</div>
-					</div>
-				
+<!-- 						<div class="hotel_title"> -->
+<%-- 						<h3><strong>${galleryList.title}</strong></h3> --%>
+<!-- 						</div> -->
+						
+				</div>
+				 
+			</c:forEach>	
 			</div>
 			<!-- End row -->
 			
+
+		</div>
+		<!-- End container -->
 	</main>
 	<!-- End main -->
 
-	<%@ include file="../common/footer.jsp" %>
-	<div id="toTop"></div><!-- Back to top button -->
+	
+	<div id="toTop" style="display: none;"></div><!-- Back to top button -->
 	
 	<!-- Search Menu -->
 	<div class="search-overlay-menu">
 		<span class="search-overlay-close"><i class="icon_set_1_icon-77"></i></span>
 		<form role="search" id="searchform" method="get">
-			<input value="" name="q" type="search" placeholder="Search..." />
+			<input value="" name="q" type="search" placeholder="Search...">
 			<button type="submit"><i class="icon_set_1_icon-78"></i>
 			</button>
 		</form>
 	</div><!-- End Search Menu -->
-
+<%@ include file="../common/footer.jsp" %>
+   
 	<!-- Common scripts -->
-	<script src="resources/js/jquery-2.2.4.min.js"></script>
-	<script src="resources/js/common_scripts_min.js"></script>
-	<script src="resources/js/functions.js"></script>
+	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="js/common_scripts_min.js"></script>
+	<script src="js/functions.js"></script>
+
+
 
 </body>
 
 
+
+   
+ 
 </html>
+   
+
+
+
+
+
+
+
+
+            
+            
