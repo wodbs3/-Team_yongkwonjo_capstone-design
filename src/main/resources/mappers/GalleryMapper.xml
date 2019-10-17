@@ -4,12 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Gallery">	
-<!-- 	<resultMap type="Gallery" id="GalleryList"> -->
-<!-- 		<result property="num" column="photo_number"/> -->
-<!-- 		<result property="content" column="photo_content"/> -->
-<!-- 		<result property="fileName" column="photo_name"/> -->
-<!-- 		<result property="regDate" column="photo_date"/>	 -->
-<!-- 	</resultMap> -->
+	<resultMap type="Gallery" id="GalleryList">
+		<result property="num" column="photo_number"/>
+		<result property="content" column="photo_content"/>
+		<result property="fileName" column="photo_name"/>
+		<result property="regDate" column="photo_date"/>	
+	</resultMap>
 	
 	<insert id="insertGallery"  parameterType="Gallery">
 
