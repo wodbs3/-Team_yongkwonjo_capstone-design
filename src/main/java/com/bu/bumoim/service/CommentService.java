@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bu.bumoim.domain.Comment;
@@ -13,7 +14,8 @@ import com.bu.bumoim.mapper.CommentMapper;
 public class CommentService {
  
 //    @Resource(name="com.bu.bumoim.mapper.CommentMapper")
-    CommentMapper mCommentMapper;
+	@Autowired
+    private CommentMapper mCommentMapper;
     
     public List<Comment> commentListService(int board_number) throws Exception{
         

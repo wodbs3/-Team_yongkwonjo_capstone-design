@@ -21,13 +21,14 @@
 <%@ include file="../common/header.jsp" %>
 <div class="container margin_60">
 <div class="col-md-offset-3 col-md-6" style="margin-top: 10%;">
-    <form action="fileUpload.do" id="fileUpload" name="fileUpload" method="post" enctype="multipart/form-data">
+    <form action="updateGallery.do?num=${gallery.num}" id="fileUpload" name="fileUpload" method="post" enctype="multipart/form-data">
     	
         <div>
         	<div class="row">
     			<div class="col-md-8"></div>
+    			
     			<div class="col-md-4">
-    				<input type="file" name="uploadFile" class="btn_1"/>
+    			  	<input type="file" name="uploadFile" class="btn_1"/>
      			</div>
     		</div>
             <h2>사진 등록</h2>
@@ -40,13 +41,15 @@
 <!--                     </tr> -->
                     <tr>
                         <th style = "width : 10%; font-size: 20px;">내용</th>
-                        <td><textarea style="width: 100%" rows="10" cols="10" id="content" name="content"></textarea></td>
+                        <td><textarea style="width: 100%" rows="10" cols="10" id="content" name="content">
+                        	${gallery.content}
+                        </textarea></td>
                     </tr>
                  
                 </table>
                 <div style = "text-align: right;">
-                	<input type="submit" class="btn btn-success" value="등록">
-                    <a href="gallery.do" class="btn btn-success">목록</a>
+                	<input type="submit" class="btn btn-success" value="수정">
+                    <a href="galleryDetail.do" class="btn btn-success">취소</a>
                 </div>
             </div>
         </div>

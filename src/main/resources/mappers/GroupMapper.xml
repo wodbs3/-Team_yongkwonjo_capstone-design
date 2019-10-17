@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group">
+    
+    	<select id="selectGroupList" resultType="Map">
+    		SELECT
+    			grouplist_number,
+    			grouplist_name,
+    			grouplist_introduce,
+    			grouplist_interest,
+    			grouplist_people,
+    			grouplist_date
+    		FROM
+    			bumoim.grouplist
+    	</select>
+    	
+    	<insert id="insertGroup">
+    	INSERT INTO bumoim.grouplist (
+    		grouplist_name,
+    		grouplist_introduce,
+    		grouplist_interest,
+    		grouplist_people,
+    		grouplist_date
+    		)
+    	VALUES (
+    		#{grouplist_name},
+    		#{grouplist_introduce},
+    		#{grouplist_interest},
+    		#{grouplist_people},
+    		CURDATE()
+    	)
+    	
+    	
+    	</insert>
+    	
+    <select id="groupDuplicationCheck" resultType="com.bu.bumoim.domain.GroupList" >
+		select grouplist_name
+		from bumoim.grouplist
+		where grouplist_name = #{grouplist_name}
+	</select>
+    
+</mapper>

@@ -27,6 +27,7 @@ public class UserServiceLogic implements UserService{
 		return userDao.join(member);
 	}
 	
+	@Override
 	public Map<String, Object> login(Map<String, Object> requestMap) {
 		return userDao.login(requestMap);
 	}

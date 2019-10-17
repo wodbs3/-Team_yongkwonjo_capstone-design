@@ -11,10 +11,10 @@ public interface GalleryService {
 	
 	public void updateGallery(Gallery gallery);
 	
-	public void deleteGallery(Gallery gallery);
+	public void deleteGallery(int num);
 	
-	public Gallery getGallery(Gallery gallery);
+	public Gallery getGallery(int num);
 	
-	public List<Gallery> getGalleryList();
+	public List<Gallery> getGalleryList(Gallery gallery);
 	
 }

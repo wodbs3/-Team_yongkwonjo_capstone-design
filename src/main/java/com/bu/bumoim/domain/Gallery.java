@@ -20,7 +20,10 @@ public class Gallery {
 	public Gallery() {
 		
 	}
-
+	
+	public Gallery(int num) {
+		this.num = num;
+	}
 		
 	
 	public Gallery(String fileName, String content, Date regDate) {

@@ -1,6 +1,7 @@
 package com.bu.bumoim.dao.logic;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -19,17 +20,15 @@ public class GalleryDaoLogic implements GalleryDao {
 	Logger logger = Logger.getLogger(getClass());
 	
 	@Override
-	public List<Gallery> getGalleryList() {
+	public List<Gallery> getGalleryList(Gallery gallery) {
 
 		SqlSession session = sqlSessionFactory.openSession();
 
 		try {
 			
-			List<Gallery> gallery =  session.selectList("Gallery.getGalleryList");
-			logger.info("-------------------------");
-			logger.info("List: " + gallery);
-			logger.info("List: " + gallery.getClass());
-			return gallery;
+			return session.selectList("Gallery.getGalleryList",gallery);
+			
+			
 		}
 
 		finally {
@@ -43,8 +42,13 @@ public class GalleryDaoLogic implements GalleryDao {
 
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			return session.selectOne("Gallery.findGallery", num);
-		} finally {
+			
+			Gallery gallery =  session.selectOne("Gallery.findGallery", num);
+			logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> name: " + gallery.getFileName());
+
+			return gallery;
+		} 
+		finally {
 			session.close();
 		}
 	}
@@ -67,7 +71,9 @@ public class GalleryDaoLogic implements GalleryDao {
 		SqlSession session = sqlSessionFactory.openSession();
 		
 		try {
+			
 			session.delete("Gallery.deleteGallery",num);
+			
 		} 
 		finally {
 			session.close();

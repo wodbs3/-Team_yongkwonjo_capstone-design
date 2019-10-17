@@ -4,12 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Gallery">	
-<!-- 	<resultMap type="Gallery" id="GalleryList"> -->
-<!-- 		<result property="num" column="photo_number"/> -->
-<!-- 		<result property="content" column="photo_content"/> -->
-<!-- 		<result property="fileName" column="photo_name"/> -->
-<!-- 		<result property="regDate" column="photo_date"/>	 -->
-<!-- 	</resultMap> -->
+	<resultMap type="Gallery" id="GalleryList">
+		<result property="num" column="photo_number"/>
+		<result property="content" column="photo_content"/>
+		<result property="fileName" column="photo_name"/>
+		<result property="regDate" column="photo_date"/>	
+	</resultMap>
 	
 	<insert id="insertGallery"  parameterType="Gallery">
 
@@ -28,7 +28,7 @@
 	
 	</insert>
 	
-	<select id="getGalleryList" >
+	<select id="getGalleryList" resultType="Map">
 		SELECT 
 			photo_number as num,
 			photo_content as content, 
@@ -38,25 +38,28 @@
 		FROM bumoim.groupphoto
 		ORDER BY photo_number DESC
 		
+		
 	</select>
 	
-	<select id="findGallery"  parameterType="int" >
+	<select id="findGallery" resultType="Gallery">
 		SELECT
-			photo_number,
-			photo_content, 
-			photo_id, 
-			photo_date, 
-			photo_name
+			photo_number as num,
+			photo_content as content, 
+<!-- 			photo_id,  -->
+			photo_date as regDate, 
+			photo_name as fileName
 		FROM bumoim.groupphoto
 		WHERE photo_number = #{num}
 	</select>
 	
 	<update id="updateGallery" parameterType="Gallery">
-		UPDATE bumoim.groupphoto set
-			photo_content = #{content},
+		UPDATE bumoim.groupphoto
+		<set>
+			<if test='content != null and content != ""'>photo_content = #{content},</if>
 <!-- 			title = #{title}, -->
-			photo_date = #{regDate},
-			photo_name = #{fileName}
+			photo_date = CURDATE(),
+			<if test='fileName != null and fileName != ""'>photo_name = #{fileName}</if>
+		</set>	
 		WHERE photo_number = #{num}
 	</update>
 	

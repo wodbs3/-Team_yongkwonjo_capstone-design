@@ -29,7 +29,7 @@ public class GalleryServiceLogic implements GalleryService {
 	@Override
 	public void insertGallery(Gallery gallery) {
 		galleryDao.insertGallery(gallery);
-//		upload(gallery);
+
 	}
 
 	@Override
@@ -39,18 +39,21 @@ public class GalleryServiceLogic implements GalleryService {
 	}
 
 	@Override
-	public void deleteGallery(Gallery gallery) {
-		galleryDao.deleteGallery(gallery.getNum());
+	public void deleteGallery(int num) {
+		 galleryDao.deleteGallery(num);
+		 
+		
 	}
 
 	@Override
-	public Gallery getGallery(Gallery gallery) {
-		return galleryDao.findGallery(gallery.getNum());
+	public Gallery getGallery(int num) {
+		
+		return galleryDao.findGallery(num);
 	}
 
 	@Override
-	public List<Gallery> getGalleryList() {
-		return galleryDao.getGalleryList();
+	public List<Gallery> getGalleryList(Gallery gallery) {
+		return galleryDao.getGalleryList(gallery);
 	}
 
 	
