@@ -21,7 +21,7 @@
 <%@ include file="../common/header.jsp" %>
 <div class="container margin_60">
 <div class="col-md-offset-3 col-md-6" style="margin-top: 10%;">
-    <form action="updateGallery.do" id="fileUpload" name="fileUpload" method="post" enctype="multipart/form-data">
+    <form action="updateGallery.do?num=${gallery.num}" id="fileUpload" name="fileUpload" method="post" enctype="multipart/form-data">
     	
         <div>
         	<div class="row">

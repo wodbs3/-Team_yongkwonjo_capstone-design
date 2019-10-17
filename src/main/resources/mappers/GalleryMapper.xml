@@ -53,11 +53,13 @@
 	</select>
 	
 	<update id="updateGallery" parameterType="Gallery">
-		UPDATE bumoim.groupphoto set
-			photo_content = #{content},
+		UPDATE bumoim.groupphoto
+		<set>
+			<if test='content != null and content != ""'>photo_content = #{content},</if>
 <!-- 			title = #{title}, -->
-			photo_date = #{regDate},
-			photo_name = #{fileName}
+			photo_date = CURDATE(),
+			<if test='fileName != null and fileName != ""'>photo_name = #{fileName}</if>
+		</set>	
 		WHERE photo_number = #{num}
 	</update>
 	
