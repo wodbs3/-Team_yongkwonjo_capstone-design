@@ -29,7 +29,7 @@ public class UserServiceLogic implements UserService{
 	
 	public Map<String, Object> login(Map<String, Object> requestMap) {
 		return userDao.login(requestMap);
-
+	}
 	@Override
 	public Member idDuplicationCheck(String member_id) {
 		return userDao.idDuplicationCheck(member_id);

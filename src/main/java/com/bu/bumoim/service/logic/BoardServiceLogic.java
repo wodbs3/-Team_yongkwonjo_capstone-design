@@ -2,12 +2,11 @@ package com.bu.bumoim.service.logic;
 
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bu.bumoim.dao.BoardDao;
+import com.bu.bumoim.dao.*;
 import com.bu.bumoim.domain.Board;
 import com.bu.bumoim.service.BoardService;
 
@@ -15,7 +14,7 @@ import com.bu.bumoim.service.BoardService;
 public class BoardServiceLogic implements BoardService {
 
 	@Autowired
-	private BoardDao boarddao;
+	private BoardDAO boarddao;
 	
 	@Override
 	public List<Board> selectBoardList(Board board) {

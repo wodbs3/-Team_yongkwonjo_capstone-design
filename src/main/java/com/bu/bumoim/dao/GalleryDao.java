@@ -5,7 +5,7 @@ import java.util.List;
 import com.bu.bumoim.domain.Gallery;
 
 public interface GalleryDao {
-	public List<Gallery> getGalleryList();
+	public List<Gallery> getGalleryList(Gallery gallery);
 	
 	public Gallery findGallery(int num);
 	

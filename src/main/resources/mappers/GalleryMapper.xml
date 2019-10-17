@@ -28,7 +28,7 @@
 	
 	</insert>
 	
-	<select id="getGalleryList" resultMap="GalleryList">
+	<select id="getGalleryList" resultType="Map">
 		SELECT 
 			photo_number as num,
 			photo_content as content, 
@@ -38,15 +38,16 @@
 		FROM bumoim.groupphoto
 		ORDER BY photo_number DESC
 		
+		
 	</select>
 	
-	<select id="findGallery"  parameterType="int" resultMap="GalleryList">
+	<select id="findGallery" resultType="Gallery">
 		SELECT
-			photo_number,
-			photo_content, 
-			photo_id, 
-			photo_date, 
-			photo_name
+			photo_number as num,
+			photo_content as content, 
+<!-- 			photo_id,  -->
+			photo_date as regDate, 
+			photo_name as fileName
 		FROM bumoim.groupphoto
 		WHERE photo_number = #{num}
 	</select>
