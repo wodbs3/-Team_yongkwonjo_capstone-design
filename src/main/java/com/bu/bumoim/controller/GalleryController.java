@@ -79,9 +79,9 @@ public class GalleryController {
 	}
 
 	@RequestMapping(value = "/updateGallery.do")
-	public String updateGallery(HttpServletRequest req, Gallery gallery) {
+	public String updateGallery(HttpServletRequest req, Gallery gallery,int num) {
+		num = gallery.getNum();
 		gallery = fileUpload(req,gallery);
-		int num = gallery.getNum(); 
 		service.updateGallery(gallery);
 		return "redirect:galleryDetail.do?num=" + num;
 	}
@@ -99,14 +99,18 @@ public class GalleryController {
 		Gallery gallery = service.getGallery(num);
 		String fileName = gallery.getFileName();
 		
+		if(fileName != null && fileName != "") {
 		File file = new File(uploadPath,fileName);
 		file.delete();
+		}
+		
 		service.deleteGallery(num);
 		return "redirect:gallery.do";
 	}
 
 	@RequestMapping(value = "/fileUpload.do", method = RequestMethod.POST)
 	public String insertGallery(HttpServletRequest req, Gallery gallery) {
+		gallery.getContent().trim();
 		gallery = fileUpload(req,gallery);
 		service.insertGallery(gallery);
 		return "redirect:gallery.do";

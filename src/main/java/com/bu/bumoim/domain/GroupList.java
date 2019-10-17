@@ -1,50 +1,53 @@
 package com.bu.bumoim.domain;
 
+import java.sql.Date;
+
 public class GroupList {
 	//
-	private int number;
-	private String name;
-	private String introduce;
-	private String interest;
-	private int people;
+	private int grouplist_number;
+	private String grouplist_name;
+	private String grouplist_introduce;
+	private String grouplist_interest;
+	private int grouplist_people;
+	private Date grouplist_date;
 	
-	public int getNumber() {
-		return number;
+	public int getGrouplist_number() {
+		return grouplist_number;
 	}
+	public void setGrouplist_number(int grouplist_number) {
+		this.grouplist_number = grouplist_number;
+	}
+	public String getGrouplist_name() {
+		return grouplist_name;
+	}
+	public void setGrouplist_name(String grouplist_name) {
+		this.grouplist_name = grouplist_name;
+	}
+	public String getGrouplist_introduce() {
+		return grouplist_introduce;
+	}
+	public void setGrouplist_introduce(String grouplist_introduce) {
+		this.grouplist_introduce = grouplist_introduce;
+	}
+	public String getGrouplist_interest() {
+		return grouplist_interest;
+	}
+	public void setGrouplist_interest(String grouplist_interest) {
+		this.grouplist_interest = grouplist_interest;
+	}
+	public int getGrouplist_people() {
+		return grouplist_people;
+	}
+	public void setGrouplist_people(int grouplist_people) {
+		this.grouplist_people = grouplist_people;
+	}
+	public Date getGrouplist_date() {
+		return grouplist_date;
+	}
+	public void setGrouplist_date(Date grouplist_date) {
+		this.grouplist_date = grouplist_date;
+	}
+
 	
-	public void setNumber(int number) {
-		this.number = number;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getIntroduce() {
-		return introduce;
-	}
-	
-	public void setIntroduce(String introduce) {
-		this.introduce = introduce;
-	}
-	
-	public String getInterest() {
-		return interest;
-	}
-	
-	public void setInterest(String interest) {
-		this.interest = interest;
-	}
-	
-	public int getPeople() {
-		return people;
-	}
-	
-	public void setPeople(int people) {
-		this.people = people;
-	}
+
 }
