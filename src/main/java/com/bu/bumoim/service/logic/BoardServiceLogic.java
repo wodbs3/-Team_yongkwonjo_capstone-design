@@ -24,10 +24,10 @@ public class BoardServiceLogic implements BoardService {
 		return boarddao.selectBoardList(board);
 	}
 	
-	@Override
-	public List<Board> detail(int board_number) {
-		return boarddao.detail(board_number);
-	}
+ 	@Override 
+ 	public Board detail(int board_number) throws Exception {
+ 		return boarddao.detail(board_number);
+ 	}
  	
 	
 	@Override
@@ -36,23 +36,16 @@ public class BoardServiceLogic implements BoardService {
 	}
 
 	@Override
-	public void updateBorad(Board board) throws Exception {
-		boarddao.updateBoard(board);
+	public int updateBoard(Board board, int board_number) throws Exception {
+		return boarddao.updateBoard(board, board_number);
 
 	}
 
 	@Override
-	public void deleteBoard(Board board) throws Exception {
-		boarddao.deleteBoard(board);
+	public int deleteBoard(int board_number) throws Exception {
+		return boarddao.deleteBoard(board_number);
 		
 	}
 
 
-	@Override
-	public Board selectBoardByCode(Board board) throws Exception {
-		
-		Board result = boarddao.selectBoardByCode(board);
-		
-		return result;
-	}
 }

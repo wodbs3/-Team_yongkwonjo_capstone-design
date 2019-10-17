@@ -306,6 +306,7 @@
 							</p>
 						</div>
 						<div class="content_list">
+						<a href="/boardList.do" onClick='' class="btn btn-success">게시판</a>
 <%-- 							<c:forEach items="${resultList}" var="result" varStatus="status" end="6"> --%>
 <!-- 								내용 -->
 <%-- 								<form id="detailfrm_${result.IDX}" action="/board/detail" method="get"> --%>

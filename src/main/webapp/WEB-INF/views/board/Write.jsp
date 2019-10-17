@@ -23,8 +23,8 @@
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
-
-<div class="col-md-offset-3 col-md-6" style="margin-top: 10%;">
+<!-- class="col-md-offset-3 col-md-6" -->
+<div class="container" style="margin-bottom: 200px;width: 60%; margin-left:20%; margin-top: 10%;">
     <form action="/boardWrite.do" name="writeForm" method="POST">
         <div>
             <h2>글쓰기</h2>
@@ -49,15 +49,12 @@
                 </table>
                 <div style = "text-align: right;">
                 	<Button type="submit" class="btn btn-success">글 등록</Button>
-<!--                 	<a href='#' onClick='fn_addtoBoard()' class="btn btn-success">글 등록</a> -->
-                    <a href='#' onClick='fn_cancel()' class="btn btn-success">목록</a>
-<!--                    <a href='boardList.do' onClick='fn_cancel()' class="btn btn-success">목록</a> -->
+                    <a href="/boardList.do" onClick='fn_cancel()' class="btn btn-success">목록</a>
                 </div>
             </div>
         </div>
     </form>
     </div>
-<%@ include file="../common/footer.jsp" %>
 
 
     <!-- Common scripts -->
@@ -80,17 +77,9 @@
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 <script>
 
- 
-//목록
-function fn_cancel(){
-    
-    var form = document.getElementById("Write");
-    
-    form.action = "<c:url value='/boardList.do'/>";
-    form.submit();
-    
-}
+
 </script>
 
 </body>
 </html>
+<%@ include file="../common/footer.jsp" %>

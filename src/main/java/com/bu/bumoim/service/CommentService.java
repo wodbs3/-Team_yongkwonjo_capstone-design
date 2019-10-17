@@ -17,10 +17,11 @@ public class CommentService {
 	@Autowired
     private CommentMapper mCommentMapper;
     
-    public List<Comment> commentListService() throws Exception{
+    public List<Comment> commentListService(int board_number) throws Exception{
         
         return mCommentMapper.commentList();
     }
+    
     
     public int commentInsertService(Comment comment) throws Exception{
         

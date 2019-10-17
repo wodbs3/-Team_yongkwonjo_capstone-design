@@ -40,8 +40,8 @@
                 <c:forEach var="Board" items="${Board}" varStatus="status">
                     <tr>
                         <td><c:out value="${Board.board_number }"/></td>
-                        <input type="hidden" name="board_num" value="${Board.board_number}">
-                        <td><a href="boardDetail.do?board_num=${Board.board_number}">
+<%--                         <input type="hidden" name="board_num" value="${Board.board_number}"> --%>
+                        <td><a href="boardDetail.do?board_number=${Board.board_number }">
                         <c:out value="${Board.board_title }"/></a></td>
                         <td><c:out value="${Board.board_content }"/></td>
                         <td><c:out value="${Board.board_writer }"/></td>
