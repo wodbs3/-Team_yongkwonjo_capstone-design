@@ -18,29 +18,36 @@
 <body>
 <%@ include file="../common/header.jsp" %>
 
-
-   <form action="login.do" id="loginFrm" method="POST" class="form-horizontal" style="margin-top:10%">
-      <div class="form-group">
-         <label for="id" class="col-sm-2 control-label">Id</label>
-         <div class="col-md-6 col-sm-10">
-            <input type="text" class="form-control" id="member_id" name="member_id"
-               placeholder="id">
-         </div>
-      </div>
-      <div class="form-group">
-         <label for="ipw" class="col-sm-2 control-label">Password</label>
-         <div class="col-md-6 col-sm-10">
-            <input type="password" class="form-control" id="member_pw" name="member_pw"
-               placeholder="pw">
-         </div>
-      </div>
-      <div class="form-group">
-         <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Login</button>
-         </div>
-      </div>
-   </form>
-
+	<div class="row margin_30">
+	<form action="login.do" id="loginFrm" method="POST" class="form-horizontal" style="margin-top:10%">
+      
+	<div class="col-md-offset-4 col-md-6">
+	   <label for="id" class="col-sm-2 control-label">Id</label>
+	   <div class="col-md-6 col-sm-10">
+	      <input type="text" class="form-control" id="member_id" name="member_id"
+	         placeholder="id">
+	   </div>
+	</div>
+	<br><br><br>
+	
+	<div class="col-md-offset-4 col-md-6">
+	   <label for="ipw" class="col-sm-2 control-label">Password</label>
+	   <div class="col-md-6 col-sm-10">
+	      <input type="password" class="form-control" id="member_pw" name="member_pw"
+	         placeholder="pw">
+	   </div>
+	</div>
+	<br><br><br>
+	
+	<div class="col-md-offset-4 col-md-6">
+	   <label for="" class="col-sm-2 control-label"></label>
+	   <div class="col-md-6 col-sm-10">
+	      <button type="submit" class="col-md-12 btn btn-default">Login</button>
+	   </div>
+	</div>
+	
+	</form>
+	</div>
    <%@ include file="../common/footer.jsp" %>
    
    

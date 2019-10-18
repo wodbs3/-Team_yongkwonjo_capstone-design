@@ -6,8 +6,8 @@ public class Comment {
 	//
 	private int comment_number;
 	private int board_number;
-	private String comment_id;
 	private String comment_content;
+	private String comment_writer;
 	private Date comment_date;
 	
 	public int getcomment_number() {
@@ -25,14 +25,6 @@ public class Comment {
 	public void setboard_number(int board_number) {
 		this.board_number = board_number;
 	}
-
-	public String getcomment_id() {
-		return comment_id;
-	}
-	
-	public void setcomment_id(String comment_id) {
-		this.comment_id = comment_id;
-	}
 	
 	public String getcomment_content() {
 		return comment_content;
@@ -40,6 +32,14 @@ public class Comment {
 	
 	public void setcomment_content(String comment_content) {
 		this.comment_content = comment_content;
+	}
+	
+	public String getcomment_writer() {
+		return comment_writer;
+	}
+	
+	public void setcomment_writer(String comment_writer) {
+		this.comment_writer = comment_writer;
 	}
 	
 	public Date getcomment_date() {
