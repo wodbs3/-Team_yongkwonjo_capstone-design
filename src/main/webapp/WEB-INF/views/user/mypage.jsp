@@ -18,6 +18,9 @@
 <body>
 <%@ include file="../common/header.jsp" %>
 
+<div class="row margin_30">
+
+</div>
 
 
 

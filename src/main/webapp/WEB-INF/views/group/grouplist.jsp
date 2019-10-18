@@ -20,14 +20,31 @@
     <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
 	<link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.css">
+    
+    
+    <style>
+      .thead-dark {
+    th {
+      color: $table-dark-color;
+      background-color: $table-dark-bg;
+      border-color: $table-dark-border-color;
+    }
+  }
+    
+    
+    </style>
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
 
 <div class="container" style="margin-bottom: 333px;width: 60%; margin-left:20%; margin-top: 10%;">
     <form id="groupForm" name="groupForm" method="post">
-        <table class="table table-striped table-hover">
-            <thead>
+        <table class="table">
+            <thead class="thead-dark" style="
+    background: #474747;
+    color: white;
+">
                 <tr>
                     <th>번호</th>
                     <th>그룹이름</th>
@@ -40,7 +57,7 @@
             <tbody>
                 <c:forEach var="GroupList" items="${GroupList}" varStatus="status">
                     <tr>
-                        <td><c:out value="${GroupList.grouplist_number }"/></td>
+                        <th scope="row"><c:out value="${GroupList.grouplist_number }"/></th>
                         <td><c:out value="${GroupList.grouplist_name }"/></td>
                         <td><c:out value="${GroupList.grouplist_introduce }"/></td>
                         <td><c:out value="${GroupList.grouplist_interest }"/></td>
@@ -50,10 +67,18 @@
                 </c:forEach>
             </tbody>
         </table>
-        
+        <c:choose>
+       <c:when test="${loginMap.member_id eq null }">
         <div style = "text-align: right;">           
-            <a href='#' onclick="javascript:goCreate();" class="btn btn-success">글쓰기</a>
+            <a href='#' onclick="javascript:goLogin();" class="btn btn-success">로그인 해주세요</a>
         </div>
+        </c:when>
+        <c:otherwise>
+        <div style = "text-align: right;">           
+            <a href='#' onclick="javascript:goCreate();" class="btn btn-success">그룹생성</a>
+        </div>
+        </c:otherwise>
+        </c:choose>
     </form>
 </div>
 
@@ -86,6 +111,10 @@
 function goCreate() {
    location.href="/GroupCreate.do";
 }
+
+function goLogin() {
+	   location.href="/login.do";
+	}
 
 $(document).on('click', '#btnSearch', function(e){
    e.preventDefault();

@@ -40,7 +40,7 @@
                     </tr>
                     <tr>
                         <th style = "width : 10%; font-size: 20px;">작성자</th>
-                        <td><input style="width: 100%" type="text" id="board_writer" name="board_writer" /></td>
+                        <td><input style="width: 100%" type="text" id="board_writer" name="board_writer" value="${loginMap.member_id }" readonly/></td>
                     </tr>
                     <tr>
                         <th style = "width : 10%; font-size: 20px;">업로드</th>

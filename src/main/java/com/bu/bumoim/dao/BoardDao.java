@@ -3,11 +3,12 @@ package com.bu.bumoim.dao;
 import java.util.List;
 
 import com.bu.bumoim.domain.Board;
+import com.bu.bumoim.paging.Criteria;
 
  
 public interface BoardDao {
 
-    List<Board> selectBoardList(Board board);
+    List<Board> selectBoardList(Criteria cri);
     
 //    List<Board> detail(int board_number);
     
@@ -19,5 +20,6 @@ public interface BoardDao {
 
     public int updateBoard(Board board) throws Exception;
  
+    public int selectgetCount(int board_nunber);
 
 }

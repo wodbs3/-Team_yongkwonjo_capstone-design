@@ -14,6 +14,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
        		board_date
         FROM
         	bumoim.groupboard
+        ORDER BY board_number DESC
+        LIMIT #{pageStart}, #{perPageNum}
     </select>
     
     <insert id="insertBoard"  >
@@ -57,5 +59,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     	WHERE board_number = #{board_number}
     </delete>
+    
+       <select id="selectgetCount" resultType="int">
+      select count(*)
+      from bumoim.groupboard
+      where board_number=#{board_number}
+      <if test="searchType != null">
+         <if test="searchType == 'board_title'.toString()">
+            AND TITLE like CONCAT('%', #{keyword}, '%')
+         </if>
+         <if test="searchType == 'board_content'.toString()">
+            and CONTENT like CONCAT('%', #{keyword}, '%')
+         </if>
+         <if test="searchType == 'board_writer'.toString()">
+            and MEM_NAME like CONCAT('%', #{keyword}, '%')
+         </if>
+      </if>
+   </select>
 
 </mapper>

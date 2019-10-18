@@ -1,20 +1,23 @@
 package com.bu.bumoim.controller;
 
 import java.util.List;
-import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bu.bumoim.domain.Board;
+import com.bu.bumoim.paging.Criteria;
+import com.bu.bumoim.paging.PageMaker;
 import com.bu.bumoim.service.BoardService;
 
 
@@ -26,11 +29,37 @@ public class BoardController {
 	private BoardService boardservice;
 	
 	@RequestMapping(value="/boardList.do")
-	public ModelAndView list(Board board) {
+	public ModelAndView list(Board board, @ModelAttribute("cri") Criteria cri, HttpServletRequest request) {
 		
-		List<Board> list = boardservice.selectBoardList(board);
+		List<Board> list = boardservice.selectBoardList(cri);
 		ModelAndView mav = new ModelAndView("board/List");
+//		int resultCount = boardservice.selectgetCount(board.getboard_number());
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(100);
+		
+		
 		mav.addObject("Board", list);
+		mav.addObject("pageMaker", pageMaker);
+		
+		
+		
+		
+		
+//		
+//		logger.info("전체 카운터 번호 : " + resultCount);
+//		
+//		PageMaker pageMaker = new PageMaker();
+//		pageMaker.setCri(cri);
+//		pageMaker.setTotalCount(resultCount);
+//		
+//		int pagestart = cri.getPageStart();
+//		
+//		logger.info("시작번호: " + pagestart);
+//		
+//		int perPageNum = cri.getPerPageNum();
+		
 		
 		return mav;
 	}
@@ -72,25 +101,6 @@ public class BoardController {
 			return "board/Update";
 	}
 	
-//	@RequestMapping(value ="/boardModify.do", method= RequestMethod.POST)
-//	public String Modify(ModelAndView modelAndView, int board_number, @RequestParam(value="board_title") String board_title, @RequestParam(value="board_content") String board_content) throws Exception {
-//		
-//		Board board = boardservice.detail(board_number);
-//		
-//		//System.out.println(title);
-//		System.out.println("**********************************");
-//		board.setboard_title(board_title);
-//		System.out.println(board_title);
-//		board.setboard_content(board_content);
-//		System.out.println(board_content);
-//		logger.info(board);
-//		System.out.println("***********************");
-//		
-//		boardservice.updateBoard(board, board_number);
-//		modelAndView.addObject("Board", boardservice.updateBoard(board, board_number));
-//		
-//		return "redirect:/boardDetail.do?board_number="+board_number;
-//	}
 	@RequestMapping(value ="/boardModify.do", method= RequestMethod.POST)
 	public String Modify(Board board) throws Exception {
 		

@@ -6,8 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bu.bumoim.dao.*;
+import com.bu.bumoim.dao.BoardDao;
 import com.bu.bumoim.domain.Board;
+import com.bu.bumoim.paging.Criteria;
 import com.bu.bumoim.service.BoardService;
 
 @Service
@@ -17,11 +18,11 @@ public class BoardServiceLogic implements BoardService {
 	private BoardDao boarddao;
 	
 	@Override
-	public List<Board> selectBoardList(Board board) {
+	public List<Board> selectBoardList(Criteria cri) {
 //		List<Board> list = null;
 //		list = boarddao.selectBoardList(board);
 //		return list;
-		return boarddao.selectBoardList(board);
+		return boarddao.selectBoardList(cri);
 	}
 	
  	@Override 
@@ -45,6 +46,11 @@ public class BoardServiceLogic implements BoardService {
 	public int deleteBoard(int board_number) throws Exception {
 		return boarddao.deleteBoard(board_number);
 		
+	}
+	
+	@Override
+	public int selectgetCount(int board_number) {
+		return boarddao.selectgetCount(board_number);
 	}
 
 

@@ -19,7 +19,7 @@
 <%@ include file="../common/header.jsp" %>
 
 	<div class="row margin_30">
-	<form action="login.do" id="loginFrm" method="POST" class="form-horizontal" style="margin-top:10%">
+	<form action="/login.do" id="loginFrm" method="POST" class="form-horizontal" style="margin-top:10%">
       
 	<div class="col-md-offset-4 col-md-6">
 	   <label for="id" class="col-sm-2 control-label">Id</label>
@@ -43,6 +43,13 @@
 	   <label for="" class="col-sm-2 control-label"></label>
 	   <div class="col-md-6 col-sm-10">
 	      <button type="submit" class="col-md-12 btn btn-default">Login</button>
+	   </div>
+	</div>
+	
+	<div class="col-md-offset-4 col-md-6">
+	   <label for="" class="col-sm-2 control-label"></label>
+	   <div class="col-md-6 col-sm-10">
+	      <button type="button" onclick="javascript:goJoinView();" class="col-md-12 btn btn-default">Join</button>
 	   </div>
 	</div>
 	
@@ -86,9 +93,8 @@ $("button[type=submit]").on("click", function(){
          async:false,
          success:function(data){
             if(data.result == 'success'){
-               alter(data.member_name+"님 환영합니다");
+               window.location.href = '/index.do';
                
-               $(".logout").html("<h6 class='text-center' onclick='javascript:logout();'>•로그아웃하기</h6>")
             }else{
                alert("잘못된 아이디이거나 비밀번호 입니다.");
                return false;
@@ -116,6 +122,9 @@ function logout(){
    
 }
    
+function goJoinView() {
+	   location.href="/joinView.do";
+	}
 </script>
 
 </body>
