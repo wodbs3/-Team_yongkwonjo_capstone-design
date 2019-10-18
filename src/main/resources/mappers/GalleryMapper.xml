@@ -4,25 +4,30 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Gallery">	
-<!-- 	<resultMap type="Gallery" id="GalleryList"> -->
-<!-- 		<result property="num" column="photo_number"/> -->
-<!-- 		<result property="content" column="photo_content"/> -->
-<!-- 		<result property="fileName" column="photo_name"/> -->
-<!-- 		<result property="regDate" column="photo_date"/>	 -->
-<!-- 	</resultMap> -->
+	<resultMap type="Member" id="Member">
+		<result column="member_id" property="member_id"/>
+	</resultMap>
+	<resultMap type="Gallery" id="Gallery">
+		<result property="num" column="photo_number"/>
+		<result property="content" column="photo_content"/>
+		<result property="fileName" column="photo_name"/>
+		<result property="regDate" column="photo_date"/>
+		<collection property="Member" resultMap="Member"/>	
+	</resultMap>
 	
-	<insert id="insertGallery"  parameterType="Gallery">
+	
+	<insert id="insertGallery">
 
 		INSERT INTO bumoim.groupphoto (
 				photo_content, 
 				photo_name,
-<!-- 				photo_id, -->
+				photo_id,
 				photo_date
 				)
 		VALUES (
 			#{content}, 
 			#{fileName},
-<!-- 			#{writer}, -->
+			#{writer},
 			CURDATE()
 				)
 	
@@ -32,7 +37,7 @@
 		SELECT 
 			photo_number as num,
 			photo_content as content, 
-<!-- 			photo_id,  -->
+			photo_id, 
 			photo_date as regDate, 
 			photo_name as fileName
 		FROM bumoim.groupphoto
@@ -45,7 +50,7 @@
 		SELECT
 			photo_number as num,
 			photo_content as content, 
-<!-- 			photo_id,  -->
+			photo_id as writer, 
 			photo_date as regDate, 
 			photo_name as fileName
 		FROM bumoim.groupphoto
@@ -56,7 +61,6 @@
 		UPDATE bumoim.groupphoto
 		<set>
 			<if test='content != null and content != ""'>photo_content = #{content},</if>
-<!-- 			title = #{title}, -->
 			photo_date = CURDATE(),
 			<if test='fileName != null and fileName != ""'>photo_name = #{fileName}</if>
 		</set>	
@@ -66,4 +70,5 @@
 	<delete id="deleteGallery" parameterType="Gallery">
 		DELETE FROM bumoim.groupphoto WHERE photo_number = #{num}
 	</delete>
+	
 </mapper>

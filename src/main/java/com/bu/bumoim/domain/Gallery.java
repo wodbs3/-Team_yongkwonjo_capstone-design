@@ -21,15 +21,20 @@ public class Gallery {
 		
 	}
 	
-	public Gallery(int num) {
-		this.num = num;
-	}
-		
-	
-	public Gallery(String fileName, String content, Date regDate) {
+	public Gallery(String fileName, String content, Date regDate, String writer) {
 		this.fileName = fileName;
 		this.content = content;
 		this.regDate = regDate;
+		this.writer = writer;
+	}
+		
+	
+	public Gallery(String fileName, String content, Date regDate, String writer, int num) {
+		this.fileName = fileName;
+		this.content = content;
+		this.regDate = regDate;
+		this.writer = writer;
+		this.num = num;
 	}
 	public MultipartFile[] getFiles() {
 		return files;
@@ -79,13 +84,7 @@ public class Gallery {
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
-//	public String getTitle() {
-//		return title;
-//	}
-//
-//	public void setTitle(String title) {
-//		this.title = title;
-//	}
+
 
 
 }

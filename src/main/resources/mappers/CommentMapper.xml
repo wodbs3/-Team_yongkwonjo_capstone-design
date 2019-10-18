@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    <mapper namespace="com.bu.bumoim.CommentMapper">
+    <mapper namespace="Comment">
     <select id="commentCount" resultType="int">
         SELECT
             COUNT(*)
@@ -18,10 +18,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
     <insert id="commentInsert" parameterType="com.bu.bumoim.domain.Comment">
         INSERT INTO
-        COMMENT (COMMENT_NUMBER, BOARD_NUMBER ,COMMENT_ID , COMMENT_CONTENT, COMMENT_DATE)
-        VALUES(#{comment_number},#{board_number},#{comment_id},#{comment_content},now()) 
+        COMMENT (COMMENT_NUMBER, photo_number ,comment_writer , COMMENT_CONTENT, COMMENT_DATE)
+        VALUES(#{comment_number},#{photo_number},#{comment_id},#{comment_content},CURDATE()) 
     </insert>
-    
+
+	 
     <update id="commentUpdate" parameterType="com.bu.bumoim.domain.Comment">
         UPDATE COMMENT
             SET
@@ -33,4 +34,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         DELETE FROM COMMENT WHERE COMMENT_NUMBER = #{comment_number}
     </delete>
 
+
+<!-- Gallery -->
+
+	<insert id="galCommentInsert" parameterType="Comment">
+        INSERT INTO
+        comment (comment_number, photo_number ,comment_writer , comment_content, comment_date)
+        VALUES (#{comment_number}, #{photo_number}, #{comment_id}, #{comment_content}, CURDATE()) 
+    </insert>    
+
+	<select id="galCommentList" parameterType="int" resultType="Comment">
+        SELECT
+            comment_number, photo_number, comment_writer as comment_id, comment_content, comment_date
+        FROM comment 
+        WHERE photo_number = #{photo_number}
+    </select>
+    
+    <delete id="galCommentDelete" parameterType="int">
+        DELETE FROM comment WHERE photo_number = #{photo_number}
+    </delete>
 </mapper>

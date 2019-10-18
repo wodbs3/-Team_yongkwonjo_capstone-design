@@ -30,7 +30,10 @@
     				<input type="file" name="uploadFile" class="btn_1"/>
      			</div>
     		</div>
-            <h2>사진 등록</h2>
+            <h2>사진 등록</h2><hr>
+         	
+			<h4>작성자:</h4>
+         	<input type="text" id="writer" name="writer" value="${loginMap.member_id }" readonly/>
             <hr>
             <div style=" width : 100%;">
                 <table style = " width : 100%;">
@@ -38,6 +41,7 @@
 <!--                         <th style = "width : 10%; font-size: 20px;"> 제목</th> -->
 <!--                         <td><input style="width: 100%" type="text" id="title" name="title" /></td> -->
 <!--                     </tr> -->
+					
                     <tr>
                         <th style = "width : 10%; font-size: 20px;">내용</th>
                         <td><textarea style="width: 100%" rows="10" cols="10" id="content" name="content"></textarea></td>

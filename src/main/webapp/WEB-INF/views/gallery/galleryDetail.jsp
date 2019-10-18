@@ -92,9 +92,11 @@
 					<div class="box_style_1">
 						<div class="post nopadding">
 						<div class="text-right">
-			<a href="gallery.do" class="btn_1">목록</a>			
+			<a href="gallery.do" class="btn_1">목록</a>	
+			<c:if test="${loginMap.member_id != null && loginMap.member_id == gallery.writer}">		
 			<a href="updateForm.do?num=${gallery.num }" class="btn_1">수정</a>
 			<a href="deleteGallery.do?num=${gallery.num }" class="btn_1">삭제</a>
+			</c:if>
 			</div>
 							<img src="${pageContext.request.contextPath }/resources/upload/${gallery.fileName}" alt="Image" class="img-responsive">
 							<div class="post_info clearfix">
@@ -104,43 +106,61 @@
 										</li>
 									</ul>
 								</div>
-								<div class="post-right"><i class="icon-comment"></i><a href="#">25 </a>Comments</div>
+								<div class="post-right"><p>작성자: ${gallery.writer }</p></div>
+								
 							</div>
-<%-- 							<h2>${gallery.title }</h2> --%>
-							<p>
-								${gallery.content }
-							</p>
+							<div class=box_style_2>
 							
+								<h4>${gallery.content }</h4>
+							
+							</div>
 						</div>
 						<!-- end post -->
 					</div>
 					<!-- end box_style_1 -->
 
 					<h4>댓글</h4>
-
+					<div class="post-right">
+							<div id="general_rating">11 Reviews
+							</div>
+							</div><br>
+						
 					<div id="comments">
+					
 						<ol>
 							<li>
-
+							
+							<hr>		
+							
+							<!-- End review strip -->
+						<c:forEach items="${commentList }" var="commentList">
+							<div class="review_strip_single last">
+								<img src="${pageContext.request.contextPath }/resources/img/avatar1.jpg" alt="Image" class="img-circle">
+								<small> - ${commentList.comment_date } -</small>
+								<h4>아이디: <span>${commentList.comment_id }</span></h4>
+								<hr>
+								<p>
+									${commentList.comment_content }
+									
+								</p>
+							
+							</div>
+						</c:forEach>
 							</li>
 						</ol>
 					</div>
 					<!-- End Comments -->
-
-					<h4>Leave a comment</h4>
-					<form action="#" method="post">
+					<br>
+					<h4>댓글 달기</h4>
+					<form action="commentInsert.do?num=${gallery.num }" method="post">
 						<div class="form-group">
-							<input class="form-control style_2" type="text" name="name" placeholder="Enter name">
+							<h4>작성자:</h4>
+         					<input type="text" id="comment_id" name="comment_id" value="${loginMap.member_id }" readonly/>
+							<textarea id="comment_content" name="comment_content" class="form-control style_2" style="height:150px;" placeholder="Message"></textarea>
 						</div>
 						<div class="form-group">
-							<input class="form-control style_2" type="text" name="mail" placeholder="Enter email">
-						</div>
-						<div class="form-group">
-							<textarea name="message" class="form-control style_2" style="height:150px;" placeholder="Message"></textarea>
-						</div>
-						<div class="form-group">
-							<input type="reset" class="btn_1" value="Clear form">
-							<input type="submit" class="btn_1" value="Post Comment">
+							<input type="reset" class="btn_1" value="Clear">
+							<input type="submit" class="btn_1" value="댓글 달기">
 						</div>
 					</form>
 				</div>

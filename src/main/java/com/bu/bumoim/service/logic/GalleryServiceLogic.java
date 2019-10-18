@@ -56,5 +56,6 @@ public class GalleryServiceLogic implements GalleryService {
 		return galleryDao.getGalleryList(gallery);
 	}
 
+
 	
 }

@@ -1,4 +1,4 @@
-et:setackage com.bu.bumoim.service.logic;
+package com.bu.bumoim.service.logic;
 
 import java.util.Map;
 

@@ -14,7 +14,7 @@ import com.bu.bumoim.service.BoardService;
 public class BoardServiceLogic implements BoardService {
 
 	@Autowired
-	private BoardDAO boarddao;
+	private BoardDao boarddao;
 	
 	@Override
 	public List<Board> selectBoardList(Board board) {

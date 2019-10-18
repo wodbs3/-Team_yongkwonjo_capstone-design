@@ -2,6 +2,7 @@ package com.bu.bumoim.service;
 
 import java.util.List;
 
+import com.bu.bumoim.domain.Comment;
 import com.bu.bumoim.domain.Gallery;
 
 
@@ -16,5 +17,6 @@ public interface GalleryService {
 	public Gallery getGallery(int num);
 	
 	public List<Gallery> getGalleryList(Gallery gallery);
+
 	
 }

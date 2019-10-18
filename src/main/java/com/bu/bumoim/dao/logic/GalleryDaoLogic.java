@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.bu.bumoim.dao.GalleryDao;
+import com.bu.bumoim.domain.Comment;
 import com.bu.bumoim.domain.Gallery;
 
 @Repository
@@ -18,17 +19,16 @@ public class GalleryDaoLogic implements GalleryDao {
 	@Autowired
 	private SqlSessionFactory sqlSessionFactory;
 	Logger logger = Logger.getLogger(getClass());
-	
+
 	@Override
 	public List<Gallery> getGalleryList(Gallery gallery) {
 
 		SqlSession session = sqlSessionFactory.openSession();
 
 		try {
-			
-			return session.selectList("Gallery.getGalleryList",gallery);
-			
-			
+
+			return session.selectList("Gallery.getGalleryList", gallery);
+
 		}
 
 		finally {
@@ -42,20 +42,19 @@ public class GalleryDaoLogic implements GalleryDao {
 
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			
-			Gallery gallery =  session.selectOne("Gallery.findGallery", num);
+
+			Gallery gallery = session.selectOne("Gallery.findGallery", num);
 			logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> name: " + gallery.getFileName());
 
 			return gallery;
-		} 
-		finally {
+		} finally {
 			session.close();
 		}
 	}
 
 	@Override
 	public void insertGallery(Gallery gallery) {
-		
+
 		SqlSession session = sqlSessionFactory.openSession();
 
 		try {
@@ -69,13 +68,12 @@ public class GalleryDaoLogic implements GalleryDao {
 	@Override
 	public void deleteGallery(int num) {
 		SqlSession session = sqlSessionFactory.openSession();
-		
+
 		try {
-			
-			session.delete("Gallery.deleteGallery",num);
-			
-		} 
-		finally {
+
+			session.delete("Gallery.deleteGallery", num);
+
+		} finally {
 			session.close();
 		}
 	}
@@ -83,14 +81,12 @@ public class GalleryDaoLogic implements GalleryDao {
 	@Override
 	public void updateGallery(Gallery gallery) {
 		SqlSession session = sqlSessionFactory.openSession();
-		
+
 		try {
 			session.update("Gallery.updateGallery", gallery);
 		} finally {
 			session.close();
 		}
 	}
-
-
 
 }
