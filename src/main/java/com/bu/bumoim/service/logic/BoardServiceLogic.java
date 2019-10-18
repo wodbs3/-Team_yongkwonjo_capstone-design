@@ -36,8 +36,8 @@ public class BoardServiceLogic implements BoardService {
 	}
 
 	@Override
-	public int updateBoard(Board board, int board_number) throws Exception {
-		return boarddao.updateBoard(board, board_number);
+	public int updateBoard(Board board) throws Exception {
+		return boarddao.updateBoard(board);
 
 	}
 

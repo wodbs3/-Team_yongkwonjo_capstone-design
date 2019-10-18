@@ -35,7 +35,7 @@ public class BoardDaoLogic implements BoardDao{
 	}
 
 	@Override
-	public int updateBoard(Board board, int board_number) {
-		return sqlSession.update("board.updateBoard", board_number);
+	public int updateBoard(Board board) {
+		return sqlSession.update("board.updateBoard", board);
 	}
 }

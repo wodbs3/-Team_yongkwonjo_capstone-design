@@ -72,24 +72,32 @@ public class BoardController {
 			return "board/Update";
 	}
 	
+//	@RequestMapping(value ="/boardModify.do", method= RequestMethod.POST)
+//	public String Modify(ModelAndView modelAndView, int board_number, @RequestParam(value="board_title") String board_title, @RequestParam(value="board_content") String board_content) throws Exception {
+//		
+//		Board board = boardservice.detail(board_number);
+//		
+//		//System.out.println(title);
+//		System.out.println("**********************************");
+//		board.setboard_title(board_title);
+//		System.out.println(board_title);
+//		board.setboard_content(board_content);
+//		System.out.println(board_content);
+//		logger.info(board);
+//		System.out.println("***********************");
+//		
+//		boardservice.updateBoard(board, board_number);
+//		modelAndView.addObject("Board", boardservice.updateBoard(board, board_number));
+//		
+//		return "redirect:/boardDetail.do?board_number="+board_number;
+//	}
 	@RequestMapping(value ="/boardModify.do", method= RequestMethod.POST)
-	public String Modify(ModelAndView modelAndView, int board_number, @RequestParam(value="board_title") String board_title, @RequestParam(value="board_content") String board_content) throws Exception {
+	public String Modify(Board board) throws Exception {
 		
-		Board board = boardservice.detail(board_number);
 		
-		//System.out.println(title);
-		System.out.println("**********************************");
-		board.setboard_title(board_title);
-		System.out.println(board_title);
-		board.setboard_content(board_content);
-		System.out.println(board_content);
-		logger.info(board);
-		System.out.println("***********************");
+		boardservice.updateBoard(board);
 		
-		boardservice.updateBoard(board, board_number);
-		modelAndView.addObject("Board", boardservice.updateBoard(board, board_number));
-		
-		return "redirect:/boardDetail.do?board_number="+board_number;
+		return "redirect:/boardDetail.do?board_number="+ board.getboard_number();
 	}
 	@RequestMapping(value="/boardDelete.do", method=RequestMethod.GET)
 	public String Delete(HttpSession session, int board_number) throws Exception {
