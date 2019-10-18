@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
 	<link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.css">
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
@@ -40,8 +41,8 @@
                 <c:forEach var="Board" items="${Board}" varStatus="status">
                     <tr>
                         <td><c:out value="${Board.board_number }"/></td>
-                        <input type="hidden" name="board_num" value="${Board.board_number}">
-                        <td><a href="boardDetail.do?board_num=${Board.board_number}">
+<%--                         <input type="hidden" name="board_num" value="${Board.board_number}"> --%>
+                        <td><a href="boardDetail.do?board_number=${Board.board_number }">
                         <c:out value="${Board.board_title }"/></a></td>
                         <td><c:out value="${Board.board_content }"/></td>
                         <td><c:out value="${Board.board_writer }"/></td>
@@ -56,6 +57,24 @@
             <a href='#' onclick="javascript:goCreate();" class="btn btn-success">글쓰기</a>
         </div>
     </form>
+   <nav aria-label="Page navigation example">
+   <ul class="pagination justify-content-center">
+    <c:if test="${pageMaker.prev }">
+    <li>
+        <a href='<c:url value="/boardList.do?page=${pageMaker.startPage-1 }"/>'> Previous </a>
+    </li>
+    </c:if>
+    <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
+    <li>
+        <a href='<c:url value="/boardList.do?page=${idx }"/>'><i class="fa">${idx }</i></a>
+    </li>
+    </c:forEach>
+    <c:if test="${pageMaker.next && pageMaker.endPage >0 }">
+    <li>
+        <a href='<c:url value="/boardList.do?page=${pageMaker.endPage+1 }"/>'> Next </a>
+    </li>
+    </c:if>
+</ul>
 </div>
 
 

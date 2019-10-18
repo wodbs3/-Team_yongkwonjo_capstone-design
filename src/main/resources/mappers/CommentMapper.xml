@@ -6,32 +6,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <select id="commentCount" resultType="int">
         SELECT
             COUNT(*)
-        FROM COMMENT
+        FROM bumoim.comment
     </select>
     
     <select id="commentList" resultType="com.bu.bumoim.domain.Comment">
         SELECT
             *
-        FROM COMMENT
+        FROM bumoim.comment
+        
+        WHERE BOARD_NUMBER = #{board_number}
     </select>
     
     
     <insert id="commentInsert" parameterType="com.bu.bumoim.domain.Comment">
         INSERT INTO
+<
         COMMENT (COMMENT_NUMBER, photo_number ,comment_writer , COMMENT_CONTENT, COMMENT_DATE)
         VALUES(#{comment_number},#{photo_number},#{comment_id},#{comment_content},CURDATE()) 
+
     </insert>
 
 	 
     <update id="commentUpdate" parameterType="com.bu.bumoim.domain.Comment">
-        UPDATE COMMENT
+        UPDATE bumoim.comment
             SET
             CONTENT = #{content}
         WHERE COMMENT_NUMBER = #{comment_number}
     </update>
     
     <delete id="commentDelete" parameterType="int">
-        DELETE FROM COMMENT WHERE COMMENT_NUMBER = #{comment_number}
+        DELETE FROM bumoim.comment 
+        WHERE COMMENT_NUMBER = #{comment_number}
     </delete>
 
 

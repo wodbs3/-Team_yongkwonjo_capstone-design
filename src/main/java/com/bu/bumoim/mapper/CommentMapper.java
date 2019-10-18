@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
  
 import com.bu.bumoim.domain.Comment;
  
-@Repository("com.bu.bumoim.mapper.CommentMapper")
+//@Repository("com.bu.bumoim.mapper.CommentMapper")
 public interface CommentMapper {
     // 댓글 개수
     public int commentCount() throws Exception;

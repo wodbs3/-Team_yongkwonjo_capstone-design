@@ -65,13 +65,12 @@ public class UserController {
 	@RequestMapping(value="/login.do")
 	public String login() {
 		
-		return "/user/login";
+		return "user/login";
 	}
 	
 	
 	@RequestMapping(value = "/login.do" , method = RequestMethod.POST)
-	@ResponseBody
-	public Map<String, Object> login(HttpServletRequest request, Model model) {
+	public String login(HttpSession session, HttpServletRequest request, Model model) {
 		Map<String, Object> requestMap = new HashMap<String, Object>();
 		requestMap.put("member_id", request.getParameter("member_id"));
 		requestMap.put("member_pw", request.getParameter("member_pw"));
@@ -86,7 +85,7 @@ public class UserController {
 			resultMap.put("result", "fail");
 		}
 		
-		return resultMap;
+		return "redirect:/index.do";
 	}
 	@RequestMapping(value = "logout.do", method= {RequestMethod.POST,RequestMethod.GET})
 	   public String logout(HttpSession session, Member member) {
@@ -96,4 +95,9 @@ public class UserController {
 	      return "redirect:/index.do";
 	   }
 	
+	@RequestMapping(value = "mypage.do")
+		public String mypage(HttpSession session) {
+		
+		return "user/mypage";
+	}
 }

@@ -2,8 +2,6 @@ package com.bu.bumoim.domain;
 
 import java.sql.Date;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class Board {
 	//
 	private int board_number;
@@ -58,4 +56,5 @@ public class Board {
 	public void setboard_date(Date board_date) {
 		this.board_date = board_date;
 	}
+
 }

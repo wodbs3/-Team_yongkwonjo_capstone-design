@@ -14,6 +14,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
        		board_date
         FROM
         	bumoim.groupboard
+        ORDER BY board_number DESC
+        LIMIT #{pageStart}, #{perPageNum}
     </select>
     
     <insert id="insertBoard"  >
@@ -34,20 +36,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
     </insert>
     
-    <select id="detailBoard" resultType="Map" >
-    	SELECT
-    		board_number,
-    		board_title,
-    		board_content,
-    		board_writer,
-    		board_photo,
-    		board_date
-    	FROM
-    		bumoim.groupboard
-    	WHERE 
-    		board_number = #{board_number}  
-    
+    <select id="detail" resultType="com.bu.bumoim.domain.Board" >
+		SELECT * FROM bumoim.groupboard
+		WHERE board_number = #{board_number}
     
     </select>
+    
+    <update id="updateBoard">
+    	UPDATE 
+			bumoim.groupboard
+		SET
+			board_title = #{board_title},
+			board_content = #{board_content}
+		WHERE
+			board_number = #{board_number}
+	</update>
+    
+    <delete id="deleteBoard" >
+    	DELETE 
+    	
+    	FROM bumoim.groupboard
+
+    	WHERE board_number = #{board_number}
+    </delete>
+    
+       <select id="selectgetCount" resultType="int">
+      select count(*)
+      from bumoim.groupboard
+      where board_number=#{board_number}
+      <if test="searchType != null">
+         <if test="searchType == 'board_title'.toString()">
+            AND TITLE like CONCAT('%', #{keyword}, '%')
+         </if>
+         <if test="searchType == 'board_content'.toString()">
+            and CONTENT like CONCAT('%', #{keyword}, '%')
+         </if>
+         <if test="searchType == 'board_writer'.toString()">
+            and MEM_NAME like CONCAT('%', #{keyword}, '%')
+         </if>
+      </if>
+   </select>
 
 </mapper>

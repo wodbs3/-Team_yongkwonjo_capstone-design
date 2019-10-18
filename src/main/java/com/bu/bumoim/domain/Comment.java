@@ -9,6 +9,7 @@ public class Comment {
 	private int photo_number;
 	private String comment_id;
 	private String comment_content;
+	private String comment_writer;
 	private Date comment_date;
 	
 	
@@ -36,13 +37,23 @@ public class Comment {
 	public void setComment_id(String comment_id) {
 		this.comment_id = comment_id;
 	}
-	public String getComment_content() {
+	public String getcomment_content() {
+
 		return comment_content;
 	}
 	public void setComment_content(String comment_content) {
 		this.comment_content = comment_content;
 	}
-	public Date getComment_date() {
+	
+	public String getcomment_writer() {
+		return comment_writer;
+	}
+	
+	public void setcomment_writer(String comment_writer) {
+		this.comment_writer = comment_writer;
+	}
+	
+	public Date getcomment_date() {
 		return comment_date;
 	}
 	public void setComment_date(Date comment_date) {
