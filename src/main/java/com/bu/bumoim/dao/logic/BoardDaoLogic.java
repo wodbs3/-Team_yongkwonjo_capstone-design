@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.bu.bumoim.dao.BoardDao;
 import com.bu.bumoim.domain.Board;
+import com.bu.bumoim.paging.Criteria;
 
 @Repository
 public class BoardDaoLogic implements BoardDao{
@@ -15,8 +16,8 @@ public class BoardDaoLogic implements BoardDao{
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public List<Board> selectBoardList(Board board){
-		return sqlSession.selectList("board.selectBoardList", board);
+	public List<Board> selectBoardList(Criteria cri){
+		return sqlSession.selectList("board.selectBoardList", cri);
 	}
 
 	@Override
@@ -35,7 +36,12 @@ public class BoardDaoLogic implements BoardDao{
 	}
 
 	@Override
-	public int updateBoard(Board board, int board_number) {
-		return sqlSession.update("board.updateBoard", board_number);
+	public int updateBoard(Board board) {
+		return sqlSession.update("board.updateBoard", board);
+	}
+	
+	@Override
+	public int selectgetCount(int board_number) {
+		return sqlSession.selectOne("board.selectgetCount", board_number);
 	}
 }
