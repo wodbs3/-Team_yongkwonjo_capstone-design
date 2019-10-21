@@ -10,7 +10,7 @@ public interface BoardDao {
 
  
     /**
-     * 게시물 리스트 조회
+     * 寃뚯떆臾� 由ъ뒪�듃 議고쉶
      * @param boardVO
      * @return
      * @throws Exception
@@ -21,7 +21,7 @@ public interface BoardDao {
     
 //    List<Board> detail(int board_number);
     
-    public Board detail(int board_number) throws Exception;
+    public Board detailBoard(int board_number) throws Exception;
     
     public int insertBoard(Board board);
 

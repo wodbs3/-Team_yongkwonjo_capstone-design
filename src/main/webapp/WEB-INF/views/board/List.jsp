@@ -52,10 +52,18 @@
                 </c:forEach>
             </tbody>
         </table>
-        
+         <c:choose>
+        <c:when test="${loginMap.member_id eq null }">
+        <div style = "text-align: right;">           
+            <a href='#' onclick="javascript:goLogin();" class="btn btn-success">로그인 해주세요</a>
+        </div>
+        </c:when>
+        <c:otherwise>
         <div style = "text-align: right;">           
             <a href='#' onclick="javascript:goCreate();" class="btn btn-success">글쓰기</a>
         </div>
+        </c:otherwise>
+        </c:choose>
     </form>
    <nav aria-label="Page navigation example">
    <ul class="pagination justify-content-center">
@@ -105,6 +113,10 @@
 //글쓰기
 function goCreate() {
    location.href="/boardWrite.do";
+}
+
+function goLogin() {
+	location.href="/login.do"
 }
 
 $(document).on('click', '#btnSearch', function(e){
