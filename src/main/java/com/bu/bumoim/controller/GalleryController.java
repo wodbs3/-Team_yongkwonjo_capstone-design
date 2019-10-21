@@ -16,12 +16,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bu.bumoim.domain.Comment;
 import com.bu.bumoim.domain.Gallery;
+import com.bu.bumoim.domain.Member;
+import com.bu.bumoim.service.CommentService;
 import com.bu.bumoim.service.GalleryService;
 
 @Controller
@@ -30,7 +32,9 @@ public class GalleryController {
 
 	@Autowired
 	private GalleryService service;
-
+	@Autowired
+	private CommentService commentService; 
+	
 	@Resource(name = "uploadPath") // bean�쓽 id媛� uploadPath�씤 �깭洹몃�� 李몄“
 	String uploadPath;
 
@@ -58,11 +62,14 @@ public class GalleryController {
 	public ModelAndView galleryDetail(int num) {
 	
 		Gallery gallery = service.getGallery(num);
+		List<Comment> comment = commentService.galCommentList(num);
 		
 		ModelAndView mav = new ModelAndView();
 		
+		
 		mav.setViewName("gallery/galleryDetail");
 		mav.addObject("gallery",gallery);
+		mav.addObject("commentList",comment);
 		
 		return mav;
 	
@@ -75,10 +82,27 @@ public class GalleryController {
 	}
 
 	@RequestMapping(value = "/updateGallery.do")
-	public String updateGallery(HttpServletRequest req, Gallery gallery,int num) {
-		num = gallery.getNum();
+	public String updateGallery(HttpServletRequest req,Gallery gallery, int num) {
+		
+		Gallery getGallery = service.getGallery(num);
+		String preFileName = getGallery.getFileName();
 		gallery = fileUpload(req,gallery);
+		String fileName = gallery.getFileName();
+		
+		if(!preFileName.equals(fileName)) {
+			if(preFileName != null && preFileName != "") {
+			File file = new File(uploadPath,preFileName);
+			file.delete();
+			}			
+		}
+		
+		gallery = new Gallery(fileName, gallery.getContent(), gallery.getRegDate(), gallery.getWriter(), num);
 		service.updateGallery(gallery);
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> name: " + gallery.getFileName());
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> content: " + gallery.getContent());
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> date: " + gallery.getRegDate());
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> writer: " + gallery.getWriter());
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> num: " + gallery.getNum());
 		return "redirect:galleryDetail.do?num=" + num;
 	}
 	
@@ -99,16 +123,18 @@ public class GalleryController {
 		File file = new File(uploadPath,fileName);
 		file.delete();
 		}
-		
+		commentService.galDeleteAllComment(num);
 		service.deleteGallery(num);
+		
 		return "redirect:gallery.do";
 	}
 
 	@RequestMapping(value = "/fileUpload.do", method = RequestMethod.POST)
-	public String insertGallery(HttpServletRequest req, Gallery gallery) {
-		gallery.getContent().trim();
+	public String insertGallery(Member member, HttpServletRequest req, Gallery gallery) {
 		gallery = fileUpload(req,gallery);
+	
 		service.insertGallery(gallery);
+	
 		return "redirect:gallery.do";
 	}
 
@@ -146,7 +172,7 @@ public class GalleryController {
 				logger.info("path: " + uploadFile);
 				logger.info("fileName: " + uploadFile.getOriginalFilename());
 
-				gallery = new Gallery(saveFileName, gallery.getContent(), gallery.getRegDate());
+				gallery = new Gallery(saveFileName, gallery.getContent(), gallery.getRegDate(), gallery.getWriter());
 				
 			
 			}

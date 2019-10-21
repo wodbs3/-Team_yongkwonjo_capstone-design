@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="Comment">
+
+
+<!-- Gallery -->
+
+	<insert id="galCommentInsert" parameterType="Comment">
+        INSERT INTO
+        comment (comment_number, photo_number ,comment_writer , comment_content, comment_date)
+        VALUES (#{comment_number}, #{photo_number}, #{comment_id}, #{comment_content}, CURDATE()) 
+    </insert>    
+
+	<select id="galCommentList" parameterType="int" resultType="Comment">
+        SELECT
+            comment_number, photo_number, comment_writer as comment_id, comment_content, comment_date
+        FROM comment 
+        WHERE photo_number = #{photo_number}
+    </select>
+    
+    <select id="galCommentOne" parameterType="int" resultType="Comment">
+    	SELECT 
+    		comment_number, photo_number, comment_writer as comment_id, comment_content, comment_date
+    	FROM comment 
+        WHERE comment_number = #{comment_number}	
+    </select>
+    
+    <delete id="galCommentAllDelete" parameterType="int">
+        DELETE FROM comment WHERE photo_number = #{photo_number}
+    </delete>
+    
+    <delete id="galCommentDelete" parameterType="int">
+    DELETE FROM comment WHERE comment_number = #{comment_number}
+    </delete>
+</mapper>

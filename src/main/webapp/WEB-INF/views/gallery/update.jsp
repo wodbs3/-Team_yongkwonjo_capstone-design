@@ -49,7 +49,7 @@
                 </table>
                 <div style = "text-align: right;">
                 	<input type="submit" class="btn btn-success" value="수정">
-                    <a href="galleryDetail.do" class="btn btn-success">취소</a>
+                    <a href="galleryDetail.do?num=${gallery.num }" class="btn btn-success">취소</a>
                 </div>
             </div>
         </div>

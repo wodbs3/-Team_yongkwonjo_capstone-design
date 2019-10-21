@@ -1,7 +1,7 @@
 package com.bu.bumoim.dao.logic;
 
 import java.util.List;
-import java.util.Map;
+
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -9,84 +9,78 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.bu.bumoim.dao.GalleryDao;
+import com.bu.bumoim.dao.CommentDao;
 import com.bu.bumoim.domain.Comment;
-import com.bu.bumoim.domain.Gallery;
+
 
 @Repository
-public class GalleryDaoLogic implements GalleryDao {
+public class CommentDaoLogic implements CommentDao{
 
 	@Autowired
 	private SqlSessionFactory sqlSessionFactory;
 	Logger logger = Logger.getLogger(getClass());
-
+	
 	@Override
-	public List<Gallery> getGalleryList(Gallery gallery) {
-
+	public void galInsertComment(Comment comment) {
 		SqlSession session = sqlSessionFactory.openSession();
 
 		try {
-
-			return session.selectList("Gallery.getGalleryList", gallery);
-
-		}
-
-		finally {
+			session.insert("Comment.galCommentInsert", comment);
+		} finally {
 			session.close();
 		}
-
+		
 	}
 
 	@Override
-	public Gallery findGallery(int num) {
-
+	public List<Comment> galGetCommentList(int photo_number) {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
 
-			Gallery gallery = session.selectOne("Gallery.findGallery", num);
-			logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> name: " + gallery.getFileName());
+			List<Comment> comment = session.selectList("Comment.galCommentList", photo_number);
 
-			return gallery;
+			return comment;
 		} finally {
 			session.close();
 		}
 	}
 
 	@Override
-	public void insertGallery(Gallery gallery) {
-
+	public void galCommentAllDelete(int photo_number) {
 		SqlSession session = sqlSessionFactory.openSession();
-
 		try {
-			session.insert("Gallery.insertGallery", gallery);
-
+			session.delete("Comment.galCommentAllDelete", photo_number);
 		} finally {
 			session.close();
 		}
+		
 	}
 
 	@Override
-	public void deleteGallery(int num) {
+	public void galCommentDelete(int comment_number) {
 		SqlSession session = sqlSessionFactory.openSession();
-
 		try {
-
-			session.delete("Gallery.deleteGallery", num);
-
+			session.delete("Comment.galCommentDelete", comment_number);
 		} finally {
 			session.close();
 		}
+		
 	}
 
 	@Override
-	public void updateGallery(Gallery gallery) {
+	public List<Comment> galGetOneComment(int comment_number) {
 		SqlSession session = sqlSessionFactory.openSession();
-
 		try {
-			session.update("Gallery.updateGallery", gallery);
+
+			List<Comment> comment = session.selectOne("Comment.galCommentOne", comment_number);
+
+			return comment;
 		} finally {
 			session.close();
 		}
+		
 	}
+
+	
 
 }

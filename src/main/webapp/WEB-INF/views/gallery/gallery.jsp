@@ -45,7 +45,7 @@
 	img {
 		  display: block;
 		  max-width:400px;
-		  max-height:400px;
+		  max-height:300px;
 		  width: auto;
 		  height: auto;
 		}

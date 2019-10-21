@@ -8,7 +8,16 @@ import com.bu.bumoim.paging.Criteria;
  
 public interface BoardDao {
 
+ 
+    /**
+     * 게시물 리스트 조회
+     * @param boardVO
+     * @return
+     * @throws Exception
+     */
+   
     List<Board> selectBoardList(Criteria cri);
+
     
 //    List<Board> detail(int board_number);
     
