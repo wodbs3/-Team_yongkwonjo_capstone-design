@@ -31,8 +31,20 @@ public class CommentServiceLogic implements CommentService{
 
 	@Override
 	public void galDeleteAllComment(int photo_number) {
-		commentDao.galCommentDelete(photo_number);
+		commentDao.galCommentAllDelete(photo_number);
 		
+	}
+
+	@Override
+	public void galDeleteComment(int comment_number) {
+		commentDao.galCommentDelete(comment_number);
+		
+	}
+
+	@Override
+	public List<Comment> galCommentOne(int comment_number) {
+		List<Comment> comment = commentDao.galGetOneComment(comment_number);
+		return comment;
 	}
 
 }

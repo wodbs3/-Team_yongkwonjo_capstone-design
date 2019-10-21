@@ -46,10 +46,10 @@ public class CommentDaoLogic implements CommentDao{
 	}
 
 	@Override
-	public void galCommentDelete(int photo_number) {
+	public void galCommentAllDelete(int photo_number) {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			session.delete("Comment.galCommentDelete", photo_number);
+			session.delete("Comment.galCommentAllDelete", photo_number);
 		} finally {
 			session.close();
 		}
@@ -57,33 +57,30 @@ public class CommentDaoLogic implements CommentDao{
 	}
 
 	@Override
-	public int commentCount() throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+	public void galCommentDelete(int comment_number) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.delete("Comment.galCommentDelete", comment_number);
+		} finally {
+			session.close();
+		}
+		
 	}
 
 	@Override
-	public List<Comment> commentList() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Comment> galGetOneComment(int comment_number) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+
+			List<Comment> comment = session.selectOne("Comment.galCommentOne", comment_number);
+
+			return comment;
+		} finally {
+			session.close();
+		}
+		
 	}
 
-	@Override
-	public int commentInsert(Comment comment) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int commentUpdate(Comment comment) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int commentDelete(int comment_number) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 }

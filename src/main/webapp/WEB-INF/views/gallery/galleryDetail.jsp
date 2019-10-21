@@ -121,7 +121,7 @@
 
 					<h4>댓글</h4>
 					<div class="post-right">
-							<div id="general_rating">11 Reviews
+							<div id="general_rating"> Reviews
 							</div>
 							</div><br>
 						
@@ -137,6 +137,8 @@
 							<div class="review_strip_single last">
 								<img src="${pageContext.request.contextPath }/resources/img/avatar1.jpg" alt="Image" class="img-circle">
 								<small> - ${commentList.comment_date } -</small>
+								<br>
+								<a href="commentDelete.do?num=${commentList.comment_number }" class="button_1"></a>
 								<h4>아이디: <span>${commentList.comment_id }</span></h4>
 								<hr>
 								<p>

@@ -15,9 +15,7 @@ public interface BoardDao {
      * @return
      * @throws Exception
      */
-    List<Board> selectBoardList(Board board);
-
-
+   
     List<Board> selectBoardList(Criteria cri);
 
     

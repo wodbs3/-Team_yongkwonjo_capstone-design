@@ -130,7 +130,7 @@ public class GalleryController {
 	}
 
 	@RequestMapping(value = "/fileUpload.do", method = RequestMethod.POST)
-	public String insertGallery(Member member, HttpServletRequest req, Gallery gallery,HttpSession session) {
+	public String insertGallery(Member member, HttpServletRequest req, Gallery gallery) {
 		gallery = fileUpload(req,gallery);
 	
 		service.insertGallery(gallery);

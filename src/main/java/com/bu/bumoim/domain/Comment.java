@@ -11,8 +11,6 @@ public class Comment {
 	private String comment_content;
 	private String comment_writer;
 	private Date comment_date;
-	
-	
 	public int getComment_number() {
 		return comment_number;
 	}
@@ -37,28 +35,26 @@ public class Comment {
 	public void setComment_id(String comment_id) {
 		this.comment_id = comment_id;
 	}
-	public String getcomment_content() {
-
+	public String getComment_content() {
 		return comment_content;
 	}
 	public void setComment_content(String comment_content) {
 		this.comment_content = comment_content;
 	}
-	
-	public String getcomment_writer() {
+	public String getComment_writer() {
 		return comment_writer;
 	}
-	
-	public void setcomment_writer(String comment_writer) {
+	public void setComment_writer(String comment_writer) {
 		this.comment_writer = comment_writer;
 	}
-	
-	public Date getcomment_date() {
+	public Date getComment_date() {
 		return comment_date;
 	}
 	public void setComment_date(Date comment_date) {
 		this.comment_date = comment_date;
 	}
+	
+	
 	
 	
 }
