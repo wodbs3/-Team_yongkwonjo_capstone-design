@@ -18,7 +18,6 @@ public interface GalleryService {
 	
 	public void updateGallery(Gallery gallery);
 	
-	public List<Gallery> getGalleryList(Gallery gallery);
 
 	
 }
