@@ -16,9 +16,5 @@ public interface GalleryService {
 	
 	public void deleteGallery(int num);
 	
-	public void updateGallery(Gallery gallery);
-	
-	public List<Gallery> getGalleryList(Gallery gallery);
-
-	
+	public void updateGallery(Gallery gallery);	
 }
