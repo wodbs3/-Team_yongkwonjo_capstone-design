@@ -40,16 +40,27 @@
 					<li class="nav-item">
 						<a class="nav-link" data-toggle="tab" href="#gallery">사진첩</a>
 					</li>
+					<li>
+						<a class="nav-link" data-toggle="tab" href="#member">모임회원</a>
+					</li>
 				</ul>
 				<div class="tab-content">
 					<div class="tab-pane fade show active" id="info">
-						<p>그룹 정보입니다.</p>
+						<p>그룹 이름 = ${groupDetail.grouplist_name}</p>
+						<p>그룹 소개 = ${groupDetail.grouplist_introduce}</p>
+						<p>그룹 관심사 = ${groupDetail.grouplist_interest}</p>
+						<p>그룹 총원 = ${groupDetail.grouplist_people}</p>
+						<p>그룹 생성일 = ${groupDetail.grouplist_date}</p>
+						
 					</div>
 					<div class="tab-pane fade" id="board">
 						<p>그룹 게시판입니다.</p>
 					</div>
 					<div class="tab-pane fade" id="gallery">
 						<p>그룹 사진첩입니다.</p>
+					</div>
+					<div class="tab-pane fade" id="member">
+						<p>그룹 모힘회원입니다.</p>
 					</div>
 				</div>
 			</div>

@@ -62,6 +62,7 @@ public class UserController {
 		
 		return "user/joinSuccess";
 	}
+	
 	@RequestMapping(value="/login.do")
 	public String login() {
 		
@@ -87,6 +88,7 @@ public class UserController {
 		
 		return "redirect:/index.do";
 	}
+	
 	@RequestMapping(value = "logout.do", method= {RequestMethod.POST,RequestMethod.GET})
 	   public String logout(HttpSession session, Member member) {
 	      
@@ -94,7 +96,8 @@ public class UserController {
 		 
 	      return "redirect:/index.do";
 	   }
-	
+	}
+
 	@RequestMapping(value = "mypage.do")
 		public String mypage(HttpSession session) {
 		

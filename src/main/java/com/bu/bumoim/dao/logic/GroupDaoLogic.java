@@ -27,4 +27,10 @@ public class GroupDaoLogic implements GroupDao {
    public GroupList groupDuplicationCheck(String grouplist_name) {
 	   return sqlSession.selectOne("group.groupDuplicationCheck", grouplist_name);
    }
+
+	@Override
+	public GroupList findGroupDetail(int grouplist_number) {
+		//
+		return sqlSession.selectOne("group.findGroupDetail", grouplist_number);
+	}
 }
