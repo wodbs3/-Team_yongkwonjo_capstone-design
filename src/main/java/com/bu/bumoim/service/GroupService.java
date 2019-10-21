@@ -10,6 +10,8 @@ public interface GroupService {
    
    public int insertGroup(GroupList grouplist);
    
-   public GroupList groupDuplicationCheck(String grouplist_name); 
+   public GroupList groupDuplicationCheck(String grouplist_name);
+
+   public GroupList findGroupDetail(int grouplist_number); //그룹 정보 찾기
    
 }

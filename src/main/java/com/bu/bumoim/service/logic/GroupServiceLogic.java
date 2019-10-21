@@ -13,21 +13,26 @@ import com.bu.bumoim.service.GroupService;
 public class GroupServiceLogic implements GroupService{
    
    @Autowired
-   private GroupDao groupdao;
+   private GroupDao groupDao;
    
    @Override
    public List<GroupList> selectGroupList(GroupList grouplist) {
       
-      return groupdao.selectGroupList(grouplist);
+      return groupDao.selectGroupList(grouplist);
    }
    @Override
    public int insertGroup(GroupList grouplist) {
-	   return groupdao.insertGroup(grouplist);
+	   return groupDao.insertGroup(grouplist);
    }
    
    @Override
    public GroupList groupDuplicationCheck(String grouplist_name) {
-	   return groupdao.groupDuplicationCheck(grouplist_name);
+	   return groupDao.groupDuplicationCheck(grouplist_name);
    }
    
+	@Override
+	public GroupList findGroupDetail(int grouplist_number) {
+		//
+		return groupDao.findGroupDetail(grouplist_number);
+	}
 }

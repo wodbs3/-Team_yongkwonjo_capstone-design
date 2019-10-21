@@ -7,14 +7,15 @@ import com.bu.bumoim.domain.Gallery;
 
 public interface GalleryService {
 
-	public void insertGallery(Gallery gallery);
+	public List<Gallery> getGalleryList(Gallery gallery);
 	
-	public void updateGallery(Gallery gallery);
+	public Gallery getGallery(int num);
+
+	public void insertGallery(Gallery gallery);
 	
 	public void deleteGallery(int num);
 	
-	public Gallery getGallery(int num);
+	public void updateGallery(Gallery gallery);
 	
-	public List<Gallery> getGalleryList(Gallery gallery);
 	
 }

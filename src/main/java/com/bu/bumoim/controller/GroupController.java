@@ -27,12 +27,12 @@ public class GroupController {
 	private Logger logger = Logger.getLogger(getClass());
 	
 	@Autowired
-	private GroupService groupservice;
+	private GroupService groupService;
 	
 	@RequestMapping(value="/GroupList.do")
 	public ModelAndView grouplist(GroupList grouplist) {
 		
-		List<GroupList> list = groupservice.selectGroupList(grouplist);
+		List<GroupList> list = groupService.selectGroupList(grouplist);
 		ModelAndView mav = new ModelAndView("group/grouplist");
 		mav.addObject("GroupList", list);
 		logger.info(grouplist);
@@ -46,7 +46,7 @@ public class GroupController {
 	
 	@RequestMapping(value="/GroupCreate.do", method=RequestMethod.POST)
 	public String groupcreate(GroupList grouplist, Model model) {
-		int insertResult = groupservice.insertGroup(grouplist);
+		int insertResult = groupService.insertGroup(grouplist);
 		if (insertResult == 1) {
 			logger.info("그룹생성~~~~!");
 		}else {
@@ -60,7 +60,7 @@ public class GroupController {
 	public int idDuplicationCheck(HttpServletRequest request, Model model) {
 		//
 		String grouplist_name = request.getParameter("grouplist_name");
-		GroupList grouplist = groupservice.groupDuplicationCheck(grouplist_name);
+		GroupList grouplist = groupService.groupDuplicationCheck(grouplist_name);
 		
 		if(grouplist != null) {
 			logger.info("그룹이름 중복 사용불가");
@@ -72,9 +72,12 @@ public class GroupController {
 	}
 
 	// 그룹 => 그룹정보
-	@RequestMapping(value = "/group/groupInfo.do")
-	public String groupInfoView() {
+	@RequestMapping(value = "/group/groupInfo.do", method=RequestMethod.GET)
+	public String groupInfoView(int grouplist_number, Model model) {
 		//
+		GroupList groupDetail = groupService.findGroupDetail(grouplist_number);
+		model.addAttribute("groupDetail", groupDetail);
+		
 		return "group/groupInfo";
 	}
 }
