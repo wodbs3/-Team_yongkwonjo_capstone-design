@@ -17,8 +17,5 @@ public interface GalleryService {
 	public void deleteGallery(int num);
 	
 	public void updateGallery(Gallery gallery);
-	
 
-
-	
 }

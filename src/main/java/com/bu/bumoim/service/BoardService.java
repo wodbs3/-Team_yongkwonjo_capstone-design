@@ -8,7 +8,7 @@ import com.bu.bumoim.paging.Criteria;
 public interface BoardService {
 	List<Board> selectBoardList(Criteria cri);
 	
-	public Board detail(int board_number) throws Exception;
+	public Board detailBoard(int board_number) throws Exception;
 
 	public int insertBoard(Board board);
     
