@@ -94,8 +94,14 @@ public class UserController {
 	      
 		session.invalidate();
 		 
+<<<<<<< HEAD
+	      return "redirect:/index.do";
+	   }
+	
+=======
 		return "redirect:/index.do";
 	}
+>>>>>>> 35ce4bac1c0fe81250e95b9167abff34b7e9d46d
 
 	@RequestMapping(value = "mypage.do")
 		public String mypage(HttpSession session) {
