@@ -18,7 +18,7 @@ public interface CommentService {
 	
 	public List<Comment> galCommentList(int photo_number);
 	
-	public List<Comment> galCommentOne(int comment_number);
+	public void galUpdateComment(Comment comment);
 	
 	public void galDeleteAllComment(int photo_number);
 	

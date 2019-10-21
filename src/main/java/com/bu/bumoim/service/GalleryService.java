@@ -18,5 +18,4 @@ public interface GalleryService {
 	
 	public void updateGallery(Gallery gallery);
 
-	
 }
