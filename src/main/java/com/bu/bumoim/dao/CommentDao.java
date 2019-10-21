@@ -12,7 +12,7 @@ public interface CommentDao {
 	
 	public List<Comment> galGetCommentList(int photo_number);
 	
-	public List<Comment> galGetOneComment(int comment_number);
+	public void galUpdateComment(Comment comment);
 	
 	public void galCommentAllDelete(int photo_number);
 	

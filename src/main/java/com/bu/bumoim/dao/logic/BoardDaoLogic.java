@@ -26,7 +26,7 @@ public class BoardDaoLogic implements BoardDao{
 	}
 	
 	@Override
-	public Board detail(int board_number) {
+	public Board detailBoard(int board_number) {
 		return sqlSession.selectOne("board.detail", board_number);
 	}
 

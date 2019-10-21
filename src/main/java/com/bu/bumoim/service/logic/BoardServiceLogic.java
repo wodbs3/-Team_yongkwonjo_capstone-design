@@ -26,8 +26,8 @@ public class BoardServiceLogic implements BoardService {
 	}
 	
  	@Override 
- 	public Board detail(int board_number) throws Exception {
- 		return boarddao.detail(board_number);
+ 	public Board detailBoard(int board_number) throws Exception {
+ 		return boarddao.detailBoard(board_number);
  	}
  	
 	

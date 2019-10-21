@@ -68,18 +68,16 @@ public class CommentDaoLogic implements CommentDao{
 	}
 
 	@Override
-	public List<Comment> galGetOneComment(int comment_number) {
+	public void galUpdateComment(Comment comment) {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-
-			List<Comment> comment = session.selectOne("Comment.galCommentOne", comment_number);
-
-			return comment;
+			session.update("Comment.galCommentUpdate", comment);
 		} finally {
 			session.close();
 		}
-		
+	
 	}
+
 
 	
 

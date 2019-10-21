@@ -42,9 +42,11 @@ public class CommentServiceLogic implements CommentService{
 	}
 
 	@Override
-	public List<Comment> galCommentOne(int comment_number) {
-		List<Comment> comment = commentDao.galGetOneComment(comment_number);
-		return comment;
+	public void galUpdateComment(Comment comment) {
+		commentDao.galUpdateComment(comment);
+		
 	}
+
+	
 
 }

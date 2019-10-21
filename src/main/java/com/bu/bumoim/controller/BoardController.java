@@ -44,7 +44,7 @@ public class BoardController {
 		
 		
 //		
-//		logger.info("전체 카운터 번호 : " + resultCount);
+//		logger.info("�쟾泥� 移댁슫�꽣 踰덊샇 : " + resultCount);
 //		
 //		PageMaker pageMaker = new PageMaker();
 //		pageMaker.setCri(cri);
@@ -52,7 +52,7 @@ public class BoardController {
 //		
 //		int pagestart = cri.getPageStart();
 //		
-//		logger.info("시작번호: " + pagestart);
+//		logger.info("�떆�옉踰덊샇: " + pagestart);
 //		
 //		int perPageNum = cri.getPerPageNum();
 		
@@ -80,25 +80,25 @@ public class BoardController {
   
 	
 	@RequestMapping(value="/boardDetail.do", method=RequestMethod.GET)
-	public ModelAndView Detail(@RequestParam int board_number, HttpSession session) throws Exception {
+	public ModelAndView board_detail(@RequestParam int board_number, HttpSession session) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("board/Detail");
-		mav.addObject("Board", boardservice.detail(board_number));
+		mav.addObject("Board", boardservice.detailBoard(board_number));
 		
 		return mav;
 	}
     
 	@RequestMapping(value ="/boardUpdate.do", method= RequestMethod.GET)
-	public String Update(HttpSession session, int board_number, Model model) throws Exception {
+	public String board_update(HttpSession session, int board_number, Model model) throws Exception {
 		
 
-			model.addAttribute("Board", boardservice.detail(board_number));
+			model.addAttribute("Board", boardservice.detailBoard(board_number));
 			
 			return "board/Update";
 	}
 	
 	@RequestMapping(value ="/boardModify.do", method= RequestMethod.POST)
-	public String Modify(Board board) throws Exception {
+	public String board_modify(Board board) throws Exception {
 		
 		
 		boardservice.updateBoard(board);
@@ -106,7 +106,7 @@ public class BoardController {
 		return "redirect:/boardDetail.do?board_number="+ board.getboard_number();
 	}
 	@RequestMapping(value="/boardDelete.do", method=RequestMethod.GET)
-	public String Delete(HttpSession session, int board_number) throws Exception {
+	public String board_delete(HttpSession session, int board_number) throws Exception {
 		
 		int deleteResult = boardservice.deleteBoard(board_number);
 		
