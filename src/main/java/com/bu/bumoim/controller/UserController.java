@@ -96,7 +96,7 @@ public class UserController {
 		 
 	      return "redirect:/index.do";
 	   }
-	}
+	
 
 	@RequestMapping(value = "mypage.do")
 		public String mypage(HttpSession session) {

@@ -43,7 +43,7 @@ public class CommentController {
 	
 	@RequestMapping(value="/commentDelete.do")
 	public String commentDelete(int comment_number) {
-		List<Comment> comment = commentService.galCommentOne(comment_number);
+		
 		commentService.galDeleteComment(comment_number);
 		
 		return "redirect:galleryDetail.do?num=" + comment_number;
