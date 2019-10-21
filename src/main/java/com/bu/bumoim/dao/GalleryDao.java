@@ -17,5 +17,4 @@ public interface GalleryDao {
 	
 	public void updateGallery(Gallery gallery);	
 
-	public void updateGallery(Gallery gallery);
 }
