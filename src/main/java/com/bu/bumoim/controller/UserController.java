@@ -90,13 +90,18 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "logout.do", method= {RequestMethod.POST,RequestMethod.GET})
-	   public String logout(HttpSession session, Member member) {
+	public String logout(HttpSession session, Member member) {
 	      
-		   session.invalidate();
+		session.invalidate();
 		 
+<<<<<<< HEAD
 	      return "redirect:/index.do";
 	   }
 	
+=======
+		return "redirect:/index.do";
+	}
+>>>>>>> 35ce4bac1c0fe81250e95b9167abff34b7e9d46d
 
 	@RequestMapping(value = "mypage.do")
 		public String mypage(HttpSession session) {

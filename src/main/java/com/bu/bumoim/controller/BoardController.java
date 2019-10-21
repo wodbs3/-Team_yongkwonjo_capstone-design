@@ -20,7 +20,6 @@ import com.bu.bumoim.paging.Criteria;
 import com.bu.bumoim.paging.PageMaker;
 import com.bu.bumoim.service.BoardService;
 
-
 @Controller
 public class BoardController {
 
@@ -42,9 +41,6 @@ public class BoardController {
 		
 		mav.addObject("Board", list);
 		mav.addObject("pageMaker", pageMaker);
-		
-		
-		
 		
 		
 //		
