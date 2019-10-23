@@ -1,4 +1,4 @@
-package com.bu.bumoim.controller;
+ package com.bu.bumoim.controller;
 
 import java.util.List;
 

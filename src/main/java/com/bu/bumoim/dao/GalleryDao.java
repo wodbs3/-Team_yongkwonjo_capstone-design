@@ -14,5 +14,7 @@ public interface GalleryDao {
 	public void insertGallery(Gallery gallery);
 	
 	public void deleteGallery(int num);
+	
+	public void updateGallery(Gallery gallery);
 
 }
