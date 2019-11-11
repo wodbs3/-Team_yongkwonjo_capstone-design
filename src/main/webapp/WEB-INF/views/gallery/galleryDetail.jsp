@@ -120,33 +120,45 @@
 					<!-- end box_style_1 -->
 
 					<h4>댓글</h4>
-					<div class="post-right">
-							<div id="general_rating"> Reviews
-							</div>
-							</div><br>
+<!-- 					<div class="post-right"> -->
+<!-- 							<div id="general_rating"> Reviews -->
+<!-- 							</div> -->
+<!-- 							</div> -->
+						<hr>	
 						
 					<div id="comments">
 					
 						<ol>
 							<li>
 							
-							<hr>		
+							
 							
 							<!-- End review strip -->
 						<c:forEach items="${commentList }" var="commentList">
 							<div class="review_strip_single last">
-								<img src="${pageContext.request.contextPath }/resources/img/avatar1.jpg" alt="Image" class="img-circle">
-								<small> - ${commentList.comment_date } -</small>
-								<br>
+							
 								<a href="commentDelete.do?num=${commentList.comment_number }" class="button_1"></a>
-								<h4>아이디: <span>${commentList.comment_id }</span></h4>
-								<hr>
-								<p>
+								<h3>${commentList.comment_id }</h3>
+							
+								<h5>
 									${commentList.comment_content }
 									
-								</p>
-							
+								</h5>
+								<br>
+								<div class="post-left">
+								<small> - ${commentList.comment_date } -</small>
+								</div>
+								<br>
+								<c:if test="${loginMap.member_id != null && loginMap.member_id == commentList.comment_id}">		
+									<div class="post-right">
+<%-- 									<a href="updateForm.do?num=${gallery.num }" class="btn_1">수정</a> --%>
+									<a href="commentDelete.do?comment_number=${commentList.comment_number }" class="btn_1">삭제</a>
+									
+									</div>
+								</c:if>
+									
 							</div>
+							<hr>
 						</c:forEach>
 							</li>
 						</ol>
@@ -162,7 +174,12 @@
 						</div>
 						<div class="form-group">
 							<input type="reset" class="btn_1" value="Clear">
-							<input type="submit" class="btn_1" value="댓글 달기">
+							<c:if test="${loginMap.member_id != null }">
+								<input type="submit" class="btn_1" value="댓글 달기">
+							</c:if>
+							<c:if test="${loginMap.member_id == null }">
+								<input type="button" class="btn_1" onclick="comment_input()" value="댓글 달기">
+							</c:if>
 						</div>
 					</form>
 				</div>
@@ -198,6 +215,11 @@
 	<script src="resources/js/jquery-2.2.4.min.js"></script>
 	<script src="resources/js/common_scripts_min.js"></script>
 	<script src="resources/js/functions.js"></script>
+	<script>
+		function comment_input() {
+			alert("로그인을 해주세요");
+		}
+	</script>
 			
 </body>
 </html>

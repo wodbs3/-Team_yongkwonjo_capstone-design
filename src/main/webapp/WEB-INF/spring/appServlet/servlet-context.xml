@@ -29,7 +29,7 @@
 	
 	 
     <beans:bean id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg value="C:/Users/USER/Desktop/cap/bumoim/src/main/webapp/resources/upload">
+		<beans:constructor-arg value="C:/Users/USER/Documents/workspace-sts-3.9.8.RELEASE/cap/bumoim/src/main/webapp/resources/upload">
 
 	</beans:constructor-arg>
 	</beans:bean>

@@ -79,6 +79,12 @@ public class CommentServiceLogic implements CommentService{
 		
 	}
 
+	@Override
+	public int getPhotoNumber(int comment_number) {
+		int photo_number = commentDao.getPhotoNumber(comment_number);
+		return photo_number;
+	}
+
 	
 
 }

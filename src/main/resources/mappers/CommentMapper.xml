@@ -20,6 +20,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         WHERE photo_number = #{photo_number}
     </select>
     
+    <select id="getPhotoNumber" parameterType="int" resultType="int">
+    	SELECT photo_number
+    	FROM comment
+    	WHERE comment_number = #{comment_number}
+    </select>
+    
    <update id="galCommentUpdate" parameterType="Comment">
    UPDATE comment 
     <set>
