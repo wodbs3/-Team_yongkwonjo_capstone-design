@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    	</select>
    	
    	<insert id="insertGroup">
-   	INSERT INTO bumoim.grouplist (x`
+   	INSERT INTO bumoim.grouplist (
    		grouplist_name,
    		grouplist_introduce,
    		grouplist_interest,
