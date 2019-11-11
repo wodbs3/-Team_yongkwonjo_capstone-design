@@ -78,6 +78,30 @@ public class GroupController {
 		GroupList groupDetail = groupService.findGroupDetail(grouplist_number);
 		model.addAttribute("groupDetail", groupDetail);
 		
-		return "group/groupInfo";
+		return "group/groupInfo2";
 	}
+	
+	// 그룹 리스트 => 그룹 가입하기
+	@RequestMapping(value="/groupJoin.do", method=RequestMethod.GET)
+	public String groupJoinView() {
+		return "group/groupJoin";
+	}
+	
+	//그룹 가입여부 체크
+	@ResponseBody
+	@RequestMapping(value="/groupJoinCheck.do", method=RequestMethod.POST)
+	public int groupJoinCheck(HttpServletRequest request, Model model) {
+		//
+		String grouplist_name = request.getParameter("grouplist_name");
+		GroupList grouplist = groupService.groupDuplicationCheck(grouplist_name);
+		
+		if(grouplist != null) {
+			logger.info("이미 가입된 그룹입니다.");
+			return 0;
+		} else {
+			logger.info("그룹 가입 가능");
+			return 1;
+		}
+	}
+
 }

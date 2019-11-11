@@ -51,8 +51,8 @@
 						<p>그룹 관심사 = ${groupDetail.grouplist_interest}</p>
 						<p>그룹 총원 = ${groupDetail.grouplist_people}</p>
 						<p>그룹 생성일 = ${groupDetail.grouplist_date}</p>
-						
 					</div>
+					
 					<div class="tab-pane fade" id="board">
 						<p>그룹 게시판입니다.</p>
 					</div>

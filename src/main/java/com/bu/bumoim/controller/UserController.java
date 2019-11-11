@@ -107,10 +107,9 @@ public class UserController {
 	public String logout(HttpSession session, Member member) {
 	      
 		session.invalidate();
-		 
+	
 		return "redirect:/index.do";
-	   }
-
+	}
 
 	@RequestMapping(value = "mypage.do")
 		public String mypage(HttpSession session) {
