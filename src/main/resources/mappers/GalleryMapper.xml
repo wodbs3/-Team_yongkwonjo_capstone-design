@@ -44,10 +44,14 @@
 			photo_name as fileName
 		FROM bumoim.groupphoto
 		ORDER BY photo_number DESC
-		
+		 LIMIT #{pageStart}, #{perPageNum}
 		
 	</select>
 	
+	<select id="getGalleryCount" resultType="int">
+		SELECT count(*) as listCnt 
+		FROM bumoim.groupphoto
+	</select>
 	<select id="findGallery" resultType="Gallery">
 		SELECT
 			photo_number as num,

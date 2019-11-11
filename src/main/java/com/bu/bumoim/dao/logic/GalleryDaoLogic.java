@@ -12,6 +12,9 @@ import org.springframework.stereotype.Repository;
 import com.bu.bumoim.dao.GalleryDao;
 import com.bu.bumoim.domain.Comment;
 import com.bu.bumoim.domain.Gallery;
+import com.bu.bumoim.paging.Criteria;
+import com.bu.bumoim.paging.GalleryCriteria;
+
 
 @Repository
 public class GalleryDaoLogic implements GalleryDao {
@@ -21,13 +24,13 @@ public class GalleryDaoLogic implements GalleryDao {
 	Logger logger = Logger.getLogger(getClass());
 
 	@Override
-	public List<Gallery> getGalleryList(Gallery gallery) {
+	public List<Gallery> getGalleryList(GalleryCriteria cri) {
 
 		SqlSession session = sqlSessionFactory.openSession();
 
 		try {
 
-			return session.selectList("Gallery.getGalleryList", gallery);
+			return session.selectList("Gallery.getGalleryList",cri);
 
 		}
 
@@ -85,6 +88,20 @@ public class GalleryDaoLogic implements GalleryDao {
 		try {
 			session.update("Gallery.updateGallery", gallery);
 		} finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public int getGalleryCount() {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+
+			return session.selectOne("Gallery.getGalleryCount");
+
+		}
+
+		finally {
 			session.close();
 		}
 	}
