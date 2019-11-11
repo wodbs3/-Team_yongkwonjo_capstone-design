@@ -36,4 +36,9 @@ public class UserServiceLogic implements UserService{
 	public Member idDuplicationCheck(String member_id) {
 		return userDao.idDuplicationCheck(member_id);
 	}
+	
+	@Override
+	public int deleteMember(String member_id) {
+		return userDao.deleteMember(member_id);
+	}
 }

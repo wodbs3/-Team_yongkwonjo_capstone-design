@@ -46,6 +46,13 @@ public class CommentServiceLogic implements CommentService{
 		commentDao.galUpdateComment(comment);
 		
 	}
+	
+
+	@Override
+	public int getPhotoNumber(int comment_number) {
+		int photo_number = commentDao.getPhotoNumber(comment_number);
+		return photo_number;
+	}
 
 	
 
