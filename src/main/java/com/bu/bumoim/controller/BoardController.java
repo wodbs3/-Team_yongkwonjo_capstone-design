@@ -86,14 +86,11 @@ public class BoardController {
 	
 	@RequestMapping(value="/boardDetail.do", method=RequestMethod.GET)
 	public ModelAndView board_detail(@RequestParam int board_number, HttpSession session) throws Exception {
-		List<Comment> comment = commentService.borCommentList(board_number);
-		
 		
 		ModelAndView mav = new ModelAndView();
 		
 		mav.setViewName("board/Detail");
 		mav.addObject("Board", boardservice.detailBoard(board_number));
-		mav.addObject("commentList", comment);
 		
 		return mav;
 	}

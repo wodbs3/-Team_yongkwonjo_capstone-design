@@ -47,37 +47,6 @@ public class CommentServiceLogic implements CommentService{
 		
 	}
 	
-// board
-	
-	@Override
-	public void borCommentInsert(Comment comment) {
-		commentDao.borInsertComment(comment);
-		
-	}
-
-	@Override
-	public List<Comment> borCommentList(int board_number) {
-		List<Comment> comment = commentDao.borGetCommentList(board_number);
-		return comment;
-	}
-
-	@Override
-	public void borDeleteAllComment(int board_number) {
-		commentDao.borCommentAllDelete(board_number);
-		
-	}
-
-	@Override
-	public void borDeleteComment(int comment_number) {
-		commentDao.borCommentDelete(comment_number);
-		
-	}
-
-	@Override
-	public void borUpdateComment(Comment comment) {
-		commentDao.borUpdateComment(comment);
-		
-	}
 
 	@Override
 	public int getPhotoNumber(int comment_number) {
