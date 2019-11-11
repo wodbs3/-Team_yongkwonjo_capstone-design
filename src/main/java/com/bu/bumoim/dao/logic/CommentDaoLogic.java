@@ -78,6 +78,63 @@ public class CommentDaoLogic implements CommentDao{
 	
 	}
 
+	@Override
+	public void borInsertComment(Comment comment) {
+		SqlSession session = sqlSessionFactory.openSession();
+
+		try {
+			session.insert("Comment.borCommentInsert", comment);
+		} finally {
+			session.close();
+		}
+		
+	}
+
+	@Override
+	public List<Comment> borGetCommentList(int board_number) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+
+			List<Comment> comment = session.selectList("Comment.borCommentList", board_number);
+
+			return comment;
+		} finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public void borCommentAllDelete(int board_number) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.delete("Comment.borCommentAllDelete", board_number);
+		} finally {
+			session.close();
+		}
+		
+	}
+
+	@Override
+	public void borCommentDelete(int comment_number) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.delete("Comment.borCommentDelete", comment_number);
+		} finally {
+			session.close();
+		}
+		
+	}
+
+	@Override
+	public void borUpdateComment(Comment comment) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.update("Comment.borCommentUpdate", comment);
+		} finally {
+			session.close();
+		}
+	
+	}
 
 	
 

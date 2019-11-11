@@ -37,4 +37,9 @@ public class UserDaoLogic implements UserDao {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("idDuplicationCheck", member_id);
 	}
+	
+	@Override 
+	public int deleteMember(String member_id) {
+		return sqlSession.delete("login.deleteMember", member_id);
+	}
 }

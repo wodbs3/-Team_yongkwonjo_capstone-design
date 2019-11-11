@@ -18,9 +18,69 @@
 <body>
 <%@ include file="../common/header.jsp" %>
 
-<div class="row margin_30">
-
+<div class = "container">
+	<div class="row">
+	<div class="col-md-5 toppad pull-right col-md-offset-4">
+		<br>
+	</div>
+		<div class="col-xs-12 col-sm-12 col-md-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 toppad" style="margin-top:20%;">
+			<form action="/deleteMember.do?member_id=${loginMap.member_id }" name="delete "method="POST">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">${loginMap.member_id}님의 회원 정보</h3>
+				</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-3 col-lg-3" align="center"><img src="/resources/userupload/${loginMap.fileName }" class="img-responsive"/></div>
+		     <div class=" col-md-9 col-lg-9"> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>아이디:</td>
+                        <td>${loginMap.member_id}</td>
+                      </tr>  
+                                            
+                      <tr>
+                        <td>이름:</td>
+                        <td>${loginMap.member_name}</td>
+                      </tr>         
+                      <tr>
+                        <td>성별:</td>
+                        <td>${loginMap.member_gender}</td>
+                      </tr> 
+                      <tr>
+                        <td>학교:</td>
+                        <td>백석대학교</td>
+                      </tr>
+                      <tr>
+                        <td>학번:</td>
+                        <td>${loginMap.member_number}</td>
+                      </tr>
+                      <tr>
+                        <td>전공:</td>
+                        <td>${loginMap.member_major}</td>
+                      </tr>
+                      <tr>
+                        <td>흥미:</td>
+                        <td>${loginMap.member_interest}</td>
+                      </tr>
+                      <tr>
+                        <td>이메일 주소:</td>
+                        <td>${loginMap.member_mail}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+		</div>
+		</div>
+		</div>
+	
+	</div>
+	</form>
 </div>
+</div>
+<button class="btn btn-default" onclick="javascript:goModify()" type="button" id="modify">회원수정</button>
+<a href="${pageContext.request.contextPath}/userDelete.do?member_id=${loginMap.member_id}" class="btn btn-default">회원삭제</a>
 
 
 
@@ -47,7 +107,16 @@
 <script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 <script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script>
+function goModify(){
+	location.href="/userModify.do";
+}
 
+function goDelete(){
+	location.href="/userDelete.do"
+}
+
+</script>
 
 </body>
 </html>

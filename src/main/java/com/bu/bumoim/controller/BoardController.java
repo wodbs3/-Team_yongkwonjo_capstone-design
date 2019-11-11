@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bu.bumoim.domain.Board;
+import com.bu.bumoim.domain.Comment;
 import com.bu.bumoim.paging.Criteria;
 import com.bu.bumoim.paging.PageMaker;
 import com.bu.bumoim.service.BoardService;
+import com.bu.bumoim.service.CommentService;
 
 @Controller
 public class BoardController {
@@ -26,13 +28,16 @@ public class BoardController {
 	private Logger logger = Logger.getLogger(getClass());
 	@Autowired
 	private BoardService boardservice;
+	@Autowired
+	private CommentService commentService;
 	
 	@RequestMapping(value="/boardList.do")
 	public ModelAndView list(Board board, @ModelAttribute("cri") Criteria cri, HttpServletRequest request) {
 		
 		List<Board> list = boardservice.selectBoardList(cri);
+//		List<Board> lists = boardservice.selectgetCount(board_number);
 		ModelAndView mav = new ModelAndView("board/List");
-//		int resultCount = boardservice.selectgetCount(board.getboard_number());
+//		int resultCount = boardservice.selectgetCount(board_number);
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
@@ -81,9 +86,14 @@ public class BoardController {
 	
 	@RequestMapping(value="/boardDetail.do", method=RequestMethod.GET)
 	public ModelAndView board_detail(@RequestParam int board_number, HttpSession session) throws Exception {
+		List<Comment> comment = commentService.borCommentList(board_number);
+		
+		
 		ModelAndView mav = new ModelAndView();
+		
 		mav.setViewName("board/Detail");
 		mav.addObject("Board", boardservice.detailBoard(board_number));
+		mav.addObject("commentList", comment);
 		
 		return mav;
 	}

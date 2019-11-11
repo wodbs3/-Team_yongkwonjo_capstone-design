@@ -11,6 +11,7 @@ public class Member {
 	private String member_gender;
 	private String member_birth;
 	private String member_email;
+	private String fileName;
 	private int group1;
 	private int group2;
 	private int group3;
@@ -122,4 +123,14 @@ public class Member {
 		
 		return builder.toString();
 	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+
 }

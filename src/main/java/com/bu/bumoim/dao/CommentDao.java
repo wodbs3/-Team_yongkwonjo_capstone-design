@@ -18,4 +18,16 @@ public interface CommentDao {
 	
 	public void galCommentDelete(int comment_number);
 	
+//board Comment
+	
+	public void borInsertComment(Comment comment);
+	
+	public List<Comment> borGetCommentList(int board_number);
+	
+	public void borUpdateComment(Comment comment);
+	
+	public void borCommentAllDelete(int board_number);
+	
+	public void borCommentDelete(int comment_number);
+	
 }

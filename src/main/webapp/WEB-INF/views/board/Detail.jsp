@@ -98,7 +98,7 @@
 					<!-- End Comments -->
 					<br>
 					<h4>댓글 달기</h4>
-					<form action="commentInsert.do?num=${gallery.num }" method="post">
+					<form action="borCommentInsert.do?num=${board.number }" method="post">
 						<div class="form-group">
 							<h4>작성자:</h4>
          					<input type="text" id="comment_id" name="comment_id" value="${loginMap.member_id }" readonly/>

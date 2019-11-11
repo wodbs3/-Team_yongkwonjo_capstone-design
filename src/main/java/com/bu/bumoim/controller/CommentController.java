@@ -51,6 +51,18 @@ public class CommentController {
 		return "redirect:galleryDetail.do?num=" + comment_number;
 	}
 	
+	@RequestMapping(value="/borCommentInsert.do")
+	public String borcommentInsert(int board_number, Comment comment) {
+		
+	
+		comment.setBoard_number(board_number);
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>> board_number: " + comment.getBoard_number());
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>> comment_id: " + comment.getComment_id());
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>> content: " + comment.getComment_content());
+		commentService.galCommentInsert(comment);
+		
+		return "redirect:boardDetail.do?num=" + comment.getBoard_number();
+	}
 	
 
 }
