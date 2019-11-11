@@ -40,7 +40,7 @@
 
 <div class="container" style="margin-bottom: 333px;width: 60%; margin-left:20%; margin-top: 10%;">
     <form id="groupForm" name="groupForm" method="post">
-        <table class="table">
+        <table class="table" style="table-layout: fixed">
             <thead class="thead-dark" style="
     background: #474747;
     color: white;
@@ -59,7 +59,7 @@
                     <tr>
                         <td><a href="${pageContext.request.contextPath }/group/groupInfo.do?grouplist_number=${GroupList.grouplist_number }"><c:out value="${GroupList.grouplist_number }"/></a></td>
                         <td><a href="${pageContext.request.contextPath }/group/groupInfo.do?grouplist_number=${GroupList.grouplist_number }"><c:out value="${GroupList.grouplist_name }"/></a></td>
-                        <td><c:out value="${GroupList.grouplist_introduce }"/></td>
+                        <td style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap;"><c:out value="${GroupList.grouplist_introduce }"/></td>
                         <td><c:out value="${GroupList.grouplist_interest }"/></td>
                         <td><c:out value="${GroupList.grouplist_people }"/></td>
                         <td><c:out value="${GroupList.grouplist_date }"/></td>
