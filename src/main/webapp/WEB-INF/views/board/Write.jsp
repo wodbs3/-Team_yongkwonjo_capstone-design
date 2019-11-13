@@ -25,7 +25,7 @@
 <%@ include file="../common/header.jsp" %>
 <!-- class="col-md-offset-3 col-md-6" -->
 <div class="container" style="margin-bottom: 200px;width: 60%; margin-left:20%; margin-top: 10%;">
-    <form action="/boardWrite.do" name="writeForm" method="POST">
+    <form action="/boardWrite.do" name="writeForm" method="POST" enctype="multipart/form-data">
         <div>
             <h2>글쓰기</h2>
             <div style=" width : 100%;">
@@ -44,7 +44,7 @@
                     </tr>
                     <tr>
                         <th style = "width : 10%; font-size: 20px;">업로드</th>
-                        <td><input style="width: 100%" type="file" id="board_photo" name="board_photo" /></td>
+                        <td><input style="width: 100%" type="file" name="uploadFile" /></td>
                     </tr>
                 </table>
                 <div style = "text-align: right;">

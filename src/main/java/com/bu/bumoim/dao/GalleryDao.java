@@ -16,8 +16,11 @@ public interface GalleryDao {
 	public void deleteGallery(int num);
 	
 	public void updateGallery(Gallery gallery);
-	
+
+
+
 	public int getGalleryCount();
+
 
 	public List<Gallery> getGroupGallery(int groupList_number, GalleryCriteria cri);
 }

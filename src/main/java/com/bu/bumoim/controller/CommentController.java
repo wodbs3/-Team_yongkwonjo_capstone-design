@@ -1,4 +1,4 @@
- package com.bu.bumoim.controller;
+package com.bu.bumoim.controller;
 
 import java.util.List;
 
@@ -44,24 +44,30 @@ public class CommentController {
 	@RequestMapping(value="/commentDelete.do")
 	public String commentDelete(int comment_number) {
 		
-		int photo_number = commentService.getPhotoNumber(comment_number);
 		commentService.galDeleteComment(comment_number);
 		
-		return "redirect:galleryDetail.do?num=" + photo_number;
+		return "redirect:galleryDetail.do?num=" + comment_number;
 	}
 	
-	@RequestMapping(value="/borCommentInsert.do")
-	public String borcommentInsert(int board_number, Comment comment) {
+	@RequestMapping(value="/boardcommentInsert.do")
+	public String boardcommentInsert(int board_number, Comment comment) {
 		
 	
 		comment.setBoard_number(board_number);
-		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>> board_number: " + comment.getBoard_number());
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>> Board_number: " + comment.getBoard_number());
 		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>> comment_id: " + comment.getComment_id());
 		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>> content: " + comment.getComment_content());
-		commentService.galCommentInsert(comment);
+		commentService.boardCommentInsert(comment);
 		
-		return "redirect:boardDetail.do?num=" + comment.getBoard_number();
+		return "redirect:boardDetail.do?board_number=" + comment.getBoard_number();
 	}
 	
+	@RequestMapping(value="/boardcommentDelete.do")
+	public String boardcommentDelete(int comment_number) {
+		
+		commentService.boardDeleteComment(comment_number);
+		
+		return "redirect:boardDetail.do?num=" + comment_number;
+	}
 
 }

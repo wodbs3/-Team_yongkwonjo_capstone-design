@@ -77,7 +77,7 @@ public class CommentDaoLogic implements CommentDao{
 		}
 	
 	}
-
+	
 	public int getPhotoNumber(int comment_number) {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
@@ -88,6 +88,64 @@ public class CommentDaoLogic implements CommentDao{
 		} finally {
 			session.close();
 		}
+	}
+
+	@Override
+	public void boardInsertComment(Comment comment) {
+		SqlSession session = sqlSessionFactory.openSession();
+
+		try {
+			session.insert("Comment.boardCommentInsert", comment);
+		} finally {
+			session.close();
+		}
+		
+	}
+
+	@Override
+	public List<Comment> boardGetCommentList(int board_number) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+
+			List<Comment> comment = session.selectList("Comment.boardCommentList", board_number);
+
+			return comment;
+		} finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public void boardUpdateComment(Comment comment) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.update("Comment.boardCommentUpdate", comment);
+		} finally {
+			session.close();
+		}
+		
+	}
+
+	@Override
+	public void boardCommentAllDelete(int board_number) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.delete("Comment.boardCommentAllDelete", board_number);
+		} finally {
+			session.close();
+		}
+		
+	}
+
+	@Override
+	public void boardCommentDelete(int comment_number) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.delete("Comment.boardCommentDelete", comment_number);
+		} finally {
+			session.close();
+		}
+		
 	}
 
 
