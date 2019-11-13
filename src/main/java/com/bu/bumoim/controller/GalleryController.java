@@ -35,7 +35,7 @@ public class GalleryController {
 	@Autowired
 	private CommentService commentService; 
 	
-	@Resource(name = "uploadPath") // bean�쓽 id媛� uploadPath�씤 �깭洹몃�� 李몄“
+	@Resource(name = "uploadPath") // bean占쎌벥 id揶쏉옙 uploadPath占쎌뵥 占쎄묶域밸챶占쏙옙 筌〓챷��
 	String uploadPath;
 
 	private Logger logger = Logger.getLogger(getClass());
@@ -152,21 +152,21 @@ public class GalleryController {
 				dir.mkdirs();
 			}
 			while (iter.hasNext()) {
-				String fieldName = (String) iter.next(); // 내용을 가져와서
+				String fieldName = (String) iter.next(); // �궡�슜�쓣 媛��졇���꽌
 				uploadFile = mhsr.getFile(fieldName);
 				String origName;
-				origName = new String(uploadFile.getOriginalFilename().getBytes("8859_1"), "UTF-8"); // 한글꺠짐 방지
+				origName = new String(uploadFile.getOriginalFilename().getBytes("8859_1"), "UTF-8"); // �븳湲�爰좎쭚 諛⑹�
 
-				// 파일명이 없다면
+				// �뙆�씪紐낆씠 �뾾�떎硫�
 				if ("".equals(origName)) {
 					continue;
 				}
 
-				// 파일 명 변경(uuid로 암호화)
-				String ext = origName.substring(origName.lastIndexOf('.')); // 확장자
+				// �뙆�씪 紐� 蹂�寃�(uuid濡� �븫�샇�솕)
+				String ext = origName.substring(origName.lastIndexOf('.')); // �솗�옣�옄
 				String saveFileName = getUuid() + ext;
 
-				// 설정한 path에 파일저장
+				// �꽕�젙�븳 path�뿉 �뙆�씪���옣
 				File serverFile = new File(uploadPath + File.separator + saveFileName);
 				uploadFile.transferTo(serverFile);
 				logger.info("path: " + uploadFile);

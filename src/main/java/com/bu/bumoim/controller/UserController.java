@@ -31,7 +31,7 @@ public class UserController {
 		return "user/join";
 	}
 	
-	// ID중복체크
+	// ID以묐났泥댄겕
 	@ResponseBody
 	@RequestMapping(value="/idDuplicationCheck.do", method=RequestMethod.POST)
 	public int idDuplicationCheck(HttpServletRequest request, Model model) {
@@ -40,10 +40,10 @@ public class UserController {
 		Member member = userService.idDuplicationCheck(member_id);
 		
 		if(member != null) {
-			logger.info("아이디 중복 사용불가");
+			logger.info("�븘�씠�뵒 以묐났 �궗�슜遺덇�");
 			return 0;
 		} else {
-			logger.info("아이디 사용가능");
+			logger.info("�븘�씠�뵒 �궗�슜媛��뒫");
 			return 1;
 		}
 	}
@@ -82,7 +82,7 @@ public class UserController {
 			request.getSession().setAttribute("loginMap", resultMap);
 			resultMap.put("result", "success");
 		}else {
-			logger.info("로그인실패");
+			logger.info("濡쒓렇�씤�떎�뙣");
 			resultMap.put("result", "fail");
 		}
 		
@@ -94,14 +94,8 @@ public class UserController {
 	      
 		session.invalidate();
 		 
-<<<<<<< HEAD
 	      return "redirect:/index.do";
 	   }
-	
-=======
-		return "redirect:/index.do";
-	}
->>>>>>> 35ce4bac1c0fe81250e95b9167abff34b7e9d46d
 
 	@RequestMapping(value = "mypage.do")
 		public String mypage(HttpSession session) {
