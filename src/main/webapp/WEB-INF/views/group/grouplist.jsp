@@ -66,11 +66,24 @@
                         <td><c:out value="${GroupList.grouplist_date }"/></td>
                         <td>                        
 	                        <div>
-		                        <c:if test="${loginMap.member_id != null && loginMap.member_id == groupList.comment_id}">      
-		                           <div class="col-md-4">
-		                           		<a href="groupJoin.do?memberNum=${member.member_number }" class="btn btn-default" id="groupJoinButton">가입하기</a>
-		                           </div>
-		                        </c:if>
+								<c:choose>
+									<c:when test="${loginMap.member_id eq null }">
+								        <div style = "text-align: right;">           
+           									 <a href='#' onclick="javascript:goLogin();" class="btn btn-success">로그인 해주세요</a>
+        								</div>
+									</c:when>
+									<c:when test="${loginMap.member_group1 eq button}">
+										<div style = "text-align: right;">
+											<button type="button" value="${GroupList.grouplist_number}">이미 가입되있지롱 </button>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div style = "text-align: right;">
+											<button type="button" value="${GroupList.grouplist_number}" class="btn btn-success">이미 가입되있지롱  은훼이크</button>
+										</div>
+									</c:otherwise>
+									
+								</c:choose>
 	                        </div>
 						</td>
                     </tr>
@@ -163,6 +176,7 @@
 		});
 	});
 	</script>
-	
+
+
 </body>
 </html>

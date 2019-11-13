@@ -21,6 +21,4 @@ public interface GalleryDao {
 	
 	public int getGalleryCount();
 
-	public void updateGallery(Gallery gallery);
-
 }

@@ -19,4 +19,8 @@ public class MainController {
 		return "main/main";
 	}
 
+	@RequestMapping(value="/introduce.do")
+	public String introduce() {
+		return "main/introduce";
+	}
 }
