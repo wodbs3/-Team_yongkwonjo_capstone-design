@@ -15,7 +15,40 @@
     <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
 	<link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/css/settings.css">
-
+	
+	<style type="text/css">
+		.img_wrap{
+			width:300px;
+			margin-top:50px;
+		}
+		.img_wrap img {
+			max-width:100%;
+		}
+	</style>
+	
+	<script type="text/javascript">
+		var sel_file;
+		
+		$(document).ready(function() {
+			$("#input_img").on("change", handleImgFileSelect);
+		});
+		
+		function handleImgFileSelect(e) {
+			var files = e.target.files;
+			var filesArr = Array.prototype.slice.call(files);
+			
+			filesArr.forEach(function(f) {
+				sel_file = f;
+				
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					$("#img").attr("src", e.target.result);
+				}
+				reader.readAsDateURL(f);
+			});
+			
+		}
+	</script>
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
@@ -27,10 +60,15 @@
         	<div class="row">
     			<div class="col-md-8"></div>
     			<div class="col-md-4">
-    				<input type="file" name="uploadFile" class="btn_1"/>
+    				<input type="file" id="input_img" class="btn_1"/>
      			</div>
     		</div>
             <h2>사진 등록</h2><hr>
+         	
+         	<h3>미리보기</h3>
+         	<div class="img_wrap">
+				<img id="img"/>         		
+         	</div>
          	
 			<h4>작성자:</h4>
          	<input type="text" id="writer" name="writer" value="${loginMap.member_id }" readonly/>
@@ -78,7 +116,7 @@
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.slideanims.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
-
+	
 
 </body>
 </html>
