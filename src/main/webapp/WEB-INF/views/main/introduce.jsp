@@ -31,57 +31,46 @@
       border-color: $table-dark-border-color;
     }
   }
-    
+    page-title.txt {
+    	font-size : 28px;
+    	margin-bottom: 10px;
+    	color: #333;
+    }
     
     </style>
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
 
-<div class="container" style="margin-bottom: 333px;width: 60%; margin-left:20%; margin-top: 10%;">
-    <form id="groupForm" name="groupForm" method="post">
-        <table class="table" style="table-layout: fixed">
-            <thead class="thead-dark" style="
-    background: #474747;
-    color: white;
-">
-                <tr>
-                    <th>번호</th>
-                    <th>그룹이름</th>
-                    <th>그룹소개</th>
-                    <th>그룹흥미</th>
-                    <th>그룹정원</th>
-                    <th>생성날짜</th>
-                    <th>비고</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="GroupList" items="${GroupList}" varStatus="status">
-                    <tr>
-                        <td><a href="${pageContext.request.contextPath }/group/groupInfo.do?grouplist_number=${GroupList.grouplist_number }"><c:out value="${GroupList.grouplist_number }"/></a></td>
-                        <td><a href="${pageContext.request.contextPath }/group/groupInfo.do?grouplist_number=${GroupList.grouplist_number }"><c:out value="${GroupList.grouplist_name }"/></a></td>
-                        <td style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap;"><c:out value="${GroupList.grouplist_introduce }"/></td>
-                        <td><c:out value="${GroupList.grouplist_interest }"/></td>
-                        <td><c:out value="${GroupList.grouplist_people }"/></td>
-                        <td><c:out value="${GroupList.grouplist_date }"/></td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
-        <c:choose>
-       <c:when test="${loginMap.member_id eq null }">
-        <div style = "text-align: right;">           
-            <a href='#' onclick="javascript:goLogin();" class="btn btn-success">로그인 해주세요</a>
-        </div>
-        </c:when>
-        <c:otherwise>
-        <div style = "text-align: right;">           
-            <a href='#' onclick="javascript:goCreate();" class="btn btn-success">그룹생성</a>
-        </div>
-        </c:otherwise>
-        </c:choose>
-    </form>
-</div>
+
+<section style="margin-top:20%;">
+	<div class="container">
+		<div class="row">
+		
+		<div class="col-md-12 text-center">
+	<div style="
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #333;">Introduce</div>
+
+	</div>
+			<div class="col-md-8 col-md-offset-2">
+				<img src="/resources/upload/ef7d0a88f90443e2962d090670a69cad.jpg" style="width:100%;"/>
+			</div> 
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+			용권조입니다
+			<br><br><br>
+			</div>
+		</div>
+	</div>
+</section>
 
 
 
@@ -108,53 +97,5 @@
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 	
-	<script>
-	//글쓰기
-	function goCreate() {
-		location.href="/GroupCreate.do";
-	}
-	
-	function goLogin() {
-		location.href="/login.do";
-	}
-
-	function goJoin() {
-		location.href="/groupJoin.do";
-	}
-	
-	$(document).on('click', '#btnSearch', function(e){
-	   e.preventDefault();
-	   var url = "${requestScope['javax.servlet.forward.servlet_path']}";
-	   url = url + "?searchType=" + $('#searchType').val();
-	   url = url + "&keyword=" + $('#keyword').val();
-	   location.href = url;
-	   console.log(url);
-	});
-	 
-	</script>
-	
-	<script>
-	/* 그룹 가입여부 체크 */
-	/* 1. 회원에서 가입 여부 상태를 가져온다. */
-	/* 2. 만약에 회원이 이미 가입한 그룹이라면 버튼을 disabled */
-	/* 3. 회원이 가입한 그룹이 아니라면 removeAttr("disabled") */
-	$("#groupJoinButton").click(function(){
-		var query = {group_number : $("#group_number").val()};
-		$.ajax({
-			url : "/groupJoinCheck.do",
-			type : "post",
-			data : query,
-			success : function(data) {
-				if(data == 0) {
-					$("#submit").attr("disabled", "disabled");
-				} else if (data == 1){
-					$("#submit").removeAttr("disabled");
-				}
-			}
-		});
-	});
-	</script>
-
-
 </body>
 </html>
