@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bu.bumoim.domain.GroupList;
+import com.bu.bumoim.domain.Member;
 import com.bu.bumoim.service.GroupService;
+import com.bu.bumoim.service.UserService;
 
 @Controller
 public class GroupController {
@@ -29,13 +31,19 @@ public class GroupController {
 	@Autowired
 	private GroupService groupService;
 	
+	@Autowired
+	private UserService userService;
+	
 	@RequestMapping(value="/GroupList.do")
-	public ModelAndView grouplist(GroupList grouplist) {
-		
+	public ModelAndView grouplist(GroupList grouplist, String member_id, Model model) {
+		//
 		List<GroupList> list = groupService.selectGroupList(grouplist);
+		List<Member> memberList = userService.getMemberList(member_id);
 		ModelAndView mav = new ModelAndView("group/grouplist");
+		
 		mav.addObject("GroupList", list);
-		logger.info(grouplist);
+		mav.addObject("memberList", memberList);
+		
 		return mav;
 	}
 	
@@ -54,6 +62,7 @@ public class GroupController {
 		}
 		return "redirect:GroupList.do";
 	}
+	
 	//그룹 중복체크
 	@ResponseBody
 	@RequestMapping(value="/groupDuplicationCheck.do", method=RequestMethod.POST)
@@ -86,22 +95,4 @@ public class GroupController {
 	public String groupJoinView() {
 		return "group/groupJoin";
 	}
-	
-	//그룹 가입여부 체크
-	@ResponseBody
-	@RequestMapping(value="/groupJoinCheck.do", method=RequestMethod.POST)
-	public int groupJoinCheck(HttpServletRequest request, Model model) {
-		//
-		String grouplist_name = request.getParameter("grouplist_name");
-		GroupList grouplist = groupService.groupDuplicationCheck(grouplist_name);
-		
-		if(grouplist != null) {
-			logger.info("이미 가입된 그룹입니다.");
-			return 0;
-		} else {
-			logger.info("그룹 가입 가능");
-			return 1;
-		}
-	}
-
 }

@@ -61,6 +61,23 @@
 							<p>생성일 ${groupDetail.grouplist_date}</p>
 							<hr>
 							<p>${groupDetail.grouplist_introduce}</p>
+							<c:choose>
+								<c:when test="${loginMap.member_group1 eq groupDetail.grouplist_number || loginMap.member_group2 eq groupDetail.grouplist_number || loginMap.member_group3 eq groupDetail.grouplist_number}">
+									<button value="${groupDetail.grouplist_number }">
+									이미 가입된 모임입니다.
+									</button>
+								</c:when>
+								<c:when test="${loginMap.member_group1 ne groupDetail.grouplist_number || loginMap.member_group2 ne groupDetail.grouplist_number || loginMap.member_group3 ne groupDetail.grouplist_number}">
+									<button value="${groupDetail.grouplist_number }">
+									가입신청
+									</button>
+								</c:when>
+								<c:otherwise>
+									<button value="${loginMap.member_id eq null}">
+									로그인해주세요
+									</button>
+								</c:otherwise>
+							</c:choose>
 						</div>
 					</div>
 					<!--End sticky -->
@@ -73,28 +90,34 @@
 						<div class="row">
 							<div class="col">
 								<p></p>
-								<ul class="nav nav-tabs">
+								
+								
+								<ul class="nav nav-tabs" id="myTab" role="tablist">
 									<li class="nav-item">
-										<a class="nav-link active" data-toggle="tab" href="#board">게시판</a>
+										<a class="nav-link active" id="board-tab" data-toggle="tab" role="tab" href="#board"  role="tab" aria-controls="board" aria-selected="true">게시판</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#gallery">사진첩</a>
+										<a class="nav-link" id="gallery-tab" data-toggle="tab" role="tab" href="#gallery" aria-controls="gallery" aria-selected="false">사진첩</a>
 									</li>
-									<li>
-										<a class="nav-link" data-toggle="tab" href="#member">모임회원</a>
+									<li class="nav-item">
+										<a class="nav-link" id="member-tab" data-toggle="tab" role="tab" href="#member" aria-controls="member" aria-selected="false">모임회원</a>
 									</li>
 								</ul>
-								<div class="tab-content">
-									<div class="tab-pane fade" id="board">
+								
+								
+								<div class="tab-content" id="myTabContent">
+									<div class="tab-pane fade show active" id="board" role="tabpanel" aria-labelledby="board-tab">
 										<p>그룹 게시판입니다.</p>
 									</div>
-									<div class="tab-pane fade" id="gallery">
+									<div class="tab-pane fade" id="gallery" role="tabpanel" aria-labelledby="gallery-tab">
 										<p>그룹 사진첩입니다.</p>
 									</div>
-									<div class="tab-pane fade" id="member">
+									<div class="tab-pane fade" id="member" role="tabpanel" aria-labelledby="member-tab">
 										<p>그룹 모힘회원입니다.</p>
 									</div>
 								</div>
+								
+								
 							</div>
 						</div>
 					</form>
@@ -162,6 +185,14 @@
 	   location.href = url;
 	   console.log(url);
 	});
+	
+	$('#myTab a[href="#board"]').tab('show') // Select tab by name
+	
+	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+		  e.target // newly activated tab
+		  e.relatedTarget // previous active tab
+		})
+	
 	</script>
 
 </body>

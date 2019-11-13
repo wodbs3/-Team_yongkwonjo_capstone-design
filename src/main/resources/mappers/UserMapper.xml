@@ -81,4 +81,9 @@
 		where member_id = #{member_id}
 	</select>
 	
+	<select id="getMemberList" parameterType="String" resultType="com.bu.bumoim.domain.Member">
+		select member_id, member_name, member_group1, member_group2, member_group3
+		from member
+		where member_id = #{member_id}
+	</select>
 </mapper>

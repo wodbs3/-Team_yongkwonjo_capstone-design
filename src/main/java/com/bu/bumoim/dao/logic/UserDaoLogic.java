@@ -1,5 +1,6 @@
 package com.bu.bumoim.dao.logic;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -41,5 +42,11 @@ public class UserDaoLogic implements UserDao {
 	@Override 
 	public int deleteMember(String member_id) {
 		return sqlSession.delete("login.deleteMember", member_id);
+	}
+
+	@Override
+	public List<Member> getMemberList(String member_id) {
+		List<Member> member = sqlSession.selectList("getMemberList", member_id);
+		return member;
 	}
 }
