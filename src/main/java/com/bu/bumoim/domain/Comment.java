@@ -11,6 +11,10 @@ public class Comment {
 	private String comment_content;
 	private String comment_writer;
 	private Date comment_date;
+	private String comment_redepth;
+	private int comment_reorder;
+	private String comment_reparent;
+	
 	public int getComment_number() {
 		return comment_number;
 	}
@@ -53,8 +57,23 @@ public class Comment {
 	public void setComment_date(Date comment_date) {
 		this.comment_date = comment_date;
 	}
-	
-	
-	
+	public String getComment_reparent() {
+		return comment_reparent;
+	}
+	public void setComment_reparent(String comment_reparent) {
+		this.comment_reparent = comment_reparent;
+	}
+	public String getComment_redepth() {
+		return comment_redepth;
+	}
+	public void setComment_redepth(String comment_redepth) {
+		this.comment_redepth = comment_redepth;
+	}
+	public int getComment_reorder() {
+		return comment_reorder;
+	}
+	public void setCmment_reorder(int comment_reorder) {
+		this.comment_reorder = comment_reorder;
+	}
 	
 }

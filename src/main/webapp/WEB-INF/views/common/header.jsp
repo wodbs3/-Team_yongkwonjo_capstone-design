@@ -28,7 +28,7 @@
         <div id="top_line">
             <div class="container">
                 <div class="row">
-                         <div class="col-md-6 col-sm-6 col-xs-6"><i class="icon-phone"></i><strong>000-0000-0000</strong></div>
+                         <div class="col-md-6 col-sm-6 col-xs-6"></div>
                     
                     <div class="col-md-6 col-sm-6 col-xs-6">
                         <ul id="top_links">

@@ -1,5 +1,6 @@
 package com.bu.bumoim.service.logic;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,11 @@ public class UserServiceLogic implements UserService{
 	@Override
 	public int deleteMember(String member_id) {
 		return userDao.deleteMember(member_id);
+	}
+
+	@Override
+	public List<Member> getMemberList(String member_id) {
+		List<Member> member = userDao.getMemberList(member_id);
+		return member;
 	}
 }

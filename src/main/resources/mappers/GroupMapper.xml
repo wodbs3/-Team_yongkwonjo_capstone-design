@@ -48,4 +48,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM bumoim.grouplist
 		WHERE grouplist_number = #{grouplist_number}
 	</select>
+	
+	
+		
+	<select id="memberIdCheck" resultType="com.bu.bumoim.domain.Member" >
+		select member_id, member_name, member_group1, member_group2, member_group3
+		from member
+		where member_id = #{member_id}
+	</select>
 </mapper>

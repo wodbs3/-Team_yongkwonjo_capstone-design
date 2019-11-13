@@ -104,40 +104,7 @@
 <!--  관심사 -->
 		<div>
 			<div class="col-md-offset-4 col-md-4">
-				<label for="grouplist_interest" class="control-label">관심사</label>
-				<br>
-				<div class="col-md-6">
-				<img src="/resources/img/groupcreate/bongsa.jpg" style="width:100%; height:100px;">
-				<input type="radio" id="grouplist_interest" name="grouplist_interest" value="봉사활동">봉사활동
-				</div>
-				<div class="col-md-6">
-				<img src="/resources/img/groupcreate/gido.jpg" style="width:100%; height:100px;">
-				<input type="radio" id="grouplist_interest" name="grouplist_interest" value="기독교모임">기독교모임
-				</div>
-				<div class="col-md-6">
-				<img src="/resources/img/groupcreate/food.jpg" style="width:100%; height:100px;">
-				<input type="radio" id="grouplist_interest" name="grouplist_interest" value="식사">식사
-				</div>
-				<div class="col-md-6">
-				<img src="/resources/img/groupcreate/study.jpg" style="width:100%; height:100px;">
-				<input type="radio" id="grouplist_interest" name="grouplist_interest" value="스터디">스터디
-				</div>
-				<div class="col-md-6">
-				<img src="/resources/img/groupcreate/carpool.jpg" style="width:100%; height:100px;">
-				<input type="radio" id="grouplist_interest" name="grouplist_interest" value="카풀">카풀
-				</div>
-				<div class="col-md-6">
-				<img src="/resources/img/groupcreate/moim.png" style="width:100%; height:100px;">
-				<input type="radio" id="grouplist_interest" name="grouplist_interest" value="사교모임">사교모임
-				</div>
-				<div class="col-md-6">
-				<img src="/resources/img/groupcreate/dongdong.jpg" style="width:100%; height:100px;">
-				<input type="radio" id="grouplist_interest" name="grouplist_interest" value="동아리">동아리
-				</div>
-				<div class="col-md-6">
-				<img src="/resources/img/groupcreate/free.jpg" style="width:100%; height:100px;">
-				<input type="radio" id="grouplist_interest" name="grouplist_interest" value="자유주제">자유주제
-				</div>
+				
 			</div>
 		</div>
 		

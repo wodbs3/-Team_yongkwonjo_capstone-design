@@ -63,12 +63,13 @@
             </div>
         </div>
     </form>
-						<h4>댓글</h4>
+					
+					<h4>댓글</h4>
 					<div class="post-right">
 							<div id="general_rating"> Reviews
 							</div>
 							</div><br>
-						
+								
 					<div id="comments">
 					
 						<ol>
@@ -76,29 +77,47 @@
 							
 							<hr>		
 							
+							
 							<!-- End review strip -->
 						<c:forEach items="${commentList }" var="commentList">
 							<div class="review_strip_single last">
 								<img src="${pageContext.request.contextPath }/resources/img/avatar1.jpg" alt="Image" class="img-circle">
 								<small> - ${commentList.comment_date } -</small>
 								<br>
-								<a href="commentDelete.do?num=${commentList.comment_number }" class="button_1"></a>
+								<a href="boardcommentDelete.do?num=${commentList.comment_number }" class="button_1"></a>
 								<h4>아이디: <span>${commentList.comment_id }</span></h4>
 								<hr>
 								<p>
-									${commentList.comment_content }
 									
+									${commentList.comment_content }
+									<span class="writeReReply" style="curosor: pointer;"> (답글 달기) </span> 
 								</p>
-							
+						<table id = "replyTable">		
+							<tbody>		
+								<tr class="hide">
+									<td class="board_number">${comment.board_number }</td>
+									<td class="comment_reparent">${comment.comment_reparent }</td>
+								</tr>
+								<tr class="hide">
+									<td class="comment_redepth">${comment.comment_redepth }</td>
+									<td class="comment_reorder">${comment.comment_reorder }</td>
+								</tr>
+								<tr class="hide">
+									<td colspan="2" class ="comment_id">${comment.comment_id }</td>
+								</tr>	
+							</tbody>
+						</table>
 							</div>
+							
 						</c:forEach>
-							</li>
+						</li>
 						</ol>
 					</div>
 					<!-- End Comments -->
 					<br>
 					<h4>댓글 달기</h4>
-					<form action="borCommentInsert.do?num=${board.number }" method="post">
+					<form action="boardcommentInsert.do?board_number=${Board.board_number }" method="post">
+					<input type="hidden" value="${Board.board_number}"/>
 						<div class="form-group">
 							<h4>작성자:</h4>
          					<input type="text" id="comment_id" name="comment_id" value="${loginMap.member_id }" readonly/>
@@ -110,6 +129,7 @@
 						</div>
 					</form>
 				</div>
+				
 
 
     <!-- Common scripts -->
@@ -131,6 +151,7 @@
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 <script> 
+
 
 </script>
 </body>

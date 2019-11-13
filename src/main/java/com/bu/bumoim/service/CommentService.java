@@ -18,13 +18,22 @@ public interface CommentService {
 	
 	public List<Comment> galCommentList(int photo_number);
 	
-	public int getPhotoNumber(int comment_number);
-	
 	public void galUpdateComment(Comment comment);
 	
 	public void galDeleteAllComment(int photo_number);
 	
 	public void galDeleteComment(int comment_number);
 	
+	public int getPhotoNumber(int comment_number);
+	
+	public void boardCommentInsert(Comment comment);
+		
+	public List<Comment> boardCommentList(int board_number);
+	
+	public void boardUpdateComment(Comment comment);
+		
+	public void boardDeleteAllComment(int board_number);
+		
+	public void boardDeleteComment(int comment_number);
 }
 

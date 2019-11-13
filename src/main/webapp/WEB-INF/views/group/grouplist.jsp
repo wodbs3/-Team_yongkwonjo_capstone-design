@@ -52,7 +52,6 @@
                     <th>그룹흥미</th>
                     <th>그룹정원</th>
                     <th>생성날짜</th>
-                    <th>비고</th>
                 </tr>
             </thead>
             <tbody>
@@ -69,16 +68,16 @@
             </tbody>
         </table>
         <c:choose>
-       <c:when test="${loginMap.member_id eq null }">
-        <div style = "text-align: right;">           
-            <a href='#' onclick="javascript:goLogin();" class="btn btn-success">로그인 해주세요</a>
-        </div>
-        </c:when>
-        <c:otherwise>
-        <div style = "text-align: right;">           
-            <a href='#' onclick="javascript:goCreate();" class="btn btn-success">그룹생성</a>
-        </div>
-        </c:otherwise>
+	        <c:when test="${loginMap.member_id eq null }">
+		        <div style = "text-align: right;">           
+		            <a href='#' onclick="javascript:goLogin();" class="btn btn-success">로그인 해주세요</a>
+		        </div>
+	        </c:when>
+	        <c:otherwise>
+		        <div style = "text-align: right;">           
+		            <a href='#' onclick="javascript:goCreate();" class="btn btn-success">그룹생성</a>
+		        </div>
+	        </c:otherwise>
         </c:choose>
     </form>
 </div>
@@ -133,28 +132,5 @@
 	 
 	</script>
 	
-	<script>
-	/* 그룹 가입여부 체크 */
-	/* 1. 회원에서 가입 여부 상태를 가져온다. */
-	/* 2. 만약에 회원이 이미 가입한 그룹이라면 버튼을 disabled */
-	/* 3. 회원이 가입한 그룹이 아니라면 removeAttr("disabled") */
-	$("#groupJoinButton").click(function(){
-		var query = {group_number : $("#group_number").val()};
-		$.ajax({
-			url : "/groupJoinCheck.do",
-			type : "post",
-			data : query,
-			success : function(data) {
-				if(data == 0) {
-					$("#submit").attr("disabled", "disabled");
-				} else if (data == 1){
-					$("#submit").removeAttr("disabled");
-				}
-			}
-		});
-	});
-	</script>
-
-
 </body>
 </html>
