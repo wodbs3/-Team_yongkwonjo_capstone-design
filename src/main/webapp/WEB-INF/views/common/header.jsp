@@ -36,12 +36,12 @@
                             <c:choose>
                             	<c:when test="${loginMap.member_id eq null }">
                                 <div class="row">
-                                    <a href="login.do" id="access_link">Login</a>
+                                    <a href="${pageContext.request.contextPath}/login.do" id="access_link">Login</a>
                                 </div>
                                 </c:when>
                                 <c:otherwise>
                                 <div>
-                                <b>${loginMap.member_id }</b>님 환영합니다. | <a href="/logout.do">로그아웃</a> | <b><a href="mypage.do">mypage</a></b>
+                                <b>${loginMap.member_id }</b>님 환영합니다. | <a href="/logout.do">로그아웃</a> | <b><a href="${pageContext.request.contextPath}/mypage.do">mypage</a></b>
                                 </div>
                                 </c:otherwise>
                                 </c:choose>
@@ -55,7 +55,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-3 col-xs-3">
                     <div id="logo_home">
-                    	<h1><a href="index.do" title="City tours travel template">City Tours travel template</a></h1>
+                    	<h1><a href="${pageContext.request.contextPath }/index.do" title="City tours travel template">City Tours travel template</a></h1>
                     </div>
                 </div>
                 <nav class="col-md-9 col-sm-9 col-xs-9">
@@ -67,11 +67,11 @@
                         <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                         <ul>
                             <li class="submenu">
-                                <a href="Introduce.do" class="show-submenu">Our Introduce <i class="icon-down-open-mini"></i></a>
+                                <a href="introduce.do" class="show-submenu">Our Introduce <i class="icon-down-open-mini"></i></a>
                                 
                             </li>
                             <li class="submenu">
-                                <a href="GroupList.do" class="show-submenu">GroupList </a>
+                                <a href="${pageContext.request.contextPath }/group/GroupList.do" class="show-submenu">GroupList </a>
 
                             </li>
                         </ul>

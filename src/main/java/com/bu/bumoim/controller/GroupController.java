@@ -18,18 +18,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bu.bumoim.domain.Gallery;
 import com.bu.bumoim.domain.GroupList;
 import com.bu.bumoim.domain.Member;
+import com.bu.bumoim.paging.GalleryCriteria;
+import com.bu.bumoim.paging.GalleryPageMaker;
+import com.bu.bumoim.service.GalleryService;
 import com.bu.bumoim.service.GroupService;
 import com.bu.bumoim.service.UserService;
 
 @Controller
+@RequestMapping("group")
 public class GroupController {
 	//
 	private Logger logger = Logger.getLogger(getClass());
 	
 	@Autowired
 	private GroupService groupService;
+	@Autowired
+	private GalleryService galleryService;
 	
 	@Autowired
 	private UserService userService;
@@ -81,12 +88,23 @@ public class GroupController {
 	}
 
 	// 그룹 => 그룹정보
-	@RequestMapping(value = "/group/groupInfo.do", method=RequestMethod.GET)
-	public String groupInfoView(int grouplist_number, Model model) {
+	@RequestMapping(value = "/groupInfo.do", method=RequestMethod.GET)
+	public String groupInfoView(int groupList_number, Model model, @ModelAttribute("cri") GalleryCriteria cri) {
 		//
-		GroupList groupDetail = groupService.findGroupDetail(grouplist_number);
-		model.addAttribute("groupDetail", groupDetail);
+		List<Gallery> galleryList = galleryService.getGroupGallery(groupList_number, cri);
+		System.out.println("33333333333333333333333333333333333333333333333333333333");
+		logger.info(galleryList.toString());
 		
+		GroupList groupDetail = groupService.findGroupDetail(groupList_number);
+		
+		
+		GalleryPageMaker pageMaker = new GalleryPageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(100);
+		
+		model.addAttribute("groupDetail", groupDetail);
+		model.addAttribute("galleryList", galleryList);
+		model.addAttribute("pageMaker", pageMaker);
 		return "group/groupInfo2";
 	}
 	

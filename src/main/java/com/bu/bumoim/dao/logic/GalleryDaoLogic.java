@@ -1,5 +1,8 @@
 package com.bu.bumoim.dao.logic;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +25,47 @@ public class GalleryDaoLogic implements GalleryDao {
 	@Autowired
 	private SqlSessionFactory sqlSessionFactory;
 	Logger logger = Logger.getLogger(getClass());
+
+	
+	@Override
+	public List<Gallery> getGroupGallery(int groupList_number, GalleryCriteria cri) {
+		SqlSession session = sqlSessionFactory.openSession();
+		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		  
+        params.put("cri", cri);
+        params.put("gNum", groupList_number);  
+
+        
+		try {
+			Gallery gallery = new Gallery();
+			List<Gallery> test =  session.selectList("Gallery.getGroupGallery", params);
+			logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+ test);
+			logger.info(test.toString());
+			logger.info(gallery.toString());
+			
+			System.out.println("555555555555555555555555555555555555555555555555555555555");
+			System.out.println(params.get("cri"));
+			System.out.println(params.get("gNum"));
+			
+			Iterator<Gallery> iter = test.iterator();
+
+			while (iter.hasNext()) {
+				System.out.println("66666666666666666666666666666666666666666666666666");
+			    System.out.print(iter.next() + " ");
+
+			}
+			return test;
+		}
+
+		finally {
+			session.close();
+		}
+		
+	}
+	
+	
+	
 
 	@Override
 	public List<Gallery> getGalleryList(GalleryCriteria cri) {
