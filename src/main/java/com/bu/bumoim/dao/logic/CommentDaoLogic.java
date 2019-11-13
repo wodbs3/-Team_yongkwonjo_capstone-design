@@ -77,6 +77,18 @@ public class CommentDaoLogic implements CommentDao{
 		}
 	
 	}
+	
+	public int getPhotoNumber(int comment_number) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+
+			int photo_number = session.selectOne("Comment.getPhotoNumber", comment_number);
+
+			return photo_number;
+		} finally {
+			session.close();
+		}
+	}
 
 	@Override
 	public void boardInsertComment(Comment comment) {

@@ -1,0 +1,169 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+	<head>
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="/resources/img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="/resources/img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="/resources/img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="/resources/img/apple-touch-icon-144x144-precomposed.png">
+
+	
+	<!-- Google web fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Lato:300,400|Montserrat:400,400i,700,700i" rel="stylesheet">
+
+    <!-- BASE CSS -->
+    <link href="/resources/css/base.css" rel="stylesheet">
+
+    <!-- REVOLUTION SLIDER CSS -->
+    <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+	<link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/css/settings.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    
+		
+		<title>BUmoim GroupCreate</title>
+			
+		<style type="text/css">
+			div #emailOk {
+				margin-bottom: 15px;
+			}
+			
+			/* 아이디 / 비밀번호 입력 메세지 출력 */
+			#idOk, #pwdFalse, #birthOk, #emailOk, #nameOk, #telOk, #imgOk {
+				font-size: 12px;
+				color: red;
+			}
+			#pwdOk {
+				font-size: 12px;
+			}
+			
+		</style>
+		
+	</head>
+
+	<%@ include file="../common/header.jsp" %>
+	
+	<body>
+	
+	
+	<div class="row margin_30">
+<!-- Join Form -->
+	<form action="GroupCreate.do" method="POST" class="form-horizontal" style="margin-top:10%">
+
+	
+<!-- Input Id -->
+		<div>
+			<div class="col-md-offset-4 col-md-4">
+				<label for="grouplist_name" class="control-label">그룹이름</label>
+				<br>
+				<input type="text" class="form-control" id="grouplist_name" name="grouplist_name" value="${grouplist_name }" placeholder="그룹이름을 입력해주세요.(4~20자)" pattern="[A-Za-z0-9]{4, 40}" minlength="4" maxlength="40" oninput="checkgroup();" required autofocus>
+				<input type="button" class="btn btn-default groupCheck" value="중복확인" style="width: 100px;">
+				<p class="result">
+					<span class="msg">중복확인해주세요.</span>
+				</p>
+			</div>
+		</div>
+
+		<div>
+			<div class="col-md-offset-4 col-md-4">
+				<label for="grouplist_introduce">그룹소개</label>
+				<textarea class="form-control" rows="5" id="grouplist_introduce" name="grouplist_introduce"></textarea>
+			</div>
+		</div>
+
+
+
+			<!-- Input Interest -->
+<!-- 인원 -->
+		<div>
+			<div class="col-md-offset-4 col-md-4">
+				<label for="grouplist_people" class="control-label">정원</label>
+				<br>
+				
+					<select class="form-control" id="grouplist_people" name="grouplist_people">
+						<option value=" selected">정원</option>
+						<option>20</option>
+						<option>40</option>
+						<option>60</option>
+						<option>80</option>
+					</select>
+					
+			</div>
+		</div>
+		
+<!-- Input Gender -->
+<!--  관심사 -->
+		<div>
+			<div class="col-md-offset-4 col-md-4">
+				
+			</div>
+		</div>
+		
+<!-- Join Button -->
+		<div>
+			<div class="col-md-offset-4 col-md-4">
+				<button type="submit" class="col-md-12 btn btn-default" id="submit" disabled="disabled">그룹생성</button>
+			</div>
+		</div>
+		<br><br><br>
+		
+	</form>
+	
+	</div>
+
+    <!-- Common scripts -->
+    <script src="/resources/js/jquery-2.2.4.min.js"></script>
+    <script src="/resources/js/common_scripts_min.js"></script>
+    <script src="/resources/js/functions.js"></script>
+
+    <!-- SLIDER REVOLUTION SCRIPTS  -->
+    <script type="text/javascript" src="/resources/rev-slider-files/js/jquery.themepunch.tools.min.js"></script>
+	<script type="text/javascript" src="/resources/rev-slider-files/js/jquery.themepunch.revolution.min.js"></script>
+	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.actions.min.js"></script>
+	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.carousel.min.js"></script>
+	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.kenburn.min.js"></script>
+	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.layeranimation.min.js"></script>
+	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.migration.min.js"></script>
+	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.navigation.min.js"></script>
+	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.parallax.min.js"></script>
+	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.slideanims.min.js"></script>
+	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
+	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	
+	
+	/* 아이디 중복 체크 */
+	$(".groupCheck").click(function(){
+		var query = {grouplist_name : $("#grouplist_name").val()};
+		$.ajax({
+			url : "/groupDuplicationCheck.do",
+			type : "post",
+			data : query,
+			success : function(data) {
+				if(data == 0) {
+					$(".result .msg").text("그룹이름 중복 사용불가");
+					$(".result .msg").attr("style", "color:#f00");
+					$("#submit").attr("disabled", "disabled");
+				} else if (data == 1){
+					$(".result .msg").text("그룹이름 사용가능");
+					$(".result .msg").attr("style", "color:#00f");
+					$("#submit").removeAttr("disabled");
+				}
+			}
+		});
+	});
+	</script>
+	<%@ include file="../common/footer.jsp" %>
+	</body>
+	
+</html>

@@ -14,7 +14,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.bu.bumoim.dao.GalleryDao;
 import com.bu.bumoim.domain.Gallery;
+import com.bu.bumoim.paging.GalleryCriteria;
 import com.bu.bumoim.service.GalleryService;
+
 
 @Service
 public class GalleryServiceLogic implements GalleryService {
@@ -52,8 +54,19 @@ public class GalleryServiceLogic implements GalleryService {
 	}
 
 	@Override
-	public List<Gallery> getGalleryList(Gallery gallery) {
-		return galleryDao.getGalleryList(gallery);
+	public List<Gallery> getGalleryList(GalleryCriteria cri) {
+		return galleryDao.getGalleryList(cri);
+	}
+
+	@Override
+	public int getGalleryCount() {
+		return galleryDao.getGalleryCount();
+	}
+
+	@Override
+	public List<Gallery> getGroupGallery(int groupList_number, GalleryCriteria cri) {
+		
+		return galleryDao.getGroupGallery(groupList_number, cri);
 	}
 
 

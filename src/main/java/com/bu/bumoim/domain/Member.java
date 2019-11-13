@@ -11,9 +11,10 @@ public class Member {
 	private String member_gender;
 	private String member_birth;
 	private String member_email;
-	private int group1;
-	private int group2;
-	private int group3;
+	private String fileName;
+	private int member_group1;
+	private int member_group2;
+	private int member_group3;
 	
 	public String getMember_id() {
 		return member_id;
@@ -87,30 +88,30 @@ public class Member {
 		this.member_email = member_email;
 	}
 	
-	public int getGroup1() {
-		return group1;
+	public int getMember_group1() {
+		return member_group1;
 	}
-	
-	public void setGroup1(int group1) {
-		this.group1 = group1;
+
+	public void setMember_group1(int member_group1) {
+		this.member_group1 = member_group1;
 	}
-	
-	public int getGroup2() {
-		return group2;
+
+	public int getMember_group2() {
+		return member_group2;
 	}
-	
-	public void setGroup2(int group2) {
-		this.group2 = group2;
+
+	public void setMember_group2(int member_group2) {
+		this.member_group2 = member_group2;
 	}
-	
-	public int getGroup3() {
-		return group3;
+
+	public int getMember_group3() {
+		return member_group3;
 	}
-	
-	public void setGroup3(int group3) {
-		this.group3 = group3;
+
+	public void setMember_group3(int member_group3) {
+		this.member_group3 = member_group3;
 	}
-	
+
 	@Override
 	public String toString() {
 		//
@@ -118,8 +119,18 @@ public class Member {
 		
 		builder.append("member id: ").append(member_id);
 		builder.append(", name: ").append(member_name);
-		builder.append(", email: ").append(member_email);
+		builder.append(", group_number1: ").append(member_group1);
+		builder.append(", group_number2: ").append(member_group2);
+		builder.append(", group_number3: ").append(member_group3);
 		
 		return builder.toString();
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 }

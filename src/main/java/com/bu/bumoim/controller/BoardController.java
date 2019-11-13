@@ -50,8 +50,8 @@ public class BoardController {
 	public ModelAndView list(Board board, @ModelAttribute("cri") Criteria cri, HttpServletRequest request) {
 		
 		List<Board> list = boardservice.selectBoardList(cri);
+//		List<Board> lists = boardservice.selectgetCount(board_number);
 		ModelAndView mav = new ModelAndView("board/List");
-
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);

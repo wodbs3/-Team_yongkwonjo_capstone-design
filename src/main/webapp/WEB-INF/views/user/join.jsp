@@ -57,7 +57,7 @@
 	
 	<div class="row margin_30">
 <!-- Join Form -->
-	<form action="join.do" method="POST" class="form-horizontal" style="margin-top:10%">
+	<form action="join.do" method="POST" class="form-horizontal" style="margin-top:10%" enctype="multipart/form-data">
 
 	
 <!-- Input Id -->
@@ -84,6 +84,9 @@
 				<div class="form-group" id="pwdOk"></div>
 			</div>
 		</div>
+			<div class="col-md-offset-4 col-md-4 text-right">
+			<input type="file" name="uploadFile" class="btn_1"/>
+			</div>
 		
 <!-- Input StudentId -->
 		<div>
@@ -125,17 +128,40 @@
 <!-- Input Interest -->
 		<div>
 			<div class="col-md-offset-4 col-md-4">
-				<label for="member_interest" class="control-label">관심사</label>
+				<label for="grouplist_interest" class="control-label">관심사</label>
 				<br>
-				
-					<select class="form-control" id="member_interest" name="member_interest">
-						<option value=" selected">관심사</option>
-						<option>소프트웨어학</option>
-						<option>정보보호학</option>
-						<option>멀티미디어학</option>
-						<option>전자제어학</option>
-					</select>
-					
+				<div class="col-md-6">
+				<img src="/resources/img/groupcreate/bongsa.jpg" style="width:100%; height:100px;">
+				<input type="radio" id="member_interest" name="member_interest" value="봉사활동">봉사활동
+				</div>
+				<div class="col-md-6">
+				<img src="/resources/img/groupcreate/gido.jpg" style="width:100%; height:100px;">
+				<input type="radio" id="member_interest" name="member_interest" value="기독교모임">기독교모임
+				</div>
+				<div class="col-md-6">
+				<img src="/resources/img/groupcreate/food.jpg" style="width:100%; height:100px;">
+				<input type="radio" id="member_interest" name="member_interest" value="식사">식사
+				</div>
+				<div class="col-md-6">
+				<img src="/resources/img/groupcreate/study.jpg" style="width:100%; height:100px;">
+				<input type="radio" id="member_interest" name="member_interest" value="스터디">스터디
+				</div>
+				<div class="col-md-6">
+				<img src="/resources/img/groupcreate/carpool.jpg" style="width:100%; height:100px;">
+				<input type="radio" id="member_interest" name="member_interest" value="카풀">카풀
+				</div>
+				<div class="col-md-6">
+				<img src="/resources/img/groupcreate/moim.png" style="width:100%; height:100px;">
+				<input type="radio" id="member_interest" name="member_interest" value="사교모임">사교모임
+				</div>
+				<div class="col-md-6">
+				<img src="/resources/img/groupcreate/dongdong.jpg" style="width:100%; height:100px;">
+				<input type="radio" id="member_interest" name="member_interest" value="동아리">동아리
+				</div>
+				<div class="col-md-6">
+				<img src="/resources/img/groupcreate/free.jpg" style="width:100%; height:100px;">
+				<input type="radio" id="member_interest" name="member_interest" value="자유주제">자유주제
+				</div>
 			</div>
 		</div>
 		

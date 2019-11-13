@@ -21,7 +21,7 @@
 <%@ include file="../common/header.jsp" %>
 <div class="container margin_60">
 <div class="col-md-offset-3 col-md-6" style="margin-top: 10%;">
-    <form action="fileUpload.do" id="fileUpload" name="fileUpload" method="post" enctype="multipart/form-data">
+    <form action="fileUpload.do?groupList_number=${groupList_number }" id="fileUpload" name="fileUpload" method="post" enctype="multipart/form-data">
     	
         <div>
         	<div class="row">
@@ -49,7 +49,7 @@
                  
                 </table>
                 <div style = "text-align: right;">
-                	<input type="submit" class="btn btn-success" value="등록">
+                	<input type="submit" class="btn btn-success"  value="등록">
                     <a href="gallery.do" class="btn btn-success">목록</a>
                 </div>
             </div>

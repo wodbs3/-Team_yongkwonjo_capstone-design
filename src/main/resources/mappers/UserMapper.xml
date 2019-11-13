@@ -16,7 +16,8 @@
             member_mail,
             member_group1,
             member_group2,
-            member_group3
+            member_group3,
+            member_photo as fileName
            FROM
            	member
           WHERE member_id = #{member_id}
@@ -45,7 +46,8 @@
 			member_mail,
 			member_group1,
 			member_group2,
-			member_group3
+			member_group3,
+			member_photo
 			)
 		VALUES (
 			#{member_id},
@@ -59,10 +61,19 @@
 			#{member_email},
 			null,
 			null,
-			null
+			null,
+			#{fileName}
 		)
 
 	</insert>
+	
+	<delete id="deleteMember">
+    	DELETE 
+    	
+    	FROM member
+
+    	WHERE member_id = #{member_id}
+    </delete>
 	
 	<select id="idDuplicationCheck" resultType="com.bu.bumoim.domain.Member" >
 		select member_id 
@@ -70,4 +81,9 @@
 		where member_id = #{member_id}
 	</select>
 	
+	<select id="getMemberList" parameterType="String" resultType="com.bu.bumoim.domain.Member">
+		select member_id, member_name, member_group1, member_group2, member_group3
+		from member
+		where member_id = #{member_id}
+	</select>
 </mapper>

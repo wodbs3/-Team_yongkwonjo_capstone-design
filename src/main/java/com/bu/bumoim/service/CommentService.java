@@ -24,6 +24,8 @@ public interface CommentService {
 	
 	public void galDeleteComment(int comment_number);
 	
+	public int getPhotoNumber(int comment_number);
+	
 	public void boardCommentInsert(Comment comment);
 		
 	public List<Comment> boardCommentList(int board_number);

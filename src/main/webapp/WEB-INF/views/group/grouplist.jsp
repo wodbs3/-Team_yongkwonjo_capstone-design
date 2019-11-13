@@ -40,7 +40,7 @@
 
 <div class="container" style="margin-bottom: 333px;width: 60%; margin-left:20%; margin-top: 10%;">
     <form id="groupForm" name="groupForm" method="post">
-        <table class="table">
+        <table class="table" style="table-layout: fixed">
             <thead class="thead-dark" style="
     background: #474747;
     color: white;
@@ -59,7 +59,7 @@
                     <tr>
                         <td><a href="${pageContext.request.contextPath }/group/groupInfo.do?grouplist_number=${GroupList.grouplist_number }"><c:out value="${GroupList.grouplist_number }"/></a></td>
                         <td><a href="${pageContext.request.contextPath }/group/groupInfo.do?grouplist_number=${GroupList.grouplist_number }"><c:out value="${GroupList.grouplist_name }"/></a></td>
-                        <td><c:out value="${GroupList.grouplist_introduce }"/></td>
+                        <td style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap;"><c:out value="${GroupList.grouplist_introduce }"/></td>
                         <td><c:out value="${GroupList.grouplist_interest }"/></td>
                         <td><c:out value="${GroupList.grouplist_people }"/></td>
                         <td><c:out value="${GroupList.grouplist_date }"/></td>
@@ -68,16 +68,16 @@
             </tbody>
         </table>
         <c:choose>
-       <c:when test="${loginMap.member_id eq null }">
-        <div style = "text-align: right;">           
-            <a href='#' onclick="javascript:goLogin();" class="btn btn-success">로그인 해주세요</a>
-        </div>
-        </c:when>
-        <c:otherwise>
-        <div style = "text-align: right;">           
-            <a href='#' onclick="javascript:goCreate();" class="btn btn-success">그룹생성</a>
-        </div>
-        </c:otherwise>
+	        <c:when test="${loginMap.member_id eq null }">
+		        <div style = "text-align: right;">           
+		            <a href='#' onclick="javascript:goLogin();" class="btn btn-success">로그인 해주세요</a>
+		        </div>
+	        </c:when>
+	        <c:otherwise>
+		        <div style = "text-align: right;">           
+		            <a href='#' onclick="javascript:goCreate();" class="btn btn-success">그룹생성</a>
+		        </div>
+	        </c:otherwise>
         </c:choose>
     </form>
 </div>
@@ -106,25 +106,31 @@
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.slideanims.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
-<script>
-//글쓰기
-function goCreate() {
-   location.href="/GroupCreate.do";
-}
-
-function goLogin() {
-	   location.href="/login.do";
+	
+	<script>
+	//글쓰기
+	function goCreate() {
+		location.href="/GroupCreate.do";
+	}
+	
+	function goLogin() {
+		location.href="/login.do";
 	}
 
-$(document).on('click', '#btnSearch', function(e){
-   e.preventDefault();
-   var url = "${requestScope['javax.servlet.forward.servlet_path']}";
-   url = url + "?searchType=" + $('#searchType').val();
-   url = url + "&keyword=" + $('#keyword').val();
-   location.href = url;
-   console.log(url);
-});
- 
-</script>
+	function goJoin() {
+		location.href="/groupJoin.do";
+	}
+	
+	$(document).on('click', '#btnSearch', function(e){
+	   e.preventDefault();
+	   var url = "${requestScope['javax.servlet.forward.servlet_path']}";
+	   url = url + "?searchType=" + $('#searchType').val();
+	   url = url + "&keyword=" + $('#keyword').val();
+	   location.href = url;
+	   console.log(url);
+	});
+	 
+	</script>
+	
 </body>
 </html>
