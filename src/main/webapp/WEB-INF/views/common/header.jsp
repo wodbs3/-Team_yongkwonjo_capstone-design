@@ -55,7 +55,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-3 col-xs-3">
                     <div id="logo_home">
-                    	<h1><a href="index.do" title="City tours travel template">City Tours travel template</a></h1>
+                    	<h1><a href="${pageContext.request.contextPath }/index.do" title="City tours travel template">City Tours travel template</a></h1>
                     </div>
                 </div>
                 <nav class="col-md-9 col-sm-9 col-xs-9">
@@ -71,7 +71,7 @@
                                 
                             </li>
                             <li class="submenu">
-                                <a href="GroupList.do" class="show-submenu">GroupList </a>
+                                <a href="${pageContext.request.contextPath }/group/GroupList.do" class="show-submenu">GroupList </a>
 
                             </li>
                         </ul>

@@ -32,6 +32,19 @@
 
 	<!-- Radio and check inputs -->
 	<link href="/resources/css/skins/square/grey.css" rel="stylesheet">
+<style type="text/css">
+img {
+	display: block;
+	max-width:300px;
+	max-height: 200px;
+	width: auto;
+	height: auto;
+}
+
+/* .fouc { */
+/* 	display: none; */
+/* } */
+</style>
 
 </head>
 
@@ -61,6 +74,8 @@
 							<p>생성일 ${groupDetail.grouplist_date}</p>
 							<hr>
 							<p>${groupDetail.grouplist_introduce}</p>
+
+						
 						</div>
 					</div>
 					<!--End sticky -->
@@ -73,25 +88,108 @@
 						<div class="row">
 							<div class="col">
 								<p></p>
-								<ul class="nav nav-tabs">
-									<li class="nav-item">
-										<a class="nav-link active" data-toggle="tab" href="#board">게시판</a>
-									</li>
-									<li class="nav-item">
-										<a class="nav-link" data-toggle="tab" href="#gallery">사진첩</a>
-									</li>
-									<li>
-										<a class="nav-link" data-toggle="tab" href="#member">모임회원</a>
-									</li>
-								</ul>
-								<div class="tab-content">
-									<div class="tab-pane fade" id="board">
+								<ul class="nav nav-tabs" id="myTab" role="tablist">
+		                           <li class="nav-item">
+		                              <a class="nav-link active" id="board-tab" data-toggle="tab" role="tab" href="#board"  role="tab" aria-controls="board" aria-selected="true">게시판</a>
+		                           </li>
+		                           <li class="nav-item">
+		                              <a class="nav-link" id="gallery-tab" data-toggle="tab" role="tab" href="#gallery" aria-controls="gallery" aria-selected="false">사진첩</a>
+		                           </li>
+		                           <li class="nav-item">
+		                              <a class="nav-link" id="member-tab" data-toggle="tab" role="tab" href="#member" aria-controls="member" aria-selected="false">모임회원</a>
+		                           </li>
+		                        </ul>
+								<div class="tab-content fouc" id="myTabContent">
+									<div class="tab-pane fade show active" id="board" role="tabpanel" aria-labelledby="board-tab">
 										<p>그룹 게시판입니다.</p>
 									</div>
-									<div class="tab-pane fade" id="gallery">
-										<p>그룹 사진첩입니다.</p>
-									</div>
-									<div class="tab-pane fade" id="member">
+									<div class="tab-pane fade" id="gallery" role="tabpanel" aria-labelledby="gallery-tab">
+										<div class="main_title">
+			<%-- 				<h2><span>${smallgroup.name}</span></h2> --%>
+			<h2>
+				
+			</h2>
+		
+		<hr>
+		<div class="text-right">
+		<c:if test="${loginMap.member_id == null}">
+			<input type="button" class="btn_1" onclick="upload_btn(${loginMap.member_id})" value="사진 등록"/>
+		</c:if>
+		<c:if test="${loginMap.member_id != null }">
+			<a href="${pageContext.request.contextPath }/upload.do?groupList_number=${groupDetail.grouplist_number}" class="btn_1">사진 등록</a>
+		</c:if>
+		</div>
+		
+		
+		<div class="hotel_container">
+			<c:forEach items="${galleryList}" var="galleryList">
+							
+				<div class="col-md-4 col-sm-4">
+					<div class="img_container">
+						<a
+							href="${pageContext.request.contextPath }/galleryDetail.do?num=${galleryList.num}">
+							<img width="auto" height="auto"
+							src="${pageContext.request.contextPath }/resources/upload/${galleryList.photo_name}"
+							alt="Image">
+
+						</a>
+
+					</div>
+					
+				</div>
+			  </c:forEach>	
+		
+		</div>
+
+		<!-- End row -->
+
+
+		</div>
+	
+	<!-- End container -->
+	<hr>
+	<div class="text-center">
+	<ul class="pagination justify-content-center">
+	
+    <c:if test="${pageMaker.prev }">
+    <li>
+        <a href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&page=${pageMaker.startPage-1 }"/>'> Previous </a>
+    </li>
+    </c:if>
+    <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx" varStatus="status">
+  		
+    <li>
+        <a href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&page=${idx }"/>'><i class="fa">${idx }</i></a>
+    </li>
+    </c:forEach>
+    <c:if test="${pageMaker.next && pageMaker.endPage >0 }">
+    <li>
+        <a href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&page=${pageMaker.endPage+1 }"/>'> Next </a>
+    </li>
+    </c:if>
+</ul>
+	</div>
+</div>
+
+	<!-- End main -->
+
+
+	<div id="toTop" style="display: none;"></div>
+	<!-- Back to top button -->
+
+	<!-- Search Menu -->
+	<div class="search-overlay-menu">
+		<span class="search-overlay-close"><i
+			class="icon_set_1_icon-77"></i></span>
+		<form role="search" id="searchform" method="get">
+			<input value="" name="q" type="search" placeholder="Search...">
+			<button type="submit">
+				<i class="icon_set_1_icon-78"></i>
+			</button>
+		</form>
+	</div>
+									
+									<div class="tab-pane fade" id="member" role="tabpanel" aria-labelledby="member-tab">
 										<p>그룹 모힘회원입니다.</p>
 									</div>
 								</div>
@@ -143,7 +241,22 @@
 			additionalMarginTop: 80
 		});
 	</script>
-	
+	<script>
+	$(document).ready(function(){
+		var link = document.location.href;
+		var tab = link.split('/').pop();
+		$('a[href='+tab+']'.trigger('click');)
+		
+	}
+			))
+	</script>
+	<script>
+	function upload_btn(id) {
+		
+			alert("로그인을 해주세요");
+		
+	}
+	</script>
 	<script>
 	//글쓰기
 	function goCreate() {
@@ -162,6 +275,17 @@
 	   location.href = url;
 	   console.log(url);
 	});
+	</script>
+	
+	<script>
+		$('#myTab a[href="#board"]').tab('show') // Select tab by name
+		
+// 		var hash = window.location.hash;
+// 		$('#myTab a[href="' + hash + '"]').tab('show');
+		
+		$('#myTab a').on('shown.bs.tab',function(){
+			$(".fouc").show();
+		});
 	</script>
 
 </body>

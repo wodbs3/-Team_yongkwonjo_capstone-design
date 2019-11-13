@@ -1,14 +1,14 @@
 package com.bu.bumoim.paging;
 
 public class GalleryCriteria {
-	private int page;            // 현재 페이지 번호
+	   private int page;            // 현재 페이지 번호
 	   private int perPageNum;   // 페이지당 보여줄 게시글의 개수
 	   String keyword;
 	   String searchType;
 	   
 	   public GalleryCriteria() {
 	      this.page = 1;
-	      this.perPageNum = 9;
+	      this.perPageNum = 6;
 	   }
 
 	   public int getPage() {

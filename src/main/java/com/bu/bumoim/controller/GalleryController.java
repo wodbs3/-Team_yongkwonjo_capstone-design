@@ -85,7 +85,8 @@ public class GalleryController {
 	}
 
 	@RequestMapping(value = "/upload.do", method=RequestMethod.GET)
-	public String upload() {
+	public String upload(Model model, int groupList_number) {
+		model.addAttribute("groupList_number",groupList_number);
 		return "gallery/upload";
 	}
 
@@ -138,12 +139,12 @@ public class GalleryController {
 	}
 
 	@RequestMapping(value = "/fileUpload.do", method = RequestMethod.POST)
-	public String insertGallery(Member member, HttpServletRequest req, Gallery gallery) {
+	public String insertGallery(Member member, HttpServletRequest req, Gallery gallery, int groupList_number) {
 		gallery = fileUpload(req,gallery);
-	
+		gallery.setGrouplist_number(groupList_number);
 		service.insertGallery(gallery);
 	
-		return "redirect:gallery.do";
+		return "redirect:groupInfo.do?groupList_number=" + groupList_number;
 	}
 
 

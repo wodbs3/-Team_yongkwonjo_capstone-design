@@ -12,7 +12,15 @@ public class Gallery {
 	private String writer;
 	private Date regDate;
 	private String fileName;
-	
+	private int groupList_number;
+	public int getGroupList_number() {
+		return groupList_number;
+	}
+
+	public void setGrouplist_number(int groupList_number) {
+		this.groupList_number = groupList_number;
+	}
+
 	private MultipartFile[] files;
 	
 	
@@ -85,6 +93,16 @@ public class Gallery {
 		this.regDate = regDate;
 	}
 
-
-
+	
+	@Override
+	public String toString() {
+		//
+		StringBuilder builder = new StringBuilder();
+		
+		builder.append("gallery num: ").append(num);
+		builder.append(", gallery writer: ").append(writer);
+		builder.append(", gallery groupList_number: ").append(groupList_number);
+		
+		return builder.toString();
+	}
 }

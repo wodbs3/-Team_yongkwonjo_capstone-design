@@ -13,6 +13,7 @@
 		<result property="content" column="photo_content"/>
 		<result property="fileName" column="photo_name"/>
 		<result property="regDate" column="photo_date"/>
+		<result property="groupList_number" column="grouplist_number"></result>
 		<collection property="Member" resultMap="Member"/>	
 
 	</resultMap>
@@ -24,18 +25,34 @@
 				photo_content, 
 				photo_name,
 				photo_id,
-				photo_date
+				photo_date,
+				grouplist_number
 				)
 		VALUES (
 			#{content}, 
 			#{fileName},
 			#{writer},
-			CURDATE()
+			CURDATE(),
+			#{groupList_number}
 				)
 	
 	</insert>
 	
-	<select id="getGalleryList" resultType="Map">
+	<select id="getGroupGallery" resultType="HashMap">
+		SELECT 
+			photo_number as num,
+			photo_content, 
+			photo_id, 
+			photo_date, 
+			photo_name,
+			grouplist_number as groupList_number
+		FROM bumoim.groupphoto
+		WHERE grouplist_number = #{gNum}
+		ORDER BY photo_number DESC
+		LIMIT #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<select id="getGalleryList" resultType="Gallery">
 		SELECT 
 			photo_number as num,
 			photo_content as content, 
@@ -44,7 +61,7 @@
 			photo_name as fileName
 		FROM bumoim.groupphoto
 		ORDER BY photo_number DESC
-		 LIMIT #{pageStart}, #{perPageNum}
+		LIMIT #{pageStart}, #{perPageNum}
 		
 	</select>
 	

@@ -58,15 +58,15 @@
             <tbody>
                 <c:forEach var="GroupList" items="${GroupList}" varStatus="status">
                     <tr>
-                        <td><a href="${pageContext.request.contextPath }/group/groupInfo.do?grouplist_number=${GroupList.grouplist_number }"><c:out value="${GroupList.grouplist_number }"/></a></td>
-                        <td><a href="${pageContext.request.contextPath }/group/groupInfo.do?grouplist_number=${GroupList.grouplist_number }"><c:out value="${GroupList.grouplist_name }"/></a></td>
+                        <td><a href="${pageContext.request.contextPath }/group/groupInfo.do?groupList_number=${GroupList.grouplist_number }"><c:out value="${GroupList.grouplist_number }"/></a></td>
+                        <td><a href="${pageContext.request.contextPath }/group/groupInfo.do?groupList_number=${GroupList.grouplist_number }"><c:out value="${GroupList.grouplist_name }"/></a></td>
                         <td><c:out value="${GroupList.grouplist_introduce }"/></td>
                         <td><c:out value="${GroupList.grouplist_interest }"/></td>
                         <td><c:out value="${GroupList.grouplist_people }"/></td>
                         <td><c:out value="${GroupList.grouplist_date }"/></td>
                         <td>                        
 	                        <div>
-		                        <c:if test="${loginMap.member_id != null && loginMap.member_id == groupList.comment_id}">      
+		                        <c:if test="${loginMap.member_id != null && loginMap.member_id == GroupList.comment_id}">      
 		                           <div class="col-md-4">
 		                           		<a href="groupJoin.do?memberNum=${member.member_number }" class="btn btn-default" id="groupJoinButton">가입하기</a>
 		                           </div>

@@ -22,4 +22,5 @@ public interface GalleryService {
 	
 	public int getGalleryCount();
 
+	public List<Gallery> getGroupGallery(int groupList_number, GalleryCriteria cri);
 }

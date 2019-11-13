@@ -63,6 +63,12 @@ public class GalleryServiceLogic implements GalleryService {
 		return galleryDao.getGalleryCount();
 	}
 
+	@Override
+	public List<Gallery> getGroupGallery(int groupList_number, GalleryCriteria cri) {
+		
+		return galleryDao.getGroupGallery(groupList_number, cri);
+	}
+
 
 	
 }
