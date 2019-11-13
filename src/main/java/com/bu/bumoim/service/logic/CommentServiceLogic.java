@@ -46,7 +46,32 @@ public class CommentServiceLogic implements CommentService{
 		commentDao.galUpdateComment(comment);
 		
 	}
-
 	
+	@Override
+	public void boardCommentInsert(Comment comment) {
+		commentDao.boardInsertComment(comment);
+	}
+	
+	@Override
+	public List<Comment> boardCommentList(int board_number) {
+		List<Comment> comment = commentDao.boardGetCommentList(board_number);
+		return comment;
+	}
+	
+	@Override
+	public void boardDeleteAllComment(int board_number) {
+		commentDao.boardCommentAllDelete(board_number);
+	}
+	
+	@Override
+	public void boardDeleteComment(int comment_number) {
+		commentDao.boardCommentDelete(comment_number);
+		
+	}
 
+	@Override
+	public void boardUpdateComment(Comment comment) {
+		commentDao.boardUpdateComment(comment);
+	}
+		
 }

@@ -10,6 +10,27 @@ public class Board {
 	private String board_writer;
 	private String board_photo;
 	private Date board_date;
+
+	
+	public Board() {
+	
+	}
+	
+	public Board(String board_photo, String board_title, String board_content, Date board_date, String board_writer) {
+		this.board_photo = board_photo;
+		this.board_title = board_title;
+		this.board_content = board_content;
+		this.board_date = board_date;
+		this.board_writer = board_writer;
+	}
+	public Board(String board_photo, String board_title, String board_content, Date board_date, String board_writer, int board_number) {
+		this.board_photo = board_photo;
+		this.board_title = board_title;
+		this.board_content = board_content;
+		this.board_date = board_date;
+		this.board_writer = board_writer;
+		this.board_number = board_number;
+	}
 	
 	public int getboard_number() {
 		return board_number;

@@ -46,11 +46,28 @@ public class CommentController {
 		
 		commentService.galDeleteComment(comment_number);
 		
-//		List<Comment> comment1 = commentService.boardCommentOne(comment_number);
-		
 		return "redirect:galleryDetail.do?num=" + comment_number;
 	}
 	
+	@RequestMapping(value="/boardcommentInsert.do")
+	public String boardcommentInsert(int board_number, Comment comment) {
+		
 	
+		comment.setBoard_number(board_number);
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>> Board_number: " + comment.getBoard_number());
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>> comment_id: " + comment.getComment_id());
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>> content: " + comment.getComment_content());
+		commentService.boardCommentInsert(comment);
+		
+		return "redirect:boardDetail.do?board_number=" + comment.getBoard_number();
+	}
+	
+	@RequestMapping(value="/boardcommentDelete.do")
+	public String boardcommentDelete(int comment_number) {
+		
+		commentService.boardDeleteComment(comment_number);
+		
+		return "redirect:boardDetail.do?num=" + comment_number;
+	}
 
 }

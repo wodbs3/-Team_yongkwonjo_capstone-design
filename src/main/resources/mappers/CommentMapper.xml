@@ -37,4 +37,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     DELETE FROM comment WHERE comment_number = #{comment_number}
     </delete>
     
+    
+<!-- Board Comment -->
+
+    <insert id="boardCommentInsert" parameterType="Comment">
+        INSERT INTO
+        comment (comment_number, board_number ,comment_writer , comment_content, comment_date)
+        VALUES (#{comment_number}, #{board_number}, #{comment_id}, #{comment_content}, NOW()) 
+    </insert>    
+
+	<select id="boardCommentList" parameterType="int" resultType="Comment">
+        SELECT
+            comment_number, board_number, comment_writer as comment_id, comment_content, comment_date
+        FROM comment 
+        WHERE board_number = #{board_number}
+    </select>
+    
+   <update id="boardCommentUpdate" parameterType="Comment">
+   UPDATE comment 
+    <set>
+			<if test='comment_content != null and comment_content != ""'>comment_content = #{comment_content},</if>
+			comment_date = NOW()
+	</set>
+	WHERE comment_number = #{comment_number}	
+   </update>
+    
+    <delete id="boardCommentAllDelete" parameterType="int">
+        DELETE FROM comment WHERE board_number = #{board_number}
+    </delete>
+    
+    <delete id="boardCommentDelete" parameterType="int">
+    DELETE FROM comment WHERE comment_number = #{comment_number}
+    </delete>
+    
 </mapper>
