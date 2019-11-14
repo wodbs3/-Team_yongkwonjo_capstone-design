@@ -8,7 +8,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="/resources/css/bootstrap.css">
 	<title>BoardDetail</title>
 	
@@ -25,7 +24,6 @@
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
-
 
 <div class="container" style="margin-bottom: 200px;width: 60%; margin-left:20%; margin-top: 10%;">
     <form id="detail" name="detail" method="POST">
@@ -48,12 +46,8 @@
                     <tr>
                     	<th style = "width : 10%; font-size: 18px;" scope="row">제목</th> 
                     	<td>${Board.board_title }</td>
-                    	<th style = "width : 10%; font-size: 18px;" scope="row">파일</th>
-                    	
-					<td>
-					<a href = "/board/fileDownload.jsp"> 파일 다운로드 페이지</a>
-					</td>
-<%--                      	<td>${Board.board_photo }</td> --%>
+                    	<th style = "width : 10%; font-size: 18px;" scope="row">파일</th> 
+                      	<td><a href= 'FileDownloadAction.do?file_name=${Board.board_photo }'>${Board.board_photo }</a></td>
                     </tr>
                     <tr>
                     	<td colspan="4">${Board.board_content }</td>
@@ -61,14 +55,14 @@
                     </tbody>
                     
                 </table>
-                <div style = "text-align: right;">
-                
+                <div style = "text-align: right;"> 
                 	
                 	<a href="${pageContext.request.contextPath}/boardUpdate.do?groupList_number=${Board.groupList_number}&board_number=${Board.board_number}" class="btn btn-success" style="padding:10px">수정</a>
                     <a href="${pageContext.request.contextPath}/boardDelete.do?board_number=${Board.board_number}" class="btn btn-danger" style="padding:10px">삭제</a>
                 	
                 		
                 	   <input type="button" value="목록" onClick='goBack()' class="btn btn-success" style="padding:10px"/>
+
                 </div>
             </div>
         </div>
