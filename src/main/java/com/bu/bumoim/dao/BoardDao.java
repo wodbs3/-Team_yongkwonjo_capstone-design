@@ -18,6 +18,7 @@ public interface BoardDao {
    
     List<Board> selectBoardList(Criteria cri);
 
+    List<Board> selectGroupBoardList(int groupList_number);
     
 //    List<Board> detail(int board_number);
     

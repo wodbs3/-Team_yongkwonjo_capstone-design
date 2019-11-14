@@ -19,6 +19,10 @@ public class BoardDaoLogic implements BoardDao{
 	public List<Board> selectBoardList(Criteria cri){
 		return sqlSession.selectList("board.selectBoardList", cri);
 	}
+	
+	public List<Board> selectGroupBoardList(int groupList_number) {
+		return sqlSession.selectList("board.selectGroupBoardList", groupList_number);
+	}
 
 	@Override
 	public int insertBoard(Board board){
