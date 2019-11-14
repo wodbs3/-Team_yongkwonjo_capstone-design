@@ -126,9 +126,39 @@ img {
 
 
 								<!-- START group BOARD TAB -->
-								<div class="tab-pane fade show active" id="board"
-									role="tabpanel" aria-labelledby="board-tab">
-									<p>그룹 게시판입니다.</p>
+								<div class="tab-pane active" id="board" role="tabpanel" aria-labelledby="board-tab">
+									
+									<div>
+									<table class="table table-striped table-hover">
+									<thead>
+										<tr>
+											<th>번호</th>
+											<th>제목</th>
+											<th>내용</th>
+											<th>작성자</th>
+											<th>날짜</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach var="boardList" items="${boardList }" varStatus="status">
+										<tr>
+											<td><c:out value="${boardList.board_number }"/></td>
+											<td><a href="${pageContext.request.contextPath }/boardDetail.do?board_number=${boardList.board_number }"><c:out value="${boardList.board_title }"/></a></td>
+											<td><c:out value="${boardList.board_content }"/></td>
+											<td><c:out value="${boardList.board_writer }"/></td>
+											<td><c:out value="${boardList.board_date }"/></td>
+											<td></td>
+										</tr>
+										</c:forEach>
+									</tbody>
+									</table>
+									<div style = "text-align: right;">           
+										<a href='#' onclick="javascript:goCreate();" class="btn btn-success">글쓰기</a>
+									</div>
+                                   </div>
+                                   
+                                   
+                                   
 								</div>
 								<!-- END group BOARD TAB -->
 
