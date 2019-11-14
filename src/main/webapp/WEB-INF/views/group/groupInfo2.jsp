@@ -130,15 +130,15 @@ img {
 						<c:choose>
 							<c:when
 								test="${loginMap.member_group1 eq groupDetail.grouplist_number || loginMap.member_group2 eq groupDetail.grouplist_number || loginMap.member_group3 eq groupDetail.grouplist_number}">
-								<button class="myButton" value="${groupDetail.grouplist_number }">이미 가입된
+								<button style="width:100%;" class="myButton" value="${groupDetail.grouplist_number }">이미 가입된
 									모임입니다.</button>
 							</c:when>
 							<c:when
 								test="${loginMap.member_group1 ne groupDetail.grouplist_number || loginMap.member_group2 ne groupDetail.grouplist_number || loginMap.member_group3 ne groupDetail.grouplist_number}">
-								<button class="myButton" value="${groupDetail.grouplist_number }">가입신청</button>
+								<button style="width:100%;" class="myButton" value="${groupDetail.grouplist_number }">가입신청</button>
 							</c:when>
 							<c:otherwise>
-								<button class="myButton" value="${loginMap.member_id eq null}">로그인해주세요</button>
+								<button style="width:100%;" class="myButton" value="${loginMap.member_id eq null}">로그인해주세요</button>
 							</c:otherwise>
 						</c:choose>
 					</div>
