@@ -128,7 +128,7 @@ img {
 
 
 								<!-- START group BOARD TAB -->
-								<div class="tab-pane fade show active" id="board"
+								<div class="tab-pane active in" id="board"
 									role="tabpanel" aria-labelledby="board-tab">
 									<div class ="container">
 										<div class="col-md-7">
@@ -165,10 +165,7 @@ img {
 								<!-- START group GALLERY TAB -->
 								<div class="tab-pane fade" id="gallery" role="tabpanel"
 									aria-labelledby="gallery-tab">
-									<div class="main_title">
-										<%-- 				<h2><span>${smallgroup.name}</span></h2> --%>
-										<h2></h2>
-
+									
 										<hr>
 										<div class="text-right">
 											<c:if test="${loginMap.member_id == null}">
@@ -183,13 +180,12 @@ img {
 										</div>
 
 
-										<div class="hotel_container">
+										<div class="row">
 											<c:forEach items="${galleryList}" var="galleryList">
 
-												<div class="col-md-4 col-sm-4">
-													<div class="img_container">
-														<a
-															href="${pageContext.request.contextPath }/galleryDetail.do?num=${galleryList.num}">
+												<div class="col-lg-4 col-md-4 col-sm-4">
+													<div class="img_container_gallery" style="width: 200px; height: 200px;">
+														<a href="${pageContext.request.contextPath }/galleryDetail.do?num=${galleryList.num}">
 															<img width="auto" height="auto"
 															src="${pageContext.request.contextPath }/resources/upload/${galleryList.photo_name}"
 															alt="Image">
@@ -200,22 +196,15 @@ img {
 
 												</div>
 											</c:forEach>
-
+										<hr>
 										</div>
-
-										<!-- End row -->
-
-
-									</div>
-
-									<!-- End container -->
-									<hr>
-									<div class="text-center">
-										<ul class="pagination justify-content-center">
+										<hr>
+										<div class="text-center">
+										<ul class="pagination">
 
 											<c:if test="${pageMaker.prev }">
 												<li><a
-													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&page=${pageMaker.startPage-1 }"/>'>
+													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&page=${pageMaker.startPage-1 }#gallery"/>'>
 														Previous </a></li>
 											</c:if>
 											<c:forEach begin="${pageMaker.startPage }"
@@ -227,13 +216,20 @@ img {
 											</c:forEach>
 											<c:if test="${pageMaker.next && pageMaker.endPage > 0 }">
 												<li><a
-													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&page=${pageMaker.endPage+1 }"/>'>
+													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&page=${pageMaker.endPage+1 }#gallery"/>'>
 														Next </a></li>
 											</c:if>
 										</ul>
 									</div>
-								</div>
+										<!-- End row -->
 
+			
+
+									<!-- End container -->
+								
+									
+								</div>
+								
 								<!-- End main -->
 
 
