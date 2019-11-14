@@ -55,10 +55,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE member_id = #{member_id}
 	</select>
 	
-	<select id="groupMemberList" resultType="com.bu.bumoim.domain.Member">
-		SELECT member_id, member_number, member_name, member_major
+	<select id="getGroupMemberList" resultType="com.bu.bumoim.domain.Member">
+		SELECT
+			member_id,
+			member_photo as fileName, 
+			member_number as member_studentId,
+			member_name,
+			member_major as member_department
 		FROM member
-		WHERE member_group1 = #{group_number} || member_group2 = #{group_number} || member_group3 = #{group_number}
+		WHERE member_group1 = #{grouplist_number} || member_group2 = #{grouplist_number} || member_group3 = #{grouplist_number}
 	</select>
 	
 </mapper>

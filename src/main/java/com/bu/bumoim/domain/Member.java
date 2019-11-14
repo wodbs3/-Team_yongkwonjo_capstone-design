@@ -119,6 +119,7 @@ public class Member {
 		
 		builder.append("member id: ").append(member_id);
 		builder.append(", name: ").append(member_name);
+		builder.append(", member_department: ").append(member_department);
 		builder.append(", group_number1: ").append(member_group1);
 		builder.append(", group_number2: ").append(member_group2);
 		builder.append(", group_number3: ").append(member_group3);
