@@ -66,18 +66,23 @@ public class BoardController<ActionForward> {
 	
 	/**Write*/
 	@RequestMapping(value="/boardWrite.do", method=RequestMethod.GET)
-    public String boardwrite_view(){
-        
+    public String boardwrite_view(Model model, int groupList_number){
+		model.addAttribute("groupList_number", groupList_number);
         return "board/Write";
     }
 	
 	@RequestMapping(value="/boardWrite.do", method=RequestMethod.POST)
-	public String board_Write(Board board, HttpServletRequest req, Model model) {
+	public String board_Write(Board board, HttpServletRequest req, Model model, int groupList_number) {
+		
 		board = fileUpload(req,board);
+		board.setgroupList_number(groupList_number);
+		logger.info("3333333333333333333333333333333333333333333333333");
+		logger.info("그룹 넘버 =========" + groupList_number);
+		logger.info("3333333333333333333333333333333333333333333333333");
 		
 		boardservice.insertBoard(board);
-		
-		return "redirect:/boardList.do";
+		model.addAttribute("groupList_number", groupList_number);
+		return "redirect:/group/groupInfo.do?groupList_number=" + groupList_number + "#board";
 	}
   
 	

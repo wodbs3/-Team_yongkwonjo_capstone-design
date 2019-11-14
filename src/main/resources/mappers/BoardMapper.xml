@@ -46,7 +46,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    	#{board_content},
 	    	#{board_writer},
 	    	#{board_photo},
-	    	CURDATE()
+	    	CURDATE(),
 	    	#{groupList_number}
     	)
     

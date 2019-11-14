@@ -128,37 +128,35 @@ img {
 
 
 								<!-- START group BOARD TAB -->
-								<div class="tab-pane fade active" id="board" role="tabpanel" aria-labelledby="board-tab">
-									
-									<div>
-									<table class="table table-striped table-hover">
-									<thead>
-										<tr>
-											<th>번호</th>
-											<th>제목</th>
-											<th>내용</th>
-											<th>작성자</th>
-											<th>날짜</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach var="boardList" items="${boardList }" varStatus="status">
-										<tr>
-											<td><c:out value="${boardList.board_number }"/></td>
-											<td><a href="${pageContext.request.contextPath }/boardDetail.do?board_number=${boardList.board_number }"><c:out value="${boardList.board_title }"/></a></td>
-											<td><c:out value="${boardList.board_content }"/></td>
-											<td><c:out value="${boardList.board_writer }"/></td>
-											<td><c:out value="${boardList.board_date }"/></td>
-											<td></td>
-										</tr>
-										</c:forEach>
-									</tbody>
-									</table>
-									<div style = "text-align: right;">           
-										<a href='#' onclick="javascript:goCreate();" class="btn btn-success">글쓰기</a>
-									</div>
-                                   </div>
-                                   
+								<div class="tab-pane fade active" id="board"
+									role="tabpanel" aria-labelledby="board-tab">
+									<div class ="main-title">
+											<table class="table table-striped table-hover">
+												<thead>
+													<tr>
+														<th>번호</th>
+														<th>제목</th>
+														<th>내용</th>
+														<th>작성자</th>
+														<th>날짜</th>
+													</tr>
+												</thead>
+											<tbody>
+													<c:forEach var="boardList" items="${boardList }" varStatus="status">
+														<tr>
+															<td><c:out value="${boardList.board_number }"/></td>
+															<td><a href="${pageContext.request.contextPath }/boardDetail.do?board_number=${boardList.board_number }"><c:out value="${boardList.board_title }"/></a></td>
+															<td><c:out value="${boardList.board_content }"/></td>
+															<td><c:out value="${boardList.board_writer }"/></td>
+															<td><c:out value="${boardList.board_date }"/></td>
+														</tr>
+													</c:forEach>
+												</tbody>
+											</table>
+										   <div style = "text-align: right;">           
+          									  <a href='#' onclick="javascript:goCreate();" class="btn btn-success">글쓰기</a>
+     									   </div>
+										</div>
 								</div>
 								<!-- END group BOARD TAB -->
 
@@ -424,10 +422,10 @@ img {
 	</script>
 
 	<script>
-	//글쓰기
+	
 	function goCreate() {
-		location.href="/GroupCreate.do";
-	}
+		   location.href="/boardWrite.do?groupList_number=${groupDetail.grouplist_number}";
+		}
 
 	function goLogin() {
 		location.href="/login.do";
