@@ -57,9 +57,6 @@
             <tbody>
                 <c:forEach var="GroupList" items="${GroupList}" varStatus="status">
                     <tr>
-                        <td><a href="${pageContext.request.contextPath }/group/groupInfo.do?groupList_number=${GroupList.grouplist_number }"><c:out value="${GroupList.grouplist_number }"/></a></td>
-                        <td><a href="${pageContext.request.contextPath }/group/groupInfo.do?groupList_number=${GroupList.grouplist_number }"><c:out value="${GroupList.grouplist_name }"/></a></td>
-=======
                         <td><a href="${pageContext.request.contextPath }/group/groupInfo.do?groupList_number=${GroupList.grouplist_number }#board"><c:out value="${GroupList.grouplist_number }"/></a></td>
                         <td><a href="${pageContext.request.contextPath }/group/groupInfo.do?groupList_number=${GroupList.grouplist_number }#board"><c:out value="${GroupList.grouplist_name }"/></a></td>
                         <td style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap;"><c:out value="${GroupList.grouplist_introduce }"/></td>

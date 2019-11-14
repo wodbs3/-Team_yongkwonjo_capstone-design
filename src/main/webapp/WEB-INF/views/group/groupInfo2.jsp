@@ -128,7 +128,7 @@ img {
 
 
 								<!-- START group BOARD TAB -->
-								<div class="tab-pane active" id="board" role="tabpanel" aria-labelledby="board-tab">
+								<div class="tab-pane fade active" id="board" role="tabpanel" aria-labelledby="board-tab">
 									
 									<div>
 									<table class="table table-striped table-hover">
