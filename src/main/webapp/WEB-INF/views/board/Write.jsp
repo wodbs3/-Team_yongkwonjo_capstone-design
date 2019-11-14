@@ -28,6 +28,7 @@
     <form action="/boardWrite.do" name="writeForm" method="POST" enctype="multipart/form-data">
         <div>
             <h2>글쓰기</h2>
+            <input type="hidden" name="groupList_number" id="groupList_number" value="${groupDetail.grouplist_number }"/>
             <div style=" width : 100%;">
                 <table style = " width : 100%;">
                     <tr>

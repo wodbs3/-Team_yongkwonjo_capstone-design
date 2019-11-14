@@ -375,13 +375,13 @@ header.sticky #logo .logo_sticky{ display:block; }
 	padding:0;
 }
 #logo_home h1 a, header.sticky #logo_home h1 a, header#plain #logo_home h1 a, header#colored #logo_home h1 a{
-	width:160px;
-	height:34px;
+	width:180px;
+	height:55px;
 	display:block;
-	background-image:url(../img/logo.JPG);
+	background-image:url(../img/bumoim-logo.png);
 	background-repeat:no-repeat;
 	background-position:left top;
-	background-size: 200px 40px;
+	background-size: 180px 55px;
 	text-indent:-9999px;
 }
 header.sticky #logo_home h1{
@@ -389,13 +389,13 @@ header.sticky #logo_home h1{
 	padding:0;
 }
 header.sticky #logo_home h1 a{
-	background-image:url(../img/logo_sticky.png);
+	background-image:url(../img/bumoim-logo.png);
 }
 header#plain #logo_home h1 a{
-	background-image:url(../img/logo_sticky.png);
+	background-image:url(../img/bumoim-logo.png);
 }
 header.sticky#colored #logo_home h1 a{
-	background-image:url(../img/logo_sticky_colored.png);
+	background-image:url(../img/bumoim-logo.png);
 }
 @media only screen and (min--moz-device-pixel-ratio: 2),
 only screen and (-o-min-device-pixel-ratio: 2/1),
