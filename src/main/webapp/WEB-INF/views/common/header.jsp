@@ -67,7 +67,7 @@
                         <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                         <ul>
                             <li class="submenu">
-                                <a href="introduce.do" class="show-submenu">Our Introduce <i class="icon-down-open-mini"></i></a>
+                                <a href="${pageContext.request.contextPath }/introduce.do" class="show-submenu">Our Introduce <i class="icon-down-open-mini"></i></a>
                                 
                             </li>
                             <li class="submenu">

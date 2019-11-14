@@ -11,7 +11,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	    board_content,
     	    board_writer,
         	board_photo,
-       		board_date
+       		board_date,
+       		grouplist_number
         FROM
         	bumoim.groupboard
         ORDER BY board_number DESC
@@ -46,7 +47,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    	#{board_content},
 	    	#{board_writer},
 	    	#{board_photo},
-	    	CURDATE()
+	    	CURDATE(),
 	    	#{groupList_number}
     	)
     

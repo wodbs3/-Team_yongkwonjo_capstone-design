@@ -2,16 +2,14 @@ package com.bu.bumoim.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -35,7 +33,7 @@ import com.bu.bumoim.service.BoardService;
 import com.bu.bumoim.service.CommentService;
 
 @Controller
-public class BoardController {
+public class BoardController<ActionForward> {
 
 	private Logger logger = Logger.getLogger(getClass());
 	@Autowired
@@ -45,6 +43,7 @@ public class BoardController {
 	
 	@Resource(name = "uploadPath")
 	String uploadPath;
+	private ModelAndView mav;
 	
 	@RequestMapping(value="/boardList.do")
 	public ModelAndView list(Board board, @ModelAttribute("cri") Criteria cri, HttpServletRequest request) {
@@ -67,35 +66,41 @@ public class BoardController {
 	
 	/**Write*/
 	@RequestMapping(value="/boardWrite.do", method=RequestMethod.GET)
-    public String boardwrite_view(){
-        
+    public String boardwrite_view(Model model, int groupList_number){
+		model.addAttribute("groupList_number", groupList_number);
         return "board/Write";
     }
 	
 	@RequestMapping(value="/boardWrite.do", method=RequestMethod.POST)
-	public String board_Write(Board board, HttpServletRequest req, Model model) {
+	public String board_Write(Board board, HttpServletRequest req, Model model, int groupList_number) {
+		
 		board = fileUpload(req,board);
+		board.setgroupList_number(groupList_number);
+		logger.info("3333333333333333333333333333333333333333333333333");
+		logger.info("그룹 넘버 =========" + groupList_number);
+		logger.info("3333333333333333333333333333333333333333333333333");
 		
 		boardservice.insertBoard(board);
-		
-		return "redirect:/boardList.do";
+		model.addAttribute("groupList_number", groupList_number);
+		return "redirect:/group/groupInfo.do?groupList_number=" + groupList_number + "#board";
 	}
   
 	
 	@RequestMapping(value="/boardDetail.do", method=RequestMethod.GET) 
-	public ModelAndView board_detail(int board_number, HttpSession session, HttpServletRequest request,HttpServletResponse response, Board board_detail ) throws Exception {
+	public ModelAndView board_detail(Model model, int board_number, HttpSession session, HttpServletRequest request,HttpServletResponse response, Board board_detail, int groupList_number) throws Exception {
 		ModelAndView mav = new ModelAndView();
+		
+		
 		
 		List<Comment> comment = commentService.boardCommentList(board_number);
 		logger.info("넘버: " + board_number);
 		Board board = boardservice.detailBoard(board_number);
 		logger.info("보드남바: " + board.getboard_number());
 		
-		
-		
 		mav.setViewName("board/Detail");
 		mav.addObject("Board", board);
 		mav.addObject("commentList",comment);
+		model.addAttribute("groupList_number", groupList_number);
 		
 		return mav;
 	}
@@ -111,18 +116,17 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value ="/boardModify.do", method= RequestMethod.POST)
-	public String board_modify(Board board) throws Exception {
+	public String board_modify(Board board, int groupList_number) throws Exception {
 		
 		
 		boardservice.updateBoard(board);
-		
-		return "redirect:/boardDetail.do?board_number="+ board.getboard_number();
+		return "redirect:boardDetail.do?groupList_number="+board.getgroupList_number()+ "&board_number="+ board.getboard_number();
 	}
 	
 	
 	
 	@RequestMapping(value="/boardDelete.do", method=RequestMethod.GET)
-	public String board_delete(HttpSession session, int board_number) throws Exception {
+	public String board_delete(Board board, HttpSession session, int board_number, int groupList_number) throws Exception {
 		
 		int deleteResult = boardservice.deleteBoard(board_number);
 		
@@ -132,7 +136,7 @@ public class BoardController {
 			logger.info("FAIL~~~~~~~~~~~~~~~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!~~~~~~~~~~");
 		}
 		
-		return "redirect:/boardList.do";
+		return  "redirect:/group/groupInfo.do?groupList_number="+ board.getgroupList_number() +"#board";
 	}
 	
 	public Board fileUpload(HttpServletRequest req, Board board) {
@@ -187,5 +191,54 @@ public class BoardController {
 		return UUID.randomUUID().toString().replaceAll("-", "");
 	}
 	
+	@RequestMapping(value="/FileDownloadAction.do")
+	public ActionForward execute(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+        
+        // 다운로드할 파일명을 가져온다.
+        String fileName = request.getParameter("file_name");
+ 
+        // 파일이 있는 절대경로를 가져온다.
+        // 현재 업로드된 파일은 UploadFolder 폴더에 있다.
+        String folder = request.getSession().getServletContext().getRealPath("uploadPath");
+        // 파일의 절대경로를 만든다.
+        String filePath = folder + "/" + fileName;
+ 
+        try {
+            File file = new File(filePath);
+            byte b[] = new byte[(int) file.length()];
+            
+            // page의 ContentType등을 동적으로 바꾸기 위해 초기화시킴
+            response.reset();
+            response.setContentType("application/octet-stream");
+            
+            // 한글 인코딩
+            String encoding = new String(fileName.getBytes("euc-kr"),"8859_1");
+            
+            // 파일 링크를 클릭했을 때 다운로드 저장 화면이 출력되게 처리하는 부분
+            response.setHeader("Content-Disposition", "attachment;filename="+ encoding);
+            response.setHeader("Content-Length", String.valueOf(file.length()));
+            
+            if (file.isFile()) // 파일이 있을경우
+            {
+                FileInputStream fileInputStream = new FileInputStream(file);
+                ServletOutputStream servletOutputStream = response.getOutputStream();
+                
+                //  파일을 읽어서 클라이언트쪽으로 저장한다.
+                int readNum = 0;
+                while ( (readNum = fileInputStream.read(b)) != -1) {
+                    servletOutputStream.write(b, 0, readNum);
+                }
+                
+                servletOutputStream.close();
+                fileInputStream.close();
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Download Exception : " + e.getMessage());
+        }
+ 
+        return null;
+    }
 	   
 }

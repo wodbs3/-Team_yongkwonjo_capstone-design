@@ -62,11 +62,12 @@
 <%@ include file="../common/header.jsp" %>
 
 
-	<section class="parallax-window" data-parallax="scroll" data-image-src="resources/img/bg_blog.jpg" data-natural-width="1400" data-natural-height="470">
+	<section class="parallax-window" data-parallax="scroll"
+		data-image-src="img/header_bg.jpg" data-natural-width="1400"
+		data-natural-height="470">
 		<div class="parallax-content-1">
 			<div class="animated fadeInDown">
-				<h1>Tour Blog</h1>
-				<p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
+				<h1>GALLERY DETAIL</h1>
 			</div>
 		</div>
 	</section>
@@ -74,15 +75,13 @@
 
 	<main style="margin-bottom: 354px;">
 		<div id="position">
-			<div class="container">
-				<ul>
-					<li><a href="index">Home</a>
-					</li>
-					<li><a href="gallery.do">갤러리</a></li>
-					
-				</ul>
-			</div>
+		<div class="container">
+			<ul>
+				<li><a href="${pageContext.request.contextPath }/index">Home</a></li>
+				<li><b>사진 상세보기</b></li>
+			</ul>
 		</div>
+	</div>
 		
 		<!-- End position -->
 		<div class="container margin_60">
@@ -92,7 +91,7 @@
 					<div class="box_style_1">
 						<div class="post nopadding">
 						<div class="text-right">
-			<a href="gallery.do" class="btn_1">목록</a>	
+			<a href="/group/groupInfo.do?groupList_number=${groupList_number }#gallery" class="btn_1">목록</a>	
 			<c:if test="${loginMap.member_id != null && loginMap.member_id == gallery.writer}">		
 			<a href="updateForm.do?num=${gallery.num }" class="btn_1">수정</a>
 			<a href="deleteGallery.do?num=${gallery.num }" class="btn_1">삭제</a>

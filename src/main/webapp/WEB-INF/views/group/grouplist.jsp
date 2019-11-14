@@ -37,8 +37,31 @@
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
+	<section class="parallax-window" data-parallax="scroll"
+		data-image-src="img/header_bg.jpg" data-natural-width="1400"
+		data-natural-height="470">
+		<div class="parallax-content-1">
+			<div class="animated fadeInDown">
+				<h1>GroupList page</h1>
+			</div>
+		</div>
+	</section>
+		<div id="position">
+		<div class="container">
+			<ul>
+				<li><a href="${pageContext.request.contextPath }/index">Home</a></li>
 
-<div class="container" style="margin-bottom: 333px;width: 60%; margin-left:20%; margin-top: 10%;">
+
+				<li><a href="group/GroupList.do">그룹리스트</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-12">
+	<h2 style="
+    text-align: center;
+"> <span> 그룹 리스트 </span> </h2>
+	</div>
+<div class="container" style="margin-bottom: 333px;width: 60%; margin-left:20%;">
     <form id="groupForm" name="groupForm" method="post">
         <table class="table" style="table-layout: fixed">
             <thead class="thead-dark" style="
