@@ -47,7 +47,7 @@
                     	<th style = "width : 10%; font-size: 18px;" scope="row">제목</th> 
                     	<td>${Board.board_title }</td>
                     	<th style = "width : 10%; font-size: 18px;" scope="row">파일</th> 
-                     	<td>${Board.board_photo }</td>
+                      	<td><a href= 'FileDownloadAction.do?file_name=${Board.board_photo }'>${Board.board_photo }</a></td>
                     </tr>
                     <tr>
                     	<td colspan="4">${Board.board_content }</td>
@@ -58,7 +58,7 @@
                 <div style = "text-align: right;">
                 		<a href="${pageContext.request.contextPath}/boardUpdate.do?board_number=${Board.board_number}" class="btn btn-success" style="padding:10px">수정</a>
                         <a href="${pageContext.request.contextPath}/boardDelete.do?board_number=${Board.board_number}" class="btn btn-danger" style="padding:10px">삭제</a>
-                	    <a href="/boardList.do" onClick='fn_cancel()' class="btn btn-success" style="padding:10px">목록</a>
+                	    <a href="/boardList.do" class="btn btn-success" style="padding:10px">목록</a>
                 </div>
             </div>
         </div>
