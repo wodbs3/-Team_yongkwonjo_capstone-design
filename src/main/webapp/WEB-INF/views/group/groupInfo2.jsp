@@ -310,68 +310,46 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 
 
 								<!-- START group MEMBER TAB -->
-								<div class="tab-pane fade" id="member" role="tabpanel"
-									aria-labelledby="member-tab">
-
-									<table class="table table-striped options_cart">
-										<thead>
-											<tr>
-												<th colspan="3">멤버</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td><i class="icon_set_1_icon-26"></i></td>
-												<td>Pick up service <strong>+$34*</strong>
-												</td>
-												<td><label class="switch-light switch-ios pull-right">
-														<input type="checkbox" name="option_2" id="option_2"
-														value=""> <span> <span>No</span> <span>Yes</span>
-													</span> <a></a>
-												</label></td>
-											</tr>
-											<tr>
-												<td><i class="icon_set_1_icon-15"></i></td>
-												<td>Welcome bottle <strong>+$24</strong>
-												</td>
-												<td><label class="switch-light switch-ios pull-right">
-														<input type="checkbox" name="option_4" id="option_4"
-														value="" checked> <span> <span>No</span> <span>Yes</span>
-													</span> <a></a>
-												</label></td>
-											</tr>
-											<tr>
-												<td><i class="icon_set_1_icon-59"></i></td>
-												<td>Coffe break <strong>+$12*</strong>
-												</td>
-												<td><label class="switch-light switch-ios pull-right">
-														<input type="checkbox" name="option_5" id="option_5"
-														value="" checked> <span> <span>No</span> <span>Yes</span>
-													</span> <a></a>
-												</label></td>
-											</tr>
-											<tr>
-												<td><i class="icon_set_1_icon-58"></i></td>
-												<td>Dinner <strong>+$26*</strong>
-												</td>
-												<td><label class="switch-light switch-ios pull-right">
-														<input type="checkbox" name="option_6" id="option_6"
-														value=""> <span> <span>No</span> <span>Yes</span>
-													</span> <a></a>
-												</label></td>
-											</tr>
-											<tr>
-												<td><i class="icon_set_1_icon-40"></i></td>
-												<td>Bike rent <strong>+$26*</strong>
-												</td>
-												<td><label class="switch-light switch-ios pull-right">
-														<input type="checkbox" name="option_7" id="option_7"
-														value=""> <span> <span>No</span> <span>Yes</span>
-													</span> <a></a>
-												</label></td>
-											</tr>
-										</tbody>
-									</table>
+								<div class="tab-pane fade" id="member" role="tabpanel" aria-labelledby="member-tab">
+									
+	<table class="table table-striped options_cart">
+			<thead>
+				<tr>
+					<th colspan="3">
+						모임회원 목록
+					</th>
+				</tr>
+			</thead>
+		<c:forEach var="groupMemberList" items="${groupMemberList }" varStatus="status">					
+			
+			<tbody>
+				<tr>
+					<td class="col-md-3">
+						<img src="${pageContext.request.contextPath }/resources/userupload/${groupMemberList.fileName }" class="mx-auto d-block" style="width:50%">
+					</td>
+					<td>
+						<div class="col-md-6">
+							<b>회원ID&nbsp;:&nbsp;</b><c:out value="${groupMemberList.member_id }"></c:out>
+						</div>
+						<div class="col-md-6">
+							<b>학부&nbsp;:&nbsp;</b><c:out value="${groupMemberList.member_department }"></c:out>
+						</div>
+						<br><br>
+						<div class="col-md-6">
+							<b>학번&nbsp;:&nbsp;</b><c:out value="${groupMemberList.member_studentId }"></c:out>
+						</div>
+						<div class="col-md-6">
+							<b>이름&nbsp;:&nbsp;</b><c:out value="${groupMemberList.member_name }"></c:out>
+						</div>
+						<%-- <h5><b>회원ID</b></h5><c:out value="${groupMemberList.member_id }"></c:out>
+						<h5><b>학부</b></h5><c:out value="${groupMemberList.member_department }"></c:out>
+						<h5><b>회번</b></h5><c:out value="${groupMemberList.member_studentId }"></c:out>
+						<h5><b>이름</b></h5><c:out value="${groupMemberList.member_name }"></c:out> --%>
+					</td>
+				</tr>
+			</tbody>
+		</c:forEach>
+	</table>
 								</div>
 								<!-- END group MEMBER TAB -->
 

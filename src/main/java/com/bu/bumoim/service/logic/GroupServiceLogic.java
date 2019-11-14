@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.bu.bumoim.dao.GroupDao;
 import com.bu.bumoim.domain.GroupList;
+import com.bu.bumoim.domain.Member;
 import com.bu.bumoim.service.GroupService;
 
 @Service
@@ -34,5 +35,10 @@ public class GroupServiceLogic implements GroupService{
 	public GroupList findGroupDetail(int grouplist_number) {
 		//
 		return groupDao.findGroupDetail(grouplist_number);
+	}
+	@Override
+	public List<Member> getGroupMemberList(int groupList_number) {
+		//
+		return groupDao.getGroupMemberList(groupList_number);
 	}
 }

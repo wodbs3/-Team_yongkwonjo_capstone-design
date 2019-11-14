@@ -98,6 +98,11 @@ public class GroupController {
 		List<Board> boardList = boardService.selectGroupBoardList(groupList_number);
 		GroupList groupDetail = groupService.findGroupDetail(groupList_number);
 		
+		//모임회원
+		List<Member> groupMemberList = groupService.getGroupMemberList(groupList_number);
+		System.out.println("5555555555555555555555555555555555555555555555555555");
+		logger.info(groupMemberList.toString());
+		
 		GalleryPageMaker pageMaker = new GalleryPageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(100);
@@ -106,6 +111,7 @@ public class GroupController {
 		model.addAttribute("galleryList", galleryList);
 		model.addAttribute("boardList", boardList);
 		model.addAttribute("pageMaker", pageMaker);
+		model.addAttribute("groupMemberList" , groupMemberList);
 		
 		return "group/groupInfo2";
 	}
