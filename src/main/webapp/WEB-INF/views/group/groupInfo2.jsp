@@ -55,6 +55,30 @@ img {
 /* .fouc { */
 /* 	display: none; */
 /* } */
+.myButton {
+	box-shadow:inset 0px 1px 0px 0px #97c4fe;
+	background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+	background-color:#3d94f6;
+	border-radius:6px;
+	border:1px solid #337fed;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #1570cd;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+	background-color:#1e62d0;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
 </style>
 
 </head>
@@ -106,15 +130,15 @@ img {
 						<c:choose>
 							<c:when
 								test="${loginMap.member_group1 eq groupDetail.grouplist_number || loginMap.member_group2 eq groupDetail.grouplist_number || loginMap.member_group3 eq groupDetail.grouplist_number}">
-								<button value="${groupDetail.grouplist_number }">이미 가입된
+								<button class="myButton" value="${groupDetail.grouplist_number }">이미 가입된
 									모임입니다.</button>
 							</c:when>
 							<c:when
 								test="${loginMap.member_group1 ne groupDetail.grouplist_number || loginMap.member_group2 ne groupDetail.grouplist_number || loginMap.member_group3 ne groupDetail.grouplist_number}">
-								<button value="${groupDetail.grouplist_number }">가입신청</button>
+								<button class="myButton" value="${groupDetail.grouplist_number }">가입신청</button>
 							</c:when>
 							<c:otherwise>
-								<button value="${loginMap.member_id eq null}">로그인해주세요</button>
+								<button class="myButton" value="${loginMap.member_id eq null}">로그인해주세요</button>
 							</c:otherwise>
 						</c:choose>
 					</div>
