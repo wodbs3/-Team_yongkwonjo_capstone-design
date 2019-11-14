@@ -57,20 +57,29 @@ img {
 /* } */
 </style>
 
+
+<style>
+
+ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
+	color: yellow;
+	background-color: #000;
+}
+</style>
+
+
+
 </head>
 
 <body>
-	<%@ include file="../common/header.jsp" %>
-	
-	<main>
-		
-		<!-- End position -->
+	<%@ include file="../common/header.jsp"%>
 
-		<div class="container margin_60" style="margin-top: 5%;">
-			<div class="row">
-				
-				<!-- START group side form -->
-<!--  기준 -->
+	<main> <!-- End position -->
+
+	<div class="container margin_60" style="margin-top: 5%;">
+		<div class="row">
+
+			<!-- START group side form -->
+			<!--  기준 -->
 
 			<aside class="col-md-4" id="sidebar">
 				<div class="theiaStickySidebar">
@@ -128,37 +137,42 @@ img {
 
 
 								<!-- START group BOARD TAB -->
-								<div class="tab-pane fade active" id="board" role="tabpanel" aria-labelledby="board-tab">
-									
+								<div class="tab-pane fade active" id="board" role="tabpanel"
+									aria-labelledby="board-tab">
+
 									<div>
-									<table class="table table-striped table-hover">
-									<thead>
-										<tr>
-											<th>번호</th>
-											<th>제목</th>
-											<th>내용</th>
-											<th>작성자</th>
-											<th>날짜</th>
-										</tr>
-									</thead>
-									<tbody>
-										<c:forEach var="boardList" items="${boardList }" varStatus="status">
-										<tr>
-											<td><c:out value="${boardList.board_number }"/></td>
-											<td><a href="${pageContext.request.contextPath }/boardDetail.do?board_number=${boardList.board_number }"><c:out value="${boardList.board_title }"/></a></td>
-											<td><c:out value="${boardList.board_content }"/></td>
-											<td><c:out value="${boardList.board_writer }"/></td>
-											<td><c:out value="${boardList.board_date }"/></td>
-											<td></td>
-										</tr>
-										</c:forEach>
-									</tbody>
-									</table>
-									<div style = "text-align: right;">           
-										<a href='#' onclick="javascript:goCreate();" class="btn btn-success">글쓰기</a>
+										<table class="table table-striped table-hover">
+											<thead>
+												<tr>
+													<th>번호</th>
+													<th>제목</th>
+													<th>내용</th>
+													<th>작성자</th>
+													<th>날짜</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach var="boardList" items="${boardList }"
+													varStatus="status">
+													<tr>
+														<td><c:out value="${boardList.board_number }" /></td>
+														<td><a
+															href="${pageContext.request.contextPath }/boardDetail.do?board_number=${boardList.board_number }"><c:out
+																	value="${boardList.board_title }" /></a></td>
+														<td><c:out value="${boardList.board_content }" /></td>
+														<td><c:out value="${boardList.board_writer }" /></td>
+														<td><c:out value="${boardList.board_date }" /></td>
+														<td></td>
+													</tr>
+												</c:forEach>
+											</tbody>
+										</table>
+										<div style="text-align: right;">
+											<a href='#' onclick="javascript:goCreate();"
+												class="btn btn-success">글쓰기</a>
+										</div>
 									</div>
-                                   </div>
-                                   
+
 								</div>
 								<!-- END group BOARD TAB -->
 
@@ -166,41 +180,43 @@ img {
 								<!-- START group GALLERY TAB -->
 								<div class="tab-pane fade" id="gallery" role="tabpanel"
 									aria-labelledby="gallery-tab">
-									
-										<hr>
-										<div class="text-right">
-											<c:if test="${loginMap.member_id == null}">
-												<input type="button" class="btn_1"
-													onclick="upload_btn(${loginMap.member_id})" value="사진 등록" />
-											</c:if>
-											<c:if test="${loginMap.member_id != null }">
-												<a
-													href="${pageContext.request.contextPath }/upload.do?groupList_number=${groupDetail.grouplist_number}"
-													class="btn_1">사진 등록</a>
-											</c:if>
-										</div>
+
+									<hr>
+									<div class="text-right">
+										<c:if test="${loginMap.member_id == null}">
+											<input type="button" class="btn_1"
+												onclick="upload_btn(${loginMap.member_id})" value="사진 등록" />
+										</c:if>
+										<c:if test="${loginMap.member_id != null }">
+											<a
+												href="${pageContext.request.contextPath }/upload.do?groupList_number=${groupDetail.grouplist_number}"
+												class="btn_1">사진 등록</a>
+										</c:if>
+									</div>
 
 
-										<div class="row">
-											<c:forEach items="${galleryList}" var="galleryList">
+									<div class="row">
+										<c:forEach items="${galleryList}" var="galleryList">
 
-												<div class="col-lg-4 col-md-4 col-sm-4">
-													<div class="img_container_gallery" style="width: 200px; height: 200px;">
-														<a href="${pageContext.request.contextPath }/galleryDetail.do?num=${galleryList.num}">
-															<img width="auto" height="auto"
-															src="${pageContext.request.contextPath }/resources/upload/${galleryList.photo_name}"
-															alt="Image">
+											<div class="col-lg-4 col-md-4 col-sm-4">
+												<div class="img_container_gallery"
+													style="width: 200px; height: 200px;">
+													<a
+														href="${pageContext.request.contextPath }/galleryDetail.do?num=${galleryList.num}">
+														<img
+														src="${pageContext.request.contextPath }/resources/upload/${galleryList.photo_name}"
+														alt="Image">
 
-														</a>
-
-													</div>
+													</a>
 
 												</div>
-											</c:forEach>
+
+											</div>
+										</c:forEach>
 										<hr>
-										</div>
-										<hr>
-										<div class="text-center">
+									</div>
+									<hr>
+									<div class="text-center">
 										<ul class="pagination">
 
 											<c:if test="${pageMaker.prev }">
@@ -222,15 +238,15 @@ img {
 											</c:if>
 										</ul>
 									</div>
-										<!-- End row -->
+									<!-- End row -->
 
-			
+
 
 									<!-- End container -->
-								
-									
+
+
 								</div>
-								
+
 								<!-- End main -->
 
 
@@ -252,109 +268,68 @@ img {
 
 
 								<!-- START group MEMBER TAB -->
-								<div class="tab-pane fade" id="member" role="tabpanel" aria-labelledby="member-tab">
-									
-	<table class="table table-striped options_cart">
-		<thead>
-			<tr>
-				<th colspan="3">
-					멤버
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>
-					<i class="icon_set_1_icon-26"></i>
-				</td>
-				<td>
-					Pick up service <strong>+$34*</strong>
-				</td>
-				<td>
-					<label class="switch-light switch-ios pull-right">
-						<input type="checkbox" name="option_2" id="option_2" value="">
-						<span>
-                <span>No</span>
-						<span>Yes</span>
-						</span>
-						<a></a>
-					</label>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<i class="icon_set_1_icon-15"></i>
-				</td>
-				<td>
-					Welcome bottle <strong>+$24</strong>
-				</td>
-				<td>
-					<label class="switch-light switch-ios pull-right">
-						<input type="checkbox" name="option_4" id="option_4" value="" checked>
-						<span>
-                <span>No</span>
-						<span>Yes</span>
-						</span>
-						<a></a>
-					</label>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<i class="icon_set_1_icon-59"></i>
-				</td>
-				<td>
-					Coffe break <strong>+$12*</strong>
-				</td>
-				<td>
-					<label class="switch-light switch-ios pull-right">
-						<input type="checkbox" name="option_5" id="option_5" value="" checked>
-						<span>
-                <span>No</span>
-						<span>Yes</span>
-						</span>
-						<a></a>
-					</label>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<i class="icon_set_1_icon-58"></i>
-				</td>
-				<td>
-					Dinner <strong>+$26*</strong>
-				</td>
-				<td>
-					<label class="switch-light switch-ios pull-right">
-						<input type="checkbox" name="option_6" id="option_6" value="">
-						<span>
-                <span>No</span>
-						<span>Yes</span>
-						</span>
-						<a></a>
-					</label>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<i class="icon_set_1_icon-40"></i>
-				</td>
-				<td>
-					Bike rent <strong>+$26*</strong>
-				</td>
-				<td>
-					<label class="switch-light switch-ios pull-right">
-						<input type="checkbox" name="option_7" id="option_7" value="">
-						<span>
-                <span>No</span>
-						<span>Yes</span>
-						</span>
-						<a></a>
-					</label>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+								<div class="tab-pane fade" id="member" role="tabpanel"
+									aria-labelledby="member-tab">
+
+									<table class="table table-striped options_cart">
+										<thead>
+											<tr>
+												<th colspan="3">멤버</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td><i class="icon_set_1_icon-26"></i></td>
+												<td>Pick up service <strong>+$34*</strong>
+												</td>
+												<td><label class="switch-light switch-ios pull-right">
+														<input type="checkbox" name="option_2" id="option_2"
+														value=""> <span> <span>No</span> <span>Yes</span>
+													</span> <a></a>
+												</label></td>
+											</tr>
+											<tr>
+												<td><i class="icon_set_1_icon-15"></i></td>
+												<td>Welcome bottle <strong>+$24</strong>
+												</td>
+												<td><label class="switch-light switch-ios pull-right">
+														<input type="checkbox" name="option_4" id="option_4"
+														value="" checked> <span> <span>No</span> <span>Yes</span>
+													</span> <a></a>
+												</label></td>
+											</tr>
+											<tr>
+												<td><i class="icon_set_1_icon-59"></i></td>
+												<td>Coffe break <strong>+$12*</strong>
+												</td>
+												<td><label class="switch-light switch-ios pull-right">
+														<input type="checkbox" name="option_5" id="option_5"
+														value="" checked> <span> <span>No</span> <span>Yes</span>
+													</span> <a></a>
+												</label></td>
+											</tr>
+											<tr>
+												<td><i class="icon_set_1_icon-58"></i></td>
+												<td>Dinner <strong>+$26*</strong>
+												</td>
+												<td><label class="switch-light switch-ios pull-right">
+														<input type="checkbox" name="option_6" id="option_6"
+														value=""> <span> <span>No</span> <span>Yes</span>
+													</span> <a></a>
+												</label></td>
+											</tr>
+											<tr>
+												<td><i class="icon_set_1_icon-40"></i></td>
+												<td>Bike rent <strong>+$26*</strong>
+												</td>
+												<td><label class="switch-light switch-ios pull-right">
+														<input type="checkbox" name="option_7" id="option_7"
+														value=""> <span> <span>No</span> <span>Yes</span>
+													</span> <a></a>
+												</label></td>
+											</tr>
+										</tbody>
+									</table>
 								</div>
 								<!-- END group MEMBER TAB -->
 
@@ -371,8 +346,7 @@ img {
 		</div>
 		<!--End row -->
 	</div>
-	<!--End container --> 
-	</main>
+	<!--End container --> </main>
 	<!-- End main -->
 
 	<%@ include file="../common/footer.jsp"%>
@@ -414,6 +388,16 @@ img {
 			additionalMarginTop: 80
 		});
 	</script>
+	<script>
+ 		$(function(){
+ 		 var sBtn = $("ul > li");    //  ul > li 이를 sBtn으로 칭한다. (클릭이벤트는 li에 적용 된다.)
+		 sBtn.find("a").click(function(${idx}){   // sBtn에 속해 있는  a 찾아 클릭 하면.
+//   		 sBtn.removeClass("active");     // sBtn 속에 (active) 클래스를 삭제 한다.
+  		 $(this).parent().addClass("active"); // 클릭한 a에 (active)클래스를 넣는다.
+				
+  		})
+ 		});
+</script>
 
 	<script>
 	function upload_btn(id) {

@@ -92,7 +92,7 @@
 					<div class="box_style_1">
 						<div class="post nopadding">
 						<div class="text-right">
-			<a href="gallery.do" class="btn_1">목록</a>	
+			<a href="/group/groupInfo.do?groupList_number=${groupList_number }#gallery" class="btn_1">목록</a>	
 			<c:if test="${loginMap.member_id != null && loginMap.member_id == gallery.writer}">		
 			<a href="updateForm.do?num=${gallery.num }" class="btn_1">수정</a>
 			<a href="deleteGallery.do?num=${gallery.num }" class="btn_1">삭제</a>
