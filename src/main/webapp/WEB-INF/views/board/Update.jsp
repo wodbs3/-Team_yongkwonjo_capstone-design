@@ -26,7 +26,7 @@
 <%@ include file="../common/header.jsp" %>
 
 <div class="container" style="margin-bottom: 200px;width: 60%; margin-left:20%; margin-top: 10%;">
-	 <form action="${pageContext.request.contextPath}/boardModify.do?board_number=${Board.board_number}" method="POST">
+	 <form action="${pageContext.request.contextPath}/boardModify.do?groupList_number=${Board.groupList_number}&board_number=${Board.board_number}" method="POST">
         <div class="form-group">
             <label for="board_title">제목</label>
             <input type="text" class="form-control" id="board_title" name="board_title" value="${Board.board_title }">

@@ -145,7 +145,7 @@ img {
 													<c:forEach var="boardList" items="${boardList }" varStatus="status">
 														<tr>
 															<td><c:out value="${boardList.board_number }"/></td>
-															<td><a href="${pageContext.request.contextPath }/boardDetail.do?board_number=${boardList.board_number }"><c:out value="${boardList.board_title }"/></a></td>
+															<td><a href="${pageContext.request.contextPath }/boardDetail.do?groupList_number=${groupDetail.grouplist_number}&board_number=${boardList.board_number }"><c:out value="${boardList.board_title }"/></a></td>
 															<td><c:out value="${boardList.board_content }"/></td>
 															<td><c:out value="${boardList.board_writer }"/></td>
 															<td><c:out value="${boardList.board_date }"/></td>

@@ -62,9 +62,13 @@
                     
                 </table>
                 <div style = "text-align: right;">
-                		<a href="${pageContext.request.contextPath}/boardUpdate.do?board_number=${Board.board_number}" class="btn btn-success" style="padding:10px">수정</a>
-                        <a href="${pageContext.request.contextPath}/boardDelete.do?board_number=${Board.board_number}" class="btn btn-danger" style="padding:10px">삭제</a>
-                	    <a href="/boardList.do" onClick='fn_cancel()' class="btn btn-success" style="padding:10px">목록</a>
+                
+                	
+                	<a href="${pageContext.request.contextPath}/boardUpdate.do?groupList_number=${Board.groupList_number}&board_number=${Board.board_number}" class="btn btn-success" style="padding:10px">수정</a>
+                    <a href="${pageContext.request.contextPath}/boardDelete.do?board_number=${Board.board_number}" class="btn btn-danger" style="padding:10px">삭제</a>
+                	
+                		
+                	   <input type="button" value="목록" onClick='goBack()' class="btn btn-success" style="padding:10px"/>
                 </div>
             </div>
         </div>
@@ -158,7 +162,9 @@
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 <script> 
 
-
+function goBack() {
+	   location.href="/group/groupInfo.do?groupList_number=${Board.groupList_number}#board";
+	}
 </script>
 </body>
 </html>

@@ -88,8 +88,10 @@ public class BoardController {
   
 	
 	@RequestMapping(value="/boardDetail.do", method=RequestMethod.GET) 
-	public ModelAndView board_detail(int board_number, HttpSession session, HttpServletRequest request,HttpServletResponse response, Board board_detail ) throws Exception {
+	public ModelAndView board_detail(Model model, int board_number, HttpSession session, HttpServletRequest request,HttpServletResponse response, Board board_detail, int groupList_number) throws Exception {
 		ModelAndView mav = new ModelAndView();
+		
+		
 		
 		List<Comment> comment = commentService.boardCommentList(board_number);
 		logger.info("넘버: " + board_number);
@@ -101,6 +103,7 @@ public class BoardController {
 		mav.setViewName("board/Detail");
 		mav.addObject("Board", board);
 		mav.addObject("commentList",comment);
+		model.addAttribute("groupList_number", groupList_number);
 		
 		return mav;
 	}
@@ -116,18 +119,17 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value ="/boardModify.do", method= RequestMethod.POST)
-	public String board_modify(Board board) throws Exception {
+	public String board_modify(Board board, int groupList_number) throws Exception {
 		
 		
 		boardservice.updateBoard(board);
-		
-		return "redirect:/boardDetail.do?board_number="+ board.getboard_number();
+		return "redirect:boardDetail.do?groupList_number="+board.getgroupList_number()+ "&board_number="+ board.getboard_number();
 	}
 	
 	
 	
 	@RequestMapping(value="/boardDelete.do", method=RequestMethod.GET)
-	public String board_delete(HttpSession session, int board_number) throws Exception {
+	public String board_delete(HttpSession session, int board_number, int groupList_number) throws Exception {
 		
 		int deleteResult = boardservice.deleteBoard(board_number);
 		
@@ -137,7 +139,7 @@ public class BoardController {
 			logger.info("FAIL~~~~~~~~~~~~~~~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!~~~~~~~~~~");
 		}
 		
-		return "redirect:/boardList.do";
+		return "/group/groupInfo.do?groupList_number=${Board.groupList_number}#board";
 	}
 	
 	public Board fileUpload(HttpServletRequest req, Board board) {
