@@ -263,11 +263,15 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 														Previous </a></li>
 											</c:if>
 											<c:forEach begin="${pageMaker.startPage }"
-												end="${pageMaker.endPage }" var="idx" varStatus="status">
+														end="${pageMaker.endPage }" var="idx" varStatus="status">
 
-												<li><a
-													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&page=${idx }#gallery"/>'><i
-														class="fa">${idx }</i></a></li>
+												<li><a 
+													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&page=${idx }#gallery"/>'>
+													<c:if test="${idx != null}">
+													<i class="active">${idx }</i>
+													</c:if>
+													</a></li>
+													
 											</c:forEach>
 											<c:if test="${pageMaker.next && pageMaker.endPage > 0 }">
 												<li><a
