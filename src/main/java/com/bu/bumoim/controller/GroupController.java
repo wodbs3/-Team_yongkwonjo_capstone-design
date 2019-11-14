@@ -92,13 +92,11 @@ public class GroupController {
 	public String groupInfoView(int groupList_number, Model model, @ModelAttribute("cri") GalleryCriteria cri) {
 		//갤러리
 		List<Gallery> galleryList = galleryService.getGroupGallery(groupList_number, cri);
-		System.out.println("33333333333333333333333333333333333333333333333333333333");
 		logger.info(galleryList.toString());
 		
 		//게시판
 		List<Board> boardList = boardService.selectGroupBoardList(groupList_number);
 		GroupList groupDetail = groupService.findGroupDetail(groupList_number);
-		
 		
 		GalleryPageMaker pageMaker = new GalleryPageMaker();
 		pageMaker.setCri(cri);
@@ -108,6 +106,7 @@ public class GroupController {
 		model.addAttribute("galleryList", galleryList);
 		model.addAttribute("boardList", boardList);
 		model.addAttribute("pageMaker", pageMaker);
+		
 		return "group/groupInfo2";
 	}
 	

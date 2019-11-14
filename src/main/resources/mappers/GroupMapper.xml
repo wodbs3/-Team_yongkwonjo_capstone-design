@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    		grouplist_interest,
    		grouplist_people,
    		grouplist_date
-   		)
+  		)
    	VALUES (
    		#{grouplist_name},
    		#{grouplist_introduce},
@@ -48,12 +48,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM bumoim.grouplist
 		WHERE grouplist_number = #{grouplist_number}
 	</select>
-	
-	
 		
 	<select id="memberIdCheck" resultType="com.bu.bumoim.domain.Member" >
-		select member_id, member_name, member_group1, member_group2, member_group3
-		from member
-		where member_id = #{member_id}
+		SELECT member_id, member_name, member_group1, member_group2, member_group3
+		FROM member
+		WHERE member_id = #{member_id}
 	</select>
+	
+	<select id="groupMemberList" resultType="com.bu.bumoim.domain.Member">
+		SELECT member_id, member_number, member_name, member_major
+		FROM member
+		WHERE member_group1 = #{group_number} || member_group2 = #{group_number} || member_group3 = #{group_number}
+	</select>
+	
 </mapper>
