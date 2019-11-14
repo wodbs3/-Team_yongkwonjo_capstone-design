@@ -8,6 +8,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="/resources/css/bootstrap.css">
 	<title>BoardDetail</title>
 	
@@ -24,6 +25,7 @@
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
+
 
 <div class="container" style="margin-bottom: 200px;width: 60%; margin-left:20%; margin-top: 10%;">
     <form id="detail" name="detail" method="POST">
@@ -46,8 +48,12 @@
                     <tr>
                     	<th style = "width : 10%; font-size: 18px;" scope="row">제목</th> 
                     	<td>${Board.board_title }</td>
-                    	<th style = "width : 10%; font-size: 18px;" scope="row">파일</th> 
-                    	<td>${Board.board_photo }</td>
+                    	<th style = "width : 10%; font-size: 18px;" scope="row">파일</th>
+                    	
+					<td>
+					<a href = "/board/fileDownload.jsp"> 파일 다운로드 페이지</a>
+					</td>
+<%--                      	<td>${Board.board_photo }</td> --%>
                     </tr>
                     <tr>
                     	<td colspan="4">${Board.board_content }</td>
