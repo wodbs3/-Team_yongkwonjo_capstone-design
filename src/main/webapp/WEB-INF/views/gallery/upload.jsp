@@ -21,12 +21,35 @@
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
+
+	<section class="parallax-window" data-parallax="scroll"
+		data-image-src="img/header_bg.jpg" data-natural-width="1400"
+		data-natural-height="470">
+		<div class="parallax-content-1">
+			<div class="animated fadeInDown">
+				<h1>GALLERY WRITE</h1>
+			</div>
+		</div>
+	</section>
+		<div id="position">
+		<div class="container">
+			<ul>
+				<li><a href="${pageContext.request.contextPath }/index">Home</a></li>
+				<li><b>사진 등록</b></li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-12">
+	<h2 style="
+    text-align: center;
+"> <span> 사진 등록 </span> </h2>
+	</div>
+	
 <div class="container margin_60">
-<div class="col-md-offset-3 col-md-6" style="margin-top: 10%;">
+<div class="col-md-offset-3 col-md-6" style="margin-top: 3%;">
     <form action="fileUpload.do?groupList_number=${groupList_number }" id="fileUpload" name="fileUpload" method="post" enctype="multipart/form-data">
     	
         <div>
-         <h2>사진 등록</h2><hr>
         	<div class="row">
     			<div class="col-md-8"></div>
     			<div class="col-md-4">

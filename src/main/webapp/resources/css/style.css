@@ -2866,15 +2866,15 @@ ul.list_order li span {
 
 /* Parallax bg */
 .parallax-window {
-	min-height: 470px;
-	background: transparent;
+	min-height: 300px;
+	background: #3DB7CC;
 	position: relative;
 }
 
 .parallax-content-1 {
 	display: table;
 	width: 100%;
-	height: 470px;
+	height: 300px;
 }
 
 .parallax-content-1 > div {

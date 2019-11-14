@@ -61,12 +61,30 @@ img {
 
 <body>
 	<%@ include file="../common/header.jsp" %>
-	
+	<section class="parallax-window" data-parallax="scroll"
+		data-image-src="img/header_bg.jpg" data-natural-width="1400"
+		data-natural-height="470">
+		<div class="parallax-content-1">
+			<div class="animated fadeInDown">
+				<h1>GroupInfo page</h1>
+			</div>
+		</div>
+	</section>
 	<main>
+		<div id="position">
+		<div class="container">
+			<ul>
+				<li><a href="${pageContext.request.contextPath }/index">Home</a></li>
+
+
+				<li><b>그룹상세</b></li>
+			</ul>
+		</div>
+	</div>
 		
 		<!-- End position -->
 
-		<div class="container margin_60" style="margin-top: 5%;">
+		<div class="container margin_60">
 			<div class="row">
 				
 				<!-- START group side form -->

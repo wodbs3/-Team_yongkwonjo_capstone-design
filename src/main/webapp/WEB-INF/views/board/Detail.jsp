@@ -24,11 +24,33 @@
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
+	<section class="parallax-window" data-parallax="scroll"
+		data-image-src="img/header_bg.jpg" data-natural-width="1400"
+		data-natural-height="470">
+		<div class="parallax-content-1">
+			<div class="animated fadeInDown">
+				<h1>Group Detail</h1>
+			</div>
+		</div>
+	</section>
+		<div id="position">
+		<div class="container">
+			<ul>
+				<li><a href="${pageContext.request.contextPath }/index">Home</a></li>
 
-<div class="container" style="margin-bottom: 200px;width: 60%; margin-left:20%; margin-top: 10%;">
+
+				<li><b>상세보기</b></li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-12">
+	<h2 style="
+    text-align: center;
+"> <span> 상세보기 </span> </h2>
+	</div>
+<div class="container" style="margin-bottom: 200px;width: 60%; margin-left:20%;">
     <form id="detail" name="detail" method="POST">
-        <div>
-            <h2>상세보기</h2>
+        <div>>
             <div style=" width : 100%;">
              <input type="hidden" name="board_number"/>
                 <table class = "table table-boardered" style = " width : 100%;">
@@ -57,9 +79,10 @@
                 </table>
                 <div style = "text-align: right;"> 
                 	
+                	<c:if test="${loginMap.member_id eq Board.board_writer}">
                 	<a href="${pageContext.request.contextPath}/boardUpdate.do?groupList_number=${Board.groupList_number}&board_number=${Board.board_number}" class="btn btn-success" style="padding:10px">수정</a>
                     <a href="${pageContext.request.contextPath}/boardDelete.do?board_number=${Board.board_number}" class="btn btn-danger" style="padding:10px">삭제</a>
-                	
+                	</c:if>
                 		
                 	   <input type="button" value="목록" onClick='goBack()' class="btn btn-success" style="padding:10px"/>
 

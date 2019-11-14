@@ -23,11 +23,34 @@
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
+
+<section class="parallax-window" data-parallax="scroll"
+		data-image-src="img/header_bg.jpg" data-natural-width="1400"
+		data-natural-height="470">
+		<div class="parallax-content-1">
+			<div class="animated fadeInDown">
+				<h1>BOARD WRITE</h1>
+			</div>
+		</div>
+	</section>
+		<div id="position">
+		<div class="container">
+			<ul>
+				<li><a href="${pageContext.request.contextPath }/index">Home</a></li>
+				<li><b>게시글 작성</b></li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-12">
+	<h2 style="
+    text-align: center;
+"> <span> 게시글 작성 </span> </h2>
+	</div>
 <!-- class="col-md-offset-3 col-md-6" -->
-<div class="container" style="margin-bottom: 200px;width: 60%; margin-left:20%; margin-top: 10%;">
+<div class="container" style="margin-bottom: 200px;width: 60%; margin-left:20%;">
     <form action="/boardWrite.do?groupList_number=${groupList_number }" name="writeForm" method="POST" enctype="multipart/form-data">
         <div>
-            <h2>글쓰기</h2>
+        
             <div style=" width : 100%;">
                 <table style = " width : 100%;">
                     <tr>

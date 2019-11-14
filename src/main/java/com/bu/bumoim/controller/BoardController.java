@@ -126,7 +126,7 @@ public class BoardController<ActionForward> {
 	
 	
 	@RequestMapping(value="/boardDelete.do", method=RequestMethod.GET)
-	public String board_delete(HttpSession session, int board_number, int groupList_number) throws Exception {
+	public String board_delete(Board board, HttpSession session, int board_number, int groupList_number) throws Exception {
 		
 		int deleteResult = boardservice.deleteBoard(board_number);
 		
@@ -136,7 +136,7 @@ public class BoardController<ActionForward> {
 			logger.info("FAIL~~~~~~~~~~~~~~~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!~~~~~~~~~~");
 		}
 		
-		return "/group/groupInfo.do?groupList_number=${Board.groupList_number}#board";
+		return  "redirect:/group/groupInfo.do?groupList_number="+ board.getgroupList_number() +"#board";
 	}
 	
 	public Board fileUpload(HttpServletRequest req, Board board) {
@@ -200,7 +200,7 @@ public class BoardController<ActionForward> {
  
         // 파일이 있는 절대경로를 가져온다.
         // 현재 업로드된 파일은 UploadFolder 폴더에 있다.
-        String folder = request.getSession().getServletContext().getRealPath("upload");
+        String folder = request.getSession().getServletContext().getRealPath("uploadPath");
         // 파일의 절대경로를 만든다.
         String filePath = folder + "/" + fileName;
  

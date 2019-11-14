@@ -41,19 +41,35 @@
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
+	<section class="parallax-window" data-parallax="scroll"
+		data-image-src="img/header_bg.jpg" data-natural-width="1400"
+		data-natural-height="470">
+		<div class="parallax-content-1">
+			<div class="animated fadeInDown">
+				<h1>Introduce Page</h1>
+			</div>
+		</div>
+	</section>
+		<div id="position">
+		<div class="container">
+			<ul>
+				<li><a href="${pageContext.request.contextPath }/index">Home</a></li>
 
 
-<section style="margin-top:20%;">
+				<li><a href="introduce.do">소개</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-12">
+	<h2 style="
+    text-align: center;
+"> <span> Introduce </span> </h2>
+	</div>
+
+<section>
 	<div class="container">
 		<div class="row">
 		
-		<div class="col-md-12 text-center">
-	<div style="
-    font-size: 28px;
-    margin-bottom: 10px;
-    color: #333;">Introduce</div>
-
-	</div>
 			<div class="col-md-8 col-md-offset-2">
 				<img src="/resources/upload/ef7d0a88f90443e2962d090670a69cad.jpg" style="width:100%;"/>
 			</div> 

@@ -108,10 +108,10 @@ img {
 	<div id="position">
 		<div class="container">
 			<ul>
-				<li><a href="index">Home</a></li>
+				<li><a href="${pageContext.request.contextPath }/index">Home</a></li>
 
 
-				<li><a href="gallery.do">사진첩</a></li>
+				<li><a href="${pageContext.request.contextPath }/gallery.do">사진첩</a></li>
 			</ul>
 		</div>
 	</div>

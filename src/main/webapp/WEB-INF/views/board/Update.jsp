@@ -24,8 +24,29 @@
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
+	<section class="parallax-window" data-parallax="scroll"
+		data-image-src="img/header_bg.jpg" data-natural-width="1400"
+		data-natural-height="470">
+		<div class="parallax-content-1">
+			<div class="animated fadeInDown">
+				<h1>Board MODIFY</h1>
+			</div>
+		</div>
+	</section>
+		<div id="position">
+		<div class="container">
+			<ul>
+				<li><a href="${pageContext.request.contextPath }/index">Home</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-12">
+	<h2 style="
+    text-align: center;
+"> <span> 게시글 수정 </span> </h2>
+	</div>
+<div class="container" style="margin-bottom: 200px;width: 60%; margin-left:20%;">
 
-<div class="container" style="margin-bottom: 200px;width: 60%; margin-left:20%; margin-top: 10%;">
 	 <form action="${pageContext.request.contextPath}/boardModify.do?groupList_number=${Board.groupList_number}&board_number=${Board.board_number}" method="POST">
         <div class="form-group">
             <label for="board_title">제목</label>
