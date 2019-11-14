@@ -1,12 +1,8 @@
 package com.bu.bumoim.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.bu.bumoim.domain.Board;
 import com.bu.bumoim.domain.Gallery;
 import com.bu.bumoim.domain.GroupList;
 import com.bu.bumoim.domain.Member;
@@ -26,6 +23,7 @@ import com.bu.bumoim.paging.GalleryPageMaker;
 import com.bu.bumoim.service.GalleryService;
 import com.bu.bumoim.service.GroupService;
 import com.bu.bumoim.service.UserService;
+import com.bu.bumoim.service.BoardService;
 
 @Controller
 @RequestMapping("group")
@@ -37,6 +35,8 @@ public class GroupController {
 	private GroupService groupService;
 	@Autowired
 	private GalleryService galleryService;
+	@Autowired
+	private BoardService boardService;
 	
 	@Autowired
 	private UserService userService;
@@ -90,10 +90,12 @@ public class GroupController {
 	// 그룹 => 그룹정보
 	@RequestMapping(value = "/groupInfo.do", method=RequestMethod.GET)
 	public String groupInfoView(int groupList_number, Model model, @ModelAttribute("cri") GalleryCriteria cri) {
-		//
+		//갤러리
 		List<Gallery> galleryList = galleryService.getGroupGallery(groupList_number, cri);
 		logger.info(galleryList.toString());
 		
+		//게시판
+		List<Board> boardList = boardService.selectGroupBoardList(groupList_number);
 		GroupList groupDetail = groupService.findGroupDetail(groupList_number);
 		
 		GalleryPageMaker pageMaker = new GalleryPageMaker();
@@ -102,6 +104,7 @@ public class GroupController {
 		
 		model.addAttribute("groupDetail", groupDetail);
 		model.addAttribute("galleryList", galleryList);
+		model.addAttribute("boardList", boardList);
 		model.addAttribute("pageMaker", pageMaker);
 		
 		return "group/groupInfo2";

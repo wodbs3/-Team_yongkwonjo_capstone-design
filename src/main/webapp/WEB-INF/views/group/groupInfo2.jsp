@@ -60,15 +60,17 @@ img {
 </head>
 
 <body>
+	<%@ include file="../common/header.jsp" %>
+	
+	<main>
+		
+		<!-- End position -->
 
-	<%@ include file="../common/header.jsp"%>
-
-	<main> <!-- End position -->
-
-	<div class="container margin_60" style="margin-top: 5%;">
-		<div class="row">
-
-			<!-- START group side form -->
+		<div class="container margin_60" style="margin-top: 5%;">
+			<div class="row">
+				
+				<!-- START group side form -->
+<!--  기준 -->
 
 			<aside class="col-md-4" id="sidebar">
 				<div class="theiaStickySidebar">
@@ -156,8 +158,6 @@ img {
 										<a href='#' onclick="javascript:goCreate();" class="btn btn-success">글쓰기</a>
 									</div>
                                    </div>
-                                   
-                                   
                                    
 								</div>
 								<!-- END group BOARD TAB -->
@@ -375,7 +375,8 @@ img {
 		</div>
 		<!--End row -->
 	</div>
-	<!--End container --> </main>
+	<!--End container --> 
+	</main>
 	<!-- End main -->
 
 	<%@ include file="../common/footer.jsp"%>
