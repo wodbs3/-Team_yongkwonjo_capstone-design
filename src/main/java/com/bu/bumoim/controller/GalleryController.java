@@ -41,7 +41,7 @@ public class GalleryController {
 	@Autowired
 	private CommentService commentService; 
 	
-	@Resource(name = "uploadPath") // bean占쎌벥 id揶쏉옙 uploadPath占쎌뵥 占쎄묶域밸챶占쏙옙 筌〓챷��
+	@Resource(name = "uploadPath") // bean�뜝�럩踰� id�뤆�룊�삕 uploadPath�뜝�럩逾� �뜝�럡臾뜹윜諛몄굡�뜝�룞�삕 嶺뚣�볦굣占쏙옙
 	String uploadPath;
 
 	private Logger logger = Logger.getLogger(getClass());
@@ -49,7 +49,7 @@ public class GalleryController {
 	
 	@RequestMapping(value = "/gallery.do", method = RequestMethod.GET)
 	public ModelAndView gallery(Gallery gallery, @ModelAttribute("cri") GalleryCriteria cri) throws Exception {
-		//전체 게시글 수
+		//�쟾泥� 寃뚯떆湲� �닔
 //		int listCnt = service.getGalleryCount();
 		
 		List<Gallery> list = service.getGalleryList(cri);
@@ -128,6 +128,7 @@ public class GalleryController {
 		Gallery gallery = service.getGallery(num);
 		String fileName = gallery.getFileName();
 		
+		int groupList_number = gallery.getGroupList_number();
 		if(fileName != null && fileName != "") {
 		File file = new File(uploadPath,fileName);
 		file.delete();
@@ -135,7 +136,7 @@ public class GalleryController {
 		commentService.galDeleteAllComment(num);
 		service.deleteGallery(num);
 		
-		return "redirect:gallery.do";
+		return "redirect:/group/groupInfo.do?groupList_number=" + groupList_number + "#gallery";
 	}
 
 	@RequestMapping(value = "/fileUpload.do", method = RequestMethod.POST)
@@ -161,21 +162,21 @@ public class GalleryController {
 				dir.mkdirs();
 			}
 			while (iter.hasNext()) {
-				String fieldName = (String) iter.next(); // �궡�슜�쓣 媛��졇���꽌
+				String fieldName = (String) iter.next(); // 占쎄땀占쎌뒠占쎌뱽 揶쏉옙占쎌죬占쏙옙占쎄퐣
 				uploadFile = mhsr.getFile(fieldName);
 				String origName;
-				origName = new String(uploadFile.getOriginalFilename().getBytes("8859_1"), "UTF-8"); // �븳湲�爰좎쭚 諛⑹�
+				origName = new String(uploadFile.getOriginalFilename().getBytes("8859_1"), "UTF-8"); // 占쎈립疫뀐옙�댆醫롮춾 獄쎻뫗占�
 
-				// �뙆�씪紐낆씠 �뾾�떎硫�
+				// 占쎈솁占쎌뵬筌뤿굞�뵠 占쎈씨占쎈뼄筌롳옙
 				if ("".equals(origName)) {
 					continue;
 				}
 
-				// �뙆�씪 紐� 蹂�寃�(uuid濡� �븫�샇�솕)
-				String ext = origName.substring(origName.lastIndexOf('.')); // �솗�옣�옄
+				// 占쎈솁占쎌뵬 筌륅옙 癰귨옙野껓옙(uuid嚥∽옙 占쎈릊占쎌깈占쎌넅)
+				String ext = origName.substring(origName.lastIndexOf('.')); // 占쎌넇占쎌삢占쎌쁽
 				String saveFileName = getUuid() + ext;
 
-				// �꽕�젙�븳 path�뿉 �뙆�씪���옣
+				// 占쎄퐬占쎌젟占쎈립 path占쎈퓠 占쎈솁占쎌뵬占쏙옙占쎌삢
 				File serverFile = new File(uploadPath + File.separator + saveFileName);
 				uploadFile.transferTo(serverFile);
 				logger.info("path: " + uploadFile);
