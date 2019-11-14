@@ -144,7 +144,7 @@ public class GalleryController {
 		gallery.setGrouplist_number(groupList_number);
 		service.insertGallery(gallery);
 	
-		return "redirect:/group/groupInfo.do?groupList_number=" + groupList_number;
+		return "redirect:/group/groupInfo.do?groupList_number=" + groupList_number + "gallery";
 	}
 
 

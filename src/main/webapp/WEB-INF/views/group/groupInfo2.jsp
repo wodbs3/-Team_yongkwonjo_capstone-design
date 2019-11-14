@@ -130,8 +130,7 @@ img {
 								<!-- START group BOARD TAB -->
 								<div class="tab-pane fade show active" id="board"
 									role="tabpanel" aria-labelledby="board-tab">
-									<div class ="container">
-										<div class="col-md-7">
+									<div class ="main-title">
 											<table class="table table-striped table-hover">
 												<thead>
 													<tr>
@@ -151,12 +150,13 @@ img {
 															<td><c:out value="${boardList.board_content }"/></td>
 															<td><c:out value="${boardList.board_writer }"/></td>
 															<td><c:out value="${boardList.board_date }"/></td>
-															<td></td>
 														</tr>
 													</c:forEach>
 												</tbody>
 											</table>
-										</div>
+										   <div style = "text-align: right;">           
+          									  <a href='#' onclick="javascript:goCreate();" class="btn btn-success">글쓰기</a>
+     									   </div>
 										</div>
 								</div>
 								<!-- END group BOARD TAB -->
@@ -427,10 +427,10 @@ img {
 	</script>
 
 	<script>
-	//글쓰기
+	
 	function goCreate() {
-		location.href="/GroupCreate.do";
-	}
+		   location.href="/boardWrite.do?groupList_number=${groupDetail.grouplist_number}";
+		}
 
 	function goLogin() {
 		location.href="/login.do";

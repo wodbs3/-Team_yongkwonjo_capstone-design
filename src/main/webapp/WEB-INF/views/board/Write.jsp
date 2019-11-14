@@ -25,10 +25,9 @@
 <%@ include file="../common/header.jsp" %>
 <!-- class="col-md-offset-3 col-md-6" -->
 <div class="container" style="margin-bottom: 200px;width: 60%; margin-left:20%; margin-top: 10%;">
-    <form action="/boardWrite.do" name="writeForm" method="POST" enctype="multipart/form-data">
+    <form action="/boardWrite.do?groupList_number=${groupList_number }" name="writeForm" method="POST" enctype="multipart/form-data">
         <div>
             <h2>글쓰기</h2>
-            <input type="hidden" name="groupList_number" id="groupList_number" value="${groupDetail.grouplist_number }"/>
             <div style=" width : 100%;">
                 <table style = " width : 100%;">
                     <tr>
@@ -49,8 +48,8 @@
                     </tr>
                 </table>
                 <div style = "text-align: right;">
-                	<Button type="submit" class="btn btn-success">글 등록</Button>
-                    <a href="/boardList.do" onClick='fn_cancel()' class="btn btn-success">목록</a>
+                	<input type="submit" class="btn btn-success" value="등록">
+                    <a href="/group/groupInfo.do?groupList_number=${groupList_number }#board"  class="btn btn-success">목록</a>
                 </div>
             </div>
         </div>
