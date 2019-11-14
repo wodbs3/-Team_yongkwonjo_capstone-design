@@ -18,12 +18,35 @@
 <body>
 <%@ include file="../common/header.jsp" %>
 
+	<section class="parallax-window" data-parallax="scroll"
+		data-image-src="img/header_bg.jpg" data-natural-width="1400"
+		data-natural-height="470">
+		<div class="parallax-content-1">
+			<div class="animated fadeInDown">
+				<h1>MY PAGE</h1>
+			</div>
+		</div>
+	</section>
+		<div id="position">
+		<div class="container">
+			<ul>
+				<li><a href="${pageContext.request.contextPath }/index">Home</a></li>
+				<li><b>마이페이지</b></li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-12">
+	<h2 style="
+    text-align: center;
+"> <span> 회원 정보 </span> </h2>
+	</div>
+
 <div class = "container">
 	<div class="row">
 	<div class="col-md-5 toppad pull-right col-md-offset-4">
 		<br>
 	</div>
-		<div class="col-xs-12 col-sm-12 col-md-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 toppad" style="margin-top:20%;">
+		<div class="col-xs-12 col-sm-12 col-md-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 toppad">
 			<form action="/deleteMember.do?member_id=${loginMap.member_id }" name="delete "method="POST">
 			<div class="panel panel-info">
 				<div class="panel-heading">

@@ -17,7 +17,30 @@
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
+	<section class="parallax-window" data-parallax="scroll"
+		data-image-src="img/header_bg.jpg" data-natural-width="1400"
+		data-natural-height="470">
+		<div class="parallax-content-1">
+			<div class="animated fadeInDown">
+				<h1>Login Page</h1>
+			</div>
+		</div>
+	</section>
+		<div id="position">
+		<div class="container">
+			<ul>
+				<li><a href="${pageContext.request.contextPath }/index">Home</a></li>
 
+
+				<li><a href="login.do">로그인</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-12">
+	<h2 style="
+    text-align: center;
+"></h2>
+	</div>
 	<div class="row margin_30">
 	<form action="/login.do" id="loginFrm" method="POST" class="form-horizontal" style="margin-top:10%">
       

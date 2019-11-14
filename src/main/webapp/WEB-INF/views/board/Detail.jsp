@@ -8,7 +8,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="/resources/css/bootstrap.css">
 	<title>BoardDetail</title>
 	
@@ -25,12 +24,33 @@
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
+	<section class="parallax-window" data-parallax="scroll"
+		data-image-src="img/header_bg.jpg" data-natural-width="1400"
+		data-natural-height="470">
+		<div class="parallax-content-1">
+			<div class="animated fadeInDown">
+				<h1>Group Detail</h1>
+			</div>
+		</div>
+	</section>
+		<div id="position">
+		<div class="container">
+			<ul>
+				<li><a href="${pageContext.request.contextPath }/index">Home</a></li>
 
 
-<div class="container" style="margin-bottom: 200px;width: 60%; margin-left:20%; margin-top: 10%;">
+				<li><b>상세보기</b></li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-12">
+	<h2 style="
+    text-align: center;
+"> <span> 상세보기 </span> </h2>
+	</div>
+<div class="container" style="margin-bottom: 200px;width: 60%; margin-left:20%;">
     <form id="detail" name="detail" method="POST">
-        <div>
-            <h2>상세보기</h2>
+        <div>>
             <div style=" width : 100%;">
              <input type="hidden" name="board_number"/>
                 <table class = "table table-boardered" style = " width : 100%;">
@@ -48,12 +68,8 @@
                     <tr>
                     	<th style = "width : 10%; font-size: 18px;" scope="row">제목</th> 
                     	<td>${Board.board_title }</td>
-                    	<th style = "width : 10%; font-size: 18px;" scope="row">파일</th>
-                    	
-					<td>
-					<a href = "/board/fileDownload.jsp"> 파일 다운로드 페이지</a>
-					</td>
-<%--                      	<td>${Board.board_photo }</td> --%>
+                    	<th style = "width : 10%; font-size: 18px;" scope="row">파일</th> 
+                      	<td><a href= 'FileDownloadAction.do?file_name=${Board.board_photo }'>${Board.board_photo }</a></td>
                     </tr>
                     <tr>
                     	<td colspan="4">${Board.board_content }</td>
@@ -61,10 +77,15 @@
                     </tbody>
                     
                 </table>
-                <div style = "text-align: right;">
-                		<a href="${pageContext.request.contextPath}/boardUpdate.do?board_number=${Board.board_number}" class="btn btn-success" style="padding:10px">수정</a>
-                        <a href="${pageContext.request.contextPath}/boardDelete.do?board_number=${Board.board_number}" class="btn btn-danger" style="padding:10px">삭제</a>
-                	    <a href="/boardList.do" onClick='fn_cancel()' class="btn btn-success" style="padding:10px">목록</a>
+                <div style = "text-align: right;"> 
+                	
+                	<c:if test="${loginMap.member_id eq Board.board_writer}">
+                	<a href="${pageContext.request.contextPath}/boardUpdate.do?groupList_number=${Board.groupList_number}&board_number=${Board.board_number}" class="btn btn-success" style="padding:10px">수정</a>
+                    <a href="${pageContext.request.contextPath}/boardDelete.do?board_number=${Board.board_number}" class="btn btn-danger" style="padding:10px">삭제</a>
+                	</c:if>
+                		
+                	   <input type="button" value="목록" onClick='goBack()' class="btn btn-success" style="padding:10px"/>
+
                 </div>
             </div>
         </div>
@@ -158,7 +179,9 @@
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 <script> 
 
-
+function goBack() {
+	   location.href="/group/groupInfo.do?groupList_number=${Board.groupList_number}#board";
+	}
 </script>
 </body>
 </html>
