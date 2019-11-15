@@ -110,7 +110,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 		<div class="container">
 			<ul>
 				<li><a href="${pageContext.request.contextPath }/index">Home</a></li>
-
+				<li><a href="${pageContext.request.contextPath }/group/GroupList.do">게시판 목록 </a></li>
 
 				<li><b>그룹상세</b></li>
 			</ul>
@@ -231,7 +231,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 												class="btn_1">사진 등록</a>
 										</c:if>
 									</div>
-
+									<br>
 
 									<div class="row">
 										<c:forEach items="${galleryList}" var="galleryList">
@@ -428,7 +428,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 	function upload_btn(id) {
 		
 			alert("로그인을 해주세요");
-		
+			location.href="/login.do";
 	}
 	</script>
 
