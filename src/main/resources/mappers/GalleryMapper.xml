@@ -75,7 +75,8 @@
 			photo_content as content, 
 			photo_id as writer, 
 			photo_date as regDate, 
-			photo_name as fileName
+			photo_name as fileName,
+			grouplist_number
 		FROM bumoim.groupphoto
 		WHERE photo_number = #{num}
 	</select>
