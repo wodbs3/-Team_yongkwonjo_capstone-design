@@ -9,8 +9,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="galCommentInsert" parameterType="Comment">
         INSERT INTO
-        comment (comment_number, photo_number ,comment_writer , comment_content, comment_date)
-        VALUES (#{comment_number}, #{photo_number}, #{comment_id}, #{comment_content}, NOW()) 
+        comment (comment_number, photo_number ,comment_writer , comment_content, comment_date, grouplist_number)
+        VALUES (#{comment_number}, #{photo_number}, #{comment_id}, #{comment_content}, NOW(), #{groupList_number}) 
     </insert>    
 
 	<select id="galCommentList" parameterType="int" resultType="Comment">
