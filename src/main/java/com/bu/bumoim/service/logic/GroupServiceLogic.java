@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.bu.bumoim.dao.GroupDao;
 import com.bu.bumoim.domain.GroupList;
 import com.bu.bumoim.domain.Member;
+import com.bu.bumoim.paging.Criteria;
 import com.bu.bumoim.service.GroupService;
 
 @Service
@@ -17,9 +18,9 @@ public class GroupServiceLogic implements GroupService{
    private GroupDao groupDao;
    
    @Override
-   public List<GroupList> selectGroupList(GroupList grouplist) {
+   public List<GroupList> selectGroupList(Criteria cri) {
       
-      return groupDao.selectGroupList(grouplist);
+      return groupDao.selectGroupList(cri);
    }
    @Override
    public int insertGroup(GroupList grouplist) {

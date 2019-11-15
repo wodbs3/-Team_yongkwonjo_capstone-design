@@ -18,8 +18,10 @@ import com.bu.bumoim.domain.Board;
 import com.bu.bumoim.domain.Gallery;
 import com.bu.bumoim.domain.GroupList;
 import com.bu.bumoim.domain.Member;
+import com.bu.bumoim.paging.Criteria;
 import com.bu.bumoim.paging.GalleryCriteria;
 import com.bu.bumoim.paging.GalleryPageMaker;
+import com.bu.bumoim.paging.PageMaker;
 import com.bu.bumoim.service.GalleryService;
 import com.bu.bumoim.service.GroupService;
 import com.bu.bumoim.service.UserService;
@@ -42,14 +44,20 @@ public class GroupController {
 	private UserService userService;
 	
 	@RequestMapping(value="/GroupList.do")
-	public ModelAndView grouplist(GroupList grouplist, String member_id, Model model) {
+	public ModelAndView grouplist(GroupList grouplist, String member_id, Model model,@ModelAttribute("cri") Criteria cri) {
 		//
-		List<GroupList> list = groupService.selectGroupList(grouplist);
+		List<GroupList> list = groupService.selectGroupList(cri);
 		List<Member> memberList = userService.getMemberList(member_id);
+		
 		ModelAndView mav = new ModelAndView("group/grouplist");
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(100);
 		
 		mav.addObject("GroupList", list);
 		mav.addObject("memberList", memberList);
+		mav.addObject("pageMaker", pageMaker);
 		
 		return mav;
 	}
@@ -63,14 +71,14 @@ public class GroupController {
 	public String groupcreate(GroupList grouplist, Model model) {
 		int insertResult = groupService.insertGroup(grouplist);
 		if (insertResult == 1) {
-			logger.info("그룹생성~~~~!");
+			logger.info("洹몃９�깮�꽦~~~~!");
 		}else {
-			logger.info("실패했지롱~~~~~!!!!!!!!!!!!!!!!!!!!!!1");
+			logger.info("�떎�뙣�뻽吏�濡�~~~~~!!!!!!!!!!!!!!!!!!!!!!1");
 		}
 		return "redirect:GroupList.do";
 	}
 	
-	//그룹 중복체크
+	//洹몃９ 以묐났泥댄겕
 	@ResponseBody
 	@RequestMapping(value="/groupDuplicationCheck.do", method=RequestMethod.POST)
 	public int idDuplicationCheck(HttpServletRequest request, Model model) {
@@ -79,26 +87,26 @@ public class GroupController {
 		GroupList grouplist = groupService.groupDuplicationCheck(grouplist_name);
 		
 		if(grouplist != null) {
-			logger.info("그룹이름 중복 사용불가");
+			logger.info("洹몃９�씠由� 以묐났 �궗�슜遺덇�");
 			return 0;
 		} else {
-			logger.info("그룹이름 사용가능");
+			logger.info("洹몃９�씠由� �궗�슜媛��뒫");
 			return 1;
 		}
 	}
 
-	// 그룹 => 그룹정보
+	// 洹몃９ => 洹몃９�젙蹂�
 	@RequestMapping(value = "/groupInfo.do", method=RequestMethod.GET)
 	public String groupInfoView(int groupList_number, Model model, @ModelAttribute("cri") GalleryCriteria cri) {
-		//갤러리
+		//媛ㅻ윭由�
 		List<Gallery> galleryList = galleryService.getGroupGallery(groupList_number, cri);
 		logger.info(galleryList.toString());
 		
-		//게시판
+		//寃뚯떆�뙋
 		List<Board> boardList = boardService.selectGroupBoardList(groupList_number);
 		GroupList groupDetail = groupService.findGroupDetail(groupList_number);
 		
-		//모임회원
+		//紐⑥엫�쉶�썝
 		List<Member> groupMemberList = groupService.getGroupMemberList(groupList_number);
 		System.out.println("5555555555555555555555555555555555555555555555555555");
 		logger.info(groupMemberList.toString());
@@ -116,7 +124,7 @@ public class GroupController {
 		return "group/groupInfo2";
 	}
 	
-	// 그룹 리스트 => 그룹 가입하기
+	// 洹몃９ 由ъ뒪�듃 => 洹몃９ 媛��엯�븯湲�
 	@RequestMapping(value="/groupJoin.do", method=RequestMethod.GET)
 	public String groupJoinView() {
 		return "group/groupJoin";
