@@ -59,14 +59,14 @@ public class CommentServiceLogic implements CommentService{
 	}
 	
 	@Override
-	public List<Comment> boardCommentList(int board_number) {
-		List<Comment> comment = commentDao.boardGetCommentList(board_number);
+	public List<Comment> boardCommentList(int groupList_number) {
+		List<Comment> comment = commentDao.boardGetCommentList(groupList_number);
 		return comment;
 	}
 	
 	@Override
-	public void boardDeleteAllComment(int board_number) {
-		commentDao.boardCommentAllDelete(board_number);
+	public void boardDeleteAllComment(int groupList_number) {
+		commentDao.boardCommentAllDelete(groupList_number);
 	}
 	
 	@Override
@@ -79,5 +79,32 @@ public class CommentServiceLogic implements CommentService{
 	public void boardUpdateComment(Comment comment) {
 		commentDao.boardUpdateComment(comment);
 	}
+	//---------------------------------------------
+	
+	@Override
+	public void groupCommentInsert(Comment comment) {
+		commentDao.groupInsertComment(comment);
+	}
+	
+	@Override
+	public List<Comment> groupCommentList(int groupList_number) {
+		List<Comment> comment = commentDao.groupGetCommentList(groupList_number);
+		return comment;
+	}
+	
+	@Override
+	public void groupDeleteAllComment(int groupList_number) {
+		commentDao.groupCommentAllDelete(groupList_number);
+	}
+	
+	@Override
+	public void groupDeleteComment(int groupList_number) {
+		commentDao.groupCommentDelete(groupList_number);
 		
+	}
+
+	@Override
+	public void groupUpdateComment(Comment comment) {
+		commentDao.groupUpdateComment(comment);
+	}
 }

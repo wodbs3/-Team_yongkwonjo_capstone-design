@@ -77,7 +77,7 @@ public class BoardController<ActionForward> {
 		board = fileUpload(req,board);
 		board.setgroupList_number(groupList_number);
 		logger.info("3333333333333333333333333333333333333333333333333");
-		logger.info("그룹 넘버 =========" + groupList_number);
+		logger.info("洹몃９ �꽆踰� =========" + groupList_number);
 		logger.info("3333333333333333333333333333333333333333333333333");
 		
 		boardservice.insertBoard(board);
@@ -93,14 +93,15 @@ public class BoardController<ActionForward> {
 		
 		
 		List<Comment> comment = commentService.boardCommentList(board_number);
-		logger.info("넘버: " + board_number);
+//		List<Comment> comment = commentService.groupCommentList(groupList_number);
+//		logger.info("�꽆踰�: " + groupList_number);
 		Board board = boardservice.detailBoard(board_number);
-		logger.info("보드남바: " + board.getboard_number());
+		logger.info("蹂대뱶�궓諛�: " + board.getboard_number());
 		
 		mav.setViewName("board/Detail");
 		mav.addObject("Board", board);
 		mav.addObject("commentList",comment);
-		model.addAttribute("groupList_number", groupList_number);
+//		model.addAttribute("groupList_number", groupList_number);
 		
 		return mav;
 	}
@@ -151,16 +152,16 @@ public class BoardController<ActionForward> {
 				dir.mkdirs();
 			}
 			while (iter.hasNext()) {
-				String fieldName = (String) iter.next(); // �궡�슜�쓣 媛��졇���꽌
+				String fieldName = (String) iter.next(); // 占쎄땀占쎌뒠占쎌뱽 揶쏉옙占쎌죬占쏙옙占쎄퐣
 				uploadFile = mhsr.getFile(fieldName);
 				String origName;
-				origName = new String(uploadFile.getOriginalFilename().getBytes("8859_1"), "UTF-8"); // �븳湲�爰좎쭚 諛⑹�
+				origName = new String(uploadFile.getOriginalFilename().getBytes("8859_1"), "UTF-8"); // 占쎈립疫뀐옙�댆醫롮춾 獄쎻뫗占�
 
 				if ("".equals(origName)) {
 					continue;
 				}
 
-				String ext = origName.substring(origName.lastIndexOf('.')); // �솗�옣�옄
+				String ext = origName.substring(origName.lastIndexOf('.')); // 占쎌넇占쎌삢占쎌쁽
 				String saveFileName = getUuid() + ext;
 
 				File serverFile = new File(uploadPath + File.separator + saveFileName);
@@ -195,36 +196,36 @@ public class BoardController<ActionForward> {
 	public ActionForward execute(HttpServletRequest request,
             HttpServletResponse response) throws Exception {
         
-        // 다운로드할 파일명을 가져온다.
+        // �떎�슫濡쒕뱶�븷 �뙆�씪紐낆쓣 媛��졇�삩�떎.
         String fileName = request.getParameter("file_name");
  
-        // 파일이 있는 절대경로를 가져온다.
-        // 현재 업로드된 파일은 UploadFolder 폴더에 있다.
+        // �뙆�씪�씠 �엳�뒗 �젅��寃쎈줈瑜� 媛��졇�삩�떎.
+        // �쁽�옱 �뾽濡쒕뱶�맂 �뙆�씪�� UploadFolder �뤃�뜑�뿉 �엳�떎.
         String folder = request.getSession().getServletContext().getRealPath("uploadPath");
-        // 파일의 절대경로를 만든다.
+        // �뙆�씪�쓽 �젅��寃쎈줈瑜� 留뚮뱺�떎.
         String filePath = folder + "/" + fileName;
  
         try {
             File file = new File(filePath);
             byte b[] = new byte[(int) file.length()];
             
-            // page의 ContentType등을 동적으로 바꾸기 위해 초기화시킴
+            // page�쓽 ContentType�벑�쓣 �룞�쟻�쑝濡� 諛붽씀湲� �쐞�빐 珥덇린�솕�떆�궡
             response.reset();
             response.setContentType("application/octet-stream");
             
-            // 한글 인코딩
+            // �븳湲� �씤肄붾뵫
             String encoding = new String(fileName.getBytes("euc-kr"),"8859_1");
             
-            // 파일 링크를 클릭했을 때 다운로드 저장 화면이 출력되게 처리하는 부분
+            // �뙆�씪 留곹겕瑜� �겢由��뻽�쓣 �븣 �떎�슫濡쒕뱶 ���옣 �솕硫댁씠 異쒕젰�릺寃� 泥섎━�븯�뒗 遺�遺�
             response.setHeader("Content-Disposition", "attachment;filename="+ encoding);
             response.setHeader("Content-Length", String.valueOf(file.length()));
             
-            if (file.isFile()) // 파일이 있을경우
+            if (file.isFile()) // �뙆�씪�씠 �엳�쓣寃쎌슦
             {
                 FileInputStream fileInputStream = new FileInputStream(file);
                 ServletOutputStream servletOutputStream = response.getOutputStream();
                 
-                //  파일을 읽어서 클라이언트쪽으로 저장한다.
+                //  �뙆�씪�쓣 �씫�뼱�꽌 �겢�씪�씠�뼵�듃履쎌쑝濡� ���옣�븳�떎.
                 int readNum = 0;
                 while ( (readNum = fileInputStream.read(b)) != -1) {
                     servletOutputStream.write(b, 0, readNum);
