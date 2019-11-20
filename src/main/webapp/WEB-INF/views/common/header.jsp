@@ -74,17 +74,23 @@
                                 <a href="${pageContext.request.contextPath }/group/GroupList.do" class="show-submenu">GroupList </a>
 
                             </li>
+                            <li class="submenu">
+                            	<a href="${pageContext.request.contextPath }/group/GroupList.do" class="show-submenu">Chatting</a>
+                            </li>
+                             <li class="submenu">
+                            	<a href="${pageContext.request.contextPath }/group/GroupList.do" class="show-submenu">Calendar</a>
+                            </li>
                         </ul>
                     </div><!-- End main-menu -->
                     <ul id="top_tools">
                         <li>
                             <div class="dropdown dropdown-search">
-                                <a href="#" class="search-overlay-menu-btn" data-toggle="dropdown"><i class="icon-search"></i></a>
+<!--                                 <a href="#" class="search-overlay-menu-btn" data-toggle="dropdown"><i class="icon-search"></i></a> -->
                             </div>
                         </li>
                         <li>
                             <div class="dropdown dropdown-cart">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class=" icon-basket-1"></i>Cart (0) </a>
+                               
                                 <ul class="dropdown-menu" id="cart_items">
                                     <li>
                                         <div class="image"><img src="/resources/img/thumb_cart_1.jpg" alt="image"></div>
