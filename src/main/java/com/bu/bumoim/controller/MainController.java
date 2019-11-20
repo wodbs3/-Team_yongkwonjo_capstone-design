@@ -28,4 +28,8 @@ public class MainController {
 	public String chat() {
 		return "chatting/chat";
 	}
+	@RequestMapping(value="/chat2.do")
+	public String chat2() {
+		return "chatting/chat2";
+	}
 }

@@ -12,7 +12,7 @@
 	<script src="/resources/js/bootstrap.js"></script>
 	<script type="text/javascript">
 		function submitFunction() {
-			var chatName = $('chatName').val();
+			var chatName = $('#chatName').val();
 			var chatContent = $('#chatContent').val();
 			$.ajax({
 				type: "POST",
@@ -50,37 +50,42 @@
 					listType : type,
 				},
 				success: function(data) {
+					console.log("기ㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣ모ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ리")
 					var parsed = JSON.parse(data);
 					var result = parsed.result;
+					console.log("긔모리ㅢㅇㅁㄹㅇㄴㄻㄴㅇ" + parsed + " " + result);
+					console.log(result.length);
 					for(var i = 0; i < result.length; i++) {
 						addChat(result[i][0].value, result[i][1].value, result[i][2].value);
-						
+						console.log("addChat for문이 돌고있나요 ?" + i);
 					}
 				}
 			});
 		}
 		function addChat(chatName, chatContent, chatTime) {
-			$('#chatList').append('<div class="row"' +
-			'<div class="col-lg-12">' +
-			'<div class="media">' +
-			'<a class="pull-left" href="#">' +
-			'<img class="media-object img-circle" src="images/icon.png" alt="">' +
-			'</a>' +
-			'<div class="media-body">' +
-			'<h4 class="media-heading">' +
-			chatName +
-			'<span class="small pull-right">' +
-			chatTime +
-			'</span>' +
-			'<p>' +
-			chatContent +
-			'</p>' +
-			'</div>' +
-			'</div>' +
-			'</div>' +
-			'</div>' +
-			'</div>' +
-			'<hr>');
+			console.log("add챗입니다용~~~~~~~~~~~~~~~~~~~~~")
+			$('#chatList').append('<div class="row">' +
+					'<div class="col-lg-12">' +
+					'<div class="media">' +
+					'<a class="pull-left" href="#">' +
+					'<img class="media-object img-circle" src="images/icon.png" alt="">' +
+					'</a>' +
+					'<div class="media-body">' +
+					'<h4 class="media-heading">' +
+					chatName +
+					'<span class="small pull-right">' +
+					chatTime +
+					'</span>' +
+					'</h4>' +
+					'<p>' +
+					chatContent +
+					'</p>' +
+					'</div>' +
+					'</div>' +
+					'</div>' +
+					'</div>' +
+					'<hr>');
+
 		}
 	</script>
 </head>
@@ -103,15 +108,11 @@
 									<div class="portlet-footer">
 		<div class="row">
 			<div class="form-group col-xs-4">
-				<input style="height: 40px;" type="text" id="chatName" class="form-control" placeholder="이름" maxlength="20">
+				<input style="height: 40px;" type="text" id="chatName" name="chatName" class="form-control" placeholder="이름" maxlength="8">
 				
 			</div>
-		
+	
 	<div class="row">
-		<div class="form-group col-xs-4">
-			<textarea style="height: 80px;" id="chatName" class="form-control" placeholder="이름" maxlength="20"></textarea>
-				
-		</div>
 		<div class="form-group col-xs-10">
 			<textarea style="height: 80px;" id="chatContent" class="form-control" placeholder="메세지를 입력하세요." maxlength="100"></textarea>		
 		</div>

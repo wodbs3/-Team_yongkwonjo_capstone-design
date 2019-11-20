@@ -1,81 +1,61 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.pubnub.com/pubnub-3.4.4.js"></script>
+<script>
+    var pubnub = PUBNUB.init({
+    	publish_key: 'pub-c-04359bbf-659b-4944-8870-5338ecbc06b6',
+    	subscribe_key: 'sub-c-e464efaa-0bd4-11ea-ad54-52dd774e953e',
+    	ssl: true
+    });
+    
+    pubnub.subscribe({
+    	channel: 'chat',
+    	message: displayPub
+    });
+    
+    pubnub.history({
+    	channel: 'chat',
+    	reverse: true,
+    	count: 100
+    }, function(status, response){
+    	$.each(status[0], function(i, item){
+    		displayPub(item);
+    	});
+    });
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="/resources/css/bootstrap.css">
-	<link rel="stylesheet" href="/resources/css/chat.css">
-<title>AJAX 실시간 채팅 사이트</title>
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="/resources/js/bootstrap.js"></script>
-</head>
-<body>
-	<div class="container">
-		<div class="containber bootstrap snippet">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="portlet portlet-default">
-						<div class="portlet-heading">
-							<div class="portlet-title">
-								<h4><i class="fa fa-circle text-green"></i>실시간 채팅 방</h4>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div id="chat" class="panel-collapse collapse in">
-							<div class="portlet-body chat-widget" style="overflow-y: auto; width: auto; height: 300px;">
-								<div class="row">
-									<div class="col-lg-12">
-										<p class="text-center text-muted small">2017년 5월 30일</p>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-lg-12">
-										<div class="media">
-											<a class="pull-left" href="#">
-												<img class="media-object img-circle" src="{imgages/icon.png">
-											
-											</a>
-											<div class="media-body">
-												<h4 class="media-heading">홍길동
-												<span class="small pull-right">오전 12:23</span>
-												</h4>
-											</div>
-											<p>안녕하세요 오랜만입니다 홍길동입니다.</p>
-										</div>
-									</div>
-								</div>
-								<hr>
-								<div class="row">
-								<div class="col-lg-12">
-									<div class="media">
-										<a class="pull-left" href="#">
-											<img class="media-object img-circle" src="{imgages/icon.png">
-											
-										</a>
-										<div class="media-body">
-											<h4 class="media-heading">이순신
-											<span class="small pull-right">오후 12:28</span>
-											</h4>
-										</div>
-										<p>저도 반가워요</p>
-									</div>
-								</div>
-								</div>
-	<div class="portlet-footer">
-		<div class="row">
-			<div class="form-group col-xs-4">
-				<input style="height:40px;" type="text" id="chatName" class="form-control" placeholder="이름" maxlength="20"></input>
-			</div>
-		</div>
-	</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</body>
-</html>
+	function displayPub(message){
+		var html = "<div>"+message.username+": "+message.text+"</div>";
+		$("#chatPub").append(html).scrollTop(999999);
+	}
+	
+	function sendPub(){
+		if($("#name").val() == ''){
+			alert("enter your name");
+			return;
+		}
+		if($("#messagePub").val() == '') return;
+		pubnub.publish({
+			channel: 'chat',
+			message:{
+				username: $("#name").val(),
+				text: $("#messagePub").val()
+			}
+		});
+		$("#messagePub").val('').focus();
+	}
+
+	$(document).ready(function(){
+		$("#sendPub").click(function(){
+			sendPub();
+		});
+		$("#messagePub").keyup(function(event){
+			if(event.keyCode == 13) sendPub();
+		});
+	});
+</script>
+
+
+<input type="text" id="name" placeholder="name" required/>
+<input type="text" id="messagePub" placeholder="message" required/>
+<input type="submit" id="sendPub" value="enter"/>
+
+<div id="chatPub" style="overflow: auto;height:200px;"></div>

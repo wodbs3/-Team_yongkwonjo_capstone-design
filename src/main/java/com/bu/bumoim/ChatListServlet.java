@@ -32,7 +32,9 @@ public class ChatListServlet extends HttpServlet {
 		StringBuffer result = new StringBuffer("");
 		result.append("{\"result\":[");
 		ChatDao chatDao = new ChatDao();
+		System.out.println("result ==== " + result);
 		ArrayList<Chat> chatList = chatDao.getChatList(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+		System.out.println("너의 값은 무엇이니 ?   " + chatList.size());
 		for(int i = 0; i < chatList.size(); i++) {
 			result.append("[{\"value\": \"" + chatList.get(i).getChatName() + "\"},");
 			result.append("{\"value\": \"" + chatList.get(i).getChatContent() + "\"},");
