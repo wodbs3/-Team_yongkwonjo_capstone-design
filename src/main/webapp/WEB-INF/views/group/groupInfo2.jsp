@@ -416,7 +416,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 //   		 sBtn.removeClass("active");     // sBtn 속에 (active) 클래스를 삭제 한다.
   		 $(this).parent().addClass("active"); // 클릭한 a에 (active)클래스를 넣는다.
 				
-  		})
+  		});
 			
  		});
 </script>
