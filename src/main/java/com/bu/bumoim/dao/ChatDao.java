@@ -10,68 +10,74 @@ import com.bu.bumoim.domain.Chat;
 
 public class ChatDao {
 
-	private Connection conn;
-	
-	public ChatDao() {
-		try {
-			String dbURL = "jdbc:mysql://database-1.csu1yuqbzcre.ap-northeast-2.rds.amazonaws.com:3306/bumoim?useSSL=false";
-			String dbID = "root";
-			String dbPassword = "dpfflxm003";
-			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public ArrayList<Chat> getChatList(String nowTime) {
-		ArrayList<Chat> chatList = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String SQL = "SELECT * FROM CHAT WHERE chatTime > ? ORDER BY chatTime";
-		try {
-			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, nowTime);
-			rs = pstmt.executeQuery();
-			chatList = new ArrayList<Chat>();
-			while(rs.next()) {
-				Chat chat = new Chat();
-				chat.setChatName(rs.getString("chatName"));
-				chat.setChatContent(rs.getString("chatContent"));
-				chat.setChatTime(rs.getString("chatTime"));
-				chatList.add(chat);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
+		private Connection conn;
+		
+		public ChatDao() {
 			try {
-				if(rs != null) rs.close();
-				if(pstmt != null) pstmt.close();
-			} catch (Exception e) {
+				String dbURL = "jdbc:mysql://database-1.csu1yuqbzcre.ap-northeast-2.rds.amazonaws.com:3306/bumoim?useSSL=false";
+				String dbID = "root";
+		        String dbPassword = "dpfflxm003";
+		        Class.forName("com.mysql.jdbc.Driver");
+		        conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
+			}catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		return chatList;
-	}
-	public int submit(String chatName, String chatContent) {
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String SQL = "INSERT INTO CHAT VALUES(?, ?, now())";
-		try {
-			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, chatName);
-			pstmt.setString(2, chatContent);
-			return pstmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
+		
+		public ArrayList<Chat> getChatList(String nowTime) {
+			ArrayList<Chat> chatList = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String SQL = "SELECT * FROM bumoim.chat WHERE chatTime > ? ORDER BY chatTime";
+
+			System.out.println("############################################3");
+			System.out.println("여긴 select~~~~~~~~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 			try {
-				if(rs != null) rs.close();
-				if(pstmt != null) pstmt.close();
-			} catch (Exception e) {
+				pstmt = conn.prepareStatement(SQL);
+				pstmt.setString(1, nowTime);
+				rs = pstmt.executeQuery();
+				chatList = new ArrayList<Chat>();
+				while(rs.next()) {
+					Chat chat = new Chat();
+					chat.setChatName(rs.getString("chatName"));
+					chat.setChatContent(rs.getString("chatContent"));
+					chat.setChatTime(rs.getString("chatTime"));
+					chatList.add(chat);
+				}
+			}catch (Exception e) {
 				e.printStackTrace();
+			}finally {
+				try {
+					if(rs != null) rs.close();
+					if(pstmt != null) pstmt.close();
+				} catch(Exception e) {
+				e.printStackTrace();
+				}
 			}
+			return chatList;
 		}
-		return -1;
-	}
+		
+		public int submit(String chatName, String chatContent) {
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			System.out.println("############################################3");
+			System.out.println("여긴 insert~~~~~~~~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			String SQL = "INSERT INTO bumoim.chat VALUES (?, ?, now())";
+			try {
+				pstmt = conn.prepareStatement(SQL);
+				pstmt.setString(1, chatName);
+				pstmt.setString(2, chatContent);
+				return pstmt.executeUpdate();
+			}catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					if(rs != null) rs.close();
+					if(pstmt != null) pstmt.close();
+				} catch(Exception e) {
+				e.printStackTrace();
+				}
+			}
+			return -1;
+		}
 }

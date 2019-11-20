@@ -24,7 +24,6 @@ public class MainController {
 		return "main/introduce";
 	}
 	
-	
 	@RequestMapping(value="/chat.do")
 	public String chat() {
 		return "chatting/chat";
