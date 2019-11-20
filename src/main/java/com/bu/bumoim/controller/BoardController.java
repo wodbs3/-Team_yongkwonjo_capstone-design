@@ -58,7 +58,7 @@ public class BoardController<ActionForward> {
 		
 		
 		mav.addObject("Board", list);
-		mav.addObject("pageMaker", pageMaker);
+		mav.addObject("pageMaker2", pageMaker);
 		
 		
 		return mav;
@@ -77,7 +77,7 @@ public class BoardController<ActionForward> {
 		board = fileUpload(req,board);
 		board.setgroupList_number(groupList_number);
 		logger.info("3333333333333333333333333333333333333333333333333");
-		logger.info("洹몃９ �꽆踰� =========" + groupList_number);
+		logger.info("域밸챶竊� 占쎄퐜甕곤옙 =========" + groupList_number);
 		logger.info("3333333333333333333333333333333333333333333333333");
 		
 		boardservice.insertBoard(board);
@@ -94,9 +94,9 @@ public class BoardController<ActionForward> {
 		
 		List<Comment> comment = commentService.boardCommentList(board_number);
 //		List<Comment> comment = commentService.groupCommentList(groupList_number);
-//		logger.info("�꽆踰�: " + groupList_number);
+//		logger.info("占쎄퐜甕곤옙: " + groupList_number);
 		Board board = boardservice.detailBoard(board_number);
-		logger.info("蹂대뱶�궓諛�: " + board.getboard_number());
+		logger.info("癰귣�諭띰옙沅볢쳸占�: " + board.getboard_number());
 		
 		mav.setViewName("board/Detail");
 		mav.addObject("Board", board);
@@ -152,16 +152,16 @@ public class BoardController<ActionForward> {
 				dir.mkdirs();
 			}
 			while (iter.hasNext()) {
-				String fieldName = (String) iter.next(); // 占쎄땀占쎌뒠占쎌뱽 揶쏉옙占쎌죬占쏙옙占쎄퐣
+				String fieldName = (String) iter.next(); // �뜝�럡���뜝�럩�뮔�뜝�럩諭� �뤆�룊�삕�뜝�럩二у뜝�룞�삕�뜝�럡�맋
 				uploadFile = mhsr.getFile(fieldName);
 				String origName;
-				origName = new String(uploadFile.getOriginalFilename().getBytes("8859_1"), "UTF-8"); // 占쎈립疫뀐옙�댆醫롮춾 獄쎻뫗占�
+				origName = new String(uploadFile.getOriginalFilename().getBytes("8859_1"), "UTF-8"); // �뜝�럥由썹뼨�먯삕占쎈뙀�넫濡�異� �뛾�렮維쀥뜝占�
 
 				if ("".equals(origName)) {
 					continue;
 				}
 
-				String ext = origName.substring(origName.lastIndexOf('.')); // 占쎌넇占쎌삢占쎌쁽
+				String ext = origName.substring(origName.lastIndexOf('.')); // �뜝�럩�꼪�뜝�럩�궋�뜝�럩�겱
 				String saveFileName = getUuid() + ext;
 
 				File serverFile = new File(uploadPath + File.separator + saveFileName);
@@ -196,36 +196,36 @@ public class BoardController<ActionForward> {
 	public ActionForward execute(HttpServletRequest request,
             HttpServletResponse response) throws Exception {
         
-        // �떎�슫濡쒕뱶�븷 �뙆�씪紐낆쓣 媛��졇�삩�떎.
+        // 占쎈뼄占쎌뒲嚥≪뮆諭띰옙釉� 占쎈솁占쎌뵬筌뤿굞�뱽 揶쏉옙占쎌죬占쎌궔占쎈뼄.
         String fileName = request.getParameter("file_name");
  
-        // �뙆�씪�씠 �엳�뒗 �젅��寃쎈줈瑜� 媛��졇�삩�떎.
-        // �쁽�옱 �뾽濡쒕뱶�맂 �뙆�씪�� UploadFolder �뤃�뜑�뿉 �엳�떎.
+        // 占쎈솁占쎌뵬占쎌뵠 占쎌뿳占쎈뮉 占쎌쟿占쏙옙野껋럥以덄몴占� 揶쏉옙占쎌죬占쎌궔占쎈뼄.
+        // 占쎌겱占쎌삺 占쎈씜嚥≪뮆諭띰옙留� 占쎈솁占쎌뵬占쏙옙 UploadFolder 占쎈쨨占쎈쐭占쎈퓠 占쎌뿳占쎈뼄.
         String folder = request.getSession().getServletContext().getRealPath("uploadPath");
-        // �뙆�씪�쓽 �젅��寃쎈줈瑜� 留뚮뱺�떎.
+        // 占쎈솁占쎌뵬占쎌벥 占쎌쟿占쏙옙野껋럥以덄몴占� 筌띾슢諭븝옙�뼄.
         String filePath = folder + "/" + fileName;
  
         try {
             File file = new File(filePath);
             byte b[] = new byte[(int) file.length()];
             
-            // page�쓽 ContentType�벑�쓣 �룞�쟻�쑝濡� 諛붽씀湲� �쐞�빐 珥덇린�솕�떆�궡
+            // page占쎌벥 ContentType占쎈쾻占쎌뱽 占쎈짗占쎌읅占쎌몵嚥∽옙 獄쏅떽��疫뀐옙 占쎌맄占쎈퉸 �룯�뜃由곤옙�넅占쎈뻻占쎄땀
             response.reset();
             response.setContentType("application/octet-stream");
             
-            // �븳湲� �씤肄붾뵫
+            // 占쎈립疫뀐옙 占쎌뵥�굜遺얜뎃
             String encoding = new String(fileName.getBytes("euc-kr"),"8859_1");
             
-            // �뙆�씪 留곹겕瑜� �겢由��뻽�쓣 �븣 �떎�슫濡쒕뱶 ���옣 �솕硫댁씠 異쒕젰�릺寃� 泥섎━�븯�뒗 遺�遺�
+            // 占쎈솁占쎌뵬 筌띻낱寃뺟몴占� 占쎄깻�뵳占쏙옙六쏙옙�뱽 占쎈르 占쎈뼄占쎌뒲嚥≪뮆諭� 占쏙옙占쎌삢 占쎌넅筌롫똻�뵠 �빊�뮆�젾占쎈┷野껓옙 筌ｌ꼶�봺占쎈릭占쎈뮉 �겫占썽겫占�
             response.setHeader("Content-Disposition", "attachment;filename="+ encoding);
             response.setHeader("Content-Length", String.valueOf(file.length()));
             
-            if (file.isFile()) // �뙆�씪�씠 �엳�쓣寃쎌슦
+            if (file.isFile()) // 占쎈솁占쎌뵬占쎌뵠 占쎌뿳占쎌뱽野껋럩�뒭
             {
                 FileInputStream fileInputStream = new FileInputStream(file);
                 ServletOutputStream servletOutputStream = response.getOutputStream();
                 
-                //  �뙆�씪�쓣 �씫�뼱�꽌 �겢�씪�씠�뼵�듃履쎌쑝濡� ���옣�븳�떎.
+                //  占쎈솁占쎌뵬占쎌뱽 占쎌뵭占쎈선占쎄퐣 占쎄깻占쎌뵬占쎌뵠占쎈섧占쎈뱜筌잛럩�몵嚥∽옙 占쏙옙占쎌삢占쎈립占쎈뼄.
                 int readNum = 0;
                 while ( (readNum = fileInputStream.read(b)) != -1) {
                     servletOutputStream.write(b, 0, readNum);

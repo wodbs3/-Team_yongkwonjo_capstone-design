@@ -67,7 +67,7 @@
 		data-natural-height="470">
 		<div class="parallax-content-1">
 			<div class="animated fadeInDown">
-				<h1>GALLERY DETAIL</h1>
+				<h1>Gallery Detail Page</h1>
 			</div>
 		</div>
 	</section>

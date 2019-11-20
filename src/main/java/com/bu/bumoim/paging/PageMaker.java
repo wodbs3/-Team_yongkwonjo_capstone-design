@@ -7,13 +7,13 @@ import com.bu.bumoim.paging.Criteria;
 
 public class PageMaker {
 
-	private int totalCount; // 게시판 전체 데이터 개수
-	private int displayPageNum = 5; // 게시판 화면에서 한번에 보여질 페이지 번호의 개수 ( 1,2,3,4,5,6,7,9,10)
-	private int startPage; // 현재 화면에서 보이는 startPage 번호
-	private int endPage; // 현재 화면에 보이는 endPage 번호
-	private boolean prev; // 페이징 이전 버튼 활성화 여부
-	private boolean next; // 페이징 다음 버튼 활서화 여부
-	private Criteria cri; // 앞서 생성한 Criteria를 주입받는다.
+	private int totalCount; // 寃뚯떆�뙋 �쟾泥� �뜲�씠�꽣 媛쒖닔
+	private int displayPageNum = 5; // 寃뚯떆�뙋 �솕硫댁뿉�꽌 �븳踰덉뿉 蹂댁뿬吏� �럹�씠吏� 踰덊샇�쓽 媛쒖닔 ( 1,2,3,4,5,6,7,9,10)
+	private int startPage; // �쁽�옱 �솕硫댁뿉�꽌 蹂댁씠�뒗 startPage 踰덊샇
+	private int endPage; // �쁽�옱 �솕硫댁뿉 蹂댁씠�뒗 endPage 踰덊샇
+	private boolean prev; // �럹�씠吏� �씠�쟾 踰꾪듉 �솢�꽦�솕 �뿬遺�
+	private boolean next; // �럹�씠吏� �떎�쓬 踰꾪듉 �솢�꽌�솕 �뿬遺�
+	private Criteria cri; // �븵�꽌 �깮�꽦�븳 Criteria瑜� 二쇱엯諛쏅뒗�떎.
 
 	public int getTotalCount() {
 		return totalCount;
@@ -25,7 +25,7 @@ public class PageMaker {
 	}
 
 	private void calcData() {
-		endPage = (int) (Math.ceil(cri.getPage() / (double) displayPageNum) * displayPageNum);
+		endPage = (int) (Math.ceil(cri.getBoardPage() / (double) displayPageNum) * displayPageNum);
 		startPage = (endPage - displayPageNum) + 1;
 		int tempEndPage = (int) (Math.ceil(totalCount / (double) cri.getPerPageNum()));
 		if (endPage > tempEndPage) {

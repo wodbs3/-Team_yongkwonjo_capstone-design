@@ -1,7 +1,13 @@
 package com.bu.bumoim.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -12,6 +18,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bu.bumoim.domain.Board;
@@ -42,6 +50,9 @@ public class GroupController {
 	@Autowired
 	private UserService userService;
 	
+	@Resource(name = "uploadPath") // bean�뜝�럩踰� id�뤆�룊�삕 uploadPath�뜝�럩逾� �뜝�럡臾뜹윜諛몄굡�뜝�룞�삕 嶺뚣�볦굣占쏙옙
+	String uploadPath;
+	
 	@RequestMapping(value="/GroupList.do")
 	public ModelAndView grouplist(GroupList grouplist, String member_id, Model model,@ModelAttribute("cri") Criteria cri) {
 		//
@@ -67,7 +78,8 @@ public class GroupController {
 	}
 	
 	@RequestMapping(value="/GroupCreate.do", method=RequestMethod.POST)
-	public String groupcreate(GroupList grouplist, Model model) {
+	public String groupcreate(HttpServletRequest req, GroupList grouplist, Model model) {
+		grouplist = fileUpload(req, grouplist);
 		int insertResult = groupService.insertGroup(grouplist);
 		if (insertResult == 1) {
 			logger.info("洹몃９�깮�꽦~~~~!");
@@ -96,8 +108,10 @@ public class GroupController {
 
 	// 洹몃９ => 洹몃９�젙蹂�
 	@RequestMapping(value = "/groupInfo.do", method=RequestMethod.GET)
-	public String groupInfoView(int groupList_number, Model model, @ModelAttribute("cri") GalleryCriteria cri) {
+	public String groupInfoView(int groupList_number, Model model, @ModelAttribute("cri") GalleryCriteria cri, @ModelAttribute("boardCri") Criteria boardCri) {
 		//媛ㅻ윭由�
+		
+		
 		List<Gallery> galleryList = galleryService.getGroupGallery(groupList_number, cri);
 		logger.info(galleryList.toString());
 		
@@ -109,7 +123,12 @@ public class GroupController {
 		List<Member> groupMemberList = groupService.getGroupMemberList(groupList_number);
 		logger.info(groupMemberList.toString());
 		
-		GalleryPageMaker pageMaker = new GalleryPageMaker();
+		PageMaker boardPageMaker = new PageMaker();
+		boardPageMaker.setCri(boardCri);
+		boardPageMaker.setTotalCount(100);
+		
+		
+		GalleryPageMaker pageMaker = new GalleryPageMaker();		
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(100);
 		
@@ -117,6 +136,7 @@ public class GroupController {
 		model.addAttribute("galleryList", galleryList);
 		model.addAttribute("boardList", boardList);
 		model.addAttribute("pageMaker", pageMaker);
+		model.addAttribute("boardPageMaker", boardPageMaker);
 		model.addAttribute("groupMemberList" , groupMemberList);
 		
 		return "group/groupInfo2";
@@ -131,5 +151,60 @@ public class GroupController {
 		groupService.groupJoin(groupList_number, member_id);
 		
 		return "group/groupJoin";
+	}
+	
+	public GroupList fileUpload(HttpServletRequest req, GroupList groupList) {
+		try {
+			MultipartHttpServletRequest mhsr = (MultipartHttpServletRequest) req;
+			Iterator iter = mhsr.getFileNames();
+			MultipartFile uploadFile = null;
+
+			// create directory
+			File dir = new File(uploadPath);
+			if (!dir.isDirectory()) {
+				dir.mkdirs();
+			}
+			while (iter.hasNext()) {
+				String fieldName = (String) iter.next(); // 占쎄땀占쎌뒠占쎌뱽 揶쏉옙占쎌죬占쏙옙占쎄퐣
+				uploadFile = mhsr.getFile(fieldName);
+				String origName;
+				origName = new String(uploadFile.getOriginalFilename().getBytes("8859_1"), "UTF-8"); // 占쎈립疫뀐옙�댆醫롮춾 獄쎻뫗占�
+
+				// 占쎈솁占쎌뵬筌뤿굞�뵠 占쎈씨占쎈뼄筌롳옙
+				if ("".equals(origName)) {
+					continue;
+				}
+
+				// 占쎈솁占쎌뵬 筌륅옙 癰귨옙野껓옙(uuid嚥∽옙 占쎈릊占쎌깈占쎌넅)
+				String ext = origName.substring(origName.lastIndexOf('.')); // 占쎌넇占쎌삢占쎌쁽
+				String saveFileName = getUuid() + ext;
+
+				// 占쎄퐬占쎌젟占쎈립 path占쎈퓠 占쎈솁占쎌뵬占쏙옙占쎌삢
+				File serverFile = new File(uploadPath + File.separator + saveFileName);
+				uploadFile.transferTo(serverFile);
+				logger.info("path: " + uploadFile);
+				logger.info("fileName: " + uploadFile.getOriginalFilename());
+
+				groupList = new GroupList(groupList.getGrouplist_name(), groupList.getGrouplist_introduce(), groupList.getGrouplist_interest(), saveFileName);
+				
+			
+			}
+
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) { // TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+			return groupList;
+	}
+
+	private static String getUuid() {
+		return UUID.randomUUID().toString().replaceAll("-", "");
 	}
 }

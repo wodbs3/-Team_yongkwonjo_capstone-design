@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>/WEB-INF/spring/root-context.xml</param-value>
@@ -17,6 +17,12 @@
     <load-on-startup>1</load-on-startup>
     <async-supported>true</async-supported>
   </servlet>
+  <!--  채팅 -->
+  <filter>
+	<filter-name>httpPutFormFilter</filter-name>
+	<filter-class>org.springframework.web.filter.HttpPutFormContentFilter</filter-class>
+	<async-supported>true</async-supported>
+	</filter>
   <filter>
     <filter-name>encoding-filter</filter-name>
     <filter-class>
@@ -61,12 +67,32 @@
   </filter-mapping>
   <servlet>
     <description></description>
+    <display-name>ChatSubmittServlet</display-name>
+    <servlet-name>ChatSubmittServlet</servlet-name>
+    <servlet-class>com.bu.bumoim.ChatSubmittServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChatSubmittServlet</servlet-name>
+    <url-pattern>/ChatSubmittServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>ChatSubmitServlet</display-name>
     <servlet-name>ChatSubmitServlet</servlet-name>
     <servlet-class>com.bu.bumoim.ChatSubmitServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ChatSubmitServlet</servlet-name>
-    <url-pattern>/ChatSubmitServlet</url-pattern>
+    <url-pattern>/chatSubmitServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ChatListServlet</display-name>
+    <servlet-name>ChatListServlet</servlet-name>
+    <servlet-class>com.bu.bumoim.ChatListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChatListServlet</servlet-name>
+    <url-pattern>/chatListServlet</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -2,26 +2,26 @@ package com.bu.bumoim.paging;
 
 public class Criteria {
 
-   private int page;            // 현재 페이지 번호
-   private int perPageNum;   // 페이지당 보여줄 게시글의 개수
+   private int boardPage;            // �쁽�옱 �럹�씠吏� 踰덊샇
+   private int perPageNum;   // �럹�씠吏��떦 蹂댁뿬以� 寃뚯떆湲��쓽 媛쒖닔
    String keyword;
    String searchType;
    
    public Criteria() {
-      this.page = 1;
+      this.boardPage = 1;
       this.perPageNum = 15;
    }
 
-   public int getPage() {
-      return page;
+   public int getBoardPage() {
+      return boardPage;
    }
 
-   public void setPage(int page) {
-      if(page <= 0) {
-         this.page = 1;
+   public void setBoardPage(int boardPage) {
+      if(boardPage <= 0) {
+         this.boardPage = 1;
          return;
       }
-      this.page = page;
+      this.boardPage = boardPage;
    }
 
    public int getPerPageNum() {
@@ -36,15 +36,15 @@ public class Criteria {
       this.perPageNum = perPageNum;
    }
    
-  /* 마이바티스 조회쿼리의 #{pageStart}에 전달된다. */
+  /* 留덉씠諛뷀떚�뒪 議고쉶荑쇰━�쓽 #{pageStart}�뿉 �쟾�떖�맂�떎. */
    public int getPageStart() {
-      return (this.page -1) * perPageNum;
+      return (this.boardPage -1) * perPageNum;
    }
    
 
    @Override
    public String toString() {
-      return "Criteria [page=" + page + ", perPageNum=" + perPageNum + "]";
+      return "Criteria [boardPage=" + boardPage + ", perPageNum=" + perPageNum + "]";
    }
 
 	public String getKeyword() {

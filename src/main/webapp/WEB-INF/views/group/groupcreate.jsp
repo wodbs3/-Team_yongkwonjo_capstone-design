@@ -57,7 +57,7 @@
 	
 	<div class="row margin_30">
 <!-- Join Form -->
-	<form action="GroupCreate.do" method="POST" class="form-horizontal" style="margin-top:10%">
+	<form action="GroupCreate.do" method="POST" class="form-horizontal" style="margin-top:10%" enctype="multipart/form-data">
 
 	
 <!-- Input Id -->
@@ -72,14 +72,26 @@
 				</p>
 			</div>
 		</div>
-
+		<div>
+    			<div class="col-md-offset-4 col-md-4">
+        			<label class="control-label">그룹 대표 이미지</label>
+    				<input type="file" name="file_name" id="imgInput" class="btn_1"/>
+     					
+     			</div>
+     		
+    	</div>
+           
+        <div class="col-md-offset-4 col-md-4">
+<!--          	<label class="control-label">미리보기</label> -->
+     		<img width="486.4px;" height="198px;" id="image_section" src="#">
+		</div>
 		<div>
 			<div class="col-md-offset-4 col-md-4">
 				<label for="grouplist_introduce">그룹소개</label>
 				<textarea class="form-control" rows="5" id="grouplist_introduce" name="grouplist_introduce"></textarea>
 			</div>
 		</div>
-
+		
 
 
 			<!-- Input Interest -->
@@ -144,7 +156,7 @@
 <!-- Join Button -->
 		<div>
 			<div class="col-md-offset-4 col-md-4">
-				<button type="submit" class="col-md-12 btn btn-default" id="submit" disabled="disabled">그룹생성</button>
+				<button type="submit" class="col-md-12 btn btn-default" id="submit" >그룹생성</button>
 			</div>
 		</div>
 		<br><br><br>
@@ -196,6 +208,80 @@
 		});
 	});
 	</script>
+	<script >
+	function fileUploadPreview(thisObj, preViewer) {
+        alert(!/(\.gif|\.jpg|\.jpeg|\.png)$/i.test(thisObj.value));
+    if(!/(\.gif|\.jpg|\.jpeg|\.png)$/i.test(thisObj.value)) {
+        alert("이미지 형식의 파일을 선택하십시오");
+        return;
+    }
+
+    preViewer = (typeof(preViewer) == "object") ? preViewer : document.getElementById(preViewer);
+    var ua = window.navigator.userAgent;
+
+    if (ua.indexOf("MSIE") > -1) {
+        var img_path = "";
+        if (thisObj.value.indexOf("\\fakepath\\") < 0) {
+            img_path = thisObj.value;
+        } else {
+            thisObj.select();
+            var selectionRange = document.selection.createRange();
+            img_path = selectionRange.text.toString();
+            thisObj.blur();
+        }
+        preViewer.style.filter =
+
+               "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='fi" +
+
+               "le://" + img_path + "', sizingMethod='scale')";
+      } else {
+        preViewer.innerHTML = "";
+        var W = preViewer.offsetWidth;
+        var H = preViewer.offsetHeight;
+        var tmpImage = document.createElement("img");
+        preViewer.appendChild(tmpImage);
+
+        tmpImage.onerror = function () {
+            return preViewer.innerHTML = "";
+        }
+
+        tmpImage.onload = function () {
+            if (this.width > W) {
+                this.height = this.height / (this.width / W);
+                this.width = W;
+            }
+            if (this.height > H) {
+                this.width = this.width / (this.height / H);
+                this.height = H;
+            }
+        }
+        if (ua.indexOf("Firefox/3") > -1) {
+            var picData = thisObj.files.item(0).getAsDataURL();
+            tmpImage.src = picData;
+        } else {
+            tmpImage.src = "file://" + thisObj.value;
+        }
+    }
+}
+
+</script>
+<script>
+function readURL(input) {
+	 if (input.files && input.files[0]) {
+	  var reader = new FileReader();
+	  
+	  reader.onload = function (e) {
+	   $('#image_section').attr('src', e.target.result);  
+	  }
+	  
+	  reader.readAsDataURL(input.files[0]);
+	  }
+	}
+	  
+	$("#imgInput").change(function(){
+	   readURL(this);
+	});
+</script>
 	<%@ include file="../common/footer.jsp" %>
 	</body>
 	
