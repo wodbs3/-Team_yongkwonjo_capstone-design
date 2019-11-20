@@ -30,10 +30,10 @@ import com.bu.bumoim.paging.Criteria;
 import com.bu.bumoim.paging.GalleryCriteria;
 import com.bu.bumoim.paging.GalleryPageMaker;
 import com.bu.bumoim.paging.PageMaker;
+import com.bu.bumoim.service.BoardService;
 import com.bu.bumoim.service.GalleryService;
 import com.bu.bumoim.service.GroupService;
 import com.bu.bumoim.service.UserService;
-import com.bu.bumoim.service.BoardService;
 
 @Controller
 @RequestMapping("group")

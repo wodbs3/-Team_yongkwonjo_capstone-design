@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-md-4 col-sm-3">
                     <h3>도움이 필요하십니까?</h3>
-                    <a href="tel://004542344599" id="phone">+45 423 445 99</a>
+                    <a href="tel://01051146774" id="phone">+010-5114-6774</a>
                     <a href="mailto:kimkrran@naver.com" id="email_footer">kimkrran1@naver.com</a>
                 </div>
                 <div class="col-md-3 col-sm-3">

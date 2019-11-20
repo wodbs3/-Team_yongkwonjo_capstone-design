@@ -287,12 +287,21 @@
 			</div>
 		</div>
 		<!-- END REVOLUTION SLIDER -->
+		
 		<h3><strong>오늘의 날씨</strong></h3>
+		
 	<div class="row">
-		<div class="col-md-12 col-sm-12">
-			<textarea id="chatLog" class="chat_log" readonly>
-	</textarea>
-			<img src="" id="img" />
+		<div class ="col-md-2 col-sm-6">
+		<div class="tour_container">
+			<div class="tour_title">
+			<h4><strong><p class = "bg-success" id="chatLog" class="chat_log" readonly>
+	</p>
+	</strong>
+	</h4>
+	<img src="" id="img" />
+	자세한 날씨는<a href = "https://www.weather.go.kr/weather/main.jsp"> 여기</a>를 클릭하세요
+	</div>
+	</div>
 		</div>
 	</div>
 				<div class="row row--fluid-xs flex flex-equal flex-wrap">
@@ -305,30 +314,7 @@
 						</div>
 						<div class="content_list">
 					
-<%-- 							<c:forEach items="${resultList}" var="result" varStatus="status" end="6"> --%>
-<!-- 								내용 -->
-<%-- 								<form id="detailfrm_${result.IDX}" action="/board/detail" method="get"> --%>
-<%-- 									<p onclick="javascript:goDetail(${result.IDX});" class="list" style="margin-bottom: 9px !important;"> --%>
 
-<%-- 										<c:choose> --%>
-<%-- 											<c:when test="${fn:length(result.TITLE) > 25}"> --%>
-<%-- 												<c:out value="${fn:substring(result.TITLE,0,24)}" />.... --%>
-<%--                                             </c:when> --%>
-<%-- 											<c:otherwise> --%>
-<%-- 												<c:out value="${result.TITLE}" /> --%>
-<%-- 											</c:otherwise> --%>
-<%-- 										</c:choose> --%>
-
-
-
-
-<%-- 										<span class="notice_subject">-${result.TITLE}</span> --%> 
-<!-- 									</p> -->
-<%-- 									<input type="hidden" name="board_code" value="${result.BOARD_CODE}" /> --%>
-<%-- 									<input type="hidden" name="idx" value="${result.IDX}" /> --%>
-<%-- 									<input type="hidden" name="hp_code"	value="${result.HP_CODE}" /> --%>
-<!-- 								</form> -->
-<%-- 							</c:forEach> --%>
 						</div>
 					
 					</div>
@@ -409,7 +395,7 @@
 					<div class="tour_container">
 						<div class="tour_title">
 							<h3><strong>학교 위치</strong>
-								<a href="" class="btnMore pull-right">
+								<a href="/map.do" class="btnMore pull-right">
 								더보기
 								</a>
 							</h3>
@@ -448,7 +434,7 @@
 					<div class="tour_container">
 						<div class="img_container">
 							<a href="introduce.do">
-								<img src="/resources/img/us.jpg" width="1000" height="533" class="img-responsive" alt="image">
+								<img src="/resources/img/us.jpg" width="1200" height="533" class="img-responsive" alt="image">
 							</a>
 						</div>
 					</div>
@@ -459,7 +445,7 @@
 
 			<!-- End row -->
 			<p class="text-center add_bottom_30">
-				<a href="all_tours_list.html" class="btn_1 medium"><i class="icon-eye-7"></i>채팅방 </a>
+				
 			</p>
 
 			<hr>
