@@ -121,13 +121,16 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 
 		<div class="container margin_60">
 			<div class="row">
-				
+
 				<!-- START group side form -->
 <!--  기준 -->
 
 			<aside class="col-md-4" id="sidebar">
 				<div class="theiaStickySidebar">
 					<div class="box_style_1" id="booking_box">
+					
+
+					
 						<h3 class="inner">${groupDetail.grouplist_name}</h3>
 						<p>여기엔 대표 이미지</p>
 						<hr>
@@ -146,15 +149,45 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 							</c:when>
 							<c:when
 								test="${loginMap.member_group1 ne groupDetail.grouplist_number || loginMap.member_group2 ne groupDetail.grouplist_number || loginMap.member_group3 ne groupDetail.grouplist_number}">
-								<button style="width:100%;" class="myButton" value="${groupDetail.grouplist_number }">가입신청</button>
+								<c:choose>
+									<c:when test="${loginMap.member_id eq null}">
+										<button class="myButton" onclick="javascript:goLogin();" value="${loginMap.member_id eq null }">로그인해주세요</button>
+									</c:when>
+									<c:otherwise>
+										<button class="myButton" onclick="javascript:goGroupJogin();" value="${groupDetail.grouplist_number }">가입신청</button>
+									</c:otherwise>						
+								</c:choose>
 							</c:when>
-							<c:otherwise>
-								<button style="width:100%;" class="myButton" value="${loginMap.member_id eq null}">로그인해주세요</button>
-							</c:otherwise>
 						</c:choose>
 					</div>
 				</div>
-				<!--End sticky -->
+				
+				<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+				<!--End sticky -->	
 			</aside>
 
 			<!-- END group side form -->
@@ -305,46 +338,41 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 								</div>
 								<!-- END group GALLERY TAB -->
 
-
-																<!-- START group MEMBER TAB -->
-								<div class="tab-pane fade" id="member" role="tabpanel"
-									aria-labelledby="member-tab">
-
+								<!-- START group MEMBER TAB -->
+								<div class="tab-pane fade" id="member" role="tabpanel" aria-labelledby="member-tab">
 									<table class="table table-striped options_cart">
-										<thead>
-											<tr>
-												<th colspan="3">모임회원 목록</th>
-											</tr>
-										</thead>
-										<c:forEach var="groupMemberList" items="${groupMemberList }"
-											varStatus="status">
-
+											<thead>
+												<tr>
+													<th colspan="3">
+														모임회원 목록
+													</th>
+												</tr>
+											</thead>
+										<c:forEach var="groupMemberList" items="${groupMemberList }" varStatus="status">					
+											
 											<tbody>
 												<tr>
-													<td class="col-md-3"><img
-														src="${pageContext.request.contextPath }/resources/userupload/${groupMemberList.fileName }"
-														class="mx-auto d-block" style="width: 50%"></td>
+													<td class="col-md-3">
+														<img src="${pageContext.request.contextPath }/resources/userupload/${groupMemberList.fileName }" class="mx-auto d-block" style="width:50%">
+													</td>
 													<td>
 														<div class="col-md-6">
-															<b>회원ID&nbsp;:&nbsp;</b>
-															<c:out value="${groupMemberList.member_id }"></c:out>
+															<b>회원ID&nbsp;:&nbsp;</b><c:out value="${groupMemberList.member_id }"></c:out>
 														</div>
 														<div class="col-md-6">
-															<b>학부&nbsp;:&nbsp;</b>
-															<c:out value="${groupMemberList.member_department }"></c:out>
-														</div> <br>
-													<br>
+															<b>학부&nbsp;:&nbsp;</b><c:out value="${groupMemberList.member_department }"></c:out>
+														</div>
+														<br><br>
 														<div class="col-md-6">
-															<b>학번&nbsp;:&nbsp;</b>
-															<c:out value="${groupMemberList.member_studentId }"></c:out>
+															<b>학번&nbsp;:&nbsp;</b><c:out value="${groupMemberList.member_studentId }"></c:out>
 														</div>
 														<div class="col-md-6">
-															<b>이름&nbsp;:&nbsp;</b>
-															<c:out value="${groupMemberList.member_name }"></c:out>
-														</div> <%-- <h5><b>회원ID</b></h5><c:out value="${groupMemberList.member_id }"></c:out>
-						<h5><b>학부</b></h5><c:out value="${groupMemberList.member_department }"></c:out>
-						<h5><b>회번</b></h5><c:out value="${groupMemberList.member_studentId }"></c:out>
-						<h5><b>이름</b></h5><c:out value="${groupMemberList.member_name }"></c:out> --%>
+															<b>이름&nbsp;:&nbsp;</b><c:out value="${groupMemberList.member_name }"></c:out>
+														</div>
+														<%-- <h5><b>회원ID</b></h5><c:out value="${groupMemberList.member_id }"></c:out>
+														<h5><b>학부</b></h5><c:out value="${groupMemberList.member_department }"></c:out>
+														<h5><b>회번</b></h5><c:out value="${groupMemberList.member_studentId }"></c:out>
+														<h5><b>이름</b></h5><c:out value="${groupMemberList.member_name }"></c:out> --%>
 													</td>
 												</tr>
 											</tbody>
@@ -366,7 +394,9 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 		</div>
 		<!--End row -->
 	</div>
-	<!--End container --> </main>
+	<!--End container --> 
+	
+	</main>
 	<!-- End main -->
 
 	<%@ include file="../common/footer.jsp"%>
@@ -403,11 +433,13 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 
 	<!-- Fixed sidebar -->
 	<script src="/resources/js/theia-sticky-sidebar.js"></script>
+	
 	<script>
 		jQuery('#sidebar').theiaStickySidebar({
 			additionalMarginTop: 80
 		});
 	</script>
+	
 	<script>
  		$(function(){
  		 var sBtn = $("ul > li");    //  ul > li 이를 sBtn으로 칭한다. (클릭이벤트는 li에 적용 된다.)
@@ -426,20 +458,22 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 </script>
 	<script>
 	function upload_btn(id) {
-		
 			alert("로그인을 해주세요");
 			location.href="/login.do";
 	}
 	</script>
 
 	<script>
-	
 	function goCreate() {
-		   location.href="/boardWrite.do?groupList_number=${groupDetail.grouplist_number}";
-		}
+	   location.href="/boardWrite.do?groupList_number=${groupDetail.grouplist_number}";
+	}
 
 	function goLogin() {
 		location.href="/login.do";
+	}
+	
+	function goGroupJogin() {
+		location.href="/group/groupJoin.do?groupList_number=${groupDetail.grouplist_number}&member_id=${loginMap.member_id}";
 	}
 
 	$(document).on('click', '#btnSearch', function(e){
@@ -459,7 +493,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 		})
  */
  
- $('#myTab a').click(function(e) {
+	$('#myTab a').click(function(e) {
 	  e.preventDefault();
 	  $(this).tab('show');
 	});
@@ -474,7 +508,10 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 	var hash = window.location.hash;
 	$('#myTab a[href="' + hash + '"]').tab('show');
 	</script>
+	
+	<!-- Modal script -->
 
+	
 </body>
 
 </html>

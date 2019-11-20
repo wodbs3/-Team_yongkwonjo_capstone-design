@@ -9,8 +9,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="galCommentInsert" parameterType="Comment">
         INSERT INTO
-        comment (comment_number, photo_number ,comment_writer , comment_content, comment_date)
-        VALUES (#{comment_number}, #{photo_number}, #{comment_id}, #{comment_content}, NOW()) 
+        comment (comment_number, photo_number ,comment_writer , comment_content, comment_date, grouplist_number)
+        VALUES (#{comment_number}, #{photo_number}, #{comment_id}, #{comment_content}, NOW(), #{groupList_number}) 
     </insert>    
 
 	<select id="galCommentList" parameterType="int" resultType="Comment">
@@ -73,6 +73,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </delete>
     
     <delete id="boardCommentDelete" parameterType="int">
+    DELETE FROM comment WHERE comment_number = #{comment_number}
+    </delete>
+    
+<!-- group comment -->
+
+   	<insert id="groupCommentInsert" parameterType="Comment">
+        INSERT INTO
+        comment (comment_number, board_number ,comment_writer , comment_content, comment_date)
+        VALUES (#{comment_number}, #{board_number}, #{comment_id}, #{comment_content}, NOW()) 
+    </insert>    
+
+	<select id="groupCommentList" parameterType="int" resultType="Comment">
+        SELECT
+            comment_number, board_number, comment_writer as comment_id, comment_content, comment_date
+        FROM comment 
+        WHERE board_number = #{board_number}
+    </select>
+    
+   <update id="groupUpdateComment" parameterType="Comment">
+   UPDATE comment 
+    <set>
+			<if test='comment_content != null and comment_content != ""'>comment_content = #{comment_content},</if>
+			comment_date = NOW()
+	</set>
+	WHERE comment_number = #{comment_number}	
+   </update>
+    
+    <delete id="groupDeleteAllComment" parameterType="int">
+        DELETE FROM comment WHERE board_number = #{board_number}
+    </delete>
+    
+    <delete id="groupDeleteComment" parameterType="int">
     DELETE FROM comment WHERE comment_number = #{comment_number}
     </delete>
     

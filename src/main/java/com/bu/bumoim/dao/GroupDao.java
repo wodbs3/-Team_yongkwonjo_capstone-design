@@ -15,6 +15,7 @@ public interface GroupDao {
    
    public GroupList findGroupDetail(int grouplist_number); // 洹몃９ �젙蹂� 李얘린
 
-   public List<Member> getGroupMemberList(int groupList_number); // 洹몃９ 紐⑥엫 �쉶�썝
-   
+   public List<Member> getGroupMemberList(int groupList_number); // 그룹 모임 회원
+
+   public void groupJoin(int groupList_number, String member_id);	// 그룹 가입
 }
