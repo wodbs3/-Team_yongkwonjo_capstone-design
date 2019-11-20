@@ -75,7 +75,7 @@
 
                             </li>
                             <li class="submenu">
-                            	<a href="${pageContext.request.contextPath }/group/GroupList.do" class="show-submenu">Chatting</a>
+                            	<a href="${pageContext.request.contextPath }/chat2.do" class="show-submenu">Chatting</a>
                             </li>
                              <li class="submenu">
                             	<a href="${pageContext.request.contextPath }/group/GroupList.do" class="show-submenu">Calendar</a>

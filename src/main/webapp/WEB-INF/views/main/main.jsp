@@ -287,14 +287,14 @@
 			</div>
 		</div>
 		<!-- END REVOLUTION SLIDER -->
-		
+	<div class ="col-md-2 col-sm-6 col-md-offset-5">	
 		<h3><strong>오늘의 날씨</strong></h3>
-		
+	</div>	
 	<div class="row">
-		<div class ="col-md-2 col-sm-6">
+		<div class ="col-md-2 col-sm-6 col-md-offset-5">
 		<div class="tour_container">
 			<div class="tour_title">
-			<h4><strong><p class = "bg-success" id="chatLog" class="chat_log" readonly>
+			<h4><strong><p class = "bg-info" id="chatLog" class="chat_log" readonly>
 	</p>
 	</strong>
 	</h4>
