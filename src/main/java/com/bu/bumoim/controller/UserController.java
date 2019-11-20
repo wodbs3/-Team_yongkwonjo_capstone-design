@@ -96,7 +96,6 @@ public class UserController {
 			request.getSession().setAttribute("loginMap", resultMap);
 			resultMap.put("result", "success");
 		}else {
-			logger.info("濡쒓렇�씤�떎�뙣");
 			resultMap.put("result", "fail");
 		}
 		

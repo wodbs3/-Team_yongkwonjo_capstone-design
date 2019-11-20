@@ -63,9 +63,7 @@
 <!--                     </tr> -->
                     <tr>
                         <th style = "width : 10%; font-size: 20px;">내용</th>
-                        <td><textarea style="width: 100%" rows="10" cols="10" id="content" name="content">
-                        	${gallery.content}
-                        </textarea></td>
+                        <td><textarea style="width: 100%" rows="10" cols="10" id="content" name="content">${gallery.content}</textarea></td>
                     </tr>
                  
                 </table>

@@ -47,7 +47,4 @@ public class GroupList {
 	public void setGrouplist_date(Date grouplist_date) {
 		this.grouplist_date = grouplist_date;
 	}
-
-	
-
 }

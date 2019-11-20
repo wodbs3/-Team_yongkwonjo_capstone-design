@@ -6,8 +6,9 @@
 <html>
 	<head>
 	
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
+	
     <!-- Favicons-->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" type="image/x-icon" href="/resources/img/apple-touch-icon-57x57-precomposed.png">
@@ -29,24 +30,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     
-		
-		<title>BUmoim GroupCreate</title>
-			
-		<style type="text/css">
-			div #emailOk {
-				margin-bottom: 15px;
-			}
-			
-			/* 아이디 / 비밀번호 입력 메세지 출력 */
-			#idOk, #pwdFalse, #birthOk, #emailOk, #nameOk, #telOk, #imgOk {
-				font-size: 12px;
-				color: red;
-			}
-			#pwdOk {
-				font-size: 12px;
-			}
-			
-		</style>
+	<title>BUmoim join</title>	
 		
 	</head>
 
@@ -57,38 +41,9 @@
 	
 	<div class="row margin_30">
 	
-<!-- Join Form -->
-	<form action="groupJoin.do" method="POST" class="form-horizontal" style="margin-top:10%">
-	
-<!-- PlanText GroupName -->
-		<div>
-			<div class="col-md-offset-4 col-md-4">
-				<label for="grouplist_name" class="control-label">그룹이름</label>
-				<br>
-			    <div class="col-sm-10">
-			      <p class="form-control-static">someone@example.com</p>
-			    </div>
-			</div>
+		<div class="col-md-offset-3 col-md-6">
+			<div id="map" style="height:900px;"></div>
 		</div>
-		
-		<div>
-			<div class="col-md-offset-4 col-md-4">
-				<label for="member_introduce">자기소개</label>
-				<br>
-			    <div class="col-sm-10">
-			      <p class="form-control-static">${loginMap.member_id } 님. 가입을 환영합니다.</p>
-			    </div>
-			</div>
-		</div>
-		
-<!-- Join Button -->
-		<div>
-			<div class="col-md-offset-4 col-md-4">
-				<button type="submit" class="col-md-12 btn btn-default" id="submit">그룹화면 이동</button>
-			</div>
-		</div>
-		
-	</form>
 	
 	</div>
 
@@ -111,6 +66,33 @@
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+	<!-- KAKAO MAP API -->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d8373ed5578b755b465a636ebec99ca7"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
+	
+	<script>
+		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+		var options = { //지도를 생성할 때 필요한 기본 옵션
+			center: new kakao.maps.LatLng(36.840238, 127.1832199), //지도의 중심좌표.
+			level: 3 //지도의 레벨(확대, 축소 정도)
+		};
+	
+		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+	</script>
+	
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
+	    new daum.Postcode({
+	        oncomplete: function(data) {
+	            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+	            // 예제를 참고하여 다양한 활용법을 확인해 보세요.
+	        }
+	    }).open();
+	</script>
+	
 	
 	<%@ include file="../common/footer.jsp" %>
 	
