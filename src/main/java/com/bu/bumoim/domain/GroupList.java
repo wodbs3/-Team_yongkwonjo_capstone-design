@@ -10,7 +10,24 @@ public class GroupList {
 	private String grouplist_interest;
 	private int grouplist_people;
 	private Date grouplist_date;
+	private String grouplist_photo;
 	
+	public GroupList() {
+		
+	}
+	public GroupList(String grouplist_name, String grouplist_introduce, String grouplist_interest, String grouplist_photo) {
+		this.grouplist_name = grouplist_name;
+		this.grouplist_introduce = grouplist_introduce;
+		this.grouplist_interest = grouplist_interest;
+		this.grouplist_photo = grouplist_photo;
+	}
+	
+	public String getGrouplist_photo() {
+		return grouplist_photo;
+	}
+	public void setGrouplist_photo(String grouplist_photo) {
+		this.grouplist_photo = grouplist_photo;
+	}
 	public int getGrouplist_number() {
 		return grouplist_number;
 	}
