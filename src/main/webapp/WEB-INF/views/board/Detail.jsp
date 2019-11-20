@@ -106,36 +106,31 @@
 							
 							
 							<!-- End review strip -->
-						<c:forEach items="${commentList }" var="commentList">
+												<c:forEach items="${commentList }" var="commentList">
 							<div class="review_strip_single last">
-								<img src="${pageContext.request.contextPath }/resources/img/avatar1.jpg" alt="Image" class="img-circle">
-								<small> - ${commentList.comment_date } -</small>
-								<br>
-								<a href="boardcommentDelete.do?num=${commentList.comment_number }" class="button_1"></a>
-								<h4>아이디: <span>${commentList.comment_id }</span></h4>
-								<hr>
-								<p>
-									
-									${commentList.comment_content }
-									<span class="writeReReply" style="curosor: pointer;"> (답글 달기) </span> 
-								</p>
-						<table id = "replyTable">		
-							<tbody>		
-								<tr class="hide">
-									<td class="board_number">${comment.board_number }</td>
-									<td class="comment_reparent">${comment.comment_reparent }</td>
-								</tr>
-								<tr class="hide">
-									<td class="comment_redepth">${comment.comment_redepth }</td>
-									<td class="comment_reorder">${comment.comment_reorder }</td>
-								</tr>
-								<tr class="hide">
-									<td colspan="2" class ="comment_id">${comment.comment_id }</td>
-								</tr>	
-							</tbody>
-						</table>
-							</div>
 							
+								<a href="boardcommentDelete.do?comment_number=${commentList.comment_number }" class="button_1"></a>
+								<h3>${commentList.comment_id }</h3>
+							
+								<h5>
+									${commentList.comment_content }
+									
+								</h5>
+								<br>
+								<div class="post-left">
+								<small> - ${commentList.comment_date } -</small>
+								</div>
+								<br>
+								<c:if test="${loginMap.member_id != null && loginMap.member_id == commentList.comment_id}">		
+									<div class="post-right">
+<%-- 									<a href="updateForm.do?num=${gallery.num }" class="btn_1">수정</a> --%>
+									<a href="commentDelete.do?comment_number=${commentList.comment_number }" class="btn_1">삭제</a>
+									
+									</div>
+								</c:if>
+									
+							</div>
+							<hr>
 						</c:forEach>
 						</li>
 						</ol>
@@ -143,8 +138,7 @@
 					<!-- End Comments -->
 					<br>
 					<h4>댓글 달기</h4>
-					<form action="boardcommentInsert.do?board_number=${Board.board_number }" method="post">
-					<input type="hidden" value="${Board.board_number}"/>
+					<form action="boardcommentInsert.do?groupList_number=${Board.groupList_number }&board_number=${Board.board_number }" method="post">
 						<div class="form-group">
 							<h4>작성자:</h4>
          					<input type="text" id="comment_id" name="comment_id" value="${loginMap.member_id }" readonly/>
@@ -152,7 +146,12 @@
 						</div>
 						<div class="form-group">
 							<input type="reset" class="btn_1" value="Clear">
-							<input type="submit" class="btn_1" value="댓글 달기">
+							<c:if test="${loginMap.member_id != null }">
+								<input type="submit" class="btn_1" value="댓글 달기">
+							</c:if>
+							<c:if test="${loginMap.member_id == null }">
+								<input type="button" class="btn_1" onclick="comment_input()" value="댓글 달기">
+							</c:if>
 						</div>
 					</form>
 				</div>
@@ -182,6 +181,10 @@
 function goBack() {
 	   location.href="/group/groupInfo.do?groupList_number=${Board.groupList_number}#board";
 	}
+	
+function comment_input() {
+	alert("로그인을 해주세요");
+}
 </script>
 </body>
 </html>

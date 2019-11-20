@@ -15,6 +15,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    			grouplist_date
    		FROM
    			bumoim.grouplist
+   			ORDER BY grouplist_number DESC
+			LIMIT #{pageStart}, #{perPageNum}
    	</select>
    	
    	<insert id="insertGroup">

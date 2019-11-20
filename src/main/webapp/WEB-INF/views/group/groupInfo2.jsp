@@ -110,7 +110,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 		<div class="container">
 			<ul>
 				<li><a href="${pageContext.request.contextPath }/index">Home</a></li>
-
+				<li><a href="${pageContext.request.contextPath }/group/GroupList.do">게시판 목록 </a></li>
 
 				<li><b>그룹상세</b></li>
 			</ul>
@@ -144,7 +144,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 						<c:choose>
 							<c:when
 								test="${loginMap.member_group1 eq groupDetail.grouplist_number || loginMap.member_group2 eq groupDetail.grouplist_number || loginMap.member_group3 eq groupDetail.grouplist_number}">
-								<button class="myButton" value="${groupDetail.grouplist_number }">이미 가입된
+								<button style="width:100%;" class="myButton" value="${groupDetail.grouplist_number }">이미 가입된
 									모임입니다.</button>
 							</c:when>
 							<c:when
@@ -264,7 +264,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 												class="btn_1">사진 등록</a>
 										</c:if>
 									</div>
-
+									<br>
 
 									<div class="row">
 										<c:forEach items="${galleryList}" var="galleryList">
@@ -298,9 +298,10 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 											<c:forEach begin="${pageMaker.startPage }"
 												end="${pageMaker.endPage }" var="idx" varStatus="status">
 
-												<li><a
-													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&page=${idx }#gallery"/>'><i
-														class="fa">${idx }</i></a></li>
+												<li><a id="page" name="page" 
+													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&page=${idx }#gallery"/>'>
+													
+													<i class="fa">${idx }</i></a></li>
 											</c:forEach>
 											<c:if test="${pageMaker.next && pageMaker.endPage > 0 }">
 												<li><a
@@ -336,7 +337,6 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 									</form>
 								</div>
 								<!-- END group GALLERY TAB -->
-
 
 								<!-- START group MEMBER TAB -->
 								<div class="tab-pane fade" id="member" role="tabpanel" aria-labelledby="member-tab">
@@ -423,7 +423,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 	<script src="/resources/js/functions.js"></script>
 
 	<script src="/resources/js/icheck.js"></script>
-
+	
 	<script>
 		$('input').iCheck({
 			checkboxClass: 'icheckbox_square-grey',
@@ -449,10 +449,10 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 		     })
 	    });
 	</script>
-
 	<script>
 	function upload_btn(id) {
 			alert("로그인을 해주세요");
+			location.href="/login.do";
 	}
 	</script>
 

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.bu.bumoim.dao.GroupDao;
 import com.bu.bumoim.domain.GroupList;
 import com.bu.bumoim.domain.Member;
+import com.bu.bumoim.paging.Criteria;
 
 @Repository
 public class GroupDaoLogic implements GroupDao {
@@ -17,8 +18,8 @@ public class GroupDaoLogic implements GroupDao {
    @Autowired
    private SqlSession sqlSession;
 
-   public List<GroupList> selectGroupList(GroupList grouplist){
-      return sqlSession.selectList("group.selectGroupList", grouplist);
+   public List<GroupList> selectGroupList(Criteria cri){
+      return sqlSession.selectList("group.selectGroupList", cri);
    }
    
    public int insertGroup(GroupList grouplist) {
