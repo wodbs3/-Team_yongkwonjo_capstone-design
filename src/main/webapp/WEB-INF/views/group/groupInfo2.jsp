@@ -132,7 +132,9 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 
 					
 						<h3 class="inner">${groupDetail.grouplist_name}</h3>
-						<p>여기엔 대표 이미지</p>
+						<img width="auto" height="auto"
+							src="${pageContext.request.contextPath }/resources/upload/${groupDetail.grouplist_photo}"
+							alt="Image">
 						<hr>
 						<div class="form-inline">
 							<p>키워드 ${groupDetail.grouplist_interest}</p>
@@ -244,6 +246,29 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
           									  <a href='#' onclick="javascript:goCreate();" class="btn btn-success">글쓰기</a>
      									   </div>
 										</div>
+								<div class="text-center">
+										<ul class="pagination">
+
+											<c:if test="${boardPageMaker.prev }">
+												<li><a
+													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&boardPage=${boardPageMaker.startPage-1 }#board"/>'>
+														Previous </a></li>
+											</c:if>
+											<c:forEach begin="${boardPageMaker.startPage }"
+												end="${boardPageMaker.endPage }" var="idx" varStatus="status">
+
+												<li><a id="boardPage" name="boardPage" 
+													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&boardPage=${idx }#board"/>'>
+													
+													<i class="fa">${idx }</i></a></li>
+											</c:forEach>
+											<c:if test="${boardPageMaker.next && boardPageMaker.endPage > 0 }">
+												<li><a
+													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&boardPage=${boardPageMaker.endPage+1 }#board"/>'>
+														Next </a></li>
+											</c:if>
+										</ul>
+									</div>
 								</div>
 								<!-- END group BOARD TAB -->
 
