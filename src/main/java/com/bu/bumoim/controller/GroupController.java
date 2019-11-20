@@ -1,5 +1,7 @@
 package com.bu.bumoim.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +39,6 @@ public class GroupController {
 	private GalleryService galleryService;
 	@Autowired
 	private BoardService boardService;
-	
 	@Autowired
 	private UserService userService;
 	
@@ -100,7 +101,6 @@ public class GroupController {
 		
 		//모임회원
 		List<Member> groupMemberList = groupService.getGroupMemberList(groupList_number);
-		System.out.println("5555555555555555555555555555555555555555555555555555");
 		logger.info(groupMemberList.toString());
 		
 		GalleryPageMaker pageMaker = new GalleryPageMaker();
@@ -118,7 +118,12 @@ public class GroupController {
 	
 	// 그룹 리스트 => 그룹 가입하기
 	@RequestMapping(value="/groupJoin.do", method=RequestMethod.GET)
-	public String groupJoinView() {
+	public String groupJoinView(int groupList_number, String member_id) {
+		//
+		System.out.println("999999999999999999999999999999999999999999999999");
+		System.out.println(groupList_number + " " + member_id);
+		groupService.groupJoin(groupList_number, member_id);
+		
 		return "group/groupJoin";
 	}
 }

@@ -16,4 +16,6 @@ public interface GroupService {
    public GroupList findGroupDetail(int grouplist_number); //그룹 정보 찾기
    
    public List<Member> getGroupMemberList(int groupList_number); // 그룹 모임회원
+
+   public void groupJoin(int groupList_number, String member_id);	// 그룹 가입
 }

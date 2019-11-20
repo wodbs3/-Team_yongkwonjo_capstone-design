@@ -65,5 +65,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM member
 		WHERE member_group1 = #{grouplist_number} || member_group2 = #{grouplist_number} || member_group3 = #{grouplist_number}
 	</select>
+	    
+    <update id="updateMemberGroup" parameterType="hashmap">
+		UPDATE 
+			bumoim.member
+		<set>
+			<if test='member_group1 == null'>member_group1 = #{groupList_number},</if>
+			<if test='member_group1 != null'>
+				<if test='member_group2 == null'>member_group2 = #{groupList_number},</if>
+				<if test='member_group2 != null'>
+					<if test='member_group3 == null'>member_group3 = #{groupList_number}</if>
+				</if>
+			</if>
+      	</set>	
+		WHERE
+		 member_id = #{member_id}
+		
+	</update>
 	
 </mapper>

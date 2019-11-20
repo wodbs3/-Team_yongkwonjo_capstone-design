@@ -41,4 +41,9 @@ public class GroupServiceLogic implements GroupService{
 		//
 		return groupDao.getGroupMemberList(groupList_number);
 	}
+	@Override
+	public void groupJoin(int groupList_number, String member_id) {
+		//
+		groupDao.groupJoin(groupList_number, member_id);
+	}
 }

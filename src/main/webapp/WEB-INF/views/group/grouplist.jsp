@@ -133,7 +133,7 @@
 	<script>
 	//글쓰기
 	function goCreate() {
-		location.href="/GroupCreate.do";
+		location.href="/group/GroupCreate.do";
 	}
 	
 	function goLogin() {

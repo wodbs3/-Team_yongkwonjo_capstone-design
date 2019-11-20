@@ -1,5 +1,6 @@
 package com.bu.bumoim.dao.logic;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -39,5 +40,24 @@ public class GroupDaoLogic implements GroupDao {
 	public List<Member> getGroupMemberList(int groupList_number) {
 		// 
 		return sqlSession.selectList("group.getGroupMemberList", groupList_number);
+	}
+
+	@Override
+	public void groupJoin(int groupList_number, String member_id) {
+		//
+		System.out.println("777777777777777777777777777777777777777");
+		System.out.println(groupList_number + " " + member_id);
+		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		
+		params.put("groupList_number", groupList_number);
+		params.put("member_id", member_id);
+		
+		System.out.println(params.toString());
+		
+		System.out.println("888888888888888888888888888888888888888888888888888");
+		System.out.println(params.get("groupList_number") + " " + params.get("member_id"));
+		
+		sqlSession.update("group.updateMemberGroup", params);
 	}
 }
