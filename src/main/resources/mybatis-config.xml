@@ -8,6 +8,7 @@
 		 <typeAlias type="com.bu.bumoim.domain.Gallery" alias="Gallery" />
 	     <typeAlias type="com.bu.bumoim.domain.Comment" alias="Comment"/>
 		 <typeAlias type="com.bu.bumoim.domain.Member" alias="Member"/>
+		 <typeAlias type="com.bu.bumoim.domain.Calendar" alias="Calendar" />
 	</typeAliases>
 	
 <!-- 	<mappers> -->

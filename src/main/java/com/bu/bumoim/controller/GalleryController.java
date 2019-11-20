@@ -118,6 +118,7 @@ public class GalleryController {
 	@RequestMapping(value = "/updateForm.do")
 	public String updateForm(int num, Model model) {
 		Gallery gallery = service.getGallery(num);
+		gallery.setContent(gallery.getContent().trim());
 		model.addAttribute("gallery",gallery);
 	
 		return "gallery/update";
