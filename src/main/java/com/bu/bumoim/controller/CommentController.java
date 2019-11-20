@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bu.bumoim.domain.Board;
 import com.bu.bumoim.domain.Comment;
 import com.bu.bumoim.domain.Gallery;
 import com.bu.bumoim.service.CommentService;
@@ -50,24 +51,25 @@ public class CommentController {
 	}
 	
 	@RequestMapping(value="/boardcommentInsert.do")
-	public String boardcommentInsert(int board_number, Comment comment) {
+	public String boardcommentInsert(int groupList_number, int board_number, Comment comment, Board board) {
 		
 	
 		comment.setBoard_number(board_number);
-		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>> Board_number: " + comment.getBoard_number());
+//		comment.setgroupList_number(groupList_number);
+		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>> groupList_number: " + comment.getgroupList_number());
 		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>> comment_id: " + comment.getComment_id());
 		logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>> content: " + comment.getComment_content());
 		commentService.boardCommentInsert(comment);
 		
-		return "redirect:boardDetail.do?board_number=" + comment.getBoard_number();
+		return "redirect:boardDetail.do?groupList_number=" + groupList_number +"&board_number="+ board_number;
 	}
 	
 	@RequestMapping(value="/boardcommentDelete.do")
-	public String boardcommentDelete(int comment_number) {
+	public String boardcommentDelete(Comment comment, int comment_number, int groupList_number) {
 		
 		commentService.boardDeleteComment(comment_number);
 		
-		return "redirect:boardDetail.do?num=" + comment_number;
+		return "redirect:/group/groupInfo.do?groupList_number="+ comment.getgroupList_number() +"#board";
 	}
 
 }

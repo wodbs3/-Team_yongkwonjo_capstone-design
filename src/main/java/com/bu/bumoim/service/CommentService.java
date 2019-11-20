@@ -28,12 +28,25 @@ public interface CommentService {
 	
 	public void boardCommentInsert(Comment comment);
 		
-	public List<Comment> boardCommentList(int board_number);
+	public List<Comment> boardCommentList(int groupList_number);
 	
 	public void boardUpdateComment(Comment comment);
 		
-	public void boardDeleteAllComment(int board_number);
+	public void boardDeleteAllComment(int groupList_number);
 		
 	public void boardDeleteComment(int comment_number);
+	
+//------------------------------------------------------
+	public void groupCommentInsert(Comment comment);
+	
+	public List<Comment> groupCommentList(int groupList_number);
+	
+	public void groupUpdateComment(Comment comment);
+		
+	public void groupDeleteAllComment(int groupList_number);
+		
+	public void groupDeleteComment(int comment_number);
+	
+	
 }
 

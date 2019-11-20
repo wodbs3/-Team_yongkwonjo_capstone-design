@@ -103,11 +103,11 @@ public class CommentDaoLogic implements CommentDao{
 	}
 
 	@Override
-	public List<Comment> boardGetCommentList(int board_number) {
+	public List<Comment> boardGetCommentList(int groupList_number) {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
 
-			List<Comment> comment = session.selectList("Comment.boardCommentList", board_number);
+			List<Comment> comment = session.selectList("Comment.boardCommentList", groupList_number);
 
 			return comment;
 		} finally {
@@ -127,10 +127,10 @@ public class CommentDaoLogic implements CommentDao{
 	}
 
 	@Override
-	public void boardCommentAllDelete(int board_number) {
+	public void boardCommentAllDelete(int groupList_number) {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			session.delete("Comment.boardCommentAllDelete", board_number);
+			session.delete("Comment.boardCommentAllDelete", groupList_number);
 		} finally {
 			session.close();
 		}
@@ -147,8 +147,64 @@ public class CommentDaoLogic implements CommentDao{
 		}
 		
 	}
+//---------------------------------------------------------------------------
+	@Override
+	public void groupInsertComment(Comment comment) {
+		SqlSession session = sqlSessionFactory.openSession();
 
+		try {
+			session.insert("Comment.groupCommentInsert", comment);
+		} finally {
+			session.close();
+		}
+		
+	}
 
+	@Override
+	public List<Comment> groupGetCommentList(int groupList_number) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+
+			List<Comment> comment = session.selectList("Comment.groupCommentList", groupList_number);
+
+			return comment;
+		} finally {
+			session.close();
+		}
+	}
+
+	@Override
+	public void groupUpdateComment(Comment comment) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.update("Comment.groupCommentUpdate", comment);
+		} finally {
+			session.close();
+		}
+		
+	}
+
+	@Override
+	public void groupCommentAllDelete(int groupList_number) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.delete("Comment.groupCommentAllDelete", groupList_number);
+		} finally {
+			session.close();
+		}
+		
+	}
+
+	@Override
+	public void groupCommentDelete(int comment_number) {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			session.delete("Comment.groupCommentDelete", comment_number);
+		} finally {
+			session.close();
+		}
+		
+	}
 	
 
 }
