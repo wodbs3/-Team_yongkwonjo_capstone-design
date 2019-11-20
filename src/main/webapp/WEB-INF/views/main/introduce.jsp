@@ -71,7 +71,7 @@
 		<div class="row">
 		
 			<div class="col-md-8 col-md-offset-2">
-				<img src="/resources/upload/ef7d0a88f90443e2962d090670a69cad.jpg" style="width:100%;"/>
+				<img src="/resources/img/us1.jpg" style="width:100%;"/>
 			</div> 
 		</div>
 	</div>
@@ -81,7 +81,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-			용권조입니다
+			<h3><strong>안녕하세요 BUMOIM 웹페이지를 제작한 용권조 입니다.환영합니다! 
+			고객님들은 지금껏 만나보지 못했던 모임 홈페이지를 경험하게 될것입니다.아르르르르르르ㅡㄹ르르르르ㅡ르르
+			</strong></h3>
 			<br><br><br>
 			</div>
 		</div>
