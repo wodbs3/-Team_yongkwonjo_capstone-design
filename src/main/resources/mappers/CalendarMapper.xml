@@ -6,8 +6,5 @@
   
   <mapper namespace="Calendar">
   
-  <insert id="calWriteInsert" parameterType="Calendar">
-  	INSERT INTO CALENDAR(member_id,calendar_title,calendar_content,calendar_rdate as calendar_rDate,calendar_wdate)
-  	VALUES(#{member_id},#{calendar_title},#{calendar_content},#{calendar_rDate},SYSDATE)	
-</insert>
+
  </mapper>

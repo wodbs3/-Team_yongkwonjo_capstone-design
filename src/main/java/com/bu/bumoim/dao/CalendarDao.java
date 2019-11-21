@@ -4,5 +4,4 @@ import com.bu.bumoim.domain.Calendar;
 
 public interface CalendarDao {
 
-	boolean calWrite(Calendar dto);
 }

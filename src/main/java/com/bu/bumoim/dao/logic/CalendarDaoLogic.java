@@ -12,15 +12,4 @@ import com.bu.bumoim.domain.Calendar;
 @Repository
 public class CalendarDaoLogic implements CalendarDao{
 
-	@Autowired
-	private SqlSessionFactory sqlSessionFactory;
-	
-	
-	@Override
-	public boolean calWrite(Calendar dto) {
-		SqlSession session = sqlSessionFactory.openSession();
-		int n = session.insert("Calendar.calWriteInsert", dto);
-		return n>0?true:false;
-	}
-
 }

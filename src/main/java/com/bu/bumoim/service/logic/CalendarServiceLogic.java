@@ -10,11 +10,4 @@ import com.bu.bumoim.service.CalendarService;
 @Service
 public class CalendarServiceLogic implements CalendarService{
 
-	@Autowired
-	CalendarDao dao; 
-	@Override
-	public boolean calWrite(Calendar dto) {
-		return dao.calWrite(dto);
-	}
-
 }
