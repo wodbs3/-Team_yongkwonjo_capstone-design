@@ -67,8 +67,16 @@
                         <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                         <ul>
                             <li class="submenu">
-                                <a href="${pageContext.request.contextPath }/introduce.do" class="show-submenu">Our Introduce</a>
-                                
+                                <a href="${pageContext.request.contextPath }/introduce.do" class="show-submenu">Introduce<i class="icon-down-oepn-mini"></i></a>
+                                <ul>
+                                	<li>
+                                		<a href="${pageContext.request.contextPath}/introduce.do">Our Introduce</a>
+                                	</li>
+                                	<li>
+                                		<a href="${pageContext.request.contextPath}/location.do">Location</a>
+                                	</li>
+                                	
+                                </ul>
                             </li>
                             <li class="submenu">
                                 <a href="${pageContext.request.contextPath }/group/GroupList.do" class="show-submenu">GroupList </a>
