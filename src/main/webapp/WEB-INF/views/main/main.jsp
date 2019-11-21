@@ -287,50 +287,18 @@
 			</div>
 		</div>
 		<!-- END REVOLUTION SLIDER -->
-	<div class="row">
-		<div class="col-md-12 col-sm-12">
-			<textarea id="chatLog" class="chat_log" readonly>
-	</textarea>
-			<img src="" id="img" />
 
-		</div>
-	</div>
-	
 				<div class="row row--fluid-xs flex flex-equal flex-wrap">
 				<div class="col-md-4 col-sm-4 col-xs-12 marg-b-15 leftbox" >
 					<div class="boxed bg-color--white h-2">
 						<div class="title">
 							<p class="marg-b-15">
-								<span class="text-left" onclick="location.href='/community/news'" style="cursor: pointer; font-size: 18px">협회소식</span> 
-								<span class="right" onclick="location.href='/community/news'" style="cursor: pointer;">+</span>
+							
 							</p>
 						</div>
 						<div class="content_list">
 					
-<%-- 							<c:forEach items="${resultList}" var="result" varStatus="status" end="6"> --%>
-<!-- 								내용 -->
-<%-- 								<form id="detailfrm_${result.IDX}" action="/board/detail" method="get"> --%>
-<%-- 									<p onclick="javascript:goDetail(${result.IDX});" class="list" style="margin-bottom: 9px !important;"> --%>
 
-<%-- 										<c:choose> --%>
-<%-- 											<c:when test="${fn:length(result.TITLE) > 25}"> --%>
-<%-- 												<c:out value="${fn:substring(result.TITLE,0,24)}" />.... --%>
-<%--                                             </c:when> --%>
-<%-- 											<c:otherwise> --%>
-<%-- 												<c:out value="${result.TITLE}" /> --%>
-<%-- 											</c:otherwise> --%>
-<%-- 										</c:choose> --%>
-
-
-
-
-<%-- 										<span class="notice_subject">-${result.TITLE}</span> --%> 
-<!-- 									</p> -->
-<%-- 									<input type="hidden" name="board_code" value="${result.BOARD_CODE}" /> --%>
-<%-- 									<input type="hidden" name="idx" value="${result.IDX}" /> --%>
-<%-- 									<input type="hidden" name="hp_code"	value="${result.HP_CODE}" /> --%>
-<!-- 								</form> -->
-<%-- 							</c:forEach> --%>
 						</div>
 					
 					</div>
@@ -344,179 +312,130 @@
 				<h2>백석소모임에 <span>오신것을</span> 환영합니다</h2>
 			</div>
 
-			<div class="row">
+			<div class="">
 
 				<div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
 					<div class="tour_container">
-						<div class="ribbon_3 popular"><span>Popular</span></div>
-							<header class="head">
-							<h2 class = "sectionTitle">그룹 게시판</h2>
-							<a href="/GroupList.do" class="btnMore">"더보기"</a>
-							
-							</header>
-								
-								<div class="short_info">
-									<i class="icon_set_1_icon-44"></i>Historic Buildings<span class="price"><sup>$</sup>39</span>
-								</div>
+						<div class="tour_title">
+							<h3><strong>그룹 정보</strong>
+								<a href="/group/GroupList.do" class="btnMore pull-right">
+								더보기
+								</a>
+							</h3>
+						</div>
+						<div class="img_container">
+							<a href="/group/GroupList.do">
+								<img src="/resources/img/group.jpg" width="800" height="533" class="img-responsive" alt="image">
 							</a>
 						</div>
-						<div class="tour_title">
-							<h3><strong>Arc Triomphe</strong> tour</h3>
-							<div class="rating">
-								<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-							</div>
-							<!-- end rating -->
-							<div class="wishlist">
-								<a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
-							</div>
-							<!-- End wish list-->
-						</div>
 					</div>
-					<!-- End box tour -->
+				
+					</div>
+		
 				</div>
-				<!-- End col-md-4 -->
+				<!-- 그룹리스트 -->
+				
+				<div class="">
 
 				<div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.2s">
 					<div class="tour_container">
-						<div class="ribbon_3 popular"><span>Popular</span></div>
+						<div class="tour_title">
+							<h3><strong>학교 정보</strong>
+							</h3>
+						</div>
 						<div class="img_container">
-							<a href="single_tour.html">
-								<img src="/resources/img/tour_box_2.jpg" width="800" height="533" class="img-responsive" alt="image">
-								<div class="short_info">
-									<i class="icon_set_1_icon-43"></i>Churches<span class="price"><sup>$</sup>45</span>
-								</div>
+							<a href="http://www.bu.ac.kr">
+								<img src="/resources/img/school.jpg" width="800" height="533" class="img-responsive" alt="image">
 							</a>
 						</div>
-						<div class="tour_title">
-							<h3><strong>Notredame</strong> tour</h3>
-							<div class="rating">
-								<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-							</div>
-							<!-- end rating -->
-							<div class="wishlist">
-								<a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
-							</div>
-							<!-- End wish list-->
-						</div>
 					</div>
-					<!-- End box tour -->
+				
+					</div>
+		
 				</div>
-				<!-- End col-md-4 -->
+
+				<div class="">
 
 				<div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.3s">
 					<div class="tour_container">
-						<div class="ribbon_3 popular"><span>Popular</span></div>
+						<div class="tour_title">
+							<h3><strong>회원 가입</strong>
+							</h3>
+						</div>
 						<div class="img_container">
-							<a href="single_tour.html">
-								<img src="/resources/img/tour_box_3.jpg" width="800" height="533" class="img-responsive" alt="image">
-								<div class="badge_save">Save<strong>30%</strong></div>
-								<div class="short_info">
-									<i class="icon_set_1_icon-44"></i>Historic Buildings<span class="price"><sup>$</sup>48</span>
-								</div>
+							<a href="/joinView.do">
+								<img src="/resources/img/shakehands.jpg" width="800" height="533" class="img-responsive" alt="image">
 							</a>
 						</div>
-						<div class="tour_title">
-							<h3><strong>Versailles</strong> tour</h3>
-							<div class="rating">
-								<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-							</div>
-							<!-- end rating -->
-							<div class="wishlist">
-								<a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
-							</div>
-							<!-- End wish list-->
-						</div>
 					</div>
-					<!-- End box tour -->
+				
+					</div>
+		
 				</div>
-				<!-- End col-md-4 -->
+				
+				<div class="">
 
-				<div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.4s">
+				<div class="col-md-6 col-sm-6 wow zoomIn" data-wow-delay="0.4s">
 					<div class="tour_container">
-						<div class="ribbon_3"><span>Top rated</span></div>
+						<div class="tour_title">
+							<h3><strong>학교 위치</strong>
+								<a href="/map/map.do" class="btnMore pull-right">
+								더보기
+								</a>
+							</h3>
+						</div>
 						<div class="img_container">
-							<a href="single_tour.html">
-								<img src="/resources/img/tour_box_4.jpg" width="800" height="533" class="img-responsive" alt="image">
-								<div class="badge_save">Save<strong>20%</strong></div>
-								<div class="short_info">
-									<i class="icon_set_1_icon-30"></i>Walking tour<span class="price"><sup>$</sup>36</span>
-								</div>
+							<a href="/map/map.do">
+								<img src="/resources/img/map.png" width="800" height="533" class="img-responsive" alt="image">
 							</a>
 						</div>
-						<div class="tour_title">
-							<h3><strong>Pompidue</strong> tour</h3>
-							<div class="rating">
-								<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-							</div>
-							<!-- end rating -->
-							<div class="wishlist">
-								<a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
-							</div>
-							<!-- End wish list-->
-						</div>
 					</div>
-					<!-- End box tour -->
+				
+					</div>
+		
 				</div>
-				<!-- End col-md-4 -->
 
-				<div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.5s">
+					<div class="">
+
+				<div class="col-md-6 col-sm-6 wow zoomIn" data-wow-delay="0.5s">
 					<div class="tour_container">
-						<div class="ribbon_3"><span>Top rated</span></div>
+						<div class="tour_title">
+							<h3><strong>백석대학교 대신 전해드립니다</strong>
+							</h3>
+						</div>
 						<div class="img_container">
-							<a href="single_tour.html">
-								<img src="/resources/img/tour_box_14.jpg" width="800" height="533" class="img-responsive" alt="image">
-								<div class="short_info">
-									<i class="icon_set_1_icon-28"></i>Skyline tours<span class="price"><sup>$</sup>42</span>
-								</div>
+							<a href="https://www.facebook.com/search/top/?q=%EB%B0%B1%EC%84%9D%EB%8C%80%ED%95%99%EA%B5%90%20%EB%8C%80%EC%8B%A0%20%EC%A0%84%ED%95%B4%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4&epa=SEARCH_BOX">
+								<img src="/resources/img/facebook.jpg" width="800" height="533" class="img-responsive" alt="image">
 							</a>
 						</div>
-						<div class="tour_title">
-							<h3><strong>Tour Eiffel</strong> tour</h3>
-							<div class="rating">
-								<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-							</div>
-							<!-- end rating -->
-							<div class="wishlist">
-								<a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
-							</div>
-							<!-- End wish list-->
-						</div>
 					</div>
-					<!-- End box tour -->
-				</div>
-				<!-- End col-md-4 -->
-
-				<div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.6s">
-					<div class="tour_container">
-						<div class="ribbon_3"><span>Top rated</span></div>
-						<div class="img_container">
-							<a href="single_tour.html">
-								<img src="/resources/img/tour_box_5.jpg" width="800" height="533" class="img-responsive" alt="image">
-								<div class="short_info">
-									<i class="icon_set_1_icon-44"></i>Historic Buildings<span class="price"><sup>$</sup>40</span>
-								</div>
-							</a>
-						</div>
-						<div class="tour_title">
-							<h3><strong>Pantheon</strong> tour</h3>
-							<div class="rating">
-								<i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><small>(75)</small>
-							</div>
-							<!-- end rating -->
-							<div class="wishlist">
-								<a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Add to wishlist</span></span></a>
-							</div>
-							<!-- End wish list-->
-						</div>
+				
 					</div>
-					<!-- End box tour -->
+		
 				</div>
-				<!-- End col-md-4 -->
 
-			</div>
+	<div class ="col-md-2 col-sm-6 col-md-offset-5">	
+		
+		<h3><strong>오늘의 날씨</strong></h3>
+	</div>	
+	<div class="row">
+		<div class ="col-md-2 col-sm-6 col-md-offset-5">
+		<div class="tour_container">
+			<div class="tour_title">
+			<h4><strong><p class = "bg-info" id="chatLog" class="chat_log" readonly>
+	</p>
+	</strong>
+	</h4>
+	<img src="" id="img" />
+	자세한 날씨는<a href = "https://www.weather.go.kr/weather/main.jsp"> 여기</a>를 클릭하세요
+	</div>
+	</div>
+		</div>
+	</div>
+
 			<!-- End row -->
 			<p class="text-center add_bottom_30">
-				<a href="all_tours_list.html" class="btn_1 medium"><i class="icon-eye-7"></i>View all tours (144) </a>
+				
 			</p>
 
 			<hr>

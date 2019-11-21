@@ -59,6 +59,8 @@
          <scope>runtime</scope>
       </dependency>
 
+
+
    <!-- Logging -->
    <dependency>
       <groupId>org.slf4j</groupId>
@@ -189,6 +191,17 @@
       
 
 
+        <!-- WebSocket -->
+
+        <dependency>
+
+            <groupId>org.springframework</groupId>
+
+            <artifactId>spring-websocket</artifactId>
+
+            <version>4.1.6.RELEASE</version>
+
+        </dependency>
 
       <!-- Test -->
       <dependency>

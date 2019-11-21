@@ -12,7 +12,7 @@
 	<title>GroupList</title>
 		
 	    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Lato:300,400|Montserrat:400,400i,700,700i" rel="stylesheet">
-
+		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- BASE CSS -->
     <link href="/resources/css/base.css" rel="stylesheet">
 
@@ -66,27 +66,38 @@
 "> <span> Introduce </span> </h2>
 	</div>
 
-<section>
-	<div class="container">
-		<div class="row">
-		
-			<div class="col-md-8 col-md-offset-2">
-				<img src="/resources/img/us1.jpg" style="width:100%;"/>
+<section class="pb-110">
+		<div class="row margin_30">
+		<div class="col-md-12" style="
+    height: 500px;
+">
+			<div class="col-md-8 col-md-offset-2" style="
+    height: 500px;
+">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.093447355837!2d127.18103121524885!3d36.84023797994026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b293c64087a5b%3A0x81d1a65485393d8d!2z67Cx7ISd64yA7ZWZ6rWQ!5e0!3m2!1sko!2skr!4v1574331374842!5m2!1sko!2skr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 			</div> 
 		</div>
-	</div>
-</section>
 
-<section>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
-			<h3><strong>안녕하세요 BUMOIM 웹페이지를 제작한 용권조 입니다.환영합니다! 
-			고객님들은 지금껏 만나보지 못했던 모임 홈페이지를 경험하게 될것입니다.아르르르르르르ㅡㄹ르르르르ㅡ르르
-			</strong></h3>
-			<br><br><br>
-			</div>
-		</div>
+		     <div class="col-md-12 mb-10">
+             <h4></h4>
+            <div class="col-md-4 mb-30">
+             <h5> <i class="fa fa-car"></i> 자동차</h5>
+             <p>E.IC방면</p>
+             <p>1. 입장, 선거 방면 우회전</p>
+             <p>2. 백석대학교, 백석문화대학 방면 우회전</p>
+            </div>
+            <div class="col-md-4 mb-30">
+             <h5> <i class="fa fa-bus"></i> 버스</h5>
+             <p>천안버스터미널 : 각지역고속버스터미널 또는 시외버스 터미널에서 천안행을 타신후 천안고속버스 터미널에서 하차, 길 건너 시내버스 정류장에서 시내버스(14,700,701,710,711) 또는 학교 셔틀버스(학기중에만 운영)를 타세요 약 10분</p>
+            </div>
+
+            <div class="col-md-4 mb-30">
+             <h5><i class="fa fa-train"></i> 지하철</h5>
+             <p>천안역 : 천안역(동문)에서 내리신후 택시 승강장 우측 버스정류장 맞은편에서 시내버스(700,701,710,711)를 타세요. 약 15분 소요</p>
+             <p>두정역 : 두정역에서 내리신후 택시승강장 맞은편 버스정류장에서 시내버스 14번 또는 셔틀버스를 타세요. 약 15분소요</p>
+
+            </div>
+            </div>
 	</div>
 </section>
 
