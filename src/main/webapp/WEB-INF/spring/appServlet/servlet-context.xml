@@ -28,12 +28,6 @@
 	<beans:property name="maxUploadSize" value="52428800"></beans:property>
 	</beans:bean>
 
-	<beans:bean id="echoHandler" class="com.bu.bumoim.chat.EchoHandler"/>
-	
-	<websocket:handlers>
-	<websocket:mapping handler="echoHandler" path="/echo"/>
-	<websocket:sockjs/>
-	</websocket:handlers>
 	 
     <beans:bean id="uploadPath" class="java.lang.String">
 		<beans:constructor-arg value="C:/Users/USER/Documents/workspace-sts-3.9.8.RELEASE/cap/bumoim/src/main/webapp/resources/upload">

@@ -26,10 +26,10 @@
     <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Lato:300,400|Montserrat:400,400i,700,700i" rel="stylesheet">
 
 	<!-- CSS -->
-	<link href="resources/css/base.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/resources/css/base.css" rel="stylesheet">
 
 	<!-- CSS -->
-	<link href="resources/css/blog.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/resources/css/blog.css" rel="stylesheet">
 
 	<!--[if lt IE 9]>
       <script src="js/html5shiv.min.js"></script>
@@ -211,9 +211,9 @@
 
 
 	<!-- Common scripts -->
-	<script src="resources/js/jquery-2.2.4.min.js"></script>
-	<script src="resources/js/common_scripts_min.js"></script>
-	<script src="resources/js/functions.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-2.2.4.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/common_scripts_min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/functions.js"></script>
 	<script>
 		function comment_input() {
 			alert("로그인을 해주세요");

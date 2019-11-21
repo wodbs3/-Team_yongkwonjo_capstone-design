@@ -65,34 +65,4 @@
     <filter-name>encoding</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ChatSubmittServlet</display-name>
-    <servlet-name>ChatSubmittServlet</servlet-name>
-    <servlet-class>com.bu.bumoim.ChatSubmittServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ChatSubmittServlet</servlet-name>
-    <url-pattern>/ChatSubmittServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ChatSubmitServlet</display-name>
-    <servlet-name>ChatSubmitServlet</servlet-name>
-    <servlet-class>com.bu.bumoim.ChatSubmitServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ChatSubmitServlet</servlet-name>
-    <url-pattern>/chatSubmitServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ChatListServlet</display-name>
-    <servlet-name>ChatListServlet</servlet-name>
-    <servlet-class>com.bu.bumoim.ChatListServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ChatListServlet</servlet-name>
-    <url-pattern>/chatListServlet</url-pattern>
-  </servlet-mapping>
 </web-app>

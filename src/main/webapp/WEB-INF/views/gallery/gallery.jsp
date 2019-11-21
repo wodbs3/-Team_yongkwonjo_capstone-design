@@ -34,14 +34,14 @@
 	rel="stylesheet">
 
 <!-- CSS -->
-<link href="css/base.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/resources/css/base.css" rel="stylesheet">
 
 <!-- Radio and check inputs -->
-<link href="css/skins/square/grey.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/resources/css/skins/square/grey.css" rel="stylesheet">
 
 <!-- Range slider -->
-<link href="css/ion.rangeSlider.css" rel="stylesheet">
-<link href="css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/resources/css/ion.rangeSlider.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/resources/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
 
 <!--[if lt IE 9]>
       <script src="js/html5shiv.min.js"></script>
