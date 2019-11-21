@@ -6,8 +6,34 @@
   
   <mapper namespace="Calendar">
   
-  <insert id="calWriteInsert" parameterType="Calendar">
-  	INSERT INTO CALENDAR(member_id,calendar_title,calendar_content,calendar_rdate as calendar_rDate,calendar_wdate)
-  	VALUES(#{member_id},#{calendar_title},#{calendar_content},#{calendar_rDate},SYSDATE)	
+  <insert id="insertCalendar" parameterType="Calendar">
+  	INSERT INTO calendar
+  	(member_id,
+  	calendar_title,
+  	calendar_content,
+  	calendar_rdate,
+  	calendar_wdate,
+  	calendar_color)
+  	VALUES
+  	(#{member_id},
+  	#{calendar_title},
+  	#{calendar_content},
+  	#{calendar_rDate},
+  	#{calendar_wDate},
+  	#{calendar_color})	
 </insert>
+
+<select id="getCalendar" resultType="HashMap">
+	SELECT 
+		
+		calendar_title,
+  		calendar_content,
+  		calendar_rdate,
+  		calendar_wdate,
+  		calendar_color
+	FROM 
+		calendar
+	WHERE 
+		member_id = #{memeber_id}
+</select>
  </mapper>

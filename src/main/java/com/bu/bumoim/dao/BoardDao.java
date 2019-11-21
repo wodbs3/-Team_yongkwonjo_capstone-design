@@ -10,7 +10,7 @@ public interface BoardDao {
 
  
     /**
-     * 寃뚯떆臾� 由ъ뒪�듃 議고쉶
+     * 野껊슣�뻻�눧占� �뵳�딅뮞占쎈뱜 鈺곌퀬�돳
      * @param boardVO
      * @return
      * @throws Exception
@@ -18,7 +18,7 @@ public interface BoardDao {
    
     List<Board> selectBoardList(Criteria cri);
 
-    List<Board> selectGroupBoardList(int groupList_number);
+    List<Board> selectGroupBoardList(int groupList_number, Criteria boardCri);
     
 //    List<Board> detail(int board_number);
     
