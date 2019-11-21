@@ -43,11 +43,11 @@ public class CommentController {
 	}
 	
 	@RequestMapping(value="/commentDelete.do")
-	public String commentDelete(int comment_number) {
+	public String commentDelete(int comment_number, int num) {
 		
 		commentService.galDeleteComment(comment_number);
 		
-		return "redirect:galleryDetail.do?num=" + comment_number;
+		return "redirect:galleryDetail.do?num=" + num +"&comment_number" + comment_number;
 	}
 	
 	@RequestMapping(value="/boardcommentInsert.do")
@@ -65,11 +65,11 @@ public class CommentController {
 	}
 	
 	@RequestMapping(value="/boardcommentDelete.do")
-	public String boardcommentDelete(Comment comment, int comment_number, int board_number) {
+	public String boardcommentDelete(Comment comment, int comment_number, int board_number, int groupList_number) {
 		
 		commentService.boardDeleteComment(comment_number);
 		
-		return "redirect:boardDetail.do?groupList_number="+ comment_number;
+		return "redirect:boardDetail.do?groupList_number=" + groupList_number +"&board_number="+ board_number + "&comment_number=" + comment_number;
 	}
 
 }

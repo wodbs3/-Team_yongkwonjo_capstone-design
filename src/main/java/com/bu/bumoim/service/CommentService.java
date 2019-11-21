@@ -43,7 +43,7 @@ public interface CommentService {
 	
 	public void groupUpdateComment(Comment comment);
 		
-	public void groupDeleteAllComment(int groupList_number);
+	public void groupDeleteAllComment(int board_number);
 		
 	public void groupDeleteComment(int comment_number);
 	
