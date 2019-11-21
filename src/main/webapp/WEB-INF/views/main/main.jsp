@@ -21,6 +21,8 @@
 
     <!-- BASE CSS -->
     <link href="/resources/css/base.css" rel="stylesheet">
+    	<link rel="stylesheet" href="/resources/css/bootstrap.css">
+	<link rel="stylesheet" href="/resources/css/chat.css">
 
     <!-- REVOLUTION SLIDER CSS -->
     <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
@@ -105,6 +107,11 @@
 			border-radius: 0px 0px 0px 0px;
 			cursor: pointer
 		}
+		
+		.margin_60_custom {
+	padding-top: 60px;
+	padding-bottom: 30px;
+}
 	</style>
 
     <!--[if lt IE 9]>
@@ -287,30 +294,77 @@
 			</div>
 		</div>
 		<!-- END REVOLUTION SLIDER -->
-
-				<div class="row row--fluid-xs flex flex-equal flex-wrap">
-				<div class="col-md-4 col-sm-4 col-xs-12 marg-b-15 leftbox" >
-					<div class="boxed bg-color--white h-2">
-						<div class="title">
-							<p class="marg-b-15">
-							
-							</p>
+		
+		<div class="container margin_60_custom">
+					<div class="main_title">
+				<h2>백석소모임에 <span>오신것을</span> 환영합니다</h2>
+			</div>
+		<div class="col-md-12">
+						<div class="col-md-6">
+					<div class="portlet portlet-default">
+						<div class="portlet-heading">
+							<div class="portlet-title">
+								<h4>
+									<i class="fa fa-circle text-green"></i>익명 채팅방
+								</h4>
+							</div>
+							<div class="clearfix"></div>
 						</div>
-						<div class="content_list">
-					
+						<div id="chat" class="panel-collapse collapse in">
+							<div id="chatPub" class="portlet-body chat-widget"
+								style="overflow-y: auto; width: auto; height: 300px;"></div>
+							<div class="portlet-footer">
+								<div class="row">
+									<div class="form-group col-xs-4">
+										<input style="height: 40px;" type="text" id="name"
+											name="name" class="form-control" placeholder="이름"
+											maxlength="8">
 
+									</div>
+
+									<div class="row">
+										<div class="form-group col-xs-4">
+										<input type="text" class="form-control" id="messagePub" style="height: 40px;" placeholder="메세지를 입력하세요."/>
+<!-- 											<textarea style="height: 80px;" id="chatContent" -->
+<!-- 												class="form-control" placeholder="메세지를 입력하세요." -->
+<!-- 												maxlength="100"></textarea> -->
+										</div>
+										<div class="form-group col-xs-3">
+											<input type="submit" class="btn btn-default pull-right" id="sendPub" value="enter"/>
+											<div class="clearfix"></div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
-					
 					</div>
+				</div>
+	<div class ="col-md-6 col-sm-6">	
+		<h3><strong>오늘의 날씨</strong></h3>
+	</div>	
+	<div class="row">
+		<div class ="col-md-6 col-sm-6">
+		<div class="tour_container">
+			<div class="tour_title">
+			<h4><strong><p class = "bg-info" id="chatLog" class="chat_log" readonly>
+	</p>
+	</strong>
+	</h4>
+	<img src="" id="img" />
+	자세한 날씨는<a href = "https://www.weather.go.kr/weather/main.jsp"> 여기</a>를 클릭하세요
+	</div>
+	</div>
+		</div>
+	</div>
+	</div>
+				<div class="row row--fluid-xs flex flex-equal flex-wrap">
+
 				</div>
 				</div>
 	
 
-	<div class="container margin_60">
+	<div class="container">
 
-			<div class="main_title">
-				<h2>백석소모임에 <span>오신것을</span> 환영합니다</h2>
-			</div>
 
 			<div class="">
 
@@ -379,13 +433,13 @@
 					<div class="tour_container">
 						<div class="tour_title">
 							<h3><strong>학교 위치</strong>
-								<a href="/map/map.do" class="btnMore pull-right">
+								<a href="/map.do" class="btnMore pull-right">
 								더보기
 								</a>
 							</h3>
 						</div>
 						<div class="img_container">
-							<a href="/map/map.do">
+							<a href="single_tour.html">
 								<img src="/resources/img/map.png" width="800" height="533" class="img-responsive" alt="image">
 							</a>
 						</div>
@@ -414,24 +468,18 @@
 		
 				</div>
 
-	<div class ="col-md-2 col-sm-6 col-md-offset-5">	
-		
-		<h3><strong>오늘의 날씨</strong></h3>
-	</div>	
-	<div class="row">
-		<div class ="col-md-2 col-sm-6 col-md-offset-5">
-		<div class="tour_container">
-			<div class="tour_title">
-			<h4><strong><p class = "bg-info" id="chatLog" class="chat_log" readonly>
-	</p>
-	</strong>
-	</h4>
-	<img src="" id="img" />
-	자세한 날씨는<a href = "https://www.weather.go.kr/weather/main.jsp"> 여기</a>를 클릭하세요
-	</div>
-	</div>
-		</div>
-	</div>
+				<div class="col-md-12 col-sm-6 wow zoomIn" data-wow-delay="0.5s">
+					<div class="tour_container">
+						<div class="img_container">
+							<a href="introduce.do">
+								<img src="/resources/img/us.jpg" width="1200" height="533" class="img-responsive" alt="image">
+							</a>
+						</div>
+					</div>
+				
+				</div>
+							
+						</div>
 
 			<!-- End row -->
 			<p class="text-center add_bottom_30">
@@ -478,6 +526,61 @@
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="https://cdn.pubnub.com/pubnub-3.4.4.js"></script>
+<script>
+    var pubnub = PUBNUB.init({
+    	publish_key: 'pub-c-04359bbf-659b-4944-8870-5338ecbc06b6',
+    	subscribe_key: 'sub-c-e464efaa-0bd4-11ea-ad54-52dd774e953e',
+    	ssl: true
+    });
+    
+    pubnub.subscribe({
+    	channel: 'chat',
+    	message: displayPub
+    });
+    
+    pubnub.history({
+    	channel: 'chat',
+    	reverse: true,
+    	count: 100
+    }, function(status, response){
+    	$.each(status[0], function(i, item){
+    		displayPub(item);
+    	});
+    });
+
+	function displayPub(message){
+		var html = "<div>"+message.username+": "+message.text+"</div>";
+		$("#chatPub").append(html).scrollTop(999999);
+	}
+	
+	function sendPub(){
+		if($("#name").val() == ''){
+			alert("enter your name");
+			return;
+		}
+		if($("#messagePub").val() == '') return;
+		pubnub.publish({
+			channel: 'chat',
+			message:{
+				username: $("#name").val(),
+				text: $("#messagePub").val()
+			}
+		});
+		$("#messagePub").val('').focus();
+	}
+
+	$(document).ready(function(){
+		$("#sendPub").click(function(){
+			sendPub();
+		});
+		$("#messagePub").keyup(function(event){
+			if(event.keyCode == 13) sendPub();
+		});
+	});
+</script>
+	
+
 <!-- 	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> -->
 	<script type="text/javascript">
 		var tpj = jQuery;
@@ -595,7 +698,7 @@
 
 	
 </script>
-	
+
 
 </body>
 
