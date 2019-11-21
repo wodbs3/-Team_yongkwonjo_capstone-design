@@ -308,6 +308,7 @@
 
 	<div class="container margin_60">
 
+
 			<div class="main_title">
 				<h2>백석소모임에 <span>오신것을</span> 환영합니다</h2>
 			</div>
