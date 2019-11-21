@@ -37,12 +37,10 @@
 		</div>
 	</div>
 	<div class="col-md-12">
-	<h2 style="
-    text-align: center;
-"></h2>
+	<h2 style="text-align: center;"></h2>
 	</div>
 	<div class="row margin_30">
-	<form action="/login.do" id="loginFrm" method="POST" class="form-horizontal" style="margin-top:10%">
+	<form action="/login.do" id="loginFrm" method="POST" class="form-horizontal" >
       
 	<div class="col-md-offset-4 col-md-6">
 	   <label for="id" class="col-sm-2 control-label">Id</label>

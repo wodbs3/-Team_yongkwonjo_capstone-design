@@ -67,24 +67,38 @@
                         <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                         <ul>
                             <li class="submenu">
-                                <a href="${pageContext.request.contextPath }/introduce.do" class="show-submenu">Our Introduce</a>
-                                
+                                <a href="${pageContext.request.contextPath }/introduce.do" class="show-submenu">Introduce<i class="icon-down-oepn-mini"></i></a>
+                                <ul>
+                                	<li>
+                                		<a href="${pageContext.request.contextPath}/introduce.do">Our Introduce</a>
+                                	</li>
+                                	<li>
+                                		<a href="${pageContext.request.contextPath}/location.do">Location</a>
+                                	</li>
+                                	
+                                </ul>
                             </li>
                             <li class="submenu">
                                 <a href="${pageContext.request.contextPath }/group/GroupList.do" class="show-submenu">GroupList </a>
 
+                            </li>
+                            <li class="submenu">
+                            	<a href="${pageContext.request.contextPath }/chat2.do" class="show-submenu">Chatting</a>
+                            </li>
+                             <li class="submenu">
+                            	<a href="${pageContext.request.contextPath }/group/GroupList.do" class="show-submenu">Calendar</a>
                             </li>
                         </ul>
                     </div><!-- End main-menu -->
                     <ul id="top_tools">
                         <li>
                             <div class="dropdown dropdown-search">
-                                <a href="#" class="search-overlay-menu-btn" data-toggle="dropdown"><i class="icon-search"></i></a>
+<!--                                 <a href="#" class="search-overlay-menu-btn" data-toggle="dropdown"><i class="icon-search"></i></a> -->
                             </div>
                         </li>
                         <li>
                             <div class="dropdown dropdown-cart">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class=" icon-basket-1"></i>Cart (0) </a>
+                               
                                 <ul class="dropdown-menu" id="cart_items">
                                     <li>
                                         <div class="image"><img src="/resources/img/thumb_cart_1.jpg" alt="image"></div>

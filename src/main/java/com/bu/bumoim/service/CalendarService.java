@@ -7,7 +7,9 @@ import com.bu.bumoim.domain.Calendar;
 
 public interface CalendarService {
 
+
 	public void insertCalendar(Calendar calendar);
 	
 	public List<Map<String, Object>> getCalendar(String member_id);
+
 }

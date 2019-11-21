@@ -39,12 +39,33 @@
 	<body>
 	
 	
-	<div class="row margin_30">
+	<div class="row margin_30" style="margin-top:10%" >
 	
 		<div class="col-md-offset-3 col-md-6">
 			<div id="map" style="height:900px;"></div>
+			
+			<br><br><br><br>
+			<p><em>지도를 클릭해주세요!</em></p> 
+			<div id="clickLatlng"></div>
+			
+			<br><br><br><br><br><br><br>
+			<div>
+				<input type="text" id="sample3_postcode" placeholder="우편번호">
+				<input type="button" onclick="sample3_execDaumPostcode()" value="우편번호 찾기"><br>
+				<input type="text" id="sample3_address" placeholder="주소"><br>
+				<input type="text" id="sample3_detailAddress" placeholder="상세주소">
+				<input type="text" id="sample3_extraAddress" placeholder="참고항목">
+				
+				<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+					<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+				</div>
+			</div>
+			
 		</div>
-	
+		
+		
+		
+		
 	</div>
 
     <!-- Common scripts -->
@@ -74,23 +95,51 @@
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
 	
 	<script>
-		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+/* 		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 		var options = { //지도를 생성할 때 필요한 기본 옵션
 			center: new kakao.maps.LatLng(36.840238, 127.1832199), //지도의 중심좌표.
 			level: 3 //지도의 레벨(확대, 축소 정도)
 		};
 	
-		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴 */
 	</script>
 	
-	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	
+	<!-- 클릭한 위치에 마커 표시하기 -->
 	<script>
-	    new daum.Postcode({
-	        oncomplete: function(data) {
-	            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
-	            // 예제를 참고하여 다양한 활용법을 확인해 보세요.
-	        }
-	    }).open();
+	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+	
+	// 지도를 클릭한 위치에 표출할 마커입니다
+	var marker = new kakao.maps.Marker({ 
+	    // 지도 중심좌표에 마커를 생성합니다 
+	    position: map.getCenter() 
+	}); 
+	// 지도에 마커를 표시합니다
+	marker.setMap(map);
+	
+	// 지도에 클릭 이벤트를 등록합니다
+	// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+	kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+	    
+	    // 클릭한 위도, 경도 정보를 가져옵니다 
+	    var latlng = mouseEvent.latLng; 
+	    
+	    // 마커 위치를 클릭한 위치로 옮깁니다
+	    marker.setPosition(latlng);
+	    
+	    var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+	    message += '경도는 ' + latlng.getLng() + ' 입니다';
+	    
+	    var resultDiv = document.getElementById('clickLatlng'); 
+	    resultDiv.innerHTML = message;
+	    
+	});
 	</script>
 	
 	

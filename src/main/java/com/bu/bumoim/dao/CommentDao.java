@@ -38,7 +38,7 @@ public interface CommentDao {
 	
 	public void groupUpdateComment(Comment comment);
 	
-	public void groupCommentAllDelete(int groupList_number);
+	public void groupCommentAllDelete(int board_number);
 	
 	public void groupCommentDelete(int comment_number);
 	

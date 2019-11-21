@@ -132,9 +132,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 
 					
 						<h3 class="inner">${groupDetail.grouplist_name}</h3>
-						<img width="auto" height="auto"
-							src="${pageContext.request.contextPath }/resources/upload/${groupDetail.grouplist_photo}"
-							alt="Image">
+						<p>여기엔 대표 이미지</p>
 						<hr>
 						<div class="form-inline">
 							<p>키워드 ${groupDetail.grouplist_interest}</p>
@@ -163,7 +161,32 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 						</c:choose>
 					</div>
 				</div>
-			
+				
+				<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 				<!--End sticky -->	
 			</aside>
 
@@ -221,29 +244,6 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
           									  <a href='#' onclick="javascript:goCreate();" class="btn btn-success">글쓰기</a>
      									   </div>
 										</div>
-								<div class="text-center">
-										<ul class="pagination">
-
-											<c:if test="${boardPageMaker.prev }">
-												<li><a
-													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&boardPage=${boardPageMaker.startPage-1 }#board"/>'>
-														Previous </a></li>
-											</c:if>
-											<c:forEach begin="${boardPageMaker.startPage }"
-												end="${boardPageMaker.endPage }" var="idx" varStatus="status">
-
-												<li><a id="boardPage" name="boardPage" 
-													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&boardPage=${idx }#board"/>'>
-													
-													<i class="fa">${idx }</i></a></li>
-											</c:forEach>
-											<c:if test="${boardPageMaker.next && boardPageMaker.endPage > 0 }">
-												<li><a
-													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&boardPage=${boardPageMaker.endPage+1 }#board"/>'>
-														Next </a></li>
-											</c:if>
-										</ul>
-									</div>
 								</div>
 								<!-- END group BOARD TAB -->
 

@@ -6,6 +6,7 @@
   
   <mapper namespace="Calendar">
   
+
   <insert id="insertCalendar" parameterType="Calendar">
   	INSERT INTO calendar
   	(member_id,
@@ -36,4 +37,5 @@
 	WHERE 
 		member_id = #{memeber_id}
 </select>
+
  </mapper>

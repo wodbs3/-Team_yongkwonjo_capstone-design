@@ -93,13 +93,13 @@ public class CommentServiceLogic implements CommentService{
 	}
 	
 	@Override
-	public void groupDeleteAllComment(int groupList_number) {
-		commentDao.groupCommentAllDelete(groupList_number);
+	public void groupDeleteAllComment(int board_number) {
+		commentDao.groupCommentAllDelete(board_number);
 	}
 	
 	@Override
-	public void groupDeleteComment(int groupList_number) {
-		commentDao.groupCommentDelete(groupList_number);
+	public void groupDeleteComment(int comment_number) {
+		commentDao.groupCommentDelete(comment_number);
 		
 	}
 

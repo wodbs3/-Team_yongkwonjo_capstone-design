@@ -185,10 +185,10 @@ public class CommentDaoLogic implements CommentDao{
 	}
 
 	@Override
-	public void groupCommentAllDelete(int groupList_number) {
+	public void groupCommentAllDelete(int board_number) {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			session.delete("Comment.groupCommentAllDelete", groupList_number);
+			session.delete("Comment.groupCommentAllDelete", board_number);
 		} finally {
 			session.close();
 		}

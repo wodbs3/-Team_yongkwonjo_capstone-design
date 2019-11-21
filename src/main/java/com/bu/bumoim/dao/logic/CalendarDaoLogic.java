@@ -15,6 +15,7 @@ import com.bu.bumoim.domain.Calendar;
 @Repository
 public class CalendarDaoLogic implements CalendarDao{
 
+
 	@Autowired
 	private SqlSessionFactory sqlSessionFactory;
 

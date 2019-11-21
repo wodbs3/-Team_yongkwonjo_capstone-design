@@ -14,6 +14,7 @@ import com.bu.bumoim.service.CalendarService;
 @Service
 public class CalendarServiceLogic implements CalendarService{
 
+
 	@Autowired
 	CalendarDao dao;
 
