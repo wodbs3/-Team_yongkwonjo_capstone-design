@@ -32,4 +32,8 @@ public class MainController {
 	public String chat2() {
 		return "chatting/chat2";
 	}
+	@RequestMapping(value="/location.do")
+	public String location() {
+		return "main/location";
+	}
 }
