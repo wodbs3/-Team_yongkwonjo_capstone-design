@@ -8,7 +8,24 @@ public class Calendar {
 	private String calendar_content;
 	private String calendar_rDate;
 	private String calendar_wDate;
+	private String calendar_color;
 	
+	public String getCalendar_id() {
+		return calendar_id;
+	}
+
+	public void setCalendar_id(String calendar_id) {
+		this.calendar_id = calendar_id;
+	}
+
+	public String getCalendar_color() {
+		return calendar_color;
+	}
+
+	public void setCalendar_color(String calendar_color) {
+		this.calendar_color = calendar_color;
+	}
+
 	public Calendar() {
 		
 	}

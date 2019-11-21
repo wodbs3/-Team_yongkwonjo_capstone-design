@@ -38,25 +38,25 @@
 
 </head>
 
-<body style="overflow: visible;"><div class="parallax-mirror" style="visibility: visible; z-index: 1; position: fixed; top: -100px; left: 0px; overflow: hidden; transform: translate3d(0px, 0px, 0px); height: 470px; width: 1519px;"><img class="parallax-slider" src="resources/img/bg_blog.jpg" style="transform: translate3d(0px, 0px, 0px); position: absolute; top: 61px; left: 0px; height: 509px; width: 1519px; max-width: none;"></div>
+<!-- <body style="overflow: visible;"><div class="parallax-mirror" style="visibility: visible; z-index: 1; position: fixed; top: -100px; left: 0px; overflow: hidden; transform: translate3d(0px, 0px, 0px); height: 470px; width: 1519px;"><img class="parallax-slider" src="resources/img/bg_blog.jpg" style="transform: translate3d(0px, 0px, 0px); position: absolute; top: 61px; left: 0px; height: 509px; width: 1519px; max-width: none;"></div> -->
 
 	<!--[if lte IE 8]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
 <![endif]-->
 
-	<div id="preloader" style="display: none;">
-		<div class="sk-spinner sk-spinner-wave">
-			<div class="sk-rect1"></div>
-			<div class="sk-rect2"></div>
-			<div class="sk-rect3"></div>
-			<div class="sk-rect4"></div>
-			<div class="sk-rect5"></div>
-		</div>
-	</div>
+<!-- 	<div id="preloader" style="display: none;"> -->
+<!-- 		<div class="sk-spinner sk-spinner-wave"> -->
+<!-- 			<div class="sk-rect1"></div> -->
+<!-- 			<div class="sk-rect2"></div> -->
+<!-- 			<div class="sk-rect3"></div> -->
+<!-- 			<div class="sk-rect4"></div> -->
+<!-- 			<div class="sk-rect5"></div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 	<!-- End Preload -->
 
-	<div class="layer"></div>
-	<!-- Mobile menu overlay mask -->
+<!-- 	<div class="layer"></div> -->
+<!-- 	<!-- Mobile menu overlay mask --> -->
 
 	<!-- Header================================================== -->
 <%@ include file="../common/header.jsp" %>
@@ -151,7 +151,7 @@
 								<c:if test="${loginMap.member_id != null && loginMap.member_id == commentList.comment_id}">		
 									<div class="post-right">
 <%-- 									<a href="updateForm.do?num=${gallery.num }" class="btn_1">수정</a> --%>
-									<a href="commentDelete.do?comment_number=${commentList.comment_number }" class="btn_1">삭제</a>
+									<a href="commentDelete.do?num=${gallery.num }&comment_number=${commentList.comment_number }" class="btn_1">삭제</a>
 									
 									</div>
 								</c:if>

@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         LIMIT #{pageStart}, #{perPageNum}
     </select>
     
-    <select id="selectGroupBoardList" resultType="Map">
+    <select id="selectGroupBoardList" resultType="HashMap">
     	SELECT
     		board_number,
     		board_title,
@@ -30,8 +30,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	FROM
     		bumoim.groupboard
     	WHERE
-    		grouplist_number = #{groupList_number}
+    		grouplist_number = #{groupNum}
     	ORDER BY board_number DESC
+    	 LIMIT #{boardCri.pageStart}, #{boardCri.perPageNum}
     </select>
     <insert id="insertBoard"  >
     	INSERT INTO bumoim.groupboard (

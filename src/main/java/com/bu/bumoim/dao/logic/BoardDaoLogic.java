@@ -1,5 +1,6 @@
 package com.bu.bumoim.dao.logic;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -20,8 +21,16 @@ public class BoardDaoLogic implements BoardDao{
 		return sqlSession.selectList("board.selectBoardList", cri);
 	}
 	
-	public List<Board> selectGroupBoardList(int groupList_number) {
-		return sqlSession.selectList("board.selectGroupBoardList", groupList_number);
+	public List<Board> selectGroupBoardList(int groupList_number, Criteria boardCri) {
+		
+
+		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		  
+        params.put("boardCri", boardCri);
+        params.put("groupNum", groupList_number);  
+
+		return sqlSession.selectList("board.selectGroupBoardList", params);
 	}
 
 	@Override
