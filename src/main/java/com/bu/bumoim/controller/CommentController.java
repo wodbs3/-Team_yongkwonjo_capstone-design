@@ -65,11 +65,11 @@ public class CommentController {
 	}
 	
 	@RequestMapping(value="/boardcommentDelete.do")
-	public String boardcommentDelete(Comment comment, int comment_number, int groupList_number) {
+	public String boardcommentDelete(Comment comment, int comment_number, int board_number) {
 		
 		commentService.boardDeleteComment(comment_number);
 		
-		return "redirect:/group/groupInfo.do?groupList_number="+ comment.getgroupList_number() +"#board";
+		return "redirect:boardDetail.do?groupList_number="+ comment_number;
 	}
 
 }

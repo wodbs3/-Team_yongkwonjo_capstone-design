@@ -124,7 +124,7 @@
 								<c:if test="${loginMap.member_id != null && loginMap.member_id == commentList.comment_id}">		
 									<div class="post-right">
 <%-- 									<a href="updateForm.do?num=${gallery.num }" class="btn_1">수정</a> --%>
-									<a href="commentDelete.do?comment_number=${commentList.comment_number }" class="btn_1">삭제</a>
+									<a href="boardcommentDelete.do?comment_number=${commentList.comment_number }"class="btn_1">삭제</a>
 									
 									</div>
 								</c:if>

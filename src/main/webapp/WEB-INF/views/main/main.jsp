@@ -287,23 +287,7 @@
 			</div>
 		</div>
 		<!-- END REVOLUTION SLIDER -->
-	<div class ="col-md-2 col-sm-6 col-md-offset-5">	
-		<h3><strong>오늘의 날씨</strong></h3>
-	</div>	
-	<div class="row">
-		<div class ="col-md-2 col-sm-6 col-md-offset-5">
-		<div class="tour_container">
-			<div class="tour_title">
-			<h4><strong><p class = "bg-info" id="chatLog" class="chat_log" readonly>
-	</p>
-	</strong>
-	</h4>
-	<img src="" id="img" />
-	자세한 날씨는<a href = "https://www.weather.go.kr/weather/main.jsp"> 여기</a>를 클릭하세요
-	</div>
-	</div>
-		</div>
-	</div>
+
 				<div class="row row--fluid-xs flex flex-equal flex-wrap">
 				<div class="col-md-4 col-sm-4 col-xs-12 marg-b-15 leftbox" >
 					<div class="boxed bg-color--white h-2">
@@ -395,13 +379,13 @@
 					<div class="tour_container">
 						<div class="tour_title">
 							<h3><strong>학교 위치</strong>
-								<a href="/map.do" class="btnMore pull-right">
+								<a href="/map/map.do" class="btnMore pull-right">
 								더보기
 								</a>
 							</h3>
 						</div>
 						<div class="img_container">
-							<a href="single_tour.html">
+							<a href="/map/map.do">
 								<img src="/resources/img/map.png" width="800" height="533" class="img-responsive" alt="image">
 							</a>
 						</div>
@@ -430,18 +414,24 @@
 		
 				</div>
 
-				<div class="col-md-12 col-sm-6 wow zoomIn" data-wow-delay="0.5s">
-					<div class="tour_container">
-						<div class="img_container">
-							<a href="introduce.do">
-								<img src="/resources/img/us.jpg" width="1200" height="533" class="img-responsive" alt="image">
-							</a>
-						</div>
-					</div>
-				
-				</div>
-							
-						</div>
+	<div class ="col-md-2 col-sm-6 col-md-offset-5">	
+		
+		<h3><strong>오늘의 날씨</strong></h3>
+	</div>	
+	<div class="row">
+		<div class ="col-md-2 col-sm-6 col-md-offset-5">
+		<div class="tour_container">
+			<div class="tour_title">
+			<h4><strong><p class = "bg-info" id="chatLog" class="chat_log" readonly>
+	</p>
+	</strong>
+	</h4>
+	<img src="" id="img" />
+	자세한 날씨는<a href = "https://www.weather.go.kr/weather/main.jsp"> 여기</a>를 클릭하세요
+	</div>
+	</div>
+		</div>
+	</div>
 
 			<!-- End row -->
 			<p class="text-center add_bottom_30">
