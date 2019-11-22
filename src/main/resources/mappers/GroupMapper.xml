@@ -83,26 +83,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <update id="updateMemberGroup" parameterType="hashmap">
 		UPDATE 
 			bumoim.member
-		<trim prefix="SET" suffixOverrides=",">
-         <if test='member_group1 != null and member_group1.!equlas("")'>
-            <if test='member_group2 != null and member_group2.!equlas("")'>
-               <if test='member_group3 eq null or member_group3.equals("")'>
-                  member_group3 = #{groupList_number},
-               </if>
-            </if>
-            <if test='member_group2 eq null or member_group2.equals("")'>
-               member_group2 = #{groupList_number},            
-            </if>      
-         </if>   
-         <if test='member_group1 eq null or member_group1.equals("")'>
-            member_group1 = #{groupList_number}
-         </if>
-         
-      </trim>   
-      WHERE
-       member_id = #{member_id}
-      
-		
+		<set>
+		<choose>
+			<when test="member_group1 == null">
+				member_group1 = #{groupList_number},
+			</when>
+			<when test="member_group1 != null">
+				member_group2 = #{groupList_number},
+			</when>
+			<otherwise>
+				member_group3 = #{groupList_number}
+			</otherwise>
+		</choose>
+<!-- 			<if test="member_group1 == null"> -->
+<!-- 				member_group1 = #{groupList_number}, -->
+<!-- 			</if> -->
+<!-- 			<if test="member_group1 != null"> -->
+<!-- 				member_group2 = #{groupList_number}, -->
+<!-- 			</if> -->
+<!-- 			<if test="member_group1 != null and member_group2 != null"> -->
+<!-- 				member_group3 = #{groupList_number} -->
+<!-- 			</if> -->
+		</set>
+	      WHERE
+    	   member_id = #{member_id}
 	</update>
 	
 </mapper>
