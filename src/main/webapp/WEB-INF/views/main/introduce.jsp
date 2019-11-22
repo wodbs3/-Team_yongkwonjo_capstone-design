@@ -9,7 +9,7 @@
 <html lang="UTF-8">
 <head>
 	<link rel="stylesheet" href="/resources/css/bootstrap.css">
-	<title>GroupList</title>
+	<title>웹페이지 소개</title>
 		
 	    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Lato:300,400|Montserrat:400,400i,700,700i" rel="stylesheet">
 
@@ -81,8 +81,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-			<h3><strong>안녕하세요 BUMOIM 웹페이지를 제작한 용권조 입니다.환영합니다! 
-			고객님들은 지금껏 만나보지 못했던 모임 홈페이지를 경험하게 될것입니다.아르르르르르르ㅡㄹ르르르르ㅡ르르
+			<h3><strong>안녕하세요 BUMOIM 웹페이지를 제작한 용권조 입니다. 환영합니다!
+			그룹 정보에 들어가 그룹을 생성 하시고 새로운 사람들과 특별한 인연을 맺길 기원합니다. 
 			</strong></h3>
 			<br><br><br>
 			</div>

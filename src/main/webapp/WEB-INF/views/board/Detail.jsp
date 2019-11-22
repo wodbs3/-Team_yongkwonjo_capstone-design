@@ -9,7 +9,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="/resources/css/bootstrap.css">
-	<title>BoardDetail</title>
+	<title>상세보기</title>
 	
 	    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Lato:300,400|Montserrat:400,400i,700,700i" rel="stylesheet">
 
@@ -58,6 +58,8 @@
                     <tr>
                     	<th style = "width : 10%; font-size: 18px;" scope="row">글 번호</th> 
                     	<td>${Board.board_number }</td> 
+                    	<th style = "width : 10%; font-size: 18px;" scope="row">조회수</th>
+                    	<td>${Board.board_count }</td>
                     </tr>
                     <tr>
                     	<th style = "width : 10%; font-size: 18px;" scope="row">작성자</th> 
@@ -81,7 +83,7 @@
                 	
                 	<c:if test="${loginMap.member_id eq Board.board_writer}">
                 	<a href="${pageContext.request.contextPath}/boardUpdate.do?groupList_number=${Board.groupList_number}&board_number=${Board.board_number}" class="btn btn-success" style="padding:10px">수정</a>
-                    <a href="${pageContext.request.contextPath}/boardDelete.do?board_number=${Board.board_number}" class="btn btn-danger" style="padding:10px">삭제</a>
+                    <a href="${pageContext.request.contextPath}/boardDelete.do?groupList_number=${Board.groupList_number}&board_number=${Board.board_number}" class="btn btn-danger" style="padding:10px">삭제</a>
                 	</c:if>
                 		
                 	   <input type="button" value="목록" onClick='goBack()' class="btn btn-success" style="padding:10px"/>

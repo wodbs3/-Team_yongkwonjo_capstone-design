@@ -13,11 +13,16 @@ import com.bu.bumoim.paging.Criteria;
 @Repository
 public class BoardDaoLogic implements BoardDao{
 
+	private static String namespace = "board";
 	@Autowired
 	private SqlSession sqlSession;
 	
 	public List<Board> selectBoardList(Criteria cri){
 		return sqlSession.selectList("board.selectBoardList", cri);
+	}
+	
+	public Board read(int board_number) throws Exception {
+		return sqlSession.selectOne(namespace +".read", board_number);
 	}
 	
 	public List<Board> selectGroupBoardList(int groupList_number) {
@@ -47,5 +52,10 @@ public class BoardDaoLogic implements BoardDao{
 	@Override
 	public int selectgetCount(int board_number) {
 		return sqlSession.selectOne("board.selectgetCount", board_number);
+	}
+	
+	@Override
+	public void boardCount(int board_number) throws Exception {
+		sqlSession.update(namespace + ".boardCount", board_number);
 	}
 }

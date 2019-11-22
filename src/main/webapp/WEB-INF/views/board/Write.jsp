@@ -8,7 +8,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="/resources/css/bootstrap.css">
-	<title>BoardWrite</title>
+	<title>글쓰기</title>
 	
 	    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Lato:300,400|Montserrat:400,400i,700,700i" rel="stylesheet">
 

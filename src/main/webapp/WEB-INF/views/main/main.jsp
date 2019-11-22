@@ -371,14 +371,14 @@
 				<div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
 					<div class="tour_container">
 						<div class="tour_title">
-							<h3><strong>그룹 정보</strong>
+							<h3><strong>그룹 생성</strong>
 								<a href="/group/GroupList.do" class="btnMore pull-right">
 								더보기
 								</a>
 							</h3>
 						</div>
 						<div class="img_container">
-							<a href="/group/GroupList.do">
+							<a href="/group/GroupCreate.do">
 								<img src="/resources/img/group.jpg" width="800" height="533" class="img-responsive" alt="image">
 							</a>
 						</div>
@@ -432,14 +432,12 @@
 				<div class="col-md-6 col-sm-6 wow zoomIn" data-wow-delay="0.4s">
 					<div class="tour_container">
 						<div class="tour_title">
-							<h3><strong>학교 위치</strong>
-								<a href="/map.do" class="btnMore pull-right">
-								더보기
-								</a>
+							<h3><strong>위치 찾기</strong>
+							
 							</h3>
 						</div>
 						<div class="img_container">
-							<a href="single_tour.html">
+							<a href="/map/map.do">
 								<img src="/resources/img/map.png" width="800" height="533" class="img-responsive" alt="image">
 							</a>
 						</div>

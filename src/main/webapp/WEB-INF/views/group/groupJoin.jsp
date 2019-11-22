@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     
 		
-		<title>BUmoim GroupCreate</title>
+		<title>그룹 생성</title>
 			
 		<style type="text/css">
 			div #emailOk {

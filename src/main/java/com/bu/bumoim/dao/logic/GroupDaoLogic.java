@@ -61,4 +61,9 @@ public class GroupDaoLogic implements GroupDao {
 		
 		sqlSession.update("group.updateMemberGroup", params);
 	}
+	
+	@Override
+	public int getcount(int groupList_number) {
+		return sqlSession.selectOne("group.groupPeopleCount", groupList_number);
+	}
 }

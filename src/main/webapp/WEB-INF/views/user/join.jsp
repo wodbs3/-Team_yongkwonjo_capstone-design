@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     
 		
-		<title>BUmoim join</title>
+		<title>회원가입</title>
 			
 		<style type="text/css">
 			div #emailOk {

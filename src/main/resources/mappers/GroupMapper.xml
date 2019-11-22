@@ -53,6 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM bumoim.grouplist
 		WHERE grouplist_number = #{grouplist_number}
 	</select>
+	
 		
 	<select id="memberIdCheck" resultType="com.bu.bumoim.domain.Member" >
 		SELECT member_id, member_name, member_group1, member_group2, member_group3
@@ -69,6 +70,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			member_major as member_department
 		FROM member
 		WHERE member_group1 = #{grouplist_number} || member_group2 = #{grouplist_number} || member_group3 = #{grouplist_number}
+	</select>
+	
+	<select id="groupPeopleCount" resultType="int">
+		SELECT count(*)
+		FROM member
+		WHERE member_group1 = #{grouplist_number} || member_group2 = #{grouplist_number} || member_group3 = #{grouplist_number};
+	
 	</select>
 	    
     <update id="updateMemberGroup" parameterType="hashmap">
