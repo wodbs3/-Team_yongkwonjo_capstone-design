@@ -36,7 +36,9 @@
     </style>
 </head>
 <body>
+
 <%@ include file="../common/header.jsp" %>
+
 	<section class="parallax-window" data-parallax="scroll"
 		data-image-src="img/header_bg.jpg" data-natural-width="1400"
 		data-natural-height="470">

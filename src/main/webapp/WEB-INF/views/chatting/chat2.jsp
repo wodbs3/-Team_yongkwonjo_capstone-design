@@ -68,6 +68,7 @@
 			if(event.keyCode == 13) sendPub();
 		});
 	});
+	
 </script>
 
 <script type="text/javascript">

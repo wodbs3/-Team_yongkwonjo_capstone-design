@@ -186,6 +186,9 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 								<li class="nav-item"><a class="nav-link" id="member-tab"
 									data-toggle="tab" role="tab" href="#member"
 									aria-controls="member" aria-selected="false">모임회원</a></li>
+								<li class="nav-item"><a class="nav-link" id="somoim-tab"
+									data-toggle="tab" role="tab" href="#somoim"
+									aria-controls="somoim" aria-selected="false">소모임</a></li>
 							</ul>
 							<div class="tab-content fouc" id="myTabContent">
 
@@ -251,8 +254,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 
 
 								<!-- START group GALLERY TAB -->
-								<div class="tab-pane fade" id="gallery" role="tabpanel"
-									aria-labelledby="gallery-tab">
+								<div class="tab-pane fade" id="gallery" role="tabpanel" aria-labelledby="gallery-tab">
 
 									<hr>
 									<div class="text-right">
@@ -371,10 +373,6 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 														<div class="col-md-6">
 															<b>이름&nbsp;:&nbsp;</b><c:out value="${groupMemberList.member_name }"></c:out>
 														</div>
-														<%-- <h5><b>회원ID</b></h5><c:out value="${groupMemberList.member_id }"></c:out>
-														<h5><b>학부</b></h5><c:out value="${groupMemberList.member_department }"></c:out>
-														<h5><b>회번</b></h5><c:out value="${groupMemberList.member_studentId }"></c:out>
-														<h5><b>이름</b></h5><c:out value="${groupMemberList.member_name }"></c:out> --%>
 													</td>
 												</tr>
 											</tbody>
@@ -383,6 +381,65 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 								</div>
 								<!-- END group MEMBER TAB -->
 
+
+
+								<!-- START group SOMOIM TAB -->
+								<div class="tab-pane fade" id="somoim" role="tabpanel" aria-labelledby="somoim-tab">
+									<!-- <table class="table table-striped options_cart"> -->
+									<div class ="main-title">
+										<table class="table table-striped table-hover">
+											<thead>
+												<tr>
+													<th>번호</th>
+													<th>소모임명</th>
+													<th>개설일</th>
+													<th>개설자</th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach var="smallGroupList" items="${smallGroupList }" varStatus="status">
+													<tr>
+														<td><c:out value="${smallGroupList.somoim_number }"/></td>
+														<td><a href="${pageContext.request.contextPath }/somoimDetail.do?groupList_number=${groupDetail.grouplist_number}&somoim_number=${smallGroupList.somoim_number }#mapView"><c:out value="${smallGroupList.somoim_name }"/></a></td>
+														<td><c:out value="${smallGroupList.somoim_name }"/></td>
+														<td><c:out value="${loginMap.member_name }"/></td>
+													</tr>
+												</c:forEach>
+											</tbody>
+										</table>
+										<div style = "text-align: right;">           
+											<a href='#' onclick="javascript:goCreateSomoim();" class="btn btn-success">개설하기</a>
+										</div>
+									</div>
+									<div class="text-center">
+										<ul class="pagination">
+											<c:if test="${boardPageMaker.prev }">
+												<li><a
+													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&boardPage=${boardPageMaker.startPage-1 }#board"/>'>
+														Previous </a>
+												</li>
+											</c:if>
+											<c:forEach begin="${boardPageMaker.startPage }"
+												end="${boardPageMaker.endPage }" var="idx" varStatus="status">
+										
+												<li><a id="boardPage" name="boardPage" 
+													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&boardPage=${idx }#board"/>'>
+													
+													<i class="fa">${idx }</i>
+													</a>
+												</li>
+											</c:forEach>
+											<c:if test="${boardPageMaker.next && boardPageMaker.endPage > 0 }">
+												<li><a
+													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&boardPage=${boardPageMaker.endPage+1 }#board"/>'>
+														Next </a>
+												</li>
+											</c:if>
+										</ul>
+									</div>
+									<!-- </table> -->
+								</div>
+								<!-- END group SOMOIM TAB -->
 
 							</div>
 						</div>
@@ -446,11 +503,11 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
  		$(function(){
  		 var sBtn = $("ul > li");    //  ul > li 이를 sBtn으로 칭한다. (클릭이벤트는 li에 적용 된다.)
  		
-		 sBtn.find("a").click(function(${idx}){   // sBtn에 속해 있는  a 찾아 클릭 하면.
-//   		 sBtn.removeClass("active");     // sBtn 속에 (active) 클래스를 삭제 한다.
-  		 $(this).parent().addClass("active"); // 클릭한 a에 (active)클래스를 넣는다.
-				
-  		});
+			 sBtn.find("a").click(function(${idx}){   // sBtn에 속해 있는  a 찾아 클릭 하면.
+	//   		 sBtn.removeClass("active");     // sBtn 속에 (active) 클래스를 삭제 한다.
+	  		 $(this).parent().addClass("active"); // 클릭한 a에 (active)클래스를 넣는다.
+					
+	  		});
 			
  		});
 </script>
@@ -479,6 +536,11 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 		
 	}
 
+	function goCreateSomoim() {
+		location.href="/smallGroup.do"
+	}
+	
+	
 	$(document).on('click', '#btnSearch', function(e){
 	   e.preventDefault();
 	   var url = "${requestScope['javax.servlet.forward.servlet_path']}";

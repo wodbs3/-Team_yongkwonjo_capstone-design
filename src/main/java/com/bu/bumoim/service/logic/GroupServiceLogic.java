@@ -11,10 +11,14 @@ import com.bu.bumoim.domain.Member;
 import com.bu.bumoim.paging.Criteria;
 import com.bu.bumoim.service.GroupService;
 
+import org.apache.log4j.Logger;
+
 @Service
 public class GroupServiceLogic implements GroupService{
+	//
+	private Logger logger = Logger.getLogger(getClass());
    
-   @Autowired
+	@Autowired
    private GroupDao groupDao;
    
    @Override
@@ -29,6 +33,8 @@ public class GroupServiceLogic implements GroupService{
    
    @Override
    public GroupList groupDuplicationCheck(String grouplist_name) {
+	   System.out.println("%%%%%%%%%%%%%%%%%%%%%%%");
+	   logger.info("grouplist_name + " + grouplist_name);
 	   return groupDao.groupDuplicationCheck(grouplist_name);
    }
    
