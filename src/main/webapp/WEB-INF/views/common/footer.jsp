@@ -16,21 +16,21 @@
 	<!-- Favicons-->
 	<link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon">
 	<link rel="apple-touch-icon" type="image/x-icon" href="/resources/img/apple-touch-icon-57x57-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="/resources/img/apple-touch-icon-72x72-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="/resources/img/apple-touch-icon-114x114-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="/resources/img/apple-touch-icon-144x144-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="${pageContext.request.contextPath }/resources/img/apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="${pageContext.request.contextPath }/resources/img/apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="${pageContext.request.contextPath }/resources/img/apple-touch-icon-144x144-precomposed.png">
 	
-	<link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/bootstrap/css/bootstrap.css" type="text/css" media="screen" />
 	
 	<!-- Google web fonts -->
     <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Lato:300,400|Montserrat:400,400i,700,700i" rel="stylesheet">
 
 	<!-- BASE CSS -->
-	<link href="resources/css/base.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/resources/css/base.css" rel="stylesheet">
 
 	<!-- REVOLUTION SLIDER CSS -->
-	<link href="resources/rs-plugin/css/settings.css" rel="stylesheet">
-	<link href="resources/css/extralayers.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/resources/rs-plugin/css/settings.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/resources/css/extralayers.css" rel="stylesheet">
 	
 	</head>
 	
@@ -106,17 +106,17 @@
 	</div><!-- End Search Menu -->
 
 	<!-- Common scripts -->
-	<script src="/resources/js/jquery-2.2.4.min.js"></script>
-	<script src="/resources/js/common_scripts_min.js"></script>
-	<script src="/resources/js/functions.js"></script>
-	<script type="text/javascript" src="/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-2.2.4.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/common_scripts_min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/functions.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/resources/bootstrap/js/bootstrap.min.js"></script>
 	<!-- Specific scripts: validation for the footer newsletter -->
-	<script src="resources/assets/validate.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/assets/validate.js"></script>
 
 	<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
-	<script src="/resources/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-	<script src="/resources/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-	<script src="/resources/js/revolution_func.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/revolution_func.js"></script>
     
 </body>
 

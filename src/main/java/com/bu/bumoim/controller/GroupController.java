@@ -119,7 +119,7 @@ public class GroupController {
 		logger.info(galleryList.toString());
 		
 		//寃뚯떆�뙋
-		List<Board> boardList = boardService.selectGroupBoardList(groupList_number);
+		List<Board> boardList = boardService.selectGroupBoardList(groupList_number, boardCri);
 		GroupList groupDetail = groupService.findGroupDetail(groupList_number);
 		
 		//紐⑥엫�쉶�썝

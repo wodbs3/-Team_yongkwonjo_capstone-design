@@ -37,10 +37,10 @@
 	rel="stylesheet">
 
 <!-- CSS -->
-<link href="/resources/css/base.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/resources/css/base.css" rel="stylesheet">
 
 <!-- Radio and check inputs -->
-<link href="/resources/css/skins/square/grey.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/resources/css/skins/square/grey.css" rel="stylesheet">
 
 <style type="text/css">
 img {
@@ -419,11 +419,11 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 	<!-- End Search Menu -->
 
 	<!-- Jquery -->
-	<script src="/resources/js/jquery-2.2.4.min.js"></script>
-	<script src="/resources/js/common_scripts_min.js"></script>
-	<script src="/resources/js/functions.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-2.2.4.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/common_scripts_min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/functions.js"></script>
 
-	<script src="/resources/js/icheck.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/icheck.js"></script>
 	
 	<script>
 		$('input').iCheck({
@@ -433,7 +433,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 	</script>
 
 	<!-- Fixed sidebar -->
-	<script src="/resources/js/theia-sticky-sidebar.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/theia-sticky-sidebar.js"></script>
 	
 	<script>
 		jQuery('#sidebar').theiaStickySidebar({

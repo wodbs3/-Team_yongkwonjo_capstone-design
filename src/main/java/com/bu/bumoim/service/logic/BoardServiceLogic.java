@@ -26,8 +26,8 @@ public class BoardServiceLogic implements BoardService {
 	}
 	
 	@Override
-	public List<Board> selectGroupBoardList(int groupList_number) {
-		return boarddao.selectGroupBoardList(groupList_number);
+	public List<Board> selectGroupBoardList(int groupList_number, Criteria boardCri) {
+		return boarddao.selectGroupBoardList(groupList_number, boardCri);
 	}
 	
  	@Override 
