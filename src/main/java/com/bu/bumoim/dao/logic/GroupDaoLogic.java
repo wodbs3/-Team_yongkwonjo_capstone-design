@@ -44,10 +44,6 @@ public class GroupDaoLogic implements GroupDao {
 	}
 	
 	@Override
-	public int getCount(int groupList_number) {
-		return sqlSession.selectOne("group.selectMemberCount", groupList_number);
-	}
-	@Override
 	public void groupJoin(int groupList_number, String member_id) {
 		//
 		System.out.println("777777777777777777777777777777777777777");
