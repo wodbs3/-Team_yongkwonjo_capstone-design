@@ -396,6 +396,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 													<th>개설자</th>
 												</tr>
 											</thead>
+											
 											<tbody>
 												<c:forEach var="smallGroupList" items="${smallGroupList }" varStatus="status">
 													<tr>
@@ -537,7 +538,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 	}
 
 	function goCreateSomoim() {
-		location.href="/smallGroup.do"
+		location.href="/smallGroup.do?groupList_number=${groupDetail.grouplist_number}";
 	}
 	
 	
