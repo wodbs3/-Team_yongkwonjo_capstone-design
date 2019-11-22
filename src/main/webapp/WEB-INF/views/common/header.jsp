@@ -68,15 +68,7 @@
                         <ul>
                             <li class="submenu">
                                 <a href="${pageContext.request.contextPath }/introduce.do" class="show-submenu">Introduce<i class="icon-down-oepn-mini"></i></a>
-                                <ul>
-                                	<li>
-                                		<a href="${pageContext.request.contextPath}/introduce.do">Our Introduce</a>
-                                	</li>
-                                	<li>
-                                		<a href="${pageContext.request.contextPath}/location.do">Location</a>
-                                	</li>
-                                	
-                                </ul>
+                   
                             </li>
                             <li class="submenu">
                                 <a href="${pageContext.request.contextPath }/group/GroupList.do" class="show-submenu">GroupList </a>
@@ -86,7 +78,7 @@
                             	<a href="${pageContext.request.contextPath }/chat2.do" class="show-submenu">Chatting</a>
                             </li>
                              <li class="submenu">
-                            	<a href="${pageContext.request.contextPath }/group/GroupList.do" class="show-submenu">Calendar</a>
+                            	<a href="${pageContext.request.contextPath }/calendar.do" class="show-submenu">Calendar</a>
                             </li>
                         </ul>
                     </div><!-- End main-menu -->

@@ -11,7 +11,7 @@ public interface BoardService {
 	List<Board> selectGroupBoardList(int groupList_number, Criteria boardCri);
 	
 	public Board detailBoard(int board_number) throws Exception;
-
+	
 	public int insertBoard(Board board);
     
 	public int deleteBoard(int board_number) throws Exception;
@@ -19,4 +19,8 @@ public interface BoardService {
 	public int updateBoard(Board board) throws Exception; 
 	
 	public int selectgetCount(int board_number);
+
+	Board read(int board_number) throws Exception;
+	
+	void boardCount(int board_number) throws Exception;
 }

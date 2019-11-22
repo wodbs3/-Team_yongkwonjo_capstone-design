@@ -17,7 +17,9 @@ public interface GroupDao {
 
    public List<Member> getGroupMemberList(int groupList_number); // 그룹 모임 회원
 
-   public void groupJoin(int groupList_number, String member_id);	// 그룹 가입
+
+   public void groupJoin(int groupList_number, String member_id);	// 그룹 가입\
    
-   public int getCount(int groupList_number);
+   public int getcount(int groupList_number);
+    
 }

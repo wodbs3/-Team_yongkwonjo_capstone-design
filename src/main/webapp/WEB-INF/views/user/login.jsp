@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <meta charset="UTF-8">
-<title>BUSomoim</title>
+<title>로그인</title>
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>

@@ -32,4 +32,8 @@ public interface BoardDao {
  
     public int selectgetCount(int board_nunber);
 
+	public Board read(int board_number) throws Exception;
+
+	public void boardCount(int board_number) throws Exception;
+
 }

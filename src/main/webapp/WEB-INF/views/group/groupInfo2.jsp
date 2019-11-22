@@ -16,8 +16,7 @@
 <meta name="description"
 	content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
 <meta name="author" content="Ansonika">
-<title>CITY TOURS - City tours and travel site template by
-	Ansonika</title>
+<title>그룹정보</title>
 
 <link rel="stylesheet" href="/resources/css/bootstrap.css">
 <!-- Favicons-->
@@ -138,7 +137,8 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 						<hr>
 						<div class="form-inline">
 							<p>키워드 ${groupDetail.grouplist_interest}</p>
-							<p>${memberCount} / ${groupDetail.grouplist_people} (현재원 / 총원)</p>
+
+							<p>${groupPeopleCount } / ${groupDetail.grouplist_people} (현재원 / 총원)</p>
 						</div>
 						<p>생성일 ${groupDetail.grouplist_date}</p>
 						<hr>
@@ -203,6 +203,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 														<th>내용</th>
 														<th>작성자</th>
 														<th>날짜</th>
+														<th>조회수</th>
 													</tr>
 												</thead>
 											<tbody>
@@ -213,6 +214,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 															<td><c:out value="${boardList.board_content }"/></td>
 															<td><c:out value="${boardList.board_writer }"/></td>
 															<td><c:out value="${boardList.board_date }"/></td>
+															<td><span class="badge bg-red">${boardList.board_count }</span></td>
 														</tr>
 													</c:forEach>
 												</tbody>
@@ -474,6 +476,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 	
 	function goGroupJogin() {
 		location.href="/group/groupJoin.do?groupList_number=${groupDetail.grouplist_number}&member_id=${loginMap.member_id}";
+		
 	}
 
 	$(document).on('click', '#btnSearch', function(e){

@@ -8,6 +8,7 @@ bo<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="UTF-8">
 <head>
+
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css">
 	<title>BoardList</title>
 		
@@ -35,6 +36,7 @@ bo<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="
                     <th>내용 미리보기</th>
                     <th>작성자</th>
                     <th>날짜</th>
+                    <th>조회수</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,6 +49,7 @@ bo<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="
                         <td><c:out value="${Board.board_content }"/></td>
                         <td><c:out value="${Board.board_writer }"/></td>
                         <td><c:out value="${Board.board_date }"/></td>
+                        <td><c:out value="${Board.board_count }"/></td>
                         <td></td>
                     </tr>
                 </c:forEach>

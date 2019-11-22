@@ -54,10 +54,12 @@ public class GroupController {
 	String uploadPath;
 	
 	@RequestMapping(value="/GroupList.do")
-	public ModelAndView grouplist(GroupList grouplist, String member_id, Model model,@ModelAttribute("cri") Criteria cri) {
+	public ModelAndView grouplist(GroupList grouplist, String member_id,  Model model,@ModelAttribute("cri") Criteria cri) {
 		//
 		List<GroupList> list = groupService.selectGroupList(cri);
 		List<Member> memberList = userService.getMemberList(member_id);
+		
+		
 		
 		ModelAndView mav = new ModelAndView("group/grouplist");
 		
@@ -68,6 +70,7 @@ public class GroupController {
 		mav.addObject("GroupList", list);
 		mav.addObject("memberList", memberList);
 		mav.addObject("pageMaker", pageMaker);
+	
 		
 		return mav;
 	}
@@ -108,7 +111,7 @@ public class GroupController {
 
 	// 洹몃９ => 洹몃９�젙蹂�
 	@RequestMapping(value = "/groupInfo.do", method=RequestMethod.GET)
-	public String groupInfoView(int groupList_number, Model model, @ModelAttribute("cri") GalleryCriteria cri, @ModelAttribute("boardCri") Criteria boardCri) {
+	public String groupInfoView(int groupList_number, GroupList grouplist, Model model, @ModelAttribute("cri") GalleryCriteria cri, @ModelAttribute("boardCri") Criteria boardCri) {
 		//媛ㅻ윭由�
 		
 		
@@ -123,7 +126,8 @@ public class GroupController {
 		List<Member> groupMemberList = groupService.getGroupMemberList(groupList_number);
 		logger.info(groupMemberList.toString());
 		
-		int memberCount = groupService.getCount(groupList_number);
+
+		int groupPeopleCount = groupService.getcount(groupList_number);
 		
 		PageMaker boardPageMaker = new PageMaker();
 		boardPageMaker.setCri(boardCri);
@@ -134,17 +138,16 @@ public class GroupController {
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(100);
 		
-		model.addAttribute("memberCount", memberCount);
-		logger.info("###############################");
-		logger.info("memberCount : " + memberCount);
-		logger.info("#####################################");
 		model.addAttribute("groupDetail", groupDetail);
 		model.addAttribute("galleryList", galleryList);
 		model.addAttribute("boardList", boardList);
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("boardPageMaker", boardPageMaker);
 		model.addAttribute("groupMemberList" , groupMemberList);
-		
+		model.addAttribute("groupPeopleCount", groupPeopleCount);
+		logger.info("#########################################");
+		logger.info("groupPeopleCount == " + groupPeopleCount);
+		logger.info("#########################################");
 		return "group/groupInfo2";
 	}
 	

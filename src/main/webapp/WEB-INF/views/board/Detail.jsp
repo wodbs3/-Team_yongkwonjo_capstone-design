@@ -8,6 +8,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css">
 	<title>BoardDetail</title>
 	
@@ -58,6 +59,8 @@
                     <tr>
                     	<th style = "width : 10%; font-size: 18px;" scope="row">글 번호</th> 
                     	<td>${Board.board_number }</td> 
+                    	<th style = "width : 10%; font-size: 18px;" scope="row">조회수</th>
+                    	<td>${Board.board_count }</td>
                     </tr>
                     <tr>
                     	<th style = "width : 10%; font-size: 18px;" scope="row">작성자</th> 

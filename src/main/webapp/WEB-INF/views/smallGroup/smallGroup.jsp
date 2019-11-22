@@ -16,8 +16,7 @@
 <meta name="description"
 	content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
 <meta name="author" content="Ansonika">
-<title>CITY TOURS - City tours and travel site template by
-	Ansonika</title>
+<title>소모임</title>
 
 <link rel="stylesheet" href="/resources/css/bootstrap.css">
 <!-- Favicons-->
