@@ -14,7 +14,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			smallgroup_people,
 			smallgroup_date,
 			smallgroup_latitude,
-			smallgroup_longitude
+			smallgroup_longitude,
+			grouplist_number
 		)
 		VALUES (
 			#{somoim_name},
@@ -24,7 +25,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{somoim_people},
 			#{somoim_date},
 			#{somoim_latitude},
-			#{somoim_longitude}
+			#{somoim_longitude},
+			#{groupList_number}
 		)
 	</insert>
 	

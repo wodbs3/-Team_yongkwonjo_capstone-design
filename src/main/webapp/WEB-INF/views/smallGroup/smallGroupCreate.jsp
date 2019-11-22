@@ -191,6 +191,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 	<!-- Join Button -->
 			<div>
 				<div class="col-md-offset-4 col-md-4">
+					<input type="hidden" value="${groupDetail.grouplist_number}"/>
 					<button type="submit" class="col-xs-12 btn btn-default" id="submit" >생성하기</button>
 				</div>
 			</div>

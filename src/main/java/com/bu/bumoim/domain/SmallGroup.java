@@ -11,7 +11,7 @@ public class SmallGroup {
 	private String somoim_date;
 	private String somoim_latitude;
 	private String somoim_longitude;
-	private int groupList_number;
+	private int grouplist_number;
 	
 	@Override
 	public String toString() {
@@ -23,7 +23,7 @@ public class SmallGroup {
 		builder.append(", somoim_place: ").append(somoim_place);
 		builder.append(", somoim_map: ").append(somoim_map);
 		builder.append(", somoim_price: ").append(somoim_price);
-		builder.append(", groupList_number: ").append(groupList_number);
+		builder.append(", grouplist_number: ").append(grouplist_number);
 		
 		return builder.toString();
 	}
@@ -83,9 +83,9 @@ public class SmallGroup {
 		this.somoim_longitude = somoim_longitude;
 	}
 	public int getGroupList_number() {
-		return groupList_number;
+		return grouplist_number;
 	}
-	public void setGroupList_number(int groupList_number) {
-		this.groupList_number = groupList_number;
+	public void setGroupList_number(int grouplist_number) {
+		this.grouplist_number = grouplist_number;
 	}
 }
