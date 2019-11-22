@@ -22,12 +22,11 @@ public class BoardDaoLogic implements BoardDao{
 		return sqlSession.selectList("board.selectBoardList", cri);
 	}
 	
-<<<<<<< HEAD
 	public Board read(int board_number) throws Exception {
 		return sqlSession.selectOne(namespace +".read", board_number);
 	}
 	
-	public List<Board> selectGroupBoardList(int groupList_number) {
+	public List<Board> selectGroupBoardList(int groupList_number, Criteria boardCri) {
 		
 
 		
