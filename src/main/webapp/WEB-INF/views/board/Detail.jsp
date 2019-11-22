@@ -81,7 +81,7 @@
                 	
                 	<c:if test="${loginMap.member_id eq Board.board_writer}">
                 	<a href="${pageContext.request.contextPath}/boardUpdate.do?groupList_number=${Board.groupList_number}&board_number=${Board.board_number}" class="btn btn-success" style="padding:10px">수정</a>
-                    <a href="${pageContext.request.contextPath}/boardDelete.do?board_number=${Board.board_number}" class="btn btn-danger" style="padding:10px">삭제</a>
+                    <a href="${pageContext.request.contextPath}/boardDelete.do?groupList_number=${Board.groupList_number}&board_number=${Board.board_number}" class="btn btn-danger" style="padding:10px">삭제</a>
                 	</c:if>
                 		
                 	   <input type="button" value="목록" onClick='goBack()' class="btn btn-success" style="padding:10px"/>

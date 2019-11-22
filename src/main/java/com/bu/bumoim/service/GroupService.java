@@ -19,4 +19,6 @@ public interface GroupService {
    public List<Member> getGroupMemberList(int groupList_number); // 그룹 모임회원
 
    public void groupJoin(int groupList_number, String member_id);	// 그룹 가입
+   
+   public int getCount(int groupList_number);
 }

@@ -102,7 +102,7 @@
 				<br>
 				
 					<select class="form-control" id="grouplist_people" name="grouplist_people">
-						<option value=" selected">정원</option>
+						<option value="selected">정원</option>
 						<option>20</option>
 						<option>40</option>
 						<option>60</option>

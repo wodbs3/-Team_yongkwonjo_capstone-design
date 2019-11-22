@@ -58,8 +58,8 @@
                         <h4 class="modal-title"></h4>
                     </div>
                     <div class="modal-body">
-						
-						<div class="row">
+                  
+                  <div class="row">
                             <div class="col-xs-12">
                                 <label class="col-xs-4" for="member_id">작성자</label>
                                 <input type="text" id="member_id" name="member_id" value="${loginMap.member_id }" /></h5>
@@ -150,44 +150,44 @@
     <script src="/resources/js/etcSetting.js"></script>
 <%--    <%@ include file="../common/footer.jsp" %> --%>
 <script>
-	$(document).ready(function() {
-		fn_get_events();
-	});
+   $(document).ready(function() {
+      fn_get_events();
+   });
 
-	function fn_set_calendar(events){
-		$('#calendar').fullCalendar({
-			events: events, 	
-			header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,agendaWeek,agendaDay'
-			},
-			editable: true,
-			droppable: true, // this allows things to be dropped onto the calendar
-			drop: function() {
-				// is the "remove after drop" checkbox checked?
-				if ($('#drop-remove').is(':checked')) {
-				  // if so, remove the element from the "Draggable Events" list
-				  $(this).remove();
-				}
-			}
-		});
-	}
-		
-	function fn_get_events()
-	{
-		 $.ajax({
-		      type: "get",
-		      url: "calTest.do",
-		      data: {
-		        // 실제 사용시, 날짜를 전달해 일정기간 데이터만 받아오기를 권장
-		    	  "member_id": $('#member_id').val()
-		      },
-		      success: function(map){
-		    	  fn_set_calendar(map);
-		      }
-		}); 
-	}
+   function fn_set_calendar(events){
+      $('#calendar').fullCalendar({
+         events: events,    
+         header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+         },
+         editable: true,
+         droppable: true, // this allows things to be dropped onto the calendar
+         drop: function() {
+            // is the "remove after drop" checkbox checked?
+            if ($('#drop-remove').is(':checked')) {
+              // if so, remove the element from the "Draggable Events" list
+              $(this).remove();
+            }
+         }
+      });
+   }
+      
+   function fn_get_events()
+   {
+       $.ajax({
+            type: "get",
+            url: "calTest.do",
+            data: {
+              // 실제 사용시, 날짜를 전달해 일정기간 데이터만 받아오기를 권장
+               "member_id": $('#member_id').val()
+            },
+            success: function(map){
+               fn_set_calendar(map);
+            }
+      }); 
+   }
 </script>
 </body>
 

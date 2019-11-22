@@ -138,7 +138,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 						<hr>
 						<div class="form-inline">
 							<p>키워드 ${groupDetail.grouplist_interest}</p>
-							<p>7 / ${groupDetail.grouplist_people} (현재원 / 총원)</p>
+							<p>${memberCount} / ${groupDetail.grouplist_people} (현재원 / 총원)</p>
 						</div>
 						<p>생성일 ${groupDetail.grouplist_date}</p>
 						<hr>

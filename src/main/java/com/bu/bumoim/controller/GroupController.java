@@ -98,10 +98,10 @@ public class GroupController {
 		GroupList grouplist = groupService.groupDuplicationCheck(grouplist_name);
 		
 		if(grouplist != null) {
-			logger.info("洹몃９�씠由� 以묐났 �궗�슜遺덇�");
+			logger.info("grouplist");
 			return 0;
 		} else {
-			logger.info("洹몃９�씠由� �궗�슜媛��뒫");
+			logger.info("grouplist");
 			return 1;
 		}
 	}
@@ -123,6 +123,8 @@ public class GroupController {
 		List<Member> groupMemberList = groupService.getGroupMemberList(groupList_number);
 		logger.info(groupMemberList.toString());
 		
+		int memberCount = groupService.getCount(groupList_number);
+		
 		PageMaker boardPageMaker = new PageMaker();
 		boardPageMaker.setCri(boardCri);
 		boardPageMaker.setTotalCount(100);
@@ -132,6 +134,10 @@ public class GroupController {
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(100);
 		
+		model.addAttribute("memberCount", memberCount);
+		logger.info("###############################");
+		logger.info("memberCount : " + memberCount);
+		logger.info("#####################################");
 		model.addAttribute("groupDetail", groupDetail);
 		model.addAttribute("galleryList", galleryList);
 		model.addAttribute("boardList", boardList);

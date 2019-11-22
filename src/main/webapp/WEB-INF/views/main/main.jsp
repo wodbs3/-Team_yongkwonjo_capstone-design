@@ -112,6 +112,11 @@
    padding-top: 60px;
    padding-bottom: 30px;
 }
+	.img_container_custom {
+	position: relative;
+	overflow: hidden;
+	border: 2px solid #008299;
+}
    </style>
 
     <!--[if lt IE 9]>
@@ -428,7 +433,7 @@
                         </a>
                      </h3>
                   </div>
-                  <div class="img_container">
+                  <div class="img_container_custom">
                      <a href="/group/GroupCreate.do">
                         <img src="/resources/img/group.jpg" width="800" height="533" class="img-responsive" alt="image">
                      </a>
@@ -448,7 +453,7 @@
                      <h3><strong>학교 정보</strong>
                      </h3>
                   </div>
-                  <div class="img_container">
+                  <div class="img_container_custom">
                      <a href="http://www.bu.ac.kr">
                         <img src="/resources/img/school.jpg" width="800" height="533" class="img-responsive" alt="image">
                      </a>
@@ -467,7 +472,7 @@
                      <h3><strong>회원 가입</strong>
                      </h3>
                   </div>
-                  <div class="img_container">
+                  <div class="img_container_custom">
                      <a href="/joinView.do">
                         <img src="/resources/img/shakehands.jpg" width="800" height="533" class="img-responsive" alt="image">
                      </a>
@@ -487,7 +492,7 @@
                      
                      </h3>
                   </div>
-                  <div class="img_container">
+                  <div class="img_container_custom">
                      <a href="/map/map.do">
                         <img src="/resources/img/map.png" width="800" height="533" class="img-responsive" alt="image">
                      </a>
@@ -506,7 +511,7 @@
                      <h3><strong>백석대학교 대신 전해드립니다</strong>
                      </h3>
                   </div>
-                  <div class="img_container">
+                  <div class="img_container_custom">
                      <a href="https://www.facebook.com/search/top/?q=%EB%B0%B1%EC%84%9D%EB%8C%80%ED%95%99%EA%B5%90%20%EB%8C%80%EC%8B%A0%20%EC%A0%84%ED%95%B4%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4&epa=SEARCH_BOX">
                         <img src="/resources/img/facebook.jpg" width="800" height="533" class="img-responsive" alt="image">
                      </a>
@@ -519,7 +524,7 @@
 
             <div class="col-md-12 col-sm-6 wow zoomIn" data-wow-delay="0.5s">
                <div class="tour_container">
-                  <div class="img_container">
+                  <div class="img_container_custom">
                      <a href="introduce.do">
                         <img src="/resources/img/us.jpg" width="1200" height="533" class="img-responsive" alt="image">
                      </a>
