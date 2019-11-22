@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +15,9 @@ import com.bu.bumoim.paging.Criteria;
 
 @Repository
 public class GroupDaoLogic implements GroupDao {
-   
+	//
+	private Logger logger = Logger.getLogger(getClass());
+	
    @Autowired
    private SqlSession sqlSession;
 
@@ -28,6 +31,11 @@ public class GroupDaoLogic implements GroupDao {
    
    @Override
    public GroupList groupDuplicationCheck(String grouplist_name) {
+	   //
+	   System.out.println("############################333");
+	   logger.info("grouplist_name ===> " + grouplist_name);
+	   
+	   
 	   return sqlSession.selectOne("group.groupDuplicationCheck", grouplist_name);
    }
 

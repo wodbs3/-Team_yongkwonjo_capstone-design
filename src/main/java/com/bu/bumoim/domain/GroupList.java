@@ -15,6 +15,23 @@ public class GroupList {
 	public GroupList() {
 		
 	}
+	
+	@Override
+	public String toString() {
+		//
+		StringBuilder builder = new StringBuilder();
+		
+		builder.append("grouplist_number: ").append(grouplist_number);
+		builder.append(", grouplist_name: ").append(grouplist_name);
+		builder.append(", grouplist_introduce: ").append(grouplist_introduce);
+		builder.append(", grouplist_interest: ").append(grouplist_interest);
+		builder.append(", grouplist_people: ").append(grouplist_people);
+		builder.append(", grouplist_date: ").append(grouplist_date);
+		builder.append(", grouplist_photo: ").append(grouplist_photo);
+		
+		return builder.toString();
+	}
+	
 	public GroupList(String grouplist_name, String grouplist_introduce, String grouplist_interest, String grouplist_photo) {
 		this.grouplist_name = grouplist_name;
 		this.grouplist_introduce = grouplist_introduce;

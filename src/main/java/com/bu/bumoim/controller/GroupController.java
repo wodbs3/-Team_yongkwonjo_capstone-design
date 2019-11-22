@@ -1,5 +1,7 @@
 package com.bu.bumoim.controller;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -14,6 +16,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,6 +29,7 @@ import com.bu.bumoim.domain.Board;
 import com.bu.bumoim.domain.Gallery;
 import com.bu.bumoim.domain.GroupList;
 import com.bu.bumoim.domain.Member;
+import com.bu.bumoim.domain.SmallGroup;
 import com.bu.bumoim.paging.Criteria;
 import com.bu.bumoim.paging.GalleryCriteria;
 import com.bu.bumoim.paging.GalleryPageMaker;
@@ -33,6 +37,7 @@ import com.bu.bumoim.paging.PageMaker;
 import com.bu.bumoim.service.BoardService;
 import com.bu.bumoim.service.GalleryService;
 import com.bu.bumoim.service.GroupService;
+import com.bu.bumoim.service.SmallGroupService;
 import com.bu.bumoim.service.UserService;
 
 @Controller
@@ -49,6 +54,8 @@ public class GroupController {
 	private BoardService boardService;
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private SmallGroupService smallGroupService;
 	
 	@Resource(name = "uploadPath") // bean�뜝�럩踰� id�뤆�룊�삕 uploadPath�뜝�럩逾� �뜝�럡臾뜹윜諛몄굡�뜝�룞�삕 嶺뚣�볦굣占쏙옙
 	String uploadPath;
@@ -74,59 +81,72 @@ public class GroupController {
 	
 	@RequestMapping(value="/GroupCreate.do", method=RequestMethod.GET)
 	public String group_groupcreate() {
+		//
 		return "group/groupcreate";
 	}
 	
 	@RequestMapping(value="/GroupCreate.do", method=RequestMethod.POST)
 	public String groupcreate(HttpServletRequest req, GroupList grouplist, Model model) {
+		//
 		grouplist = fileUpload(req, grouplist);
 		int insertResult = groupService.insertGroup(grouplist);
+		
+		System.out.println("######################################");
+		logger.info("grouplist =====> " + grouplist.toString());
+		logger.info("insertResult =====> " + insertResult);
+		
+		
+		
 		if (insertResult == 1) {
-			logger.info("洹몃９�깮�꽦~~~~!");
-		}else {
-			logger.info("�떎�뙣�뻽吏�濡�~~~~~!!!!!!!!!!!!!!!!!!!!!!1");
+			logger.info("성공이지롱~~~~!");
+		} else {
+			logger.info("실패지롱~~~~~~!!!!!!!!!!!!!!!!!!!!!!1");
 		}
+		
 		return "redirect:GroupList.do";
 	}
 	
-	//洹몃９ 以묐났泥댄겕
+	// 그룹 중복 체크
 	@ResponseBody
 	@RequestMapping(value="/groupDuplicationCheck.do", method=RequestMethod.POST)
-	public int idDuplicationCheck(HttpServletRequest request, Model model) {
+	public int groupDuplicationCheck(HttpServletRequest request, Model model) {
 		//
 		String grouplist_name = request.getParameter("grouplist_name");
+		logger.info("grouplist_name ====> " + grouplist_name);
 		GroupList grouplist = groupService.groupDuplicationCheck(grouplist_name);
+		logger.info("grouplist      ====> " + grouplist.toString());
 		
-		if(grouplist != null) {
-			logger.info("洹몃９�씠由� 以묐났 �궗�슜遺덇�");
+		System.out.println("**********************************");
+		System.out.println(grouplist.getGrouplist_number());
+		System.out.println(grouplist.getGrouplist_name());
+		
+		if (grouplist != null) {
+			System.out.println("####################3");
+			System.out.println("grouplist_name ===> " + grouplist_name);
 			return 0;
 		} else {
-			logger.info("洹몃９�씠由� �궗�슜媛��뒫");
 			return 1;
 		}
 	}
 
-	// 洹몃９ => 洹몃９�젙蹂�
 	@RequestMapping(value = "/groupInfo.do", method=RequestMethod.GET)
-	public String groupInfoView(int groupList_number, Model model, @ModelAttribute("cri") GalleryCriteria cri, @ModelAttribute("boardCri") Criteria boardCri) {
-		//媛ㅻ윭由�
-		
-		
+	public String groupInfoView(SmallGroup smallGroup, int groupList_number, Model model, @ModelAttribute("cri") GalleryCriteria cri, @ModelAttribute("boardCri") Criteria boardCri) {
+		//
 		List<Gallery> galleryList = galleryService.getGroupGallery(groupList_number, cri);
 		logger.info(galleryList.toString());
 		
-		//寃뚯떆�뙋
 		List<Board> boardList = boardService.selectGroupBoardList(groupList_number);
 		GroupList groupDetail = groupService.findGroupDetail(groupList_number);
 		
-		//紐⑥엫�쉶�썝
 		List<Member> groupMemberList = groupService.getGroupMemberList(groupList_number);
 		logger.info(groupMemberList.toString());
+		
+		List<SmallGroup> smallGroupList = smallGroupService.readAll(groupList_number);
+		logger.info(smallGroupList.toString());
 		
 		PageMaker boardPageMaker = new PageMaker();
 		boardPageMaker.setCri(boardCri);
 		boardPageMaker.setTotalCount(100);
-		
 		
 		GalleryPageMaker pageMaker = new GalleryPageMaker();		
 		pageMaker.setCri(cri);
@@ -138,6 +158,7 @@ public class GroupController {
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("boardPageMaker", boardPageMaker);
 		model.addAttribute("groupMemberList" , groupMemberList);
+		model.addAttribute("smallGroupList", smallGroupList);
 		
 		return "group/groupInfo2";
 	}
@@ -186,10 +207,7 @@ public class GroupController {
 				logger.info("fileName: " + uploadFile.getOriginalFilename());
 
 				groupList = new GroupList(groupList.getGrouplist_name(), groupList.getGrouplist_introduce(), groupList.getGrouplist_interest(), saveFileName);
-				
-			
 			}
-
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -199,9 +217,7 @@ public class GroupController {
 		} catch (IOException e) { // TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		
-			return groupList;
+		return groupList;
 	}
 
 	private static String getUuid() {

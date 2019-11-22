@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="smallgroup">
+    
+	    <insert id="createSmallGroup" >
+		INSERT INTO smallgroup (
+			smallgroup_name,
+			smallgroup_place,
+			smallgroup_map,
+			smallgroup_price,
+			smallgroup_people,
+			smallgroup_date,
+			smallgroup_latitude,
+			smallgroup_longitude
+		)
+		VALUES (
+			#{somoim_name},
+			#{somoim_place},
+			#{somoim_map},
+			#{somoim_price},
+			#{somoim_people},
+			#{somoim_date},
+			#{somoim_latitude},
+			#{somoim_longitude}
+		)
+	</insert>
+	
+	<select id="smallGroupList" resultType="com.bu.bumoim.domain.SmallGroup">
+			SELECT 
+				smallgroup_number as somoim_number,
+				smallgroup_name as somoim_name,
+				smallgroup_place as somoim_place,
+				smallgroup_map as somoim_map,
+				smallgroup_price as somoim_price,
+				smallgroup_people as somoim_people,
+				smallgroup_date as somoim_date,
+				smallgroup_latitude as somoim_latitude,
+				smallgroup_longitude as somoim_longitude,
+				grouplist_number
+			FROM
+				smallgroup
+			WHERE grouplist_number = #{grouplist_number}
+			ORDER BY smallgroup_number DESC
+			
+	</select>
+	
+	<select id="smallGroupDetail" resultType="com.bu.bumoim.domain.SmallGroup">
+		SELECT
+				smallgroup_number as somoim_number,
+				smallgroup_name as somoim_name,
+				smallgroup_place as somoim_place,
+				smallgroup_map as somoim_map,
+				smallgroup_price as somoim_price,
+				smallgroup_people as somoim_people,
+				smallgroup_date as somoim_date,
+				smallgroup_latitude as somoim_latitude,
+				smallgroup_longitude as somoim_longitude,
+				grouplist_number
+		FROM
+			smallgroup
+		WHERE
+			smallgroup_number = #{smallgroup_number};
+	</select>
+	
+	
+</mapper>

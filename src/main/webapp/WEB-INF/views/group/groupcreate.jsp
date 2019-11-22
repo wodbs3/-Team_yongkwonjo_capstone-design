@@ -102,7 +102,7 @@
 				<br>
 				
 					<select class="form-control" id="grouplist_people" name="grouplist_people">
-						<option value=" selected">정원</option>
+						<option value="selected">정원</option>
 						<option>20</option>
 						<option>40</option>
 						<option>60</option>
@@ -190,16 +190,18 @@
 	/* 아이디 중복 체크 */
 	$(".groupCheck").click(function(){
 		var query = {grouplist_name : $("#grouplist_name").val()};
+		console.log("grouplist_name value = " + $("#grouplist_name").val());
 		$.ajax({
-			url : "/groupDuplicationCheck.do",
+			url : "/group/groupDuplicationCheck.do",
 			type : "post",
 			data : query,
 			success : function(data) {
-				if(data == 0) {
+				console.log("groupCheck success !!!");
+				if(data == "0") {
 					$(".result .msg").text("그룹이름 중복 사용불가");
 					$(".result .msg").attr("style", "color:#f00");
 					$("#submit").attr("disabled", "disabled");
-				} else if (data == 1){
+				} else if (data == "1"){
 					$(".result .msg").text("그룹이름 사용가능");
 					$(".result .msg").attr("style", "color:#00f");
 					$("#submit").removeAttr("disabled");

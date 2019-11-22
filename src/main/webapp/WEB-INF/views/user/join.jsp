@@ -66,7 +66,7 @@
 				<label for="member_id" class="control-label">아이디</label>
 				<br>
 				<input type="text" class="form-control" id="member_id" name="member_id" value="${member_id }" placeholder="아이디를 입력해주세요.(4~20자)" pattern="[A-Za-z0-9]{4, 20}" minlength="4" maxlength="20" oninput="checkId();" required autofocus>
-				<input type="button" class="btn btn-default idCheck" value="중복확인" style="width: 100px;">
+				<input type="button" class="btn btn-default idCheck col-xs-12" value="중복확인">
 				<p class="result">
 					<span class="msg">아이디를 확인해주세요.</span>
 				</p>
