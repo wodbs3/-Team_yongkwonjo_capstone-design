@@ -10,7 +10,7 @@
 
 	<meta name="description" content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
 	<meta name="author" content="Ansonika">
-	<title>CITY TOURS - City tours and travel site template by Ansonika</title>
+	<title>사진 상세보기</title>
 
 	<!-- Favicons-->
 	<link rel="shortcut icon" href="img/favicon.ico" type="resources/image/x-icon">
@@ -26,10 +26,10 @@
     <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Lato:300,400|Montserrat:400,400i,700,700i" rel="stylesheet">
 
 	<!-- CSS -->
-	<link href="resources/css/base.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/resources/css/base.css" rel="stylesheet">
 
 	<!-- CSS -->
-	<link href="resources/css/blog.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/resources/css/blog.css" rel="stylesheet">
 
 	<!--[if lt IE 9]>
       <script src="js/html5shiv.min.js"></script>
@@ -38,25 +38,25 @@
 
 </head>
 
-<body style="overflow: visible;"><div class="parallax-mirror" style="visibility: visible; z-index: 1; position: fixed; top: -100px; left: 0px; overflow: hidden; transform: translate3d(0px, 0px, 0px); height: 470px; width: 1519px;"><img class="parallax-slider" src="resources/img/bg_blog.jpg" style="transform: translate3d(0px, 0px, 0px); position: absolute; top: 61px; left: 0px; height: 509px; width: 1519px; max-width: none;"></div>
+<!-- <body style="overflow: visible;"><div class="parallax-mirror" style="visibility: visible; z-index: 1; position: fixed; top: -100px; left: 0px; overflow: hidden; transform: translate3d(0px, 0px, 0px); height: 470px; width: 1519px;"><img class="parallax-slider" src="resources/img/bg_blog.jpg" style="transform: translate3d(0px, 0px, 0px); position: absolute; top: 61px; left: 0px; height: 509px; width: 1519px; max-width: none;"></div> -->
 
 	<!--[if lte IE 8]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
 <![endif]-->
 
-	<div id="preloader" style="display: none;">
-		<div class="sk-spinner sk-spinner-wave">
-			<div class="sk-rect1"></div>
-			<div class="sk-rect2"></div>
-			<div class="sk-rect3"></div>
-			<div class="sk-rect4"></div>
-			<div class="sk-rect5"></div>
-		</div>
-	</div>
+<!-- 	<div id="preloader" style="display: none;"> -->
+<!-- 		<div class="sk-spinner sk-spinner-wave"> -->
+<!-- 			<div class="sk-rect1"></div> -->
+<!-- 			<div class="sk-rect2"></div> -->
+<!-- 			<div class="sk-rect3"></div> -->
+<!-- 			<div class="sk-rect4"></div> -->
+<!-- 			<div class="sk-rect5"></div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 	<!-- End Preload -->
 
-	<div class="layer"></div>
-	<!-- Mobile menu overlay mask -->
+<!-- 	<div class="layer"></div> -->
+<!-- 	<!-- Mobile menu overlay mask --> -->
 
 	<!-- Header================================================== -->
 <%@ include file="../common/header.jsp" %>
@@ -151,7 +151,7 @@
 								<c:if test="${loginMap.member_id != null && loginMap.member_id == commentList.comment_id}">		
 									<div class="post-right">
 <%-- 									<a href="updateForm.do?num=${gallery.num }" class="btn_1">수정</a> --%>
-									<a href="commentDelete.do?comment_number=${commentList.comment_number }" class="btn_1">삭제</a>
+									<a href="commentDelete.do?num=${gallery.num }&comment_number=${commentList.comment_number }" class="btn_1">삭제</a>
 									
 									</div>
 								</c:if>
@@ -211,9 +211,9 @@
 
 
 	<!-- Common scripts -->
-	<script src="resources/js/jquery-2.2.4.min.js"></script>
-	<script src="resources/js/common_scripts_min.js"></script>
-	<script src="resources/js/functions.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-2.2.4.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/common_scripts_min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/functions.js"></script>
 	<script>
 		function comment_input() {
 			alert("로그인을 해주세요");

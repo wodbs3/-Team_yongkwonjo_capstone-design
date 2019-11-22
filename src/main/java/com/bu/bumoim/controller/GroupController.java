@@ -61,10 +61,12 @@ public class GroupController {
 	String uploadPath;
 	
 	@RequestMapping(value="/GroupList.do")
-	public ModelAndView grouplist(GroupList grouplist, String member_id, Model model,@ModelAttribute("cri") Criteria cri) {
+	public ModelAndView grouplist(GroupList grouplist, String member_id,  Model model,@ModelAttribute("cri") Criteria cri) {
 		//
 		List<GroupList> list = groupService.selectGroupList(cri);
 		List<Member> memberList = userService.getMemberList(member_id);
+		
+		
 		
 		ModelAndView mav = new ModelAndView("group/grouplist");
 		
@@ -75,6 +77,7 @@ public class GroupController {
 		mav.addObject("GroupList", list);
 		mav.addObject("memberList", memberList);
 		mav.addObject("pageMaker", pageMaker);
+	
 		
 		return mav;
 	}
@@ -115,27 +118,26 @@ public class GroupController {
 		logger.info("grouplist_name ====> " + grouplist_name);
 		GroupList grouplist = groupService.groupDuplicationCheck(grouplist_name);
 		logger.info("grouplist      ====> " + grouplist.toString());
-		
-		System.out.println("**********************************");
-		System.out.println(grouplist.getGrouplist_number());
-		System.out.println(grouplist.getGrouplist_name());
-		
-		if (grouplist != null) {
-			System.out.println("####################3");
-			System.out.println("grouplist_name ===> " + grouplist_name);
+
+		if(grouplist != null) {
+			logger.info("grouplist");
 			return 0;
 		} else {
+			logger.info("grouplist");
 			return 1;
 		}
 	}
 
 	@RequestMapping(value = "/groupInfo.do", method=RequestMethod.GET)
-	public String groupInfoView(SmallGroup smallGroup, int groupList_number, Model model, @ModelAttribute("cri") GalleryCriteria cri, @ModelAttribute("boardCri") Criteria boardCri) {
-		//
+	public String groupInfoView(int groupList_number, GroupList grouplist, Model model, @ModelAttribute("cri") GalleryCriteria cri, @ModelAttribute("boardCri") Criteria boardCri) {
+		//媛ㅻ윭由�
+		
+		
 		List<Gallery> galleryList = galleryService.getGroupGallery(groupList_number, cri);
 		logger.info(galleryList.toString());
 		
-		List<Board> boardList = boardService.selectGroupBoardList(groupList_number);
+		//寃뚯떆�뙋
+		List<Board> boardList = boardService.selectGroupBoardList(groupList_number, boardCri);
 		GroupList groupDetail = groupService.findGroupDetail(groupList_number);
 		
 		List<Member> groupMemberList = groupService.getGroupMemberList(groupList_number);
@@ -143,6 +145,8 @@ public class GroupController {
 		
 		List<SmallGroup> smallGroupList = smallGroupService.readAll(groupList_number);
 		logger.info(smallGroupList.toString());
+
+		int groupPeopleCount = groupService.getcount(groupList_number);
 		
 		PageMaker boardPageMaker = new PageMaker();
 		boardPageMaker.setCri(boardCri);
@@ -160,6 +164,11 @@ public class GroupController {
 		model.addAttribute("groupMemberList" , groupMemberList);
 		model.addAttribute("smallGroupList", smallGroupList);
 		
+		model.addAttribute("groupPeopleCount", groupPeopleCount);
+		logger.info("#########################################");
+		logger.info("groupPeopleCount == " + groupPeopleCount);
+		logger.info("#########################################");
+
 		return "group/groupInfo2";
 	}
 	

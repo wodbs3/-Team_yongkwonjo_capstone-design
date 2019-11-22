@@ -5,8 +5,8 @@
 <meta charset="UTF-8">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="/resources/css/bootstrap.css">
-	<link rel="stylesheet" href="/resources/css/chat.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/chat.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.pubnub.com/pubnub-3.4.4.js"></script>
@@ -21,11 +21,18 @@
     	channel: 'chat',
     	message: displayPub
     });
-    
+    {
+    	message_id: 20001,
+    	channel: "jasdeep-status",
+    	user: "jasdeep",
+    	status: "The Patriots lost the Super Bowl!",
+    	usecase: "delete",
+    	deleted: false
+    }
     pubnub.history({
     	channel: 'chat',
-    	reverse: true,
-    	count: 100
+    	reverse: false,
+    	count: 30
     }, function(status, response){
     	$.each(status[0], function(i, item){
     		displayPub(item);
@@ -62,6 +69,22 @@
 		});
 	});
 	
+</script>
+
+<script type="text/javascript">
+	var apiURI = "http://api.openweathermap.org/data/2.5/forecast?lat=37.56826&lon=126.977829&APPID=944bc559cd122d3ed21adfd74b6029f7&units=metric";
+	$.ajax({
+		url: apiURI,
+		dataType: "json",
+		type: "GET",
+		async: "false",
+	success: function(data) {
+		var minTemp = data.list[0].main.temp_min;
+		var city = data.name;
+		$('#clowtemp').append(minTemp);
+		console.log("최소온도 : " + minTemp);
+	}
+	});	
 </script>
 </head>
 <body>
@@ -110,6 +133,7 @@
 			</div>
 		</div>
 	</div>
+	<div class="clowtemp">최소온도 : </div>
 
 <!-- 	<input type="text" id="name" placeholder="name" required/> -->
 <!-- <input type="text" id="messagePub" placeholder="message" required/> -->

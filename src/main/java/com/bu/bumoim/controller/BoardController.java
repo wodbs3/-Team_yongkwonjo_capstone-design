@@ -46,7 +46,7 @@ public class BoardController<ActionForward> {
 	private ModelAndView mav;
 	
 	@RequestMapping(value="/boardList.do")
-	public ModelAndView list(Board board, @ModelAttribute("cri") Criteria cri, HttpServletRequest request) {
+	public ModelAndView list(Board board, @ModelAttribute("cri") Criteria cri, HttpServletRequest request)  {
 		
 		List<Board> list = boardservice.selectBoardList(cri);
 //		List<Board> lists = boardservice.selectgetCount(board_number);
@@ -56,10 +56,8 @@ public class BoardController<ActionForward> {
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(100);
 		
-		
 		mav.addObject("Board", list);
 		mav.addObject("pageMaker2", pageMaker);
-		
 		
 		return mav;
 	}
@@ -91,10 +89,10 @@ public class BoardController<ActionForward> {
 		ModelAndView mav = new ModelAndView();
 		
 		
-		
 		List<Comment> comment = commentService.boardCommentList(board_number);
-//		List<Comment> comment = commentService.groupCommentList(groupList_number);
-//		logger.info("占쎄퐜甕곤옙: " + groupList_number);
+		int board_count = 0;
+		boardservice.boardCount(board_number);
+		model.addAttribute("board_count", board_count);
 		Board board = boardservice.detailBoard(board_number);
 		logger.info("癰귣�諭띰옙沅볢쳸占�: " + board.getboard_number());
 		
@@ -137,8 +135,9 @@ public class BoardController<ActionForward> {
 			logger.info("FAIL~~~~~~~~~~~~~~~!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!~~~~~~~~~~");
 		}
 		
-		return  "redirect:/group/groupInfo.do?groupList_number="+ board.getgroupList_number() +"#board";
+		return  "redirect:/group/groupInfo.do?groupList_number=" + groupList_number +"&board_number="+ board_number;
 	}
+	
 	
 	public Board fileUpload(HttpServletRequest req, Board board) {
 		try {

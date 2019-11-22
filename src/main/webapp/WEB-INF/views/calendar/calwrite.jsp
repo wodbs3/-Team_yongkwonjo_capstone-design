@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>캘린더</title>
 </head>
 <body>
 <%@ include file="../common/header.jsp"%>

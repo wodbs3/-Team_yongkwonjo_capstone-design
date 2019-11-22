@@ -26,8 +26,8 @@ public class BoardServiceLogic implements BoardService {
 	}
 	
 	@Override
-	public List<Board> selectGroupBoardList(int groupList_number) {
-		return boarddao.selectGroupBoardList(groupList_number);
+	public List<Board> selectGroupBoardList(int groupList_number, Criteria boardCri) {
+		return boarddao.selectGroupBoardList(groupList_number, boardCri);
 	}
 	
  	@Override 
@@ -58,5 +58,16 @@ public class BoardServiceLogic implements BoardService {
 		return boarddao.selectgetCount(board_number);
 	}
 
+	@Override
+	public Board read(int board_number) throws Exception {
+		boarddao.boardCount(board_number);
+		return boarddao.read(board_number);
+	
+	}
 
+	@Override
+	public void boardCount(int board_number) throws Exception {
+		boarddao.boardCount(board_number);
+		
+	}
 }

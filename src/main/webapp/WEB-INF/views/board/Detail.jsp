@@ -8,7 +8,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<link rel="stylesheet" href="/resources/css/bootstrap.css">
+
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css">
 	<title>BoardDetail</title>
 	
 	    <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Lato:300,400|Montserrat:400,400i,700,700i" rel="stylesheet">
@@ -17,9 +18,9 @@
     <link href="/resources/css/base.css" rel="stylesheet">
 
     <!-- REVOLUTION SLIDER CSS -->
-    <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
-	<link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/rev-slider-files/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/rev-slider-files/fonts/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/rev-slider-files/css/settings.css">
 
 </head>
 <body>
@@ -58,6 +59,8 @@
                     <tr>
                     	<th style = "width : 10%; font-size: 18px;" scope="row">글 번호</th> 
                     	<td>${Board.board_number }</td> 
+                    	<th style = "width : 10%; font-size: 18px;" scope="row">조회수</th>
+                    	<td>${Board.board_count }</td>
                     </tr>
                     <tr>
                     	<th style = "width : 10%; font-size: 18px;" scope="row">작성자</th> 
@@ -81,7 +84,7 @@
                 	
                 	<c:if test="${loginMap.member_id eq Board.board_writer}">
                 	<a href="${pageContext.request.contextPath}/boardUpdate.do?groupList_number=${Board.groupList_number}&board_number=${Board.board_number}" class="btn btn-success" style="padding:10px">수정</a>
-                    <a href="${pageContext.request.contextPath}/boardDelete.do?board_number=${Board.board_number}" class="btn btn-danger" style="padding:10px">삭제</a>
+                    <a href="${pageContext.request.contextPath}/boardDelete.do?groupList_number=${Board.groupList_number}&board_number=${Board.board_number}" class="btn btn-danger" style="padding:10px">삭제</a>
                 	</c:if>
                 		
                 	   <input type="button" value="목록" onClick='goBack()' class="btn btn-success" style="padding:10px"/>
@@ -124,7 +127,9 @@
 								<c:if test="${loginMap.member_id != null && loginMap.member_id == commentList.comment_id}">		
 									<div class="post-right">
 <%-- 									<a href="updateForm.do?num=${gallery.num }" class="btn_1">수정</a> --%>
-									<a href="boardcommentDelete.do?comment_number=${commentList.comment_number }"class="btn_1">삭제</a>
+
+									<a href="boardcommentDelete.do?groupList_number=${Board.groupList_number }
+									&board_number=${Board.board_number }&comment_number=${commentList.comment_number }" class="btn_1">삭제</a>
 									
 									</div>
 								</c:if>
@@ -138,7 +143,7 @@
 					<!-- End Comments -->
 					<br>
 					<h4>댓글 달기</h4>
-					<form action="boardcommentInsert.do?groupList_number=${Board.groupList_number }&board_number=${Board.board_number }" method="post">
+					<form action="${pageContext.request.contextPath }/boardcommentInsert.do?groupList_number=${Board.groupList_number }&board_number=${Board.board_number }" method="post">
 						<div class="form-group">
 							<h4>작성자:</h4>
          					<input type="text" id="comment_id" name="comment_id" value="${loginMap.member_id }" readonly/>
@@ -159,27 +164,27 @@
 
 
     <!-- Common scripts -->
-    <script src="/resources/js/jquery-2.2.4.min.js"></script>
-    <script src="/resources/js/common_scripts_min.js"></script>
-    <script src="/resources/js/functions.js"></script>
+    <script src="${pageContext.request.contextPath }/resources/js/jquery-2.2.4.min.js"></script>
+    <script src="${pageContext.request.contextPath }/resources/js/common_scripts_min.js"></script>
+    <script src="${pageContext.request.contextPath }/resources/js/functions.js"></script>
 
     <!-- SLIDER REVOLUTION SCRIPTS  -->
-    <script type="text/javascript" src="/resources/rev-slider-files/js/jquery.themepunch.tools.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/jquery.themepunch.revolution.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.actions.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.carousel.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.kenburn.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.layeranimation.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.migration.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.navigation.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.parallax.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.slideanims.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
-	<script type="text/javascript" src="/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath }/resources/rev-slider-files/js/jquery.themepunch.tools.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/resources/rev-slider-files/js/jquery.themepunch.revolution.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/resources/rev-slider-files/js/extensions/revolution.extension.actions.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/resources/rev-slider-files/js/extensions/revolution.extension.carousel.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/resources/rev-slider-files/js/extensions/revolution.extension.kenburn.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/resources/rev-slider-files/js/extensions/revolution.extension.layeranimation.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/resources/rev-slider-files/js/extensions/revolution.extension.migration.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/resources/rev-slider-files/js/extensions/revolution.extension.navigation.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/resources/rev-slider-files/js/extensions/revolution.extension.parallax.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/resources/rev-slider-files/js/extensions/revolution.extension.slideanims.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath }/resources/rev-slider-files/js/extensions/revolution.extension.video.min.js"></script>
 <script> 
 
 function goBack() {
-	   location.href="/group/groupInfo.do?groupList_number=${Board.groupList_number}#board";
+	   location.href="${pageContext.request.contextPath }/group/groupInfo.do?groupList_number=${Board.groupList_number}#board";
 	}
 	
 function comment_input() {

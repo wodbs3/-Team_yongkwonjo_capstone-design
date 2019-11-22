@@ -15,12 +15,12 @@
     <link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Lato:300,400|Montserrat:400,400i,700,700i" rel="stylesheet">
 
     <!-- BASE CSS -->
-    <link href="/resources/css/base.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/resources/css/base.css" rel="stylesheet">
 
     <!-- REVOLUTION SLIDER CSS -->
-    <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
-	<link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/fonts/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="/resources/rev-slider-files/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/rev-slider-files/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/rev-slider-files/fonts/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/rev-slider-files/css/settings.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
  	
@@ -68,15 +68,7 @@
                         <ul>
                             <li class="submenu">
                                 <a href="${pageContext.request.contextPath }/introduce.do" class="show-submenu">Introduce<i class="icon-down-oepn-mini"></i></a>
-                                <ul>
-                                	<li>
-                                		<a href="${pageContext.request.contextPath}/introduce.do">Our Introduce</a>
-                                	</li>
-                                	<li>
-                                		<a href="${pageContext.request.contextPath}/location.do">Location</a>
-                                	</li>
-                                	
-                                </ul>
+                   
                             </li>
                             <li class="submenu">
                                 <a href="${pageContext.request.contextPath }/group/GroupList.do" class="show-submenu">GroupList </a>
@@ -86,7 +78,7 @@
                             	<a href="${pageContext.request.contextPath }/chat2.do" class="show-submenu">Chatting</a>
                             </li>
                              <li class="submenu">
-                            	<a href="${pageContext.request.contextPath }/group/GroupList.do" class="show-submenu">Calendar</a>
+                            	<a href="${pageContext.request.contextPath }/calendar.do" class="show-submenu">Calendar</a>
                             </li>
                         </ul>
                     </div><!-- End main-menu -->

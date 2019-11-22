@@ -50,7 +50,7 @@ public class GroupDaoLogic implements GroupDao {
 		// 
 		return sqlSession.selectList("group.getGroupMemberList", groupList_number);
 	}
-
+	
 	@Override
 	public void groupJoin(int groupList_number, String member_id) {
 		//
@@ -68,5 +68,10 @@ public class GroupDaoLogic implements GroupDao {
 		System.out.println(params.get("groupList_number") + " " + params.get("member_id"));
 		
 		sqlSession.update("group.updateMemberGroup", params);
+	}
+	
+	@Override
+	public int getcount(int groupList_number) {
+		return sqlSession.selectOne("group.groupPeopleCount", groupList_number);
 	}
 }

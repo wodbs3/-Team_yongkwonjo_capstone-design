@@ -14,8 +14,7 @@
 <meta name="description"
 	content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
 <meta name="author" content="Ansonika">
-<title>CITY TOURS - City tours and travel site template by
-	Ansonika</title>
+<title>사진첩</title>
 
 <!-- Favicons-->
 <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -34,14 +33,14 @@
 	rel="stylesheet">
 
 <!-- CSS -->
-<link href="css/base.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/resources/css/base.css" rel="stylesheet">
 
 <!-- Radio and check inputs -->
-<link href="css/skins/square/grey.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/resources/css/skins/square/grey.css" rel="stylesheet">
 
 <!-- Range slider -->
-<link href="css/ion.rangeSlider.css" rel="stylesheet">
-<link href="css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/resources/css/ion.rangeSlider.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/resources/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
 
 <!--[if lt IE 9]>
       <script src="js/html5shiv.min.js"></script>

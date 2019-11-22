@@ -16,8 +16,7 @@
 <meta name="description"
 	content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
 <meta name="author" content="Ansonika">
-<title>CITY TOURS - City tours and travel site template by
-	Ansonika</title>
+<title>그룹정보</title>
 
 <link rel="stylesheet" href="/resources/css/bootstrap.css">
 <!-- Favicons-->
@@ -38,10 +37,10 @@
 	rel="stylesheet">
 
 <!-- CSS -->
-<link href="/resources/css/base.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/resources/css/base.css" rel="stylesheet">
 
 <!-- Radio and check inputs -->
-<link href="/resources/css/skins/square/grey.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/resources/css/skins/square/grey.css" rel="stylesheet">
 
 <style type="text/css">
 img {
@@ -138,7 +137,8 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 						<hr>
 						<div class="form-inline">
 							<p>키워드 ${groupDetail.grouplist_interest}</p>
-							<p>7 / ${groupDetail.grouplist_people} (현재원 / 총원)</p>
+
+							<p>${groupPeopleCount } / ${groupDetail.grouplist_people} (현재원 / 총원)</p>
 						</div>
 						<p>생성일 ${groupDetail.grouplist_date}</p>
 						<hr>
@@ -206,6 +206,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 														<th>내용</th>
 														<th>작성자</th>
 														<th>날짜</th>
+														<th>조회수</th>
 													</tr>
 												</thead>
 											<tbody>
@@ -216,6 +217,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 															<td><c:out value="${boardList.board_content }"/></td>
 															<td><c:out value="${boardList.board_writer }"/></td>
 															<td><c:out value="${boardList.board_date }"/></td>
+															<td><span class="badge bg-red">${boardList.board_count }</span></td>
 														</tr>
 													</c:forEach>
 												</tbody>
@@ -475,11 +477,11 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 	<!-- End Search Menu -->
 
 	<!-- Jquery -->
-	<script src="/resources/js/jquery-2.2.4.min.js"></script>
-	<script src="/resources/js/common_scripts_min.js"></script>
-	<script src="/resources/js/functions.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/jquery-2.2.4.min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/common_scripts_min.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/functions.js"></script>
 
-	<script src="/resources/js/icheck.js"></script>
+	<script src="${pageContext.request.contextPath }/resources/js/icheck.js"></script>
 	
 	<script>
 		$('input').iCheck({
@@ -488,14 +490,14 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 		});
 	</script>
 
-   <!-- Fixed sidebar -->
-   <script src="/resources/js/theia-sticky-sidebar.js"></script>
-   
-   <script>
-      jQuery('#sidebar').theiaStickySidebar({
-         additionalMarginTop: 80
-      });
-   </script>
+	<!-- Fixed sidebar -->
+	<script src="${pageContext.request.contextPath }/resources/js/theia-sticky-sidebar.js"></script>
+	
+	<script>
+		jQuery('#sidebar').theiaStickySidebar({
+			additionalMarginTop: 80
+		});
+	</script>
 	
 	<script>
  		$(function(){
@@ -531,6 +533,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 	
 	function goGroupJogin() {
 		location.href="/group/groupJoin.do?groupList_number=${groupDetail.grouplist_number}&member_id=${loginMap.member_id}";
+		
 	}
 
 	function goCreateSomoim() {

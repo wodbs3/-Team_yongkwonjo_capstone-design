@@ -10,6 +10,7 @@ public class Board {
 	private String board_writer;
 	private String board_photo;
 	private Date board_date;
+	private int board_count;
 	private int groupList_number;
 
 	
@@ -85,6 +86,14 @@ public class Board {
 	
 	public void setgroupList_number(int groupList_number) {
 		this.groupList_number = groupList_number;
+	}
+
+	public int getboard_count() {
+		return board_count;
+	}
+
+	public void setboard_count(int board_count) {
+		this.board_count = board_count;
 	}
 
 }
