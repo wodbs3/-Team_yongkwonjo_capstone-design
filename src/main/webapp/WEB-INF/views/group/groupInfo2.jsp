@@ -198,7 +198,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 								<div class="tab-pane fade active" id="board"
 									role="tabpanel" aria-labelledby="board-tab">
 									<div class ="main-title">
-											<table class="table table-striped table-hover">
+											<table class="table table-striped table-hover" style="table-layout: fixed">
 												<thead>
 													<tr>
 														<th>번호</th>
@@ -213,8 +213,8 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 													<c:forEach var="boardList" items="${boardList }" varStatus="status">
 														<tr>
 															<td><c:out value="${boardList.board_number }"/></td>
-															<td><a href="${pageContext.request.contextPath }/boardDetail.do?groupList_number=${groupDetail.grouplist_number}&board_number=${boardList.board_number }"><c:out value="${boardList.board_title }"/></a></td>
-															<td><c:out value="${boardList.board_content }"/></td>
+															<td style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap;"><a href="${pageContext.request.contextPath }/boardDetail.do?groupList_number=${groupDetail.grouplist_number}&board_number=${boardList.board_number }"><c:out value="${boardList.board_title }"/></a></td>
+															<td style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap;"><c:out value="${boardList.board_content }"/></td>
 															<td><c:out value="${boardList.board_writer }"/></td>
 															<td><c:out value="${boardList.board_date }"/></td>
 															<td><span class="badge bg-red">${boardList.board_count }</span></td>
@@ -280,7 +280,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 														href="${pageContext.request.contextPath }/galleryDetail.do?num=${galleryList.num}">
 														<img
 														src="${pageContext.request.contextPath }/resources/upload/${galleryList.photo_name}"
-														alt="Image">
+														alt="Image" style="width:200px; height:180px;">
 
 													</a>
 

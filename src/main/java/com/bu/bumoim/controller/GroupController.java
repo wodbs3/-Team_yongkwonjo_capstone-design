@@ -1,6 +1,5 @@
 package com.bu.bumoim.controller;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
 
 import java.io.File;
 import java.io.IOException;
