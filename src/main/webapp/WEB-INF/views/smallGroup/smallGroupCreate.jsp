@@ -187,7 +187,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 					<div id="map" class="col-md-12 col-xm-12" style="height:300px; margin-top:10px; display:none"></div>
 				</div>
 			</div>
-			
+			<input type="hidden" value="${groupList_number}"/>
 	<!-- Join Button -->
 			<div>
 				<div class="col-md-offset-4 col-md-4">
