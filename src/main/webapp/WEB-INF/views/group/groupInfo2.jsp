@@ -400,7 +400,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 												<c:forEach var="smallGroupList" items="${smallGroupList }" varStatus="status">
 													<tr>
 														<td><c:out value="${smallGroupList.somoim_number }"/></td>
-														<td><a href="${pageContext.request.contextPath }/somoimDetail.do?groupList_number=${groupDetail.grouplist_number}&somoim_number=${smallGroupList.somoim_number }#calendar"><c:out value="${smallGroupList.somoim_name }"/></a></td>
+														<td><a href="${pageContext.request.contextPath }/somoimDetail.do?groupList_number=${groupDetail.grouplist_number}&somoim_number=${smallGroupList.somoim_number }#mapView"><c:out value="${smallGroupList.somoim_name }"/></a></td>
 														<td><c:out value="${smallGroupList.somoim_name }"/></td>
 														<td><c:out value="${loginMap.member_name }"/></td>
 													</tr>

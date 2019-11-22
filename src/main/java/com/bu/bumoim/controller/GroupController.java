@@ -118,7 +118,7 @@ public class GroupController {
 		logger.info("grouplist_name ====> " + grouplist_name);
 		GroupList grouplist = groupService.groupDuplicationCheck(grouplist_name);
 		logger.info("grouplist      ====> " + grouplist.toString());
-
+		
 		if(grouplist != null) {
 			logger.info("grouplist");
 			return 0;
@@ -129,6 +129,7 @@ public class GroupController {
 	}
 
 	@RequestMapping(value = "/groupInfo.do", method=RequestMethod.GET)
+
 	public String groupInfoView(int groupList_number, GroupList grouplist, Model model, @ModelAttribute("cri") GalleryCriteria cri, @ModelAttribute("boardCri") Criteria boardCri) {
 		//媛ㅻ윭由�
 		
@@ -143,6 +144,7 @@ public class GroupController {
 		List<Member> groupMemberList = groupService.getGroupMemberList(groupList_number);
 		logger.info(groupMemberList.toString());
 		
+
 		List<SmallGroup> smallGroupList = smallGroupService.readAll(groupList_number);
 		logger.info(smallGroupList.toString());
 
@@ -163,7 +165,7 @@ public class GroupController {
 		model.addAttribute("boardPageMaker", boardPageMaker);
 		model.addAttribute("groupMemberList" , groupMemberList);
 		model.addAttribute("smallGroupList", smallGroupList);
-		
+
 		model.addAttribute("groupPeopleCount", groupPeopleCount);
 		logger.info("#########################################");
 		logger.info("groupPeopleCount == " + groupPeopleCount);
