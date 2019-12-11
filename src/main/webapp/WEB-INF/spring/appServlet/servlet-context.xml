@@ -5,7 +5,7 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:websocket="http://www.springframework.org/schema/websocket"
 	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.1.xsd
-		http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
@@ -31,8 +31,10 @@
 	<beans:property name="maxUploadSize" value="52428800"></beans:property>
 	</beans:bean>
 
+	
+	
     <beans:bean id="uploadPath" class="java.lang.String">
-	<beans:constructor-arg value="C:/Users/USER/git/project_source/src/main/webapp/resources/upload">
+	<beans:constructor-arg value="C:/Users/USER/Documents/workspace-sts-3.9.8.RELEASE/cap/bumoim/src/main/webapp/resources/upload">
 
 	</beans:constructor-arg>
 	</beans:bean>
@@ -42,7 +44,22 @@
 
 	</beans:constructor-arg>
 	</beans:bean>
+
+ <beans:bean id="downloadViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<beans:property name="order">
+			<beans:value>0</beans:value>
+		</beans:property>
+ </beans:bean>	
+	
+	<beans:bean id="download" class="com.bu.bumoim.util.DownloadView"/>
+	
+
+	
 	
 	
 	<context:component-scan base-package="com.bu.bumoim" />
+	
+	 
+
+
 </beans:beans>

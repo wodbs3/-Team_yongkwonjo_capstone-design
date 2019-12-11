@@ -30,7 +30,15 @@ public class CalendarController {
 	public String calendar() {
 		return "calendar/caltest";
 	}
+	@RequestMapping(value="/test.do")
+	public String test() {
+		return "calendar/test";
+	}
 	
+	@RequestMapping(value="/calcal.do")
+	public String calcal() {
+		return "calendar/calwrite";
+	}
 	@RequestMapping(value="/calendar.do",method = RequestMethod.POST)
 	public String schedule(@RequestBody Map<String, Object> params,Calendar calendar, HttpServletRequest request) { 
 	
@@ -48,7 +56,7 @@ public class CalendarController {
 		 
 		 service.insertCalendar(calendar);
 		 
-		 return "calendar";
+		 return "calcal.do";
 		}
 	
 	
@@ -65,7 +73,7 @@ public class CalendarController {
 //		map.put("calendar_content",calendar.get("calendar_content"));
 //		map.put("calendar_color",calendar.get("calendar_color"));
 //		
-		ModelAndView mav = new ModelAndView();
+	
 		
 		
 		List<Map<String, Object>> list; 
@@ -85,7 +93,7 @@ public class CalendarController {
 		       index++;
 
 		  }
-		mav.addObject(map);
+		
 
 
 		
