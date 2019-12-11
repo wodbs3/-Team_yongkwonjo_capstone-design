@@ -70,4 +70,9 @@ public class BoardServiceLogic implements BoardService {
 		boarddao.boardCount(board_number);
 		
 	}
+	
+	@Override
+	public int groupboardcount(int groupList_number) {
+		return boarddao.groupboardcount(groupList_number);
+	}
 }

@@ -74,4 +74,14 @@ public class GroupDaoLogic implements GroupDao {
 	public int getcount(int groupList_number) {
 		return sqlSession.selectOne("group.groupPeopleCount", groupList_number);
 	}
+	
+	@Override
+	public int getgroupcount(int groupList_number) {
+		return sqlSession.selectOne("group.groupListCount", groupList_number);
+	}
+	
+	@Override
+	public int groupohotocount(int groupList_number) {
+		return sqlSession.selectOne("group.groupohotocount", groupList_number);
+	}
 }

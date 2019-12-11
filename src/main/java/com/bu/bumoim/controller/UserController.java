@@ -60,6 +60,10 @@ public class UserController {
 		}
 	}
 	
+	@RequestMapping(value="/findid.do")
+	public String findid() {
+		return "user/findid";
+	}
 	@RequestMapping(value="/join.do", method=RequestMethod.POST)
 	public String join(Member member,HttpServletRequest req, Model model) {
 		//

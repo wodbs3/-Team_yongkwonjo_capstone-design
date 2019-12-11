@@ -1,0 +1,956 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="naver-site-verification" content="b9e695cf8b3528953d9b6c0a9aaa25fe2b08f684"/>
+<meta name="description" content="게임을 보는 새로운 시선 게/임/뷰">
+<meta property="og:title" content="'카카오프렌즈' 다 컸다? 카카오, 커머스 사업 분리 결정 - 게임뷰 "/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="http://www.gamevu.co.kr/news/articleView.html?idxno=11083"/>
+<meta property="og:image" content="http://www.gamevu.co.kr/news/photo/201809/11083_18995_2458.jpg"/>
+<meta property="og:description" content="카카오(공동대표 여민수, 조수용)는 20일 이사회를 개최하고, 커머스 사업부문을 분사해 독립 법인 &amp;#39;카카오커머스(가칭)&amp;#39;를 설립하..."/>
+<!-- <meta property="og:article:author" content=""/> -->
+<title>'카카오프렌즈' 다 컸다? 카카오, 커머스 사업 분리 결정 - 게임뷰 </title>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/MenuSkin/Design_02/Menu_Style.css">
+<link rel="alternate" type="application/rss+xml" title="'카카오프렌즈' 다 컸다? 카카오, 커머스 사업 분리 결정 - 게임뷰 " href="/rss/allArticle.xml">
+<script type="text/javascript" src="/script/user.js"></script>
+<script type="text/javascript" src="/script/font.js"></script>
+<script type="text/javascript" src="/script/banner.js?0611"></script>
+<script type="text/javascript" src="/script/ad.control.js"></script>
+<script type="text/javascript" src="/script/poll.js"></script>
+<script type="text/javascript" src="/script/vod.js"></script>
+<script type="text/javascript" src="/script/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/script/jquery.cycle.js"></script>
+<script type="text/javascript" src="/script/jquery-easing-1-3.js"></script>
+<script type="text/javascript" src="/MenuSkin/Design_02/Menu_Bar.js"></script>
+<script type="text/javascript" src="/script/resizePhoto.js"></script>
+<script type="text/javascript" src="/script/floating.banner.js"></script>
+<script type="text/javascript" src="/script/onScroll.js"></script>
+
+<script language="javascript">
+<!--
+// 현재시간  추가
+var ___currentTime = parseInt("1560689850", 10);
+
+// 즐겨찾기 스크립트
+function bookmark() {
+	window.external.AddFavorite("http://www.gamevu.co.kr", "게임뷰")
+}
+
+/// 통합검색셀렉트
+function viewSchselopt() {
+	var schselopt = document.getElementById("schselopt_list");
+
+	if(schselopt.style.display=="block") {
+		schselopt.style.display="none";
+	} else {
+		schselopt.style.display="block";
+	}
+}
+
+function schChange(code,title) {
+	var schselopt = document.getElementById("schselopt_list");
+	var secTitle = document.getElementById("secTitle");
+
+	schselopt.style.display="none";
+
+	document.topSearchForm.sc_section_code.value=code;
+	secTitle.innerHTML = title;
+}
+
+//모바일 체크
+ad_check_mobile = "";
+var adStrUserAgent = window.navigator.userAgent;
+
+if(adStrUserAgent!= null)
+{
+	 if(
+		  adStrUserAgent.indexOf("Android") != -1 ||    //Android
+		  adStrUserAgent.indexOf("SAMSUNG") != -1 ||     //samsung
+		  adStrUserAgent.indexOf("PSP") != -1 ||         //psp
+		  adStrUserAgent.indexOf("PLAYSTATION") != -1 || //playstation
+		  adStrUserAgent.indexOf("lgtelecom") != -1 ||   //LGT
+		  adStrUserAgent.indexOf("Smartphone") != -1 ||  //스마트폰
+		  adStrUserAgent.indexOf("Symbian") != -1 ||     //심비안폰
+		  adStrUserAgent.indexOf("PPC") != -1 ||         //??
+		  adStrUserAgent.indexOf("Windows CE") != -1 ||  //PDA
+		  adStrUserAgent.indexOf("iPhone") != -1 ||      //애플폰
+		  adStrUserAgent.indexOf("iPod") != -1 )         //애플
+	 {
+		ad_check_mobile = 1;
+	 }
+	 else
+	 {
+		ad_check_mobile = 0;
+	 }
+}
+
+//검색어 입력 확인
+function SearchCheck() {
+	var flag=0;
+
+	if(document.topSearchForm.sc_word.value=="") {
+		alert("검색 할 기사를 입력하세요.");
+		document.topSearchForm.sc_word.focus();
+		flag=1;
+	}
+
+	if(flag==0) {
+		document.topSearchForm.submit();
+	}
+
+	return;
+}
+
+//검색 창 바꾸기
+function setSearchBox(idx) {
+	for (i=1;i<=1;i++) {
+	var objtab = document.getElementById("Search1");
+	var objtab2 = document.getElementById("Search2");
+	if (!objtab || !objtab2) { return; }
+		objtab.style.display = "block";
+		objtab2.style.display = "none";
+	if ( i == idx ) {
+		objtab.style.display = "none";
+		objtab2.style.display = "block";
+		document.topSearchForm.sc_word.focus();
+		}
+	}
+}
+//-->
+</script>
+
+
+</head>
+
+<body>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+	<tr>
+		<td align="center">
+
+	
+<!-- 레이어 팝업 : s -->
+<script type="text/javascript" src="/popupManagerVer2/js/flow.script.js"></script>
+<script type="text/javascript" src="/popupManagerVer2/js/dom.drag.js"></script>
+
+<script language = "javascript">	
+	function layerClose(layer) {	
+		document.getElementById(layer).style.display = "none";	
+	}
+
+	function layerEnd(layer, day) {	
+		document.getElementById(layer).style.display = "none";
+		setCookieLayer(layer, 'ok', day);
+	}
+
+	function layerEndChk(idx) {	
+		document.getElementById('layerPopup_'+idx).style.display = "none";
+		if(document.getElementById('layerChk_'+idx).checked == true){
+			var day = parseInt(document.getElementById('expires_time_'+idx).value);			
+			setCookieLayer('layerPopup_'+idx, 'ok', day);
+		}		
+	}
+	
+	function setCookieLayer( name, value, expiredays ) {
+		var todayDate = new Date();
+		todayDate.setDate( todayDate.getDate() + expiredays );
+		
+		todayDate.setHours(0);
+		todayDate.setMinutes(0);
+		todayDate.setSeconds(0);
+
+		document.cookie = name + "=" + escape( value ) + ";DOMAIN=www.gamevu.co.kr; path=/; expires=" + todayDate.toGMTString() + ";"
+	}
+	
+</script>
+
+<!-- 레이어 팝업 처리 : s -->
+<table width="960" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td>
+			<div style="POSITION: relative; width:100%;z-index:100000;">
+			<div id="empty" style="position:absolute; display:block;"></div>
+			</div>
+		</td>
+	</tr>
+</table>
+<!--레이어 팝업 처리 : e--><!-- 레이어 팝업 : e -->
+
+<!-- 
+	윈도우 팝업 : s
+	client 모니터 사이즈를 넘기기 위해서 iframe으로 처리.
+-->
+<iframe id = "windowPopup" style = "display:none"></iframe>
+<script language = "javascript">			
+	document.getElementById("windowPopup").contentWindow.location.href = "/popupManagerVer2/windowPopup.html?windowWidth=" + screen.width + "&parentPage=/news/articleView.html";  	
+</script>
+<!-- 윈도우 팝업 : e -->
+<script type="text/javascript">
+<!--
+//메뉴 스타일 불러옴 : 메뉴 /script/menubar.js 와 같이 사용되어야 함
+//submenuStyle	: 서브메뉴 펼침 스타일 (horizon : 가로로, vertical : 세로 슬라이딩)
+var exceptIdx = new Array(); //제외할 메뉴 인덱스번호 (0부터 시작:type integer)
+var submenuStyle="horizon";
+//-->
+</script>
+<!-- 최상단 -->
+<div id="HeadTop">
+	<div id="Default_Warp">
+
+		<!-- 시작/즐겨찾기&최종편집 -->
+		<div id="Update"><strong>UPDATE</strong> : 2019.6.15 토 19:24</div>
+
+		<!-- 로그인/회원가입/SNS버튼 -->
+		<div id="LoginBtn">
+			<ul>
+				<li class="nobr"><a href="/">처음으로</a></li><li><a href="/member/login.html"><strong>로그인</strong></a></li><li><a href="/member/index.html">회원가입</a></li>				<li><a href="/news/articleList.html?view_type=sm">전체기사</a></li>
+				<li class="fac"><a href="#" target="_blank">트위터</a></li>
+				<li class="twi"><a href="#" target="_blank">페이스북</a></li>
+				<li class="rss"><a href="/rss/">RSS</a></li>
+			</ul>
+		</div>
+
+	</div>
+</div>
+
+<!-- 로고영역 -->
+<div id="HeadLogo">
+	<div id="Default_Warp">
+		<div class="BackBg">
+
+			<!-- 로고/배너 -->
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="left"><a href="http://www.gamevu.co.kr" onfocus="this.blur();" title="게임뷰"><img src="/image2006/logo.gif" border="0" alt="게임뷰"></a></td>
+					<!--<td width="260" align="left"></td>-->
+					<td width="680">
+					<!--180803_데스티니가디언즈--<script language="javascript" src="/bannerManager/inc/63.html"></script><!--180803_데스티니가디언즈-->
+					<!--180510_넷기어--<script language="javascript" src="/bannerManager/inc/46.html"></script><!--180510_넷기어-->
+					<!--LOL_180518_680--<script language="javascript" src="/bannerManager/inc/51.html"></script><!--LOL_180518_680-->
+					<!--wow_680_180810--<script language="javascript" src="/bannerManager/inc/66.html"></script><!--wow_680_180810-->
+					<!--WOW_680x80_180814--<script language="javascript" src="/bannerManager/inc/69.html"></script><!--WOW_680x80_180814-->
+					<!--롤드컵680_180911--<script language="javascript" src="/bannerManager/inc/71.html"></script><!--롤드컵680_180911-->
+					<!--리그오브레전드_180919--<script language="javascript" src="/bannerManager/inc/76.html"></script><!--리그오브레전드_180919-->
+					<!--검은사막680_190502--<script language="javascript" src="/bannerManager/inc/88.html"></script><!--검은사막680_190502-->
+					<!--리그오브레전드_190612--><script language="javascript" src="/bannerManager/inc/92.html"></script><!--리그오브레전드_190612-->
+					</td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+</div>
+
+<!-- 메뉴바영역 -->
+<div id="HeadMenu">
+	<div id="Default_Warp">
+		
+		<!-- 섹션 -->
+		<div id="MenuBar">
+			<ul id="mega-menu" class="mega-menu">
+
+				
+	<li class="megaline"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_section_code=S1N1&view_type=sm"><strong>게임</strong></a>
+		<ul>
+			<li class="sub nobr"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N2&view_type=sm">취재</a></li>
+			<li class="sub"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N1&view_type=sm">이슈</a></li>
+			<li class="sub"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N15&view_type=sm">비즈니스</a></li>
+			<li class="sub"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N3&view_type=sm">랭킹</a></li>
+			<li class="sub"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N16&view_type=sm">리뷰</a></li>
+			<li class="sub"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N17&view_type=sm">최신소식</a></li>
+			<li class="sub"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N5&view_type=sm">카드&포토</a></li>
+			<li class="sub"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N28&view_type=sm">게임영상</a></li>
+		</ul>
+	</li>
+
+	<li class="megaline"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_section_code=S1N11&view_type=sm"><strong>오피니언</strong></a>
+		<ul>
+			<li class="sub nobr"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N18&view_type=sm">기자수첩</a></li>
+			<li class="sub"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N19&view_type=sm">칼럼</a></li>
+		</ul>
+	</li>
+
+	<li class="megaline"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_section_code=S1N3&view_type=sm"><strong>ICT</strong></a>
+		<ul>
+			<li class="sub nobr"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N8&view_type=sm">컴퓨팅</a></li>
+			<li class="sub"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N9&view_type=sm">모바일</a></li>
+			<li class="sub"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N24&view_type=sm">AI</a></li>
+			<li class="sub"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N20&view_type=sm">최신소식</a></li>
+			<li class="sub"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N25&view_type=sm">리뷰</a></li>
+			<li class="sub"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N29&view_type=sm">카드&포토</a></li>
+		</ul>
+	</li>
+
+	<li class="megaline"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_section_code=S1N2&view_type=sm"><strong>사람</strong></a>
+		<ul>
+			<li class="sub nobr"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N6&view_type=sm">질의응답</a></li>
+			<li class="sub"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N7&view_type=sm">인터뷰</a></li>
+			<li class="sub"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N21&view_type=sm">피플</a></li>
+		</ul>
+	</li>
+
+	<li class="megaline"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_section_code=S1N7&view_type=sm"><strong>e스포츠</strong></a>
+		<ul>
+			<li class="sub nobr"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N26&view_type=sm">이슈</a></li>
+			<li class="sub"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N27&view_type=sm">최신소식</a></li>
+		</ul>
+	</li>
+
+	<li class="megaline"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_section_code=S1N8&view_type=sm"><strong>English</strong></a>
+		<ul>
+			<li class="sub nobr"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N22&view_type=sm">GAME</a></li>
+			<li class="sub"><a href="http://www.gamevu.co.kr/news/articleList.html?sc_sub_section_code=S2N23&view_type=sm">ICT</a></li>
+		</ul>
+	</li>
+			</ul>
+
+			<!-- 통합검색 -->
+				<div id="SearchForm">
+					<fieldset>
+												<form action="http://www.gamevu.co.kr/news/articleList.html" method="post" name="topSearchForm" id="topSearchForm">
+							<input type="hidden" name="sc_area" value="A">
+							<input type="hidden" name="view_type" value="sm">
+							<input maxlength="255" name="" class="inptxt" id="Search1" value="검색 할 기사를 입력하세요." onclick="setSearchBox(1);">
+							<input maxlength="255" name="sc_word" id="Search2" style="display:none;" onkeydown="if(event.keyCode==13){SearchCheck();}">
+							<button title="기사검색" onClick="SearchCheck();setSearchBox(1);">기사검색</button>
+						</form>
+					</fieldset>
+				</div>
+			
+			<!-- 기타버튼 
+			<div id="AndBtn">
+				<ul>
+					<li class="nobr"><a href="/com/kd.html">구독신청</a></li>
+					<li><a href="/com/ad.html">광고문의</a></li>
+					<li><a href="/news/articleList.html?view_type=sm">전체기사보기</a></li>
+				</ul>
+			</div>
+			-->
+
+		
+		</div>
+	</div>
+</div>
+<div class="mHeight_B">상단여백</div>
+<script type="text/javascript">resizePhoto.addEvt(window, "load", resizePhoto.init);//이미지 리사이즈+light box</script>
+
+<!--기사뷰 플로팅배너-->
+<style>/**/
+#floating_banner_body {position:relative; margin:0 auto; width:960px;}
+#floating_banner_left	{position:absolute; width:310px; z-index:100; left:-330px; top:0px;}
+#floating_banner_right {position:absolute; width:250px; z-index:100; right:-270px; top:0px;}
+</style>
+<div id="floating_banner_body">
+	<ul id="floating_banner_left" class="nd_floating_banner" data-scroll='n' data-parent-target="ND_Warp" data-top-margin="5" data-duration="300">
+		<li>
+		<!--다크어벤저<iframe src="/Autobox/250_autobox9.html" width="250" height="360" frameborder="0" scrolling="no" noresize></iframe>-->
+<!--좌측1--><script language="javascript" src="/bannerManager/inc/1.html"></script><!--좌측1-->
+		<!--좌측2--><script language="javascript" src="/bannerManager/inc/2.html"></script><!--좌측2-->		</li>
+	</ul>
+	<ul id="floating_banner_right" class="nd_floating_banner" data-scroll='n' data-top-margin="5" data-duration="300">
+		<li>
+		<!--리니지m--<iframe src="/Autobox/250_autobox6.html" width="250" height="360" frameborder="0" scrolling="no" noresize></iframe>
+
+<!--음양사<iframe src="/Autobox/250_autobox8.html" width="250" height="360" frameborder="0" scrolling="no" noresize></iframe>-->
+
+
+<!--펜타스톤<iframe src="/Autobox/250_autobox7.html" width="250" height="360" frameborder="0" scrolling="no" noresize></iframe>-->
+
+<!--스타크래프트리마스터<iframe src="/Autobox/250_autobox10.html" width="250" height="360" frameborder="0" scrolling="no" noresize></iframe><스타크래프트리마스터-->
+<!--블소월챔171011종료<iframe src="/Autobox/250_autobox11.html" width="250" height="360" frameborder="0" scrolling="no" noresize></iframe><!--블소월챔-->
+
+
+<!--넥슨-지스타_171108--<iframe src="/Autobox/250_autobox12.html" width="250" height="360" frameborder="0" scrolling="no" noresize></iframe><!--넥슨-지스타_171108-->
+
+<!--WEGL-지스타_171108<iframe src="/Autobox/250_autobox13.html" width="250" height="360" frameborder="0" scrolling="no" noresize></iframe>WEGL-지스타_171108-->
+
+
+<!--듀랑고180105<iframe src="/Autobox/250_autobox14.html" width="250" height="360" frameborder="0" scrolling="no" noresize></iframe><!--듀랑고180105-->
+
+
+<!--오버워치 리그180110--<iframe src="/Autobox/250_autobox15.html" width="250" height="360" frameborder="0" scrolling="no" noresize></iframe><!--오버워치 리그180110-->		</li>
+	</ul>
+</div>
+<!--기사뷰 플로팅배너-->
+
+
+<div id="ND_Warp">
+<div id="divLAS" style="visibility:hidden;"></div>
+
+
+<script type="text/javascript">
+// 기사면 상단 네비게이션 호출
+articleHeader.setScroll();
+</script>
+
+<div id="article-header-title" style="display:none;">
+
+	<div class="aht-btn">
+		<ul>
+			<li class="prev">
+				<a href = "javascript:articleHeader.move(
+				'prev',
+				'embargo_date',
+				'1537431944_11083',
+				'S1N3',
+				'S2N9',
+				'')">
+					이전
+				</a>
+			</li>
+			<li class="next">
+				<a href = "javascript:articleHeader.move(
+				'next',
+				'embargo_date',
+				'1537431944_11083',
+				'S1N3',
+				'S2N9',
+				'')">
+					다음
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="aht-defalut">
+
+		<div class="aht-logo"><a href="/" style="width:115px;background:url('http://www.gamevu.co.kr/image2006/print_logo.gif') no-repeat left center;">로고</a></div>
+		<div class="aht-title" style="width:701px;left:115px;">'카카오프렌즈' 다 컸다? 카카오, 커머스 사업 분리 결정</div>
+		<div class="aht-sns">
+			<ul>
+				<li class="facebook"><a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.gamevu.co.kr%2Fnews%2FarticleView.html%3Fidxno%3D11083&t=%27%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%94%84%EB%A0%8C%EC%A6%88%27+%EB%8B%A4+%EC%BB%B8%EB%8B%A4%3F+%EC%B9%B4%EC%B9%B4%EC%98%A4%2C+%EC%BB%A4%EB%A8%B8%EC%8A%A4+%EC%82%AC%EC%97%85+%EB%B6%84%EB%A6%AC+%EA%B2%B0%EC%A0%95" target="_blank" title="페이스북">페이스북</a></li>
+				<li class="twitter"><a href="http://twitter.com/home?status=%27%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%94%84%EB%A0%8C%EC%A6%88%27+%EB%8B%A4+%EC%BB%B8%EB%8B%A4%3F+%EC%B9%B4%EC%B9%B4%EC%98%A4%2C+%EC%BB%A4%EB%A8%B8%EC%8A%A4+%EC%82%AC%EC%97%85+%EB%B6%84%EB%A6%AC+%EA%B2%B0%EC%A0%95+http%3A%2F%2Fwww.gamevu.co.kr%2Fnews%2FarticleView.html%3Fidxno%3D11083" target="_blank" title="트위터">트위터</a></li>
+				<li class="google"><a href="http://www.google.com/bookmarks/mark?op=add&title=%27%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%94%84%EB%A0%8C%EC%A6%88%27+%EB%8B%A4+%EC%BB%B8%EB%8B%A4%3F+%EC%B9%B4%EC%B9%B4%EC%98%A4%2C+%EC%BB%A4%EB%A8%B8%EC%8A%A4+%EC%82%AC%EC%97%85+%EB%B6%84%EB%A6%AC+%EA%B2%B0%EC%A0%95&bkmk=http://www.gamevu.co.kr/news/articleView.html?idxno=11083" target="_blank" title="구글">구글</a></li>
+				<li class="kako"><a href="javascript:window.open('https://story.kakao.com/share?url=http%3A%2F%2Fwww.gamevu.co.kr%2Fnews%2FarticleView.html%3Fidxno%3D11083', 'kakaostory', 'width=800, height=500' );returnfalse;" title="카카오스토리">카카오스토리</a></li>
+				<li class="mail"><a href="javascript:articleMail('11083');" title="메일">메일</a></li>
+			</ul>
+		</div>
+
+	</div>
+</div>
+
+<table width="960" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+			<div id="article-wrap">
+				<!-- 카테고리 -->
+				<div id="article-cate" class="category border-box">
+					<span class="home border-box"><a href="http://www.gamevu.co.kr">HOME</a></span>
+					 <span class="sec1"><a href="/news/articleList.html?sc_section_code=S1N3&view_type=sm">ICT</a></span> <span class="sec2"><a href="/news/articleList.html?sc_sub_section_code=S2N9&view_type=sm">모바일</a></span>
+				</div>
+
+				<div class="headline border-box">
+					<font class="headline-title"><!--CM_TITLE-->'카카오프렌즈' 다 컸다? 카카오, 커머스 사업 분리 결정<!--/CM_TITLE--></font>				</div>
+
+				<div id="head-info" class="headline-info border-box">
+					
+					<div class="info">
+						<ul>
+							<li class="name">서삼광 기자</li>
+							<li class="date">승인 2018.09.20 17:25</li>
+																					<li class="reply">댓글 0</li>
+						</ul>
+					</div>
+
+					<div class="option">
+						<ul class="type">
+							<li class="nobr"><a href="javascript:fontPlus();">글씨키우기</a></li>
+							<li><a href="javascript:fontMinus();">글씨줄이기</a></li>
+						</ul>
+						<ul class="plus">
+							<li class="nobr"><a href="javascript:articleMail('11083');">메일보내기</a></li>
+							<li><a href="javascript:articlePrint('11083');">인쇄하기</a></li>
+						</ul>
+						<ul class="sns">
+							<li class="facebook"><a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.gamevu.co.kr%2Fnews%2FarticleView.html%3Fidxno%3D11083&t=%27%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%94%84%EB%A0%8C%EC%A6%88%27+%EB%8B%A4+%EC%BB%B8%EB%8B%A4%3F+%EC%B9%B4%EC%B9%B4%EC%98%A4%2C+%EC%BB%A4%EB%A8%B8%EC%8A%A4+%EC%82%AC%EC%97%85+%EB%B6%84%EB%A6%AC+%EA%B2%B0%EC%A0%95" target="_blank" title="페이스북">페이스북</a></li>
+							<li class="twitter"><a href="http://twitter.com/home?status=%27%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%94%84%EB%A0%8C%EC%A6%88%27+%EB%8B%A4+%EC%BB%B8%EB%8B%A4%3F+%EC%B9%B4%EC%B9%B4%EC%98%A4%2C+%EC%BB%A4%EB%A8%B8%EC%8A%A4+%EC%82%AC%EC%97%85+%EB%B6%84%EB%A6%AC+%EA%B2%B0%EC%A0%95+http%3A%2F%2Fwww.gamevu.co.kr%2Fnews%2FarticleView.html%3Fidxno%3D11083" target="_blank" title="트위터">트위터</a></li>
+							<li class="google"><a href="http://www.google.com/bookmarks/mark?op=add&title=%27%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%94%84%EB%A0%8C%EC%A6%88%27+%EB%8B%A4+%EC%BB%B8%EB%8B%A4%3F+%EC%B9%B4%EC%B9%B4%EC%98%A4%2C+%EC%BB%A4%EB%A8%B8%EC%8A%A4+%EC%82%AC%EC%97%85+%EB%B6%84%EB%A6%AC+%EA%B2%B0%EC%A0%95&bkmk=http://www.gamevu.co.kr/news/articleView.html?idxno=11083" target="_blank" title="구글">구글</a></li>
+							<li class="kako"><a href="javascript:window.open('https://story.kakao.com/share?url=http%3A%2F%2Fwww.gamevu.co.kr%2Fnews%2FarticleView.html%3Fidxno%3D11083', 'kakaostory', 'width=800, height=500' );returnfalse;" title="카카오스토리">카카오스토리</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</td>
+	</tr>
+</table>
+
+<div id="article-control">
+<table width="960" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td width="630" valign="top" style="padding:0 0 15px">
+
+		<div id="article-wrap">
+				
+				<!-- content -->
+				<div class="content border-box">
+										<div class="cont-body" id="articleBody">
+						<table align="center" border="0" cellpadding="0" cellspacing="0" id="photo_18995" style="margin-bottom:20px;">
+	<tbody>
+		<tr>
+			<td align="center"><img border="0" src="/news/photo/201809/11083_18995_2458.jpg" style="display:block;" /></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>카카오(공동대표&nbsp;여민수,&nbsp;조수용)는&nbsp;20일&nbsp;이사회를&nbsp;개최하고,&nbsp;커머스&nbsp;사업부문을&nbsp;분사해&nbsp;독립&nbsp;법인&nbsp;&#39;카카오커머스(가칭)&#39;를&nbsp;설립하기로&nbsp;결정했다고&nbsp;밝혔다.</p>
+
+<p>카카오는&nbsp;커머스&nbsp;사업부문을&nbsp;분사해&nbsp;사업의&nbsp;전문성을&nbsp;확보하고&nbsp;경쟁력을&nbsp;강화해,&nbsp;카카오톡&nbsp;내에서의&nbsp;범위를&nbsp;넘어서&nbsp;본격적인&nbsp;커머스&nbsp;영역으로&nbsp;사업&nbsp;범위를&nbsp;확대할&nbsp;계획이다.</p>
+
+<p>카카오의&nbsp;커머스&nbsp;서비스&nbsp;이용자들에게는&nbsp;최적화된&nbsp;쇼핑&nbsp;정보와&nbsp;편의성을&nbsp;제공하고,&nbsp;사업자들에게는&nbsp;효율적으로&nbsp;상품을&nbsp;판매할&nbsp;수&nbsp;있는&nbsp;인프라&nbsp;서비스와&nbsp;솔루션&nbsp;제공&nbsp;등을&nbsp;통해&nbsp;국내&nbsp;시장을&nbsp;선도하는&nbsp;커머스&nbsp;플랫폼으로&nbsp;성장해&nbsp;나간다는&nbsp;포부다.&nbsp;</p>
+
+<p>나아가&nbsp;이용자들이&nbsp;국내&nbsp;뿐&nbsp;아니라&nbsp;해외&nbsp;제품을&nbsp;손쉽게&nbsp;구매할&nbsp;수&nbsp;있고,&nbsp;사업자들이&nbsp;해외로&nbsp;진출할&nbsp;수&nbsp;있도록&nbsp;지원하는&nbsp;글로벌&nbsp;커머스&nbsp;플랫폼으로의&nbsp;성장을&nbsp;도모할&nbsp;예정이다.&nbsp;이를&nbsp;위해&nbsp;신속하고&nbsp;전문적인&nbsp;의사결정이&nbsp;가능한&nbsp;조직&nbsp;체계를&nbsp;확립해&nbsp;빠르게&nbsp;변화하는&nbsp;시장에&nbsp;적극적으로&nbsp;대응해&nbsp;나갈&nbsp;방침이다.</p>
+
+<p>카카오커머스는&nbsp;분사&nbsp;이후&nbsp;카카오톡&nbsp;선물하기,&nbsp;카카오톡&nbsp;스토어,&nbsp;카카오스타일,&nbsp;카카오장보기,&nbsp;카카오파머,&nbsp;다음&nbsp;쇼핑&nbsp;등&nbsp;카카오의&nbsp;커머스&nbsp;서비스를&nbsp;비롯해&nbsp;이후&nbsp;확대될&nbsp;신규&nbsp;커머스&nbsp;서비스&nbsp;사업을&nbsp;맡게&nbsp;된다.</p>
+
+<p>카카오는&nbsp;오는&nbsp;10월&nbsp;31일&nbsp;주주총회를&nbsp;개최하고&nbsp;분사에&nbsp;대한&nbsp;최종&nbsp;승인을&nbsp;거친&nbsp;뒤&nbsp;12월&nbsp;1일&nbsp;분사를&nbsp;마무리할&nbsp;예정이다.</p><p class="auto-martop-20">서삼광 기자&nbsp;&nbsp;seosk@gamevu.co.kr</p><p class="auto-martop-20">&lt;저작권자 &copy; 게임뷰, 무단 전재 및 재배포 금지&gt;</p>					</div>
+					<div class="bottom-box">
+						<div class="bottom-icon">
+							<ul class="bo-link">
+								<li><a href="javascript:articleMail('11083');" class="email"><i class="icon">메일보내기</i></a></li>
+								<li><a href="javascript:articlePrint('11083');" class="print"><i class="icon">인쇄하기</i></a></li>
+								<!-- <li><a class="complain" target="_blank"><i class="icon">신고하기</a></a></li> -->
+							</ul>
+							<div class="bot-sns">
+								<p class="twitt-btn">
+									<a class="twitter-share-button" href="https://twitter.com/share" data-url="http://www.gamevu.co.kr/news/articleView.html?idxno=11083" data-count="horizontal" data-lang="ko">트윗하기</a>
+									<script type="text/javascript">
+									window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));
+									</script>
+								</p>
+								<p class="like-btn">
+									<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.gamevu.co.kr%2Fnews%2FarticleView.html%3Fidxno%3D11083&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+								</p>
+							</div>
+						</div>
+						<div class="more-article"><a href="articleList.html?sc_area=I&sc_word=seosk">서삼광 기자의 다른기사 보기</a></div>
+					</div>
+					<!-- bottombox -->
+
+
+					
+
+					
+
+					<div class="connect">
+						<strong class="tit"><i class="icon">icon</i>관련기사</strong>
+						<span class="list border-box">
+								<a href="http://www.gamevu.co.kr/news/articleView.html?idxno=11193" class="list-link" target="_self"><i class="icon">icon</i>하시스, '카카오헤어샵' 새로운 수수료 제도 추가</a>
+								</span>
+<span class="list border-box">
+								<a href="http://www.gamevu.co.kr/news/articleView.html?idxno=11198" class="list-link" target="_self"><i class="icon">icon</i>[포토] 카카오 게임을 직접 느껴보자! 카카오프렌즈 컨셉 뮤지엄</a>
+								</span>
+					</div>
+					
+				</div>
+				<!-- content -->
+							<!-- 오토박스 -->
+				<div class="article-hotnews border-box">
+					<strong class="tit"><i class="icon">icon</i>인기기사</strong>
+					<div class="line-view border-box">
+						<li><a href="/news/articleView.html?idxno=14322" target="_top">밸브, 오토체스 방식 게임 ‘도타 언더로드’ 공개...다음 주에 OBT 실시</a></li><li><a href="/news/articleView.html?idxno=14303" target="_top">'헤비매크' 변해준 대표, 10년만에 '매크워즈'로 메카닉 슈팅 컴백</a></li><li><a href="/news/articleView.html?idxno=14294" target="_top">베데스다, '오리온' 플랫폼 공개..게임 스트리밍 성능 "UP"</a></li><li><a href="/news/articleView.html?idxno=14293" target="_top">BTS 월드로 3연타석 홈런 앞둔 넷마블, 하반기 자체 IP로 체질강화 나선다</a></li><li><a href="/news/articleView.html?idxno=14300" target="_top">[게임뉴스] 리그 오브 레전드, '오토 체스' 방식 신규 모드 공개</a></li>					</div>
+					<div class="photo-view">
+						<a href="/news/articleView.html?idxno=14322" target="_top"><img src="/news/photo/201906/14322_31358_330.jpg" class="ImgWidth_typeJ ImgHeight_typeM" border="0" alt="밸브, 오토체스 방식 게임 ‘도타 언더로드’ 공개...다음 주에 OBT 실시">
+		<strong>밸브, 오토체스 방식 게임 ‘도타 언더로드’ 공개...다음 주에 OBT 실시</strong>
+		<span class="mask"></span>
+		</a>
+							</div>
+				</div>
+				<!-- 오토박스 -->
+
+
+
+				
+
+<div class = "vote-container"></div>
+
+<script type="text/javascript" src="/kcaptcha/js/md5.js"></script>
+<script type="text/javascript" src = "/script/reply.js"></script>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/reply.css">
+<div id = "article-reply">
+<div class = "reply-header list">
+	<div class = "title">기사 댓글 <strong>0</strong>개</div>
+					<a href = "/news/replyView.html?idxno=11083" class = "order">전체보기</a>
+	
+</div>
+
+<form class = "reply-write-container">
+	<div class = "reply-write-header">
+		<input name = "mode" type = "hidden" value = "input" />
+		<input name = "article_idxno" type = "hidden" value = "11083" />
+		<input name = "parent_idxno" type = "hidden" value = "" />
+		<input name = "name" type = "text" class = "input-box input-placeholder placeholder-name" />
+				<input id = "pwdTest" name = "password" type = "password" class = "input-box input-placeholder placeholder-password" />
+		<div class = "writekey-container">
+			<div class = "input-box-group">
+				<img class="kcaptcha_image" align="absmiddle">
+				<input type="text" name="writekey" class="writekey input-placeholder placeholder-writekey" maxlength="4">
+			</div>
+		</div>
+			</div>
+	<div class = "reply-write-body">
+		<div class = "reply-content-container">
+			<textarea class = "reply-content" name = "content" data-default-message="1"></textarea>
+		</div>
+		<div class = "reply-write-footer">
+			<div class = "n-check"><span class = "cur">0</span>/<span class = "max">300</span></div>
+			<button class = "w-button register" onclick="return false"><i class="fa fa-check"></i> 등록</button>
+		</div>
+	</div>
+</form>
+
+
+<ul class = "reply-list origin">
+</ul>
+
+
+
+<div class = "reply-msg info">
+	<i class="fa fa-comments-o fa-2x"></i> 첫번째 댓글을 남겨주세요.
+</div>
+
+</div>
+
+<script>
+articleReply.init();
+</script>
+
+<!-- 실명제 체크 -->
+<script type="text/javascript" src="/vote/vote.js"></script>
+<script>
+	vote.voteCheck(
+		jQuery('.reply-write-container'),	// 폐쇄시 제거할 영역
+		'S',								// 실명제 구분값
+		'/news/articleView.html'	// 리턴URL
+	);
+</script>
+
+
+			
+		</td>
+		<td width="30" valign="top"></td>
+		<td width="300" rowspan="3" valign="top" class="side-bg">
+			<div id="side-scroll-start">
+				<div id="side-scroll-in">
+
+<table border="0" cellpadding="0" cellspacing="0" width="250" align="center">
+<script language="JavaScript" type="text/javascript">
+  		<!--
+  			function viewPhoto(idxno) {
+				var url = "photoView.html?idxno=" + idxno;
+				window.open(url, 'photoView', 'width=640, height=500, scrollbars=yes');
+			}
+  		//-->
+		</script>			</table><div class="BoxDefault_1" style="width:250px;">
+<dl>
+<dt><a href="/news/articleList.html?sc_sub_section_code=S2N16&view_type=tm" target="_blank" style="margin-bottom:0">
+<img src="http://www.gamevu.co.kr/bannerManager/upload/45.jpg" width="250" height="40" border="0">
+</a></dt>
+<dd><div class="auto-article auto-i14"><div class="content-tool ">
+				<a href="/news/articleView.html?idxno=14268" target="_top" class="image-alink image-line">
+				<span class="posi-re height-120 background-photo" style="background:url('/news/photo/201906/14268_31151_5619.jpg')">
+						<img src="/news/thumbnail/201906/14268_31151_5619_v150.jpg" border="0" alt="크래프톤 신작 ‘보우맥스’, 간단하고 통쾌한 3 대 3 슈팅">
+					</span><div class="photo-up-title">
+										<div class="title-box bg">
+											<strong class="dis-block size-14 auto-fontF" style="text-align:center">크래프톤 신작 ‘보우맥스’, 간단하고 통쾌한 3 대 3 슈팅</strong>
+										</div>
+									</div></a></div><div class="content-tool auto-martop-1">
+				<a href="/news/articleView.html?idxno=14264" target="_top" class="image-alink image-line">
+				<span class="posi-re height-120 background-photo" style="background:url('/news/photo/201906/14264_31119_5623.jpg')">
+						<img src="/news/thumbnail/201906/14264_31119_5623_v150.jpg" border="0" alt="[체험기] 'A:IR', 환골탈태한 초반과 인상적인 ‘마갑기’ 전투">
+					</span><div class="photo-up-title">
+										<div class="title-box bg">
+											<strong class="dis-block size-14 auto-fontF" style="text-align:center">[체험기] 'A:IR', 환골탈태한 초반과 인상적인 ‘마갑기’ 전투</strong>
+										</div>
+									</div></a></div><div class="content-tool auto-martop-1">
+				<a href="/news/articleView.html?idxno=14261" target="_top" class="image-alink image-line">
+				<span class="posi-re height-120 background-photo" style="background:url('/news/photo/201906/14261_31080_1337.jpg')">
+						<img src="/news/thumbnail/201906/14261_31080_1337_v150.jpg" border="0" alt="일본 테스트로 눈도장 찍은 '일곱 개의 대죄: 그랜드 크로스', 한국에서는 어떨까">
+					</span><div class="photo-up-title">
+										<div class="title-box bg">
+											<strong class="dis-block size-14 auto-fontF" style="text-align:center">일본 테스트로 눈도장 찍은 '일곱 개의 대죄: 그랜드 크로스', 한국에서는 어떨까</strong>
+										</div>
+									</div></a></div></div></dd>
+</dl>
+</div><table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td align="center"><div class="mHeight_D">여백</div></td>
+			</tr>
+		</table><div class="BoxDefault_1" style="width:250px;">
+<dl>
+<dt></dt>
+<dd><div class="auto-article"><div class="content-tool">
+				<a href="/news/articleView.html?idxno=14277" target="_top" class="image-alink image-line">
+				<span class="posi-re height-180 background-photo" style="background:url('/news/photo/201906/14277_31178_1352.jpg')">
+						<img src="/news/thumbnail/201906/14277_31178_1352_v150.jpg" border="0" alt="'Apex Legends' revenue dropped by 74% in two months... Why?">
+					</span><div class="photo-up-title">
+										<div class="title-box bg">
+											<strong class="dis-block ellipsis size-14 auto-fontF" style="text-align:center">'Apex Legends' revenue dropped by 74% in two months... Why?</strong>
+										</div>
+									</div></a></div><div class="float-left width-full auto-martop-7 auto-boll"><ul><li><strong class="dis-block flow-hide height-19 size-13 "><a href="/news/articleView.html?idxno=14165" target="_top" class="auto-fontA OnLoad">For home and office, air purifier QUNICARE 'AIRQ-300'</a></strong></li>
+<li><strong class="dis-block flow-hide height-19 size-13 auto-martop-5"><a href="/news/articleView.html?idxno=14014" target="_top" class="auto-fontA OnLoad">Galaxy Fold issues, the consumer makes the final conclusion</a></strong></li>
+<li><strong class="dis-block flow-hide height-19 size-13 auto-martop-5"><a href="/news/articleView.html?idxno=13337" target="_top" class="auto-fontA OnLoad">Can Galaxy Fold show ‘innovation’ in the smartphone industry?</a></strong></li>
+<li><strong class="dis-block flow-hide height-19 size-13 auto-martop-5"><a href="/news/articleView.html?idxno=13317" target="_top" class="auto-fontA OnLoad">Good and small wireless charging stand, Qsonic ‘QWC-5000’</a></strong></li>
+</ul>
+	</div></div></dd>
+</dl>
+</div><table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td align="center"><div class="mHeight_D">여백</div></td>
+			</tr>
+		</table><div class="BoxDefault_1 border-box" style="width:300px;padding:0 25px;">
+<dl>
+<dt></dt>
+<dd><div class="auto-article auto-p04 wrap_new_12"><div class="float-left width-250 auto-body body_new_12" style="display:block;">
+		
+		<div class="content-tool active">
+				<a href="/news/articleView.html?idxno=14282" target="_top" class="image-alink image-line">
+				<span class="posi-re height-180 background-photo" style="background:url('/news/photo/201906/14282_31215_5857.jpg')">
+						<img src="/news/thumbnail/201906/14282_31215_5857_v150.jpg" border="0" alt="[포토] 아이트라 세계로 전이! 에픽세븐 페스타 2019 in Seoul 현장 스케치">
+					</span></a></div><div class="photo-up-title">
+										<div class="title-box bg">
+											<a href="/news/articleView.html?idxno=14282" target="_top"><strong class="dis-block ellipsis size-14 auto-fontF" style="text-align:center">[포토] 아이트라 세계로 전이! 에픽세븐 페스타 2019 in Seoul 현장 스케치</strong></a>
+										</div>
+									</div>
+									
+		</div><div class="float-left width-250 auto-body body_new_12" style="display:none;">
+		
+		<div class="content-tool ">
+				<a href="/news/articleView.html?idxno=14244" target="_top" class="image-alink image-line">
+				<span class="posi-re height-180 background-photo" style="background:url('/news/photo/201906/14244_30976_5536.jpg')">
+						<img src="/news/thumbnail/201906/14244_30976_5536_v150.jpg" border="0" alt="[포토] 소환사들이 함께 즐기는 축제! '서머너즈워' 유저간담회">
+					</span></a></div><div class="photo-up-title">
+										<div class="title-box bg">
+											<a href="/news/articleView.html?idxno=14244" target="_top"><strong class="dis-block ellipsis size-14 auto-fontF" style="text-align:center">[포토] 소환사들이 함께 즐기는 축제! '서머너즈워' 유저간담회</strong></a>
+										</div>
+									</div>
+									
+		</div><div class="float-left width-250 auto-body body_new_12" style="display:none;">
+		
+		<div class="content-tool ">
+				<a href="/news/articleView.html?idxno=14243" target="_top" class="image-alink image-line">
+				<span class="posi-re height-180 background-photo" style="background:url('/news/photo/201906/14243_30998_217.JPG')">
+						<img src="/news/thumbnail/201906/14243_30998_217_v150.jpg" border="0" alt="[포토] 먹거리와 볼거리가 가득한 '던전앤파이터' 마계회합 텔레비전 현장 스케치">
+					</span></a></div><div class="photo-up-title">
+										<div class="title-box bg">
+											<a href="/news/articleView.html?idxno=14243" target="_top"><strong class="dis-block ellipsis size-14 auto-fontF" style="text-align:center">[포토] 먹거리와 볼거리가 가득한 '던전앤파이터' 마계회합 텔레비전 현장 스케치</strong></a>
+										</div>
+									</div>
+									
+		</div><div class="float-left width-250 auto-body body_new_12" style="display:none;">
+		
+		<div class="content-tool ">
+				<a href="/news/articleView.html?idxno=14209" target="_top" class="image-alink image-line">
+				<span class="posi-re height-180 background-photo" style="background:url('/news/photo/201905/14209_30845_4052.jpg')">
+						<img src="/news/thumbnail/201905/14209_30845_4052_v150.jpg" border="0" alt="[영상] 전기요금과 공기질 잡은 큐니케어 'AIRQ-300' 대형 공기청정기">
+					</span></a></div><div class="photo-up-title">
+										<div class="title-box bg">
+											<a href="/news/articleView.html?idxno=14209" target="_top"><strong class="dis-block ellipsis size-14 auto-fontF" style="text-align:center">[영상] 전기요금과 공기질 잡은 큐니케어 'AIRQ-300' 대형 공기청정기</strong></a>
+										</div>
+									</div>
+									
+		</div><div class="dis-block width-250 cursor_new_12 border-box">
+<ul><li class="float-left width-61 auto-martop-2 border-box active ">
+		<a href="/news/articleView.html?idxno=14282" target="_top" class="dis-block posi-re"><div class="cover-over border-box width-full height-40">[포토] 아이트라 세계로 전이! 에픽세븐 페스타 2019 in Seoul 현장 스케치</div>
+			<img src="/news/thumbnail/201906/14282_31215_5857_v150.jpg" class="float-left width-full height-40 border-box line" border="0" alt="[포토] 아이트라 세계로 전이! 에픽세븐 페스타 2019 in Seoul 현장 스케치"></a>
+		</li><li class="float-left width-61 auto-martop-2 border-box  auto-marleft-2">
+		<a href="/news/articleView.html?idxno=14244" target="_top" class="dis-block posi-re"><div class="cover-over border-box width-full height-40">[포토] 소환사들이 함께 즐기는 축제! '서머너즈워' 유저간담회</div>
+			<img src="/news/thumbnail/201906/14244_30976_5536_v150.jpg" class="float-left width-full height-40 border-box line" border="0" alt="[포토] 소환사들이 함께 즐기는 축제! '서머너즈워' 유저간담회"></a>
+		</li><li class="float-left width-61 auto-martop-2 border-box  auto-marleft-2">
+		<a href="/news/articleView.html?idxno=14243" target="_top" class="dis-block posi-re"><div class="cover-over border-box width-full height-40">[포토] 먹거리와 볼거리가 가득한 '던전앤파이터' 마계회합 텔레비전 현장 스케치</div>
+			<img src="/news/thumbnail/201906/14243_30998_217_v150.jpg" class="float-left width-full height-40 border-box line" border="0" alt="[포토] 먹거리와 볼거리가 가득한 '던전앤파이터' 마계회합 텔레비전 현장 스케치"></a>
+		</li><li class="float-left width-61 auto-martop-2 border-box  auto-marleft-2">
+		<a href="/news/articleView.html?idxno=14209" target="_top" class="dis-block posi-re"><div class="cover-over border-box width-full height-40">[영상] 전기요금과 공기질 잡은 큐니케어 'AIRQ-300' 대형 공기청정기</div>
+			<img src="/news/thumbnail/201905/14209_30845_4052_v150.jpg" class="float-left width-full height-40 border-box line" border="0" alt="[영상] 전기요금과 공기질 잡은 큐니케어 'AIRQ-300' 대형 공기청정기"></a>
+		</li></ul>
+</div></div><script>
+(function($) {
+	$tg_new_12 = $('.cursor_new_12').find('li'); // 비주얼제어
+	$body_new_12 = $('.body_new_12'); // 내용을 담고 있는 레이어
+	page_top_area_new_12 = '.wrap_new_12'; // 전체 영역
+	page_num_new_12 = 1; // 현재 페이지
+	page_auto_play_new_12 = true; // 자동전환
+	page_auto_time_new_12 = 5000; // 자동전환 시간
+	page_layer_count_new_12 = $tg_new_12.length; // 총 컨텐츠
+	page_in_status_new_12 = true; // 마우스 접근 여부
+	page_point_new_12 = page_num_new_12 - 1; // 현재페이지
+	page_buffer_new_12 = page_num_new_12 - 1; // 현재페이지 임시저장
+
+	$tg_new_12.mouseenter(function() {
+		page_num_new_12 = $tg_new_12.index(this);
+		page_cmd_new_12('current');
+	});
+
+	$body_new_12.eq(page_point_new_12).show();
+	// 페이지 계산
+	function page_cmd_new_12(cmd) {
+		if(cmd == 'prev') { // 이전
+			page_point_new_12 -= 1;
+			if(page_point_new_12 < 0) page_point_new_12 = page_layer_count_new_12 - 1;
+		}
+		else if(cmd == 'next') { // 다음
+			page_point_new_12 += 1;
+			if(page_point_new_12 >= page_layer_count_new_12) page_point_new_12 = 0;
+		}
+		else if(cmd == 'current') { // 지정한 페이지
+			page_point_new_12 = page_num_new_12		}
+
+		$body_new_12.eq(page_buffer_new_12).stop().hide().end().eq(page_point_new_12).show();
+		$tg_new_12.eq(page_buffer_new_12).removeClass('active').end().eq(page_point_new_12).addClass('active');
+		page_buffer_new_12 = page_point_new_12;
+		page_num_new_12 = page_point_new_12 + 1;
+	}
+
+	// 영역에 접근하면 자동전환 중지
+	$(page_top_area_new_12).bind({
+		  mouseenter: function() { // 마우스가 들어가면
+			page_in_status_new_12 = false;
+		  },
+		  mouseleave: function() { // 마우스가 빠져나오면
+			page_in_status_new_12 = true;
+		  }
+	});
+
+	// 자동 바꿈
+	if(page_auto_play_new_12) {
+		page_auto_change_new_12 = window.setInterval(function () {
+			if(page_in_status_new_12) {
+				page_cmd_new_12('next');
+			}
+		},page_auto_time_new_12);
+	}
+
+})(jQuery);
+</script>
+</dd>
+</dl>
+</div><table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td align="center"><div class="mHeight_C">여백</div></td>
+			</tr>
+		</table><div class="BoxDefault_5" style="width:250px;">
+<dl>
+<dt><strong><font color="#2b5e62">최근 인기기사</font></strong></dt>
+<dd><div class="auto-article" style="margin-top:-5px;">
+<ul><li class="float-left width-full border-box auto-hotA ">
+		<span class="num point-num border-box">1</span>
+		<div class="dis-block flow-hide height-19 size-13 auto-martop-1"><a href="/news/articleView.html?idxno=14322" target="_top" class="auto-fontA OnLoad">밸브, 오토체스 방식 게임 ‘도타 언더로드’ 공개...다음 주에 OBT 실시</a></div>
+		</li><li class="float-left width-full border-box auto-hotA auto-martop-5">
+		<span class="num point-num border-box">2</span>
+		<div class="dis-block flow-hide height-19 size-13 auto-martop-1"><a href="/news/articleView.html?idxno=14274" target="_top" class="auto-fontA OnLoad">LoL 145번째 챔피언 ‘키아나’는 2년 만에 추가될 AD 암살자?</a></div>
+		</li><li class="float-left width-full border-box auto-hotA auto-martop-5">
+		<span class="num point-num border-box">3</span>
+		<div class="dis-block flow-hide height-19 size-13 auto-martop-1"><a href="/news/articleView.html?idxno=14261" target="_top" class="auto-fontA OnLoad">일본 테스트로 눈도장 찍은 '일곱 개의 대죄: 그랜드 크로스', 한국에서는 어떨까</a></div>
+		</li><li class="float-left width-full border-box auto-hotA auto-martop-5">
+		<span class="num border-box">4</span>
+		<div class="dis-block flow-hide height-19 size-13 auto-martop-1"><a href="/news/articleView.html?idxno=14303" target="_top" class="auto-fontA OnLoad">'헤비매크' 변해준 대표, 10년만에 '매크워즈'로 메카닉 슈팅 컴백</a></div>
+		</li><li class="float-left width-full border-box auto-hotA auto-martop-5">
+		<span class="num border-box">5</span>
+		<div class="dis-block flow-hide height-19 size-13 auto-martop-1"><a href="/news/articleView.html?idxno=14262" target="_top" class="auto-fontA OnLoad">화제의 인디게임 'HP SWORD', 라인게임즈가 서비스 맡는다</a></div>
+		</li><li class="float-left width-full border-box auto-hotA auto-martop-5">
+		<span class="num border-box">6</span>
+		<div class="dis-block flow-hide height-19 size-13 auto-martop-1"><a href="/news/articleView.html?idxno=14279" target="_top" class="auto-fontA OnLoad">'검은사막', 신규 직업 '샤이' 공개...다음 주에 사전 생성 가능</a></div>
+		</li><li class="float-left width-full border-box auto-hotA auto-martop-5">
+		<span class="num border-box">7</span>
+		<div class="dis-block flow-hide height-19 size-13 auto-martop-1"><a href="/news/articleView.html?idxno=14247" target="_top" class="auto-fontA OnLoad">[중국 앱스토어] ‘명일방주’ 매출 1위 등극, 텐센트 신작 ‘페어리 테일’ 매출 5위</a></div>
+		</li><li class="float-left width-full border-box auto-hotA auto-martop-5">
+		<span class="num border-box">8</span>
+		<div class="dis-block flow-hide height-19 size-13 auto-martop-1"><a href="/news/articleView.html?idxno=14257" target="_top" class="auto-fontA OnLoad">아이폰-아이패드, 올가을부터 PS4-Xbox One 게임패드 지원 예정</a></div>
+		</li><li class="float-left width-full border-box auto-hotA auto-martop-5">
+		<span class="num border-box">9</span>
+		<div class="dis-block flow-hide height-19 size-13 auto-martop-1"><a href="/news/articleView.html?idxno=14271" target="_top" class="auto-fontA OnLoad">구글 ‘스태디아’, 11월 북미-유럽 출시…파판15-보더랜드3 등 지원</a></div>
+		</li><li class="float-left width-full border-box auto-hotA auto-martop-5">
+		<span class="num border-box">10</span>
+		<div class="dis-block flow-hide height-19 size-13 auto-martop-1"><a href="/news/articleView.html?idxno=14255" target="_top" class="auto-fontA OnLoad">보안 솔루션이 필요한 사업장에 안성맞춤 '넷기어 BR500'</a></div>
+		</li></ul>
+</div></dd>
+</dl>
+</div><table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td align="center"><div class="mHeight_C">여백</div></td>
+			</tr>
+		</table>				</div>
+			</div>
+		</td>
+	</tr>
+</table>
+</div>
+
+<script type="text/javascript">
+	jQuery(document).ready
+	(
+		function()
+		{
+			onScrollDirection();
+		 	onScrollAdjustEndLine("#side-scroll-start",	"#article-control", "#side-scroll-in");
+		}
+	);
+</script>
+<div id="footer-wrap" class="border-box" style="padding:20px 0 20px 173px;background:url('/image2006/logo_dn.gif') no-repeat left center;">
+	<div class="posi-re dis-inblock">
+		<ul class="dncom border-box">
+			<li class="nobr"><a href="http://www.gamevu.co.kr/com/com-1.html" onfocus="this.blur()">신문사소개</a></li>
+			<li><a href="http://www.gamevu.co.kr/com/jb.html" onfocus="this.blur()">기사제보</a></li>
+			<li><a href="http://www.gamevu.co.kr/com/ad.html" onfocus="this.blur()">광고문의</a></li>
+			<li><a href="http://www.gamevu.co.kr/com/bp.html" onfocus="this.blur()">불편신고</a></li>
+			<li><a href="http://www.gamevu.co.kr/com/privacy.html" onfocus="this.blur()"><strong class="Default_textColor">개인정보취급방침</strong></a></li>
+				<li><a href="http://www.gamevu.co.kr/com/ethic.html" onfocus="this.blur()"><strong style="color:#2b5e62;">인터넷신문윤리강령</strong></a></li>
+			<li><a href="http://www.gamevu.co.kr/com/teen.html" onfocus="this.blur()">청소년보호정책</a></li>
+			<li><a href="http://www.gamevu.co.kr/com/emailno.html" onfocus="this.blur()">이메일무단수집거부</a></li>
+		</ul>
+
+		<div class="dncopy">
+		게임뷰 · 발행일 : 2016.11.11 <span>&nbsp;&middot; </span>등록번호 : 서울, 아04925<span>&nbsp;&middot; </span>등록일 : 2018.01.11<span>&nbsp;&middot; </span>제호 : 게임뷰<span>&nbsp;&middot; </span>발행인 : 이유림<span>&nbsp;&middot; </span>편집인 : 김태만<br>
+		청소년보호책임자 : 김태만<span>&nbsp;&middot; </span>주소 : 서울특별시 양천구 신월로 117 태성빌딩 402호 게임뷰(우편번호 08044)<span>&nbsp;&middot; </span>TEL  :  02-6080-0619<span>&nbsp;&middot; </span>FAX : 02-6016-9872 
+		<!-- 서울특별시 강남구 역삼로 139, 성일빌딩 547호<span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>대표전화 : 02-793-383402)3211-3040<span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>팩스 : 02)714-3042<br>
+		법인등록번호 : 110111-5709485<span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>등록일 : 2015년 06월 01일<span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>발행인 : 이유림<span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>편집인 : 서삼광<span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>청소년보호책임자 : 김태만 -->
+		<br>
+		C<a href="http://www.gamevu.co.kr/admin/adminLoginForm.html">o</a>pyright &copy; 2019 <!-- 게임뷰 -->게임뷰. All rights reserved.
+		</div>
+
+		<div class="pblogo"><a href="http://www.ndsoft.co.kr" target="_blank" onfocus="this.blur()"><img src="/image2006/ndsoft.gif" border="0"></a></div>
+	</div>
+</div>
+
+
+<!-- 스크롤탑 -->
+<i class="back-to-top"><a href="#top">Back to Top</a></i>
+
+<script type="text/javascript">
+<!--
+(function($) {
+	$(function() {
+
+		/*스크롤 탑*/
+		var offset = 220;
+		var duration = 500;
+		jQuery(window).scroll(function() {
+			if (jQuery(this).scrollTop() > offset) {
+				jQuery('.back-to-top').fadeIn(duration);
+			} else {
+				jQuery('.back-to-top').fadeOut(duration);
+			}
+		});
+
+		jQuery('.back-to-top').click(function(event) {
+			event.preventDefault();
+			jQuery('html, body').animate({scrollTop: 0}, duration);
+			return false;
+		})
+
+	});
+})(jQuery);
+//-->
+</script>
+
+
+</div>
+</td>
+</tr>
+</table>
+
+
+</body>
+</html>

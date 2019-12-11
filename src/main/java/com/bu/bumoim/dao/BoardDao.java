@@ -36,4 +36,5 @@ public interface BoardDao {
 
 	public void boardCount(int board_number) throws Exception;
 
+	public int groupboardcount(int groupList_number);
 }

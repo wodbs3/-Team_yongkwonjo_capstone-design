@@ -73,6 +73,12 @@
 	      <button type="button" onclick="javascript:goJoinView();" class="col-md-12 btn btn-default">Join</button>
 	   </div>
 	</div>
+	<div class="col-md-offset-4 col-md-6">
+	   <label for="" class="col-sm-2 control-label"></label>
+	   <div class="col-md-6 col-sm-10">
+	      <button type="button" onclick="javascript:goFindId();" class="col-md-12 btn btn-default">FindId</button>
+	   </div>
+	</div>
 	
 	</form>
 	</div>
@@ -146,6 +152,10 @@ function logout(){
 function goJoinView() {
 	   location.href="/joinView.do";
 	}
+
+function goFindId() {
+	localtion.href="/findid.do";
+}
 </script>
 
 </body>

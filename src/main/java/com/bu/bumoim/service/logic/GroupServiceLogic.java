@@ -57,4 +57,14 @@ public class GroupServiceLogic implements GroupService{
 	public int getcount(int groupList_number) {
 		return groupDao.getcount(groupList_number);
 	}
+	
+	@Override
+	public int getgroupcount(int groupList_number) {
+		return groupDao.getgroupcount(groupList_number);
+	}
+	
+	@Override
+	public int groupohotocount(int groupList_number) {
+		return groupDao.groupohotocount(groupList_number);
+	}
 }

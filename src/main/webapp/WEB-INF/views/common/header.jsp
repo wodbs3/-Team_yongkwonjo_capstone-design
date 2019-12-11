@@ -23,8 +23,10 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/resources/rev-slider-files/css/settings.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
  	
     <header>
+ 	
         <div id="top_line">
             <div class="container">
                 <div class="row">
@@ -62,17 +64,15 @@
                     <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Menu mobile</span></a>
                     <div class="main-menu">
                         <div id="header_menu">
-                            <img src="/resources/img/bumoim-logo.png" width="160" height="34" alt="City tours" data-retina="true">
+                            <img src="/resources/img/bumoim-logo.png" width="160" height="34" alt="City tours" data-retina="complete">
                         </div>
                         <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                         <ul>
                             <li class="submenu">
                                 <a href="${pageContext.request.contextPath }/introduce.do" class="show-submenu">Introduce<i class="icon-down-oepn-mini"></i></a>
-                   
                             </li>
                             <li class="submenu">
                                 <a href="${pageContext.request.contextPath }/group/GroupList.do" class="show-submenu">GroupList </a>
-
                             </li>
                             <li class="submenu">
                             	<a href="${pageContext.request.contextPath }/chat2.do" class="show-submenu">Chatting</a>
