@@ -71,7 +71,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM member
 		WHERE member_group1 = #{grouplist_number} || member_group2 = #{grouplist_number} || member_group3 = #{grouplist_number}
 	</select>
-
+	
+	<select id="groupListCount" resultType="int">
+		SELECT count(*)
+		FROM bumoim.grouplist
+	</select>
 	
 	<select id="groupPeopleCount" resultType="int">
 		SELECT count(*)
@@ -80,6 +84,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	</select>
 	    
+	<select id="groupohotocount" resultType="int">
+		SELECT count(*)
+		FROM bumoim.groupphoto
+		WHERE grouplist_number = #{groupList_number}
+	</select>
     <update id="updateMemberGroup" parameterType="hashmap">
 		UPDATE 
 			bumoim.member

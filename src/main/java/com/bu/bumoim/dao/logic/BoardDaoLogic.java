@@ -31,7 +31,7 @@ public class BoardDaoLogic implements BoardDao{
 
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
-		  
+		
         params.put("boardCri", boardCri);
         params.put("groupNum", groupList_number);  
 
@@ -66,5 +66,9 @@ public class BoardDaoLogic implements BoardDao{
 	@Override
 	public void boardCount(int board_number) throws Exception {
 		sqlSession.update(namespace + ".boardCount", board_number);
+	}
+	@Override
+	public int groupboardcount(int groupList_number) {
+		return sqlSession.selectOne("board.groupboardCount", groupList_number);
 	}
 }

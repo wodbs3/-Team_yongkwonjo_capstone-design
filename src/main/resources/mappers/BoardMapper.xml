@@ -20,22 +20,49 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         LIMIT #{pageStart}, #{perPageNum}
     </select>
     
-    <select id="selectGroupBoardList" resultType="HashMap">
-    	SELECT
-    		board_number,
-    		board_title,
-    		board_content,
-    		board_writer,
-    		board_photo,
-    		board_date,
-    		board_count
-    	FROM
-    		bumoim.groupboard
-    	WHERE
-    		grouplist_number = #{groupNum}
-    	ORDER BY board_number DESC
-    	 LIMIT #{boardCri.pageStart}, #{boardCri.perPageNum}
-    </select>
+<!--     <select id="selectGroupBoardList" resultType="HashMap"> -->
+<!--     	SELECT -->
+<!--     		@rownum:=@rownum+1 as number, -->
+<!--     		board_number, -->
+<!--     		board_title, -->
+<!--     		board_content, -->
+<!--     		board_writer, -->
+<!--     		board_photo, -->
+<!--     		board_date, -->
+<!--     		board_count -->
+<!--     	FROM -->
+<!--     		bumoim.groupboard -->
+<!--     	WHERE 1=1 -->
+<!--     	AND	grouplist_number = #{groupNum} -->
+<!--     	AND (@rownum:=0)=0 -->
+<!--     	ORDER BY board_number DESC -->
+<!--     	 LIMIT #{boardCri.pageStart}, #{boardCri.perPageNum} -->
+<!--     </select> -->
+	<select id="selectGroupBoardList" resultType="HashMap">
+		SELECT A.*
+		, @rownum := @rownum+1 as row_number
+		FROM (
+			SELECT
+				board_number,
+				board_title,
+				board_content,
+				board_writer,
+				board_photo,
+				board_date,
+				board_count
+			FROM
+				bumoim.groupboard
+			JOIN (SELECT @rownum := 0) AS R
+			WHERE 1=1
+			AND grouplist_number = #{groupNum}
+			ORDER BY board_number DESC
+			LIMIT #{boardCri.pageStart}, #{boardCri.perPageNum}
+			)
+			AS A
+	
+	</select>
+    
+    
     <insert id="insertBoard"  >
     	INSERT INTO bumoim.groupboard (
    	 			board_title,
@@ -105,5 +132,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    		WHERE
    			board_number = #{board_number}
    </update>
-
+	
+	<select id="groupboardCount" resultType="int">
+		SELECT
+			count(*)
+		FROM bumoim.groupboard
+		
+		WHERE grouplist_number = #{groupList_number}
+	</select>
 </mapper>

@@ -78,6 +78,14 @@ img {
 	position:relative;
 	top:1px;
 }
+pager>ul.li:active {
+	background-color:black;
+	color: black;
+}
+.pager li.active>a{
+	background-color:black;
+	color: black;
+}
 </style>
 
 
@@ -149,15 +157,21 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 								<button style="width:100%;" class="myButton" value="${groupDetail.grouplist_number }">이미 가입된
 									모임입니다.</button>
 							</c:when>
+							<c:when test="${groupPeopleCount eq groupDetail.grouplist_people}">
+								<button class="myButton" onclick="javascript:goList();">풀방입니다</button>
+							</c:when>
 							<c:when
 								test="${loginMap.member_group1 ne groupDetail.grouplist_number || loginMap.member_group2 ne groupDetail.grouplist_number || loginMap.member_group3 ne groupDetail.grouplist_number}">
 								<c:choose>
 									<c:when test="${loginMap.member_id eq null}">
 										<button class="myButton" onclick="javascript:goLogin();" value="${loginMap.member_id eq null }">로그인해주세요</button>
 									</c:when>
-									<c:otherwise>
+									<c:when test="${groupPeopleCount eq groupDetail.grouplist_people}">
+										<button class="myButton" onclick="javascript:goList();">풀방입니다</button>
+									</c:when>
+									<c:when test="${loginMap.member_id ne null }">
 										<button class="myButton" onclick="javascript:goGroupJogin();" value="${groupDetail.grouplist_number }">가입신청</button>
-									</c:otherwise>						
+									</c:when>						
 								</c:choose>
 							</c:when>
 						</c:choose>
@@ -201,6 +215,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 											<table class="table table-striped table-hover" style="table-layout: fixed">
 												<thead>
 													<tr>
+														<th>test</th>
 														<th>번호</th>
 														<th>제목</th>
 														<th>내용</th>
@@ -212,6 +227,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 											<tbody>
 													<c:forEach var="boardList" items="${boardList }" varStatus="status">
 														<tr>
+															<td><c:out value="${boardList.row_number}"></c:out></td>
 															<td><c:out value="${boardList.board_number }"/></td>
 															<td style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap;"><a href="${pageContext.request.contextPath }/boardDetail.do?groupList_number=${groupDetail.grouplist_number}&board_number=${boardList.board_number }"><c:out value="${boardList.board_title }"/></a></td>
 															<td style="text-overflow:ellipsis; overflow:hidden; white-space:nowrap;"><c:out value="${boardList.board_content }"/></td>
@@ -227,7 +243,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
      									   </div>
 										</div>
 								<div class="text-center">
-										<ul class="pagination">
+										<ul class="pager">
 
 											<c:if test="${boardPageMaker.prev }">
 												<li><a
@@ -236,7 +252,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 											</c:if>
 											<c:forEach begin="${boardPageMaker.startPage }"
 												end="${boardPageMaker.endPage }" var="idx" varStatus="status">
-
+												
 												<li><a id="boardPage" name="boardPage" 
 													href='<c:url value="/group/groupInfo.do?groupList_number=${groupDetail.grouplist_number }&boardPage=${idx }#board"/>'>
 													
@@ -249,6 +265,8 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 											</c:if>
 										</ul>
 									</div>
+
+
 								</div>
 								<!-- END group BOARD TAB -->
 
@@ -381,7 +399,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 								</div>
 								<!-- END group MEMBER TAB -->
 
-
+								
 
 								<!-- START group SOMOIM TAB -->
 								<div class="tab-pane fade" id="somoim" role="tabpanel" aria-labelledby="somoim-tab">
@@ -541,6 +559,9 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 		location.href="/login.do";
 	}
 	
+	function goList() {
+		location.href="${pageContext.request.contextPath }/group/GroupList.do"
+	}
 	function goGroupJogin() {
 		location.href="/group/groupJoin.do?groupList_number=${groupDetail.grouplist_number}&member_id=${loginMap.member_id}";
 		
@@ -585,7 +606,6 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 	</script>
 	
 	<!-- Modal script -->
-
 	
 </body>
 

@@ -23,4 +23,6 @@ public interface BoardService {
 	Board read(int board_number) throws Exception;
 	
 	void boardCount(int board_number) throws Exception;
+	
+	public int groupboardcount(int groupList_number);
 }

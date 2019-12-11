@@ -149,5 +149,6 @@ public class GalleryDaoLogic implements GalleryDao {
 			session.close();
 		}
 	}
+	
 
 }

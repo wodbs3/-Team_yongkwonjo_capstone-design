@@ -65,18 +65,22 @@ public class GroupController {
 		List<GroupList> list = groupService.selectGroupList(cri);
 		List<Member> memberList = userService.getMemberList(member_id);
 		
-		
+		int groupCount = groupService.getgroupcount(grouplist.getGrouplist_number());
 		
 		ModelAndView mav = new ModelAndView("group/grouplist");
 		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(100);
+		pageMaker.setTotalCount(groupCount);
 		
 		mav.addObject("GroupList", list);
 		mav.addObject("memberList", memberList);
 		mav.addObject("pageMaker", pageMaker);
-	
+		
+		mav.addObject("groupCount", groupCount);
+		logger.info("#################################");
+		logger.info("groupCount : " + groupCount);
+		logger.info("#################################");
 		
 		return mav;
 	}
@@ -132,6 +136,7 @@ public class GroupController {
 	public String groupInfoView(int groupList_number, GroupList grouplist, Model model, @ModelAttribute("cri") GalleryCriteria cri, @ModelAttribute("boardCri") Criteria boardCri) {
 		//媛ㅻ윭由�
 		
+		Board board = new Board();
 		
 		List<Gallery> galleryList = galleryService.getGroupGallery(groupList_number, cri);
 		logger.info(galleryList.toString());
@@ -143,19 +148,23 @@ public class GroupController {
 		List<Member> groupMemberList = groupService.getGroupMemberList(groupList_number);
 		logger.info(groupMemberList.toString());
 		
-
+		logger.info("*****************8888888");
+		logger.info("gggggggggggggggggggg : " + board.getRow_number());
+		
+		
 		List<SmallGroup> smallGroupList = smallGroupService.readAll(groupList_number);
 		logger.info(smallGroupList.toString());
 
 		int groupPeopleCount = groupService.getcount(groupList_number);
-		
+		int groupboardcount = boardService.groupboardcount(groupList_number);
+		int groupohotocount = groupService.groupohotocount(groupList_number);
 		PageMaker boardPageMaker = new PageMaker();
 		boardPageMaker.setCri(boardCri);
-		boardPageMaker.setTotalCount(100);
+		boardPageMaker.setTotalCount(groupboardcount);
 		
 		GalleryPageMaker pageMaker = new GalleryPageMaker();		
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(100);
+		pageMaker.setTotalCount(groupohotocount);
 		
 		model.addAttribute("groupDetail", groupDetail);
 		model.addAttribute("galleryList", galleryList);
@@ -164,10 +173,19 @@ public class GroupController {
 		model.addAttribute("boardPageMaker", boardPageMaker);
 		model.addAttribute("groupMemberList" , groupMemberList);
 		model.addAttribute("smallGroupList", smallGroupList);
-
+		model.addAttribute("groupboardcount", groupboardcount);
+		model.addAttribute("groupohotocount", groupohotocount);
+		
 		model.addAttribute("groupPeopleCount", groupPeopleCount);
+		logger.info("boardList : " + boardList);
 		logger.info("#########################################");
 		logger.info("groupPeopleCount == " + groupPeopleCount);
+		logger.info("#########################################");
+		logger.info("#########################################");
+		logger.info("groupboardcount == " + groupboardcount);
+		logger.info("#########################################");
+		logger.info("#########################################");
+		logger.info("groupboardcount == " + groupohotocount);
 		logger.info("#########################################");
 
 		return "group/groupInfo2";
