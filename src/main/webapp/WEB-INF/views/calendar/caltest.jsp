@@ -22,9 +22,10 @@
 </head>
 
 <body>
-<%-- <%@ include file="../common/header.jsp" %> --%>
+<%@ include file="../common/header.jsp" %>
 
 <main>
+
     <div class="container">
 
         <!-- 일자 클릭시 메뉴오픈 -->
@@ -43,7 +44,7 @@
         </div>
 
         <div id="wrapper">
-            <div id="loading"></div>
+            <div id="loading"></div>  </div>
             <div id="calendar"></div>
         </div>
 
@@ -133,7 +134,7 @@
         </div><!-- /.modal -->
 
         
-    </div>
+  
     </main>
     <!-- /.container -->
 
@@ -148,7 +149,7 @@
     <script src="/resources/js/addEvent.js"></script>
     <script src="/resources/js/editEvent.js"></script>
     <script src="/resources/js/etcSetting.js"></script>
-<%--    <%@ include file="../common/footer.jsp" %> --%>
+   <%@ include file="../common/footer.jsp" %>
 <script>
    $(document).ready(function() {
       fn_get_events();
@@ -171,7 +172,9 @@
               $(this).remove();
             }
          }
-      });
+         
+        });
+      calendar.addEvent(events);
    }
       
    function fn_get_events()

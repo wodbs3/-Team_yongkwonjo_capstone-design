@@ -63,6 +63,7 @@ public class GalleryController {
 		mav.setViewName("gallery/gallery");
 		mav.addObject("gallery", list);
 		mav.addObject("pageMaker", pageMaker);
+		mav.addObject("curPage", cri);
 		return mav;
 	}
 
@@ -169,7 +170,7 @@ public class GalleryController {
 				origName = new String(uploadFile.getOriginalFilename().getBytes("8859_1"), "UTF-8"); // 占쎈립疫뀐옙�댆醫롮춾 獄쎻뫗占�
 
 				// 占쎈솁占쎌뵬筌뤿굞�뵠 占쎈씨占쎈뼄筌롳옙
-				if ("".equals(origName)) {
+				if ("".equals(origName)) { 
 					continue;
 				}
 
@@ -183,7 +184,7 @@ public class GalleryController {
 				logger.info("path: " + uploadFile);
 				logger.info("fileName: " + uploadFile.getOriginalFilename());
 
-				gallery = new Gallery(saveFileName, gallery.getContent(), gallery.getRegDate(), gallery.getWriter());
+				gallery = new Gallery(saveFileName, gallery.getContent(), gallery.getRegDate(), gallery.getWriter(), origName);
 				
 			
 			}

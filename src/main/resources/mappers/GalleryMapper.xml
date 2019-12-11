@@ -26,14 +26,16 @@
 				photo_name,
 				photo_id,
 				photo_date,
-				grouplist_number
+				grouplist_number,
+				photo_oriname
 				)
 		VALUES (
 			#{content}, 
 			#{fileName},
 			#{writer},
 			CURDATE(),
-			#{groupList_number}
+			#{groupList_number},
+			#{oriName}
 				)
 	
 	</insert>

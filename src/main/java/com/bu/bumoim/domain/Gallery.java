@@ -13,6 +13,9 @@ public class Gallery {
 	private Date regDate;
 	private String fileName;
 	private int groupList_number;
+	private String oriName;
+	
+	
 	public int getGroupList_number() {
 		return groupList_number;
 	}
@@ -29,11 +32,12 @@ public class Gallery {
 		
 	}
 	
-	public Gallery(String fileName, String content, Date regDate, String writer) {
+	public Gallery(String fileName, String content, Date regDate, String writer, String oriName) {
 		this.fileName = fileName;
 		this.content = content;
 		this.regDate = regDate;
 		this.writer = writer;
+		this.oriName = oriName;
 	}
 		
 	
@@ -104,5 +108,13 @@ public class Gallery {
 		builder.append(", gallery groupList_number: ").append(groupList_number);
 		
 		return builder.toString();
+	}
+
+	public String getOriName() {
+		return oriName;
+	}
+
+	public void setOriName(String oriName) {
+		this.oriName = oriName;
 	}
 }

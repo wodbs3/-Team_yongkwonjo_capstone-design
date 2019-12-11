@@ -72,7 +72,7 @@
                     	<th style = "width : 10%; font-size: 18px;" scope="row">제목</th> 
                     	<td>${Board.board_title }</td>
                     	<th style = "width : 10%; font-size: 18px;" scope="row">파일</th> 
-                      	<td><a href= 'FileDownloadAction.do?file_name=${Board.board_photo }'>${Board.board_photo }</a></td>
+                      	<td><a href= 'FileDownloadAction.do?board_photo=${Board.board_photo }'>${Board.board_photo }</a></td>
                     </tr>
                     <tr>
                     	<td colspan="4">${Board.board_content }</td>

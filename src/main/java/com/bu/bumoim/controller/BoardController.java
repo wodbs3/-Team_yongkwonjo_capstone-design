@@ -15,12 +15,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,7 +38,7 @@ import com.bu.bumoim.service.BoardService;
 import com.bu.bumoim.service.CommentService;
 
 @Controller
-public class BoardController<ActionForward> {
+public class BoardController {
 
 	private Logger logger = Logger.getLogger(getClass());
 	@Autowired
@@ -44,6 +49,8 @@ public class BoardController<ActionForward> {
 	@Resource(name = "uploadPath")
 	String uploadPath;
 	private ModelAndView mav;
+	
+	
 	
 	@RequestMapping(value="/boardList.do")
 	public ModelAndView list(Board board, @ModelAttribute("cri") Criteria cri, HttpServletRequest request)  {
@@ -155,13 +162,13 @@ public class BoardController<ActionForward> {
 				uploadFile = mhsr.getFile(fieldName);
 				String origName;
 				origName = new String(uploadFile.getOriginalFilename().getBytes("8859_1"), "UTF-8"); // �뜝�럥由썹뼨�먯삕占쎈뙀�넫濡�異� �뛾�렮維쀥뜝占�
-
+				logger.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> origName: " + origName);
 				if ("".equals(origName)) {
 					continue;
 				}
 
 				String ext = origName.substring(origName.lastIndexOf('.')); // �뜝�럩�꼪�뜝�럩�궋�뜝�럩�겱
-				String saveFileName = getUuid() + ext;
+				String saveFileName = origName + ext;
 
 				File serverFile = new File(uploadPath + File.separator + saveFileName);
 				uploadFile.transferTo(serverFile);
@@ -191,54 +198,6 @@ public class BoardController<ActionForward> {
 		return UUID.randomUUID().toString().replaceAll("-", "");
 	}
 	
-	@RequestMapping(value="/FileDownloadAction.do")
-	public ActionForward execute(HttpServletRequest request,
-            HttpServletResponse response) throws Exception {
-        
-        // 占쎈뼄占쎌뒲嚥≪뮆諭띰옙釉� 占쎈솁占쎌뵬筌뤿굞�뱽 揶쏉옙占쎌죬占쎌궔占쎈뼄.
-        String fileName = request.getParameter("file_name");
- 
-        // 占쎈솁占쎌뵬占쎌뵠 占쎌뿳占쎈뮉 占쎌쟿占쏙옙野껋럥以덄몴占� 揶쏉옙占쎌죬占쎌궔占쎈뼄.
-        // 占쎌겱占쎌삺 占쎈씜嚥≪뮆諭띰옙留� 占쎈솁占쎌뵬占쏙옙 UploadFolder 占쎈쨨占쎈쐭占쎈퓠 占쎌뿳占쎈뼄.
-        String folder = request.getSession().getServletContext().getRealPath("uploadPath");
-        // 占쎈솁占쎌뵬占쎌벥 占쎌쟿占쏙옙野껋럥以덄몴占� 筌띾슢諭븝옙�뼄.
-        String filePath = folder + "/" + fileName;
- 
-        try {
-            File file = new File(filePath);
-            byte b[] = new byte[(int) file.length()];
-            
-            // page占쎌벥 ContentType占쎈쾻占쎌뱽 占쎈짗占쎌읅占쎌몵嚥∽옙 獄쏅떽��疫뀐옙 占쎌맄占쎈퉸 �룯�뜃由곤옙�넅占쎈뻻占쎄땀
-            response.reset();
-            response.setContentType("application/octet-stream");
-            
-            // 占쎈립疫뀐옙 占쎌뵥�굜遺얜뎃
-            String encoding = new String(fileName.getBytes("euc-kr"),"8859_1");
-            
-            // 占쎈솁占쎌뵬 筌띻낱寃뺟몴占� 占쎄깻�뵳占쏙옙六쏙옙�뱽 占쎈르 占쎈뼄占쎌뒲嚥≪뮆諭� 占쏙옙占쎌삢 占쎌넅筌롫똻�뵠 �빊�뮆�젾占쎈┷野껓옙 筌ｌ꼶�봺占쎈릭占쎈뮉 �겫占썽겫占�
-            response.setHeader("Content-Disposition", "attachment;filename="+ encoding);
-            response.setHeader("Content-Length", String.valueOf(file.length()));
-            
-            if (file.isFile()) // 占쎈솁占쎌뵬占쎌뵠 占쎌뿳占쎌뱽野껋럩�뒭
-            {
-                FileInputStream fileInputStream = new FileInputStream(file);
-                ServletOutputStream servletOutputStream = response.getOutputStream();
-                
-                //  占쎈솁占쎌뵬占쎌뱽 占쎌뵭占쎈선占쎄퐣 占쎄깻占쎌뵬占쎌뵠占쎈섧占쎈뱜筌잛럩�몵嚥∽옙 占쏙옙占쎌삢占쎈립占쎈뼄.
-                int readNum = 0;
-                while ( (readNum = fileInputStream.read(b)) != -1) {
-                    servletOutputStream.write(b, 0, readNum);
-                }
-                
-                servletOutputStream.close();
-                fileInputStream.close();
-            }
-            
-        } catch (Exception e) {
-            System.out.println("Download Exception : " + e.getMessage());
-        }
- 
-        return null;
-    }
-	   
+	
+		   
 }

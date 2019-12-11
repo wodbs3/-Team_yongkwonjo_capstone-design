@@ -169,7 +169,11 @@ img {
     </c:if>
     <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
     <li>
-        <a href='<c:url value="/gallery.do?page=${idx }"/>'><i class="fa">${idx }</i></a>
+    	
+        <a href='<c:url value="/gallery.do?page=${idx }"/>'>
+        
+        <i class="fa">${idx }</i></a>
+        
     </li>
     </c:forEach>
     <c:if test="${pageMaker.next && pageMaker.endPage >0 }">
@@ -212,6 +216,20 @@ img {
 			alert("로그인을 해주세요");
 		
 	}
+	
+	
+	
+	</script>
+	<script>
+		function activePage(idx) {
+			var curPage = ${curPage};
+			
+			if(curPage == idx) {
+// 				 sBtn.removeClass("active");     // sBtn 속에 (active) 클래스를 삭제 한다.
+		  		 $(this).parent().addClass("active"); // 클릭한 a에 (active)클래스를 넣는다
+			}
+		}
+	
 	</script>
 	
 

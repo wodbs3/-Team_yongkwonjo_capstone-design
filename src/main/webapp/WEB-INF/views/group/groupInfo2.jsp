@@ -239,7 +239,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 												</tbody>
 											</table>
 										   <div style = "text-align: right;">           
-          									  <a href='#' onclick="javascript:goCreate();" class="btn btn-success">글쓰기</a>
+          									  <input type="button" onclick="goCreate('${loginMap.member_id}')" value="글쓰기" class="btn btn-success" >
      									   </div>
 										</div>
 								<div class="text-center">
@@ -306,7 +306,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 
 											</div>
 										</c:forEach>
-										<hr>
+									
 									</div>
 									<hr>
 									<div class="text-center">
@@ -523,7 +523,7 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
  		 var sBtn = $("ul > li");    //  ul > li 이를 sBtn으로 칭한다. (클릭이벤트는 li에 적용 된다.)
  		
 			 sBtn.find("a").click(function(${idx}){   // sBtn에 속해 있는  a 찾아 클릭 하면.
-	//   		 sBtn.removeClass("active");     // sBtn 속에 (active) 클래스를 삭제 한다.
+	  		 sBtn.removeClass("active");     // sBtn 속에 (active) 클래스를 삭제 한다.
 	  		 $(this).parent().addClass("active"); // 클릭한 a에 (active)클래스를 넣는다.
 					
 	  		});
@@ -542,10 +542,19 @@ ul>li:hover>a, ul>li:focus>a, ul>li:active>a, ul>li.active>a {
 	</script>
 
 	<script>
-	function goCreate() {
-	   location.href="/boardWrite.do?groupList_number=${groupDetail.grouplist_number}";
+	function goCreate(member_id) {
+		/* var member_id = ${loginMap.member_id}; */
+		console.log(member_id);
+		if(member_id == null) {
+			alert("로그인을 해주세요" + member_id);
+			location.href="/login.do";
+		}else{
+			alert("있다");
+		 location.href="/boardWrite.do?groupList_number=${groupDetail.grouplist_number}";
+		}
 	}
-
+	</script>
+	<script>
 	function goLogin() {
 		location.href="/login.do";
 	}
